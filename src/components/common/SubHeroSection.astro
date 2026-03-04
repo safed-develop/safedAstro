@@ -41,12 +41,44 @@ const autoBreadcrumbs = breadcrumbs.length > 0 ? breadcrumbs : (() => {
 ---
 
 <section class="sub-hero">
+  <!-- Background image with overlay -->
+  <div class="sub-hero-bg"></div>
+  <div class="sub-hero-overlay"></div>
+  <!-- Animated structural shapes -->
+  <div class="sub-hero-shapes" aria-hidden="true">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+    <div class="shape shape-4"></div>
+    <div class="shape shape-5"></div>
+    <div class="shape shape-6"></div>
+    <!-- Blueprint-style lines -->
+    <svg class="blueprint-lines" viewBox="0 0 1200 300" preserveAspectRatio="none">
+      <line x1="100" y1="0" x2="300" y2="300" class="bp-line bp-line-1" />
+      <line x1="400" y1="300" x2="600" y2="0" class="bp-line bp-line-2" />
+      <line x1="700" y1="50" x2="900" y2="250" class="bp-line bp-line-3" />
+      <line x1="1000" y1="300" x2="1150" y2="50" class="bp-line bp-line-4" />
+      <rect x="200" y="80" width="60" height="60" rx="4" class="bp-rect bp-rect-1" />
+      <rect x="800" y="150" width="40" height="40" rx="2" class="bp-rect bp-rect-2" />
+      <circle cx="550" cy="120" r="25" class="bp-circle bp-circle-1" />
+    </svg>
+  </div>
+  <!-- Decorative grid -->
+  <div class="sub-hero-grid"></div>
+  <!-- Accent line -->
+  <div class="sub-hero-accent"></div>
+
   <div class="sub-hero-inner w-container">
     <nav class="breadcrumb" aria-label="breadcrumb">
-      <a href="/">Home</a>
+      <a href="/">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Home
+      </a>
       {autoBreadcrumbs.map((crumb, i) => (
         <>
-          <span class="separator" aria-hidden="true">/</span>
+          <span class="separator" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </span>
           {crumb.href ? (
             <a href={crumb.href}>{crumb.label}</a>
           ) : (
@@ -55,20 +87,194 @@ const autoBreadcrumbs = breadcrumbs.length > 0 ? breadcrumbs : (() => {
         </>
       ))}
     </nav>
-    <h1 class="sub-hero-title">{title}</h1>
-    {titleEn && <p class="sub-hero-title-en eng">{titleEn}</p>}
+
+    <div class="sub-hero-content">
+      {titleEn && <p class="sub-hero-title-en eng">{titleEn}</p>}
+      <h1 class="sub-hero-title">{title}</h1>
+      <div class="sub-hero-bar"></div>
+    </div>
   </div>
 </section>
 
 <style>
   .sub-hero {
-    padding: 7rem 0 2.5rem;
-    background: #fff;
-    border-bottom: 1px solid var(--color-gray-100);
+    position: relative;
+    padding: 8rem 0 3.5rem;
+    overflow: hidden;
+    min-height: 240px;
+  }
+
+  .sub-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('/images/pageheader_bg.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    animation: slowZoom 20s ease-in-out infinite alternate;
+  }
+
+  @keyframes slowZoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.08); }
+  }
+
+  .sub-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 12, 35, 0.92) 0%, rgba(0, 50, 120, 0.8) 50%, rgba(0, 20, 55, 0.9) 100%);
+    z-index: 1;
+  }
+
+  /* Animated structural shapes */
+  .sub-hero-shapes {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .shape {
+    position: absolute;
+    border: 1px solid rgba(0, 123, 255, 0.15);
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+
+  .shape-1 {
+    width: 120px; height: 120px;
+    border-radius: 12px;
+    top: 10%; right: 10%;
+    animation: float1 12s infinite alternate;
+    transform: rotate(15deg);
+  }
+
+  .shape-2 {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    top: 30%; right: 25%;
+    border-color: rgba(0, 198, 255, 0.12);
+    animation: float2 10s infinite alternate;
+  }
+
+  .shape-3 {
+    width: 80px; height: 80px;
+    border-radius: 8px;
+    bottom: 20%; right: 15%;
+    border-color: rgba(255, 255, 255, 0.06);
+    animation: float3 14s infinite alternate;
+    transform: rotate(-10deg);
+  }
+
+  .shape-4 {
+    width: 40px; height: 40px;
+    border-radius: 6px;
+    top: 20%; left: 60%;
+    border-color: rgba(0, 123, 255, 0.1);
+    background: rgba(0, 123, 255, 0.03);
+    animation: float4 8s infinite alternate;
+    transform: rotate(45deg);
+  }
+
+  .shape-5 {
+    width: 150px; height: 150px;
+    border-radius: 50%;
+    bottom: -40px; left: 40%;
+    border-color: rgba(0, 123, 255, 0.08);
+    animation: float5 16s infinite alternate;
+  }
+
+  .shape-6 {
+    width: 30px; height: 30px;
+    border-radius: 4px;
+    top: 40%; right: 40%;
+    background: rgba(0, 123, 255, 0.05);
+    border-color: rgba(0, 123, 255, 0.12);
+    animation: float6 9s infinite alternate;
+    transform: rotate(20deg);
+  }
+
+  @keyframes float1 { 0% { transform: rotate(15deg) translateY(0); } 100% { transform: rotate(25deg) translateY(-15px); } }
+  @keyframes float2 { 0% { transform: scale(1) translateX(0); } 100% { transform: scale(1.15) translateX(10px); } }
+  @keyframes float3 { 0% { transform: rotate(-10deg) translateY(0); } 100% { transform: rotate(5deg) translateY(-20px); } }
+  @keyframes float4 { 0% { transform: rotate(45deg) scale(1); } 100% { transform: rotate(55deg) scale(1.2); } }
+  @keyframes float5 { 0% { transform: translateY(0) scale(1); } 100% { transform: translateY(-10px) scale(1.05); } }
+  @keyframes float6 { 0% { transform: rotate(20deg) translateY(0); opacity: 0.5; } 100% { transform: rotate(30deg) translateY(-8px); opacity: 1; } }
+
+  /* Blueprint-style SVG lines */
+  .blueprint-lines {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .bp-line {
+    stroke: rgba(0, 123, 255, 0.06);
+    stroke-width: 1;
+    stroke-dasharray: 8 12;
+    animation: dashMove 20s linear infinite;
+  }
+
+  .bp-line-2 { animation-delay: -5s; stroke: rgba(0, 198, 255, 0.05); }
+  .bp-line-3 { animation-delay: -10s; }
+  .bp-line-4 { animation-delay: -15s; stroke: rgba(255, 255, 255, 0.04); }
+
+  .bp-rect {
+    fill: none;
+    stroke: rgba(0, 123, 255, 0.08);
+    stroke-width: 1;
+    animation: rectPulse 6s ease-in-out infinite;
+  }
+
+  .bp-rect-2 { animation-delay: -3s; stroke: rgba(0, 198, 255, 0.06); }
+
+  .bp-circle {
+    fill: none;
+    stroke: rgba(0, 123, 255, 0.07);
+    stroke-width: 1;
+    animation: circlePulse 8s ease-in-out infinite;
+  }
+
+  @keyframes dashMove {
+    0% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: 200; }
+  }
+
+  @keyframes rectPulse {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
+  }
+
+  @keyframes circlePulse {
+    0%, 100% { opacity: 0.3; r: 25; }
+    50% { opacity: 0.7; r: 30; }
+  }
+
+  .sub-hero-grid {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    opacity: 0.03;
+    background-image:
+      linear-gradient(rgba(255,255,255,1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .sub-hero-accent {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #007BFF 0%, #00c6ff 40%, transparent 80%);
+    z-index: 4;
   }
 
   .sub-hero-inner {
-    text-align: left;
+    position: relative;
+    z-index: 3;
   }
 
   .breadcrumb {
@@ -76,52 +282,99 @@ const autoBreadcrumbs = breadcrumbs.length > 0 ? breadcrumbs : (() => {
     align-items: center;
     gap: 0.5rem;
     font-size: 13px;
-    color: var(--color-gray-500);
-    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 1.5rem;
   }
 
   .breadcrumb a {
-    color: var(--color-gray-500);
+    color: rgba(255, 255, 255, 0.5);
     transition: color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
   }
 
   .breadcrumb a:hover {
-    color: var(--color-primary);
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .breadcrumb svg {
+    opacity: 0.5;
   }
 
   .separator {
-    color: var(--color-gray-300);
-    font-size: 11px;
+    display: flex;
+    align-items: center;
+    opacity: 0.3;
   }
 
   .breadcrumb .current {
-    color: var(--color-gray-800);
-    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+  }
+
+  .sub-hero-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sub-hero-title-en {
+    font-size: 13px;
+    color: #60a5fa;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
   }
 
   .sub-hero-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--color-gray-900);
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #fff;
     letter-spacing: -1.5px;
     line-height: 1.2;
   }
 
-  .sub-hero-title-en {
-    font-size: 15px;
-    color: var(--color-gray-400);
-    margin-top: 0.5rem;
-    font-weight: 400;
-    letter-spacing: 0.5px;
+  .sub-hero-bar {
+    width: 48px;
+    height: 3px;
+    background: #007BFF;
+    border-radius: 2px;
+    margin-top: 1rem;
   }
 
   @media (max-width: 999px) {
     .sub-hero {
-      padding: 5.5rem 0 1.5rem;
+      padding: 6rem 0 2rem;
+      min-height: 180px;
     }
 
     .sub-hero-title {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
+    }
+
+    .sub-hero-title-en {
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    .breadcrumb {
+      font-size: 12px;
+    }
+
+    .sub-hero-shapes {
+      opacity: 0.5;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .sub-hero-bg,
+    .shape,
+    .bp-line,
+    .bp-rect,
+    .bp-circle {
+      animation: none;
     }
   }
 </style>

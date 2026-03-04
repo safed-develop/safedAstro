@@ -259,14 +259,16 @@ import HoverComponent from '../components/ui/HoverComponent.astro';
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal delay-200">
         {[
-          { duty: '안전보건관리체계 구축·이행', solution: '위험성평가, 점검활동, DB 시스템 구축', icon: '🏗️' },
-          { duty: '재발방지 대책 수립·이행', solution: '사고사례 DB, 현장 안전 데이터 분석', icon: '🔄' },
-          { duty: '개선·시정 명령 이행', solution: '실시간 모니터링, 자동 알림·조치 추적', icon: '📋' },
-          { duty: '의무이행 관리 조치', solution: '대시보드, 보고서 자동 생성, 근거자료 보관', icon: '📊' },
+          { duty: '안전보건관리체계 구축·이행', solution: '위험성평가, 점검활동, DB 시스템 구축', iconPath: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z', iconColor: '#ef4444' },
+          { duty: '재발방지 대책 수립·이행', solution: '사고사례 DB, 현장 안전 데이터 분석', iconPath: 'M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15', iconColor: '#f59e0b' },
+          { duty: '개선·시정 명령 이행', solution: '실시간 모니터링, 자동 알림·조치 추적', iconPath: 'M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11', iconColor: '#3b82f6' },
+          { duty: '의무이행 관리 조치', solution: '대시보드, 보고서 자동 생성, 근거자료 보관', iconPath: 'M18 20V10M12 20V4M6 20v-6', iconColor: '#8b5cf6' },
         ].map((item) => (
           <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
             <div class="flex items-start gap-4">
-              <span class="text-3xl">{item.icon}</span>
+              <div class="w-12 h-12 rounded-xl flex items-center justify-center" style={`background: ${item.iconColor}15`}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={item.iconColor} stroke-width="1.5"><path d={item.iconPath}/></svg>
+              </div>
               <div>
                 <p class="text-red-400 text-xs font-semibold mb-1 eng uppercase">법적 의무</p>
                 <p class="font-semibold text-white/90 mb-2">{item.duty}</p>
@@ -280,49 +282,67 @@ import HoverComponent from '../components/ui/HoverComponent.astro';
     </div>
   </section>
 
-  <!-- Section 4: Voices from the Field -->
+  <!-- Section 4: Voices from the Field + Industries - 2 Column -->
   <section class="py-24 bg-gray-50">
     <div class="w-container">
-      <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 text-center reveal">Voices from the Field</p>
-      <h2 class="text-3xl lg:text-4xl font-bold mb-16 text-center tracking-tight reveal delay-100">현장의 목소리</h2>
-      <div class="reveal delay-200">
-        <MultiSlide
-          client:visible
-          slides={[
-            { title: '현장소장(총괄책임자)', review: '위험성평가가 현장의 안전에 가장 최우선이 되는데, SafeD를 통해 파트너사에서 작성되는 위험성평가의 내용이 좀 더 세밀하게 되었습니다. 위험성평가를 통해 현장의 위험요소를 제거하고 철저한 관리로 안전사고 Zero를 달성했습니다.', background: '#fdeee3' },
-            { title: '안전관리자', review: 'SafeD 적용 후 위험성평가의 항목 개선, 증가로 위험요소를 세밀하게 검토하여 제거할 수 있었습니다. 데이터베이스를 통해 공종의 위험요소를 세밀하게 체크할 수 있고, 관리감독자의 안전활동을 크게 개선할 수 있었습니다.', background: '#eae2f0' },
-            { title: '보건관리자', review: 'SafeD 앱을 통해 근로자와 소통을 할 수 있어 세심한 요구사항을 처리하고 있습니다. 안전건의함, 위험성평가 근로자 의견 등 근로자가 쉽게 접근할 수 있어 안전에 큰 도움이 되고, 건강상태·교육 이수 여부도 세밀하게 체크합니다.', background: '#e3f3fd' },
-            { title: '관리감독자', review: 'SafeD 적용 후 모든 관리감독자가 체계적으로 안전활동을 할 수 있습니다. 부장~사원까지 모든 직원이 평등하게 안전활동을 이행하며, 미리 설정된 데이터를 바탕으로 현장의 이행여부를 체크할 수 있어 편리합니다.', background: '#fdeee3' },
-            { title: '협력업체', review: '위험성평가 작성 시 공종에 투입되는 작업에 대해 세밀하게 작성할 수 있어 편리하며, 잘 몰랐던 내용도 알 수 있어 매우 큰 도움을 받고 있습니다. 공사팀, 반장 모두 많은 도움을 받고 있습니다.', background: '#eae2f0' },
-            { title: '근로자', review: '앱을 통해 눈치볼 필요없이 간단히 사진을 찍고 전송하면 위험요소를 제거해주고 있습니다. 외국인 근로자들도 위험요소를 미리 확인하고 작업할 수 있으며, TBM도 모바일로 내용 확인이 가능해 편리합니다.', background: '#e3f3fd' },
-          ]}
-          slidesPerView={3}
-          slideHeight="300px"
-        />
-      </div>
-    </div>
-  </section>
-
-  <!-- Supported Industries -->
-  <section class="py-20 bg-white">
-    <div class="w-container max-w-5xl">
-      <div class="text-center mb-12">
-        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">Industries</p>
-        <h2 class="text-2xl lg:text-3xl font-bold tracking-tight reveal delay-100">다양한 산업현장에 적용됩니다</h2>
-      </div>
-      <div class="grid grid-cols-2 md:grid-cols-5 gap-4 reveal delay-200">
-        {[
-          { icon: '🏗️', label: '건설현장' },
-          { icon: '🏭', label: '플랜트' },
-          { icon: '🏢', label: '제조시설' },
-          { icon: '🔧', label: '유지관리' },
-          { icon: '🏥', label: '서비스업' },
-        ].map((item) => (
-          <div class="bg-gray-50 rounded-2xl p-6 text-center hover:bg-primary/5 hover:border-primary/20 border border-transparent transition-colors">
-            <p class="text-3xl mb-3">{item.icon}</p>
-            <p class="font-semibold text-sm">{item.label}</p>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <!-- Left: Testimonials -->
+        <div class="lg:col-span-7">
+          <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">Voices from the Field</p>
+          <h2 class="text-3xl font-bold mb-8 tracking-tight reveal delay-100">현장의 목소리</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {[
+              { title: '현장소장(총괄책임자)', review: 'SafeD를 통해 위험성평가 내용이 세밀해졌고, 위험요소를 제거하여 안전사고 Zero를 달성했습니다.', iconPath: 'M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M8.5 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z', color: '#f97316' },
+              { title: '안전관리자', review: '위험요소를 세밀하게 검토하여 제거할 수 있었고, 관리감독자의 안전활동을 크게 개선했습니다.', iconPath: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z', color: '#8b5cf6' },
+              { title: '보건관리자', review: '근로자와 앱으로 소통하며 건강상태, 교육 이수 여부를 세밀하게 체크합니다.', iconPath: 'M22 12h-4l-3 9L9 3l-3 9H2', color: '#3b82f6' },
+              { title: '관리감독자', review: '모든 관리감독자가 체계적으로 안전활동을 할 수 있고, 이행여부 체크가 편리합니다.', iconPath: 'M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11', color: '#16a34a' },
+              { title: '협력업체', review: '공종 작업에 대해 세밀하게 작성할 수 있어 편리하며, 공사팀 모두 큰 도움을 받고 있습니다.', iconPath: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75', color: '#06b6d4' },
+              { title: '근로자', review: '앱으로 사진을 찍고 전송하면 위험요소를 제거해줍니다. 외국인 근로자도 쉽게 사용합니다.', iconPath: 'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z', color: '#ef4444' },
+            ].map((item, i) => (
+              <div class={`bg-white rounded-2xl p-5 border border-gray-100 hover:shadow-md transition-shadow reveal delay-${(i % 2 + 1) * 100}`}>
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={`background: ${item.color}10`}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={item.color} stroke-width="1.5"><path d={item.iconPath}/></svg>
+                  </div>
+                  <div>
+                    <p class="font-bold text-sm">{item.title}</p>
+                    <div class="flex gap-0.5 mt-0.5">
+                      {Array.from({length: 5}).map(() => (
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <p class="text-gray-500 text-sm leading-relaxed">"{item.review}"</p>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
+        <!-- Right: Industries -->
+        <div class="lg:col-span-5">
+          <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">Industries</p>
+          <h2 class="text-3xl font-bold mb-8 tracking-tight reveal delay-100">적용 산업</h2>
+          <div class="space-y-4">
+            {[
+              { iconPath: 'M2 20h20M5 20V8l7-5 7 5v12M9 20v-4h6v4', label: '건설현장', desc: '아파트, 도로, 교량, 터널 등 건설 현장', color: '#3b82f6' },
+              { iconPath: 'M2 20h20M6 20V10h4v10M10 20V6h4v14M14 20V8h4v12', label: '플랜트', desc: '화학, 석유, 가스 플랜트 시설', color: '#8b5cf6' },
+              { iconPath: 'M3 21h18M3 7v14M21 7v14M6 7V3h12v4M9 21v-4h6v4M9 7h6', label: '제조시설', desc: '공장, 생산라인 제조 시설', color: '#06b6d4' },
+              { iconPath: 'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z', label: '유지관리', desc: '시설물 유지보수, 정비', color: '#f59e0b' },
+              { iconPath: 'M22 12h-4l-3 9L9 3l-3 9H2', label: '서비스업', desc: '의료, 물류, 유통 서비스', color: '#ef4444' },
+            ].map((item, i) => (
+              <div class={`flex items-center gap-4 bg-white rounded-2xl p-5 border border-gray-100 hover:shadow-md transition-shadow group reveal delay-${(i + 1) * 100}`}>
+                <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform" style={`background: ${item.color}10`}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={item.color} stroke-width="1.5"><path d={item.iconPath}/></svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="font-bold text-sm">{item.label}</p>
+                  <p class="text-xs text-gray-400 mt-0.5">{item.desc}</p>
+                </div>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -403,13 +423,15 @@ import HoverComponent from '../components/ui/HoverComponent.astro';
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         {[
-          { step: '01', title: '상담 & 컨설팅', desc: '현장 규모와 업종에 맞는 맞춤 안전관리 전략을 설계합니다. 무료 상담으로 시작하세요.', icon: '💬' },
-          { step: '02', title: '시스템 구축', desc: '2~4주 내 SafeD 플랫폼을 현장에 세팅합니다. 교육부터 데이터 이관까지 원스톱 지원.', icon: '⚙️' },
-          { step: '03', title: '운영 & 개선', desc: '실시간 대시보드로 안전 현황을 모니터링하고, 전담팀이 지속적으로 개선을 지원합니다.', icon: '📊' },
+          { step: '01', title: '상담 & 컨설팅', desc: '현장 규모와 업종에 맞는 맞춤 안전관리 전략을 설계합니다. 무료 상담으로 시작하세요.', iconPath: 'M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z', iconColor: '#3b82f6' },
+          { step: '02', title: '시스템 구축', desc: '2~4주 내 SafeD 플랫폼을 현장에 세팅합니다. 교육부터 데이터 이관까지 원스톱 지원.', iconPath: 'M12 6V2H8M6 18H2v-4M18 6h4v4M18 18v4h-4M15 9.4a4 4 0 1 0-5.96 5.18L12 18l2.96-3.42A4 4 0 0 0 15 9.4z', iconColor: '#8b5cf6' },
+          { step: '03', title: '운영 & 개선', desc: '실시간 대시보드로 안전 현황을 모니터링하고, 전담팀이 지속적으로 개선을 지원합니다.', iconPath: 'M18 20V10M12 20V4M6 20v-6', iconColor: '#16a34a' },
         ].map((item, i) => (
           <div class={`relative bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-shadow reveal delay-${(i + 1) * 100}`}>
             <div class="flex items-center justify-between mb-6">
-              <span class="text-5xl">{item.icon}</span>
+              <div class="w-14 h-14 rounded-2xl flex items-center justify-center" style={`background: ${item.iconColor}10`}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={item.iconColor} stroke-width="1.5"><path d={item.iconPath}/></svg>
+              </div>
               <span class="eng text-6xl font-extrabold text-gray-100">{item.step}</span>
             </div>
             <h3 class="text-xl font-bold mb-3 tracking-tight">{item.title}</h3>
