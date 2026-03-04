@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 interface Props {
   title: string;
   description?: string;
@@ -87,44 +89,24 @@ const canonical = canonicalUrl || new URL(Astro.url.pathname, siteUrl).href;
       <slot />
     </main>
     <slot name="footer" />
+
+    <!-- Scroll Reveal Observer -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      );
+
+      document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
   </body>
 </html>
-
-<style is:global>
-  :root {
-    --font-primary: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-    --font-english: 'Nunito Sans', sans-serif;
-  }
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    font-family: var(--font-primary);
-    line-height: 1.6;
-    color: #333;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  .eng {
-    font-family: var(--font-english);
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-</style>
