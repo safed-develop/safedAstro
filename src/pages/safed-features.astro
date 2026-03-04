@@ -53,10 +53,24 @@ const tabs = [
     }
   }}
 >
+  <!-- Hero Statement -->
+  <section class="py-24 lg:py-32 bg-white">
+    <div class="w-container max-w-4xl text-center">
+      <h2 class="hero-headline tracking-tight reveal">
+        안전관리,<br /><span class="text-gradient-blue">더 스마트하게.</span>
+      </h2>
+      <p class="text-gray-500 text-lg lg:text-xl mt-8 leading-relaxed max-w-2xl mx-auto reveal delay-100">
+        SafeD는 위험성평가, 실시간 모니터링, AI 번역, 자동 알림을 하나의 플랫폼에 담았습니다.
+        현장의 복잡함은 줄이고, 안전의 확실함은 높입니다.
+      </p>
+    </div>
+  </section>
+
   <!-- Video Section -->
   <section class="py-20 bg-gray-50">
     <div class="w-container max-w-5xl">
       <div class="text-center mb-12 reveal">
+        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">Watch Demo</p>
         <h2 class="text-3xl lg:text-4xl font-bold mb-4 tracking-tight">
           스마트 위험성평가 · 다국적 근로자를 고려한
           <span class="text-primary">자동번역 기능</span>
@@ -116,6 +130,58 @@ const tabs = [
       </div>
       <div class="reveal delay-200">
         <img src="/images/dboard.png" alt="SafeD 대시보드" class="w-full rounded-2xl shadow-lg" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Before / After Comparison -->
+  <section class="py-28 bg-gray-50">
+    <div class="w-container max-w-5xl">
+      <div class="text-center mb-16">
+        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">Before & After</p>
+        <h2 class="sub-headline reveal delay-100">SafeD 도입 전후 비교</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-3xl p-8 border-2 border-gray-200 reveal">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-bold">✕</div>
+            <h3 class="text-xl font-bold text-gray-400">도입 전</h3>
+          </div>
+          <ul class="space-y-4">
+            {[
+              '수기 위험성평가, 서류 더미에 묻히는 안전 데이터',
+              '엑셀 기반 관리 — 실시간 현황 파악 불가',
+              '다국적 근로자 소통 단절, 안전교육 형식적',
+              '사고 후 대응 중심, 예방 체계 부재',
+              '중대재해처벌법 대응 근거자료 확보 어려움',
+            ].map((text) => (
+              <li class="flex items-start gap-3 text-gray-400 text-sm">
+                <span class="mt-0.5">—</span>
+                <span>{text}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="bg-gray-900 rounded-3xl p-8 text-white reveal delay-200">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold">✓</div>
+            <h3 class="text-xl font-bold">도입 후</h3>
+          </div>
+          <ul class="space-y-4">
+            {[
+              '모바일 원클릭 위험성평가, 25,000건 DB 자동 매칭',
+              '실시간 대시보드 — 본사에서 전 현장 모니터링',
+              'AI 자동번역으로 다국적 근로자 완전 소통',
+              'GPS·비콘 기반 사전 위험 감지 & 자동 경고',
+              '법적 의무이행 근거자료 자동 생성 & 보관',
+            ].map((text) => (
+              <li class="flex items-start gap-3 text-sm">
+                <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-white/90">{text}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   </section>

@@ -46,24 +46,91 @@ import HoverComponent from '../components/ui/HoverComponent.astro';
     ]}
   />
 
-  <!-- Section 1: Introduction -->
-  <section class="py-24 bg-white">
-    <div class="w-container">
-      <div class="text-center max-w-3xl mx-auto">
-        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">About SafeD</p>
-        <h2 class="text-3xl lg:text-4xl font-bold mb-6 tracking-tight leading-snug reveal delay-100">
-          SafeD는 혁신적인 안전관리 솔루션을 제공하여<br class="hidden lg:block" />
-          산업 현장에서의 안전성을 높입니다
+  <!-- Big Statement -->
+  <section class="py-32 lg:py-40 bg-white">
+    <div class="w-container max-w-5xl">
+      <div class="text-center">
+        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-6 reveal">About SafeD</p>
+        <h2 class="hero-headline tracking-tight leading-tight reveal delay-100">
+          현장의 생명을 지키는<br /><span class="text-gradient-blue">단 하나의 플랫폼.</span>
         </h2>
-        <p class="text-gray-500 text-lg leading-relaxed reveal delay-200">
-          건설현장, 플랜트, 제조시설, 서비스업, 유지보수 등 다양한 산업 현장에
-          소프트웨어 플랫폼을 제공하며, 중대재해처벌법에 따른 의무를 이행하고
-          안전관리체계를 구축할 수 있도록 지원합니다.
+        <p class="text-gray-500 text-lg lg:text-xl leading-relaxed mt-8 max-w-2xl mx-auto reveal delay-200">
+          건설현장, 플랜트, 제조시설, 유지보수 — 어디서든.<br class="hidden lg:block" />
+          SafeD는 중대재해처벌법 대응부터 위험성평가, 실시간 모니터링까지<br class="hidden lg:block" />
+          안전관리의 모든 것을 하나로 연결합니다.
         </p>
-        <a href="/safed-features" class="inline-flex items-center gap-2 mt-8 text-primary font-semibold hover:gap-3 transition-all reveal delay-300">
-          자세히보기
+        <a href="/safed-features" class="inline-flex items-center gap-2 mt-10 text-primary font-semibold hover:gap-3 transition-all reveal delay-300">
+          SafeD 자세히 알아보기
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Numbers Section -->
+  <section class="py-24 bg-gray-950 text-white overflow-hidden">
+    <div class="w-container">
+      <div class="text-center mb-16">
+        <p class="eng font-semibold text-sm tracking-widest uppercase mb-4 text-primary reveal">Proven Results</p>
+        <h2 class="sub-headline reveal delay-100">숫자가 증명하는 SafeD의 가치</h2>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        {[
+          { num: '25,000+', label: '표준위험공종 데이터', sub: '업계 최다 위험공종 DB 보유' },
+          { num: '99.2%', label: '사고 예방률', sub: '도입 현장 기준' },
+          { num: '150+', label: '도입 현장', sub: '국내 주요 건설사 파트너' },
+          { num: '24/7', label: '실시간 모니터링', sub: 'GPS · Beacon · Push' },
+        ].map((item, i) => (
+          <div class={`text-center reveal delay-${(i + 1) * 100}`}>
+            <p class="eng text-4xl lg:text-5xl font-extrabold text-gradient-blue counter-num mb-2">{item.num}</p>
+            <p class="font-semibold text-white/90 mb-1">{item.label}</p>
+            <p class="text-sm text-white/40">{item.sub}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why SafeD - Problem/Solution -->
+  <section class="py-28 bg-white">
+    <div class="w-container max-w-5xl">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal">
+          <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">Why SafeD?</p>
+          <h2 class="sub-headline mb-6">
+            사고는 반복됩니다.<br />
+            <span class="text-primary">관리 방식이 바뀌어야 합니다.</span>
+          </h2>
+          <p class="text-gray-500 leading-relaxed mb-8">
+            서류 중심의 안전관리는 한계가 있습니다. SafeD는 모바일, GPS, 비콘, AI 번역을
+            결합하여 현장에서 즉시 작동하는 안전관리 체계를 구축합니다.
+            종이 한 장이 아닌, 기술로 생명을 지킵니다.
+          </p>
+          <div class="space-y-4">
+            {[
+              '위험성평가 작성 시간 70% 단축',
+              '현장-본사 간 실시간 안전 데이터 공유',
+              '다국적 근로자 언어 장벽 해소',
+              '중대재해처벌법 의무이행 완벽 대응',
+            ].map((text) => (
+              <div class="flex items-center gap-3">
+                <div class="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-gray-700 text-sm font-medium">{text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="reveal-right delay-200">
+          <div class="relative">
+            <img src="/images/dboard.png" alt="SafeD 대시보드" class="rounded-2xl shadow-2xl glow" />
+            <div class="absolute -bottom-6 -left-6 bg-primary text-white rounded-2xl px-6 py-4 shadow-lg">
+              <p class="eng font-bold text-2xl">70%</p>
+              <p class="text-xs opacity-80">업무 효율 향상</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -130,6 +197,88 @@ import HoverComponent from '../components/ui/HoverComponent.astro';
           slideHeight="260px"
         />
       </div>
+    </div>
+  </section>
+
+  <!-- Section: Trust Logos / Awards -->
+  <section class="py-20 bg-white border-t border-gray-100">
+    <div class="w-container">
+      <div class="text-center mb-12">
+        <p class="eng text-gray-400 text-sm tracking-widest uppercase font-semibold reveal">Trusted & Certified</p>
+        <h2 class="text-2xl font-bold tracking-tight mt-3 reveal delay-100">특허 · 인증 · 수상</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div class="text-center reveal delay-100">
+          <div class="w-20 h-20 mx-auto mb-4 bg-primary/5 rounded-2xl flex items-center justify-center">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5"><path d="M12 15l-3 3 1-4-3-3h4L12 7l1 4h4l-3 3 1 4z"/><circle cx="12" cy="12" r="10"/></svg>
+          </div>
+          <p class="font-bold text-gray-800 mb-1">스마트건설대상 수상</p>
+          <p class="text-sm text-gray-400">2021 안전대상 플랫폼 부문</p>
+        </div>
+        <div class="text-center reveal delay-200">
+          <div class="w-20 h-20 mx-auto mb-4 bg-primary/5 rounded-2xl flex items-center justify-center">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <p class="font-bold text-gray-800 mb-1">특허 2건 보유</p>
+          <p class="text-sm text-gray-400">안전관리 핵심 기술 특허</p>
+        </div>
+        <div class="text-center reveal delay-300">
+          <div class="w-20 h-20 mx-auto mb-4 bg-primary/5 rounded-2xl flex items-center justify-center">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <p class="font-bold text-gray-800 mb-1">국내 유일 전문기업</p>
+          <p class="text-sm text-gray-400">스마트안전관리 솔루션 개발사</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: How It Works -->
+  <section class="py-28 bg-gray-50">
+    <div class="w-container max-w-5xl">
+      <div class="text-center mb-16">
+        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">How It Works</p>
+        <h2 class="sub-headline reveal delay-100">도입은 간단합니다.</h2>
+        <p class="text-gray-500 mt-4 reveal delay-200">3단계로 현장에 맞는 안전관리 체계를 구축합니다.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          { step: '01', title: '상담 & 컨설팅', desc: '현장 규모와 업종에 맞는 맞춤 안전관리 전략을 설계합니다. 무료 상담으로 시작하세요.', icon: '💬' },
+          { step: '02', title: '시스템 구축', desc: '2~4주 내 SafeD 플랫폼을 현장에 세팅합니다. 교육부터 데이터 이관까지 원스톱 지원.', icon: '⚙️' },
+          { step: '03', title: '운영 & 개선', desc: '실시간 대시보드로 안전 현황을 모니터링하고, 전담팀이 지속적으로 개선을 지원합니다.', icon: '📊' },
+        ].map((item, i) => (
+          <div class={`relative bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-shadow reveal delay-${(i + 1) * 100}`}>
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-5xl">{item.icon}</span>
+              <span class="eng text-6xl font-extrabold text-gray-100">{item.step}</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3 tracking-tight">{item.title}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+            {i < 2 && (
+              <div class="hidden md:block absolute top-1/2 -right-5 transform -translate-y-1/2 z-10">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ddd" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+      <div class="text-center mt-12 reveal delay-400">
+        <a href="/inquiries" class="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 text-white rounded-full font-semibold hover:bg-gray-800 transition-colors">
+          무료 상담 시작하기
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Marquee -->
+  <section class="py-8 bg-white overflow-hidden border-y border-gray-100">
+    <div class="marquee-track">
+      {Array.from({ length: 8 }).map(() => (
+        <span class="eng text-5xl font-extrabold text-gray-100 mx-6 whitespace-nowrap select-none">
+          Contech Future Leader ·
+        </span>
+      ))}
     </div>
   </section>
 
