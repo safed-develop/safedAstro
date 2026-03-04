@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import SlideShow from '../components/ui/SlideShow.tsx';
 import MultiSlide from '../components/ui/MultiSlide.tsx';
 import HoverComponent from '../components/ui/HoverComponent.astro';
+import TestimonialCarousel from '../components/ui/TestimonialCarousel.tsx';
 ---
 
 <BaseLayout
@@ -186,69 +187,6 @@ import HoverComponent from '../components/ui/HoverComponent.astro';
     </div>
   </section>
 
-  <!-- Efficiency Section -->
-  <section class="py-24 bg-white">
-    <div class="w-container max-w-5xl">
-      <div class="text-center mb-16">
-        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">Efficiency</p>
-        <h2 class="sub-headline reveal delay-100">단순·반복 업무 80% 제거</h2>
-        <p class="text-gray-500 mt-4 max-w-xl mx-auto reveal delay-200">현장 내 비효율적인 업무를 시스템화하여 핵심업무에 집중할 수 있습니다.</p>
-      </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div class="reveal">
-          <div class="space-y-6">
-            {[
-              { label: '탐색·열람', before: '60분', after: '10분', save: '83%' },
-              { label: '발굴·조치', before: '120분', after: '20분', save: '83%' },
-              { label: '기록·보관', before: '60분', after: '10분', save: '83%' },
-            ].map((item) => (
-              <div class="bg-gray-50 rounded-xl p-4">
-                <div class="flex items-center justify-between mb-2">
-                  <span class="font-semibold text-sm">{item.label}</span>
-                  <span class="eng text-primary font-bold text-sm">{item.save} 절감</span>
-                </div>
-                <div class="flex gap-2 items-center">
-                  <div class="flex-1">
-                    <div class="h-3 bg-red-100 rounded-full overflow-hidden">
-                      <div class="h-full bg-red-400 rounded-full" style={`width: 100%`}></div>
-                    </div>
-                    <p class="text-xs text-gray-400 mt-1">AS-IS: {item.before}</p>
-                  </div>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                  <div class="flex-1">
-                    <div class="h-3 bg-blue-100 rounded-full overflow-hidden">
-                      <div class="h-full bg-primary rounded-full" style={`width: 17%`}></div>
-                    </div>
-                    <p class="text-xs text-gray-400 mt-1">TO-BE: {item.after}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div class="reveal delay-200">
-          <div class="bg-gray-950 text-white rounded-3xl p-8 lg:p-10">
-            <p class="eng text-xs text-white/40 tracking-widest uppercase mb-6">Monthly Savings (per site)</p>
-            <div class="grid grid-cols-2 gap-6 mb-6">
-              <div>
-                <p class="eng text-4xl font-extrabold text-gradient-blue">60h</p>
-                <p class="text-sm text-white/60 mt-1">시간 절감</p>
-              </div>
-              <div>
-                <p class="eng text-4xl font-extrabold text-gradient-blue">120만</p>
-                <p class="text-sm text-white/60 mt-1">비용 절감</p>
-              </div>
-            </div>
-            <div class="border-t border-white/10 pt-6">
-              <p class="text-sm text-white/50">1개 현장, 1달 기준</p>
-              <p class="text-white/80 text-sm mt-2 leading-relaxed">260종 3만여 Case를 눈으로 확인하던 방식에서<br />1-click 조회·참조 All-in-One 디지털 처리로 전환</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Safety Management System Mapping -->
   <section class="py-24 bg-gray-950 text-white">
     <div class="w-container max-w-5xl">
@@ -286,36 +224,23 @@ import HoverComponent from '../components/ui/HoverComponent.astro';
   <section class="py-24 bg-gray-50">
     <div class="w-container">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        <!-- Left: Testimonials -->
+        <!-- Left: Testimonials with auto-scroll -->
         <div class="lg:col-span-7">
           <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">Voices from the Field</p>
           <h2 class="text-3xl font-bold mb-8 tracking-tight reveal delay-100">현장의 목소리</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {[
-              { title: '현장소장(총괄책임자)', review: 'SafeD를 통해 위험성평가 내용이 세밀해졌고, 위험요소를 제거하여 안전사고 Zero를 달성했습니다.', iconPath: 'M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M8.5 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z', color: '#f97316' },
-              { title: '안전관리자', review: '위험요소를 세밀하게 검토하여 제거할 수 있었고, 관리감독자의 안전활동을 크게 개선했습니다.', iconPath: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z', color: '#8b5cf6' },
-              { title: '보건관리자', review: '근로자와 앱으로 소통하며 건강상태, 교육 이수 여부를 세밀하게 체크합니다.', iconPath: 'M22 12h-4l-3 9L9 3l-3 9H2', color: '#3b82f6' },
-              { title: '관리감독자', review: '모든 관리감독자가 체계적으로 안전활동을 할 수 있고, 이행여부 체크가 편리합니다.', iconPath: 'M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11', color: '#16a34a' },
-              { title: '협력업체', review: '공종 작업에 대해 세밀하게 작성할 수 있어 편리하며, 공사팀 모두 큰 도움을 받고 있습니다.', iconPath: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75', color: '#06b6d4' },
-              { title: '근로자', review: '앱으로 사진을 찍고 전송하면 위험요소를 제거해줍니다. 외국인 근로자도 쉽게 사용합니다.', iconPath: 'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z', color: '#ef4444' },
-            ].map((item, i) => (
-              <div class={`bg-white rounded-2xl p-5 border border-gray-100 hover:shadow-md transition-shadow reveal delay-${(i % 2 + 1) * 100}`}>
-                <div class="flex items-center gap-3 mb-3">
-                  <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={`background: ${item.color}10`}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={item.color} stroke-width="1.5"><path d={item.iconPath}/></svg>
-                  </div>
-                  <div>
-                    <p class="font-bold text-sm">{item.title}</p>
-                    <div class="flex gap-0.5 mt-0.5">
-                      {Array.from({length: 5}).map(() => (
-                        <svg width="10" height="10" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                <p class="text-gray-500 text-sm leading-relaxed">"{item.review}"</p>
-              </div>
-            ))}
+          <div class="reveal delay-200">
+            <TestimonialCarousel
+              client:visible
+              testimonials={[
+                { title: '현장소장(총괄책임자)', review: 'SafeD를 통해 위험성평가 내용이 세밀해졌고, 위험요소를 제거하여 안전사고 Zero를 달성했습니다.', iconPath: 'M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M8.5 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z', color: '#f97316' },
+                { title: '안전관리자', review: '위험요소를 세밀하게 검토하여 제거할 수 있었고, 관리감독자의 안전활동을 크게 개선했습니다.', iconPath: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z', color: '#8b5cf6' },
+                { title: '보건관리자', review: '근로자와 앱으로 소통하며 건강상태, 교육 이수 여부를 세밀하게 체크합니다.', iconPath: 'M22 12h-4l-3 9L9 3l-3 9H2', color: '#3b82f6' },
+                { title: '관리감독자', review: '모든 관리감독자가 체계적으로 안전활동을 할 수 있고, 이행여부 체크가 편리합니다.', iconPath: 'M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11', color: '#16a34a' },
+                { title: '협력업체', review: '공종 작업에 대해 세밀하게 작성할 수 있어 편리하며, 공사팀 모두 큰 도움을 받고 있습니다.', iconPath: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75', color: '#06b6d4' },
+                { title: '근로자', review: '앱으로 사진을 찍고 전송하면 위험요소를 제거해줍니다. 외국인 근로자도 쉽게 사용합니다.', iconPath: 'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z', color: '#ef4444' },
+              ]}
+              interval={4000}
+            />
           </div>
         </div>
         <!-- Right: Industries -->
@@ -348,7 +273,7 @@ import HoverComponent from '../components/ui/HoverComponent.astro';
   </section>
 
   <!-- App Download & System Access -->
-  <section class="py-20 bg-gray-50">
+  <section class="py-20 bg-white">
     <div class="w-container max-w-4xl">
       <div class="text-center mb-12">
         <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">Get Started</p>

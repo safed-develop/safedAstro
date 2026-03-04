@@ -217,7 +217,9 @@ const navLinks = [
         <div class="reveal">
           <div class="bg-orange-50 border border-orange-200 rounded-2xl p-8">
             <div class="flex items-center gap-3 mb-6">
-              <span class="text-3xl">🏗️</span>
+              <div class="w-10 h-10 rounded-xl bg-orange-600/20 flex items-center justify-center">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="1.5"><path d="M2 20h20M5 20V8l7-5 7 5v12M9 20v-4h6v4"/></svg>
+              </div>
               <h3 class="text-xl font-bold">현장 Needs</h3>
             </div>
             <div class="space-y-4">
@@ -246,7 +248,9 @@ const navLinks = [
         <div class="reveal delay-200">
           <div class="bg-blue-50 border border-blue-200 rounded-2xl p-8">
             <div class="flex items-center gap-3 mb-6">
-              <span class="text-3xl">🏢</span>
+              <div class="w-10 h-10 rounded-xl bg-blue-600/20 flex items-center justify-center">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.5"><path d="M3 21h18M3 7v14M21 7v14M6 7V3h12v4M9 21v-4h6v4M9 7h6"/></svg>
+              </div>
               <h3 class="text-xl font-bold">본사 Needs</h3>
             </div>
             <div class="space-y-4">
@@ -285,15 +289,17 @@ const navLinks = [
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal delay-200">
         {[
-          { icon: '📋', title: '시스템 기반 위험성평가', items: ['300+ 공종, 50,000+ 위험요인 DB', '최초/정기/수시/일일 평가 지원', '가능성·중대성 자동 점수 산출'] },
-          { icon: '📊', title: 'Database 구축', items: ['260종 3만여 Case 탑재', '공종별 위험요인·안전대책 자동 매칭', '사고사례 DB 공유·학습'] },
-          { icon: '📝', title: 'TBM·점검일지·안전교육', items: ['PC+모바일 동시 작성', '참석자 서명·문자 인증', '교육일지 자동 생성'] },
-          { icon: '📑', title: '작업계획서·허가서', items: ['사전 양식 빠른 작성', '결재선 승인 프로세스', '고위험작업 PTW 관리'] },
-          { icon: '📡', title: '비콘+GPS 센싱', items: ['위험지역 접근 경고', 'GPS 출역·동선 추적', '비용 90% 절감 비콘'] },
-          { icon: '🌏', title: '다국어 번역', items: ['Google AI 19개국어 지원', '모국어 자동 번역 + 음성 안내', '외국인 근로자 완전 참여'] },
+          { iconPath: 'M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11', iconColor: '#ef4444', title: '시스템 기반 위험성평가', items: ['300+ 공종, 50,000+ 위험요인 DB', '최초/정기/수시/일일 평가 지원', '가능성·중대성 자동 점수 산출'] },
+          { iconPath: 'M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z', iconColor: '#3b82f6', title: 'Database 구축', items: ['260종 3만여 Case 탑재', '공종별 위험요인·안전대책 자동 매칭', '사고사례 DB 공유·학습'] },
+          { iconPath: '2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z', iconColor: '#16a34a', title: 'TBM·점검일지·안전교육', items: ['PC+모바일 동시 작성', '참석자 서명·문자 인증', '교육일지 자동 생성'] },
+          { iconPath: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M16 13H8M16 17H8M10 9H8', iconColor: '#8b5cf6', title: '작업계획서·허가서', items: ['사전 양식 빠른 작성', '결재선 승인 프로세스', '고위험작업 PTW 관리'] },
+          { iconPath: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10zM12 8v4M12 16h.01', iconColor: '#06b6d4', title: '비콘+GPS 센싱', items: ['위험지역 접근 경고', 'GPS 출역·동선 추적', '비용 90% 절감 비콘'] },
+          { iconPath: 'M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z', iconColor: '#f59e0b', title: '다국어 번역', items: ['Google AI 19개국어 지원', '모국어 자동 번역 + 음성 안내', '외국인 근로자 완전 참여'] },
         ].map((item) => (
           <div class="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-lg transition-shadow">
-            <p class="text-3xl mb-3">{item.icon}</p>
+            <div class="w-12 h-12 rounded-xl mb-3 flex items-center justify-center" style={`background: ${item.iconColor}10`}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={item.iconColor} stroke-width="1.5"><path d={item.iconPath}/></svg>
+            </div>
             <h3 class="font-bold mb-3">{item.title}</h3>
             <ul class="space-y-2">
               {item.items.map((text) => (
@@ -362,14 +368,14 @@ const navLinks = [
           <h3 class="font-bold text-lg mb-6">핵심 도입 효과</h3>
           <div class="space-y-4">
             {[
-              { icon: '⚡', num: '80%', title: '단순·반복 업무 제거', desc: '서류작성, 엑셀관리, 수기점검 등 비효율 업무 제거' },
-              { icon: '🎯', num: '70%', title: '위험성평가 작성시간 단축', desc: '50,000건 DB 자동 매칭으로 원클릭 작성' },
-              { icon: '📱', num: '100%', title: '모바일 현장 대응', desc: 'PC+모바일 실시간 연동, 어디서든 접근 가능' },
-              { icon: '📄', num: '자동', title: '법적 근거자료 생성', desc: '보고서, 회의록, 점검일지 자동 생성·보관' },
+              { iconPath: 'M13 2L3 14h9l-1 8 10-12h-9l1-8z', iconColor: '#f59e0b', num: '80%', title: '단순·반복 업무 제거', desc: '서류작성, 엑셀관리, 수기점검 등 비효율 업무 제거' },
+              { iconPath: 'M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM22 12l-10-2-2-10', iconColor: '#ef4444', num: '70%', title: '위험성평가 작성시간 단축', desc: '50,000건 DB 자동 매칭으로 원클릭 작성' },
+              { iconPath: 'M5 2h14v20H5zM12 18h.01', iconColor: '#3b82f6', num: '100%', title: '모바일 현장 대응', desc: 'PC+모바일 실시간 연동, 어디서든 접근 가능' },
+              { iconPath: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6', iconColor: '#8b5cf6', num: '자동', title: '법적 근거자료 생성', desc: '보고서, 회의록, 점검일지 자동 생성·보관' },
             ].map((item) => (
               <div class="flex items-start gap-4 bg-white border border-gray-100 rounded-xl p-5 hover:shadow-md transition-shadow">
-                <div class="w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <span class="text-xl">{item.icon}</span>
+                <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={`background: ${item.iconColor}10`}>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={item.iconColor} stroke-width="1.5"><path d={item.iconPath}/></svg>
                 </div>
                 <div>
                   <div class="flex items-center gap-2 mb-1">

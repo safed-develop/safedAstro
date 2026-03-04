@@ -432,9 +432,9 @@ const tabs = [
             Google AI<br /><span class="text-gradient-blue">다국어 자동번역</span>
           </h2>
           <p class="text-gray-500 leading-relaxed mb-8">현장별 다국적 근로자 현황을 고려하여 19개국어 자동번역과 음성 안내를 지원합니다.</p>
-          <!-- Sound visualization -->
+          <!-- Sound + Translation visual -->
           <div class="bg-gray-950 rounded-2xl p-6 mb-6">
-            <div class="flex items-center gap-4 mb-4">
+            <div class="flex items-center gap-4 mb-5">
               <div class="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
               </div>
@@ -443,11 +443,25 @@ const tabs = [
                 <p class="text-white/40 text-xs">TTS 기반 모국어 음성 출력</p>
               </div>
             </div>
-            <!-- Sound wave bars -->
-            <div class="flex items-end gap-1 h-10">
-              {Array.from({length: 30}).map((_, i) => (
-                <div class="flex-1 rounded-sm bg-primary/60" style={`height: ${20 + Math.sin(i * 0.8) * 15 + Math.random() * 10}%; animation: soundBar ${0.4 + Math.random() * 0.6}s ease-in-out infinite alternate; animation-delay: ${i * 0.05}s;`}></div>
-              ))}
+            <!-- Translation flow -->
+            <div class="flex items-center gap-3 justify-between">
+              <div class="bg-white/5 rounded-lg px-3 py-2 text-center flex-1">
+                <p class="text-xs text-white/40 mb-1">원문</p>
+                <p class="text-white/90 text-xs font-medium">안전모 착용</p>
+              </div>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" class="flex-shrink-0"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <div class="bg-primary/15 rounded-lg px-3 py-2 text-center flex-1 border border-primary/30">
+                <p class="text-xs text-primary/60 mb-1">번역</p>
+                <p class="text-primary text-xs font-medium">Wear a helmet</p>
+              </div>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" class="flex-shrink-0"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <div class="bg-white/5 rounded-lg px-3 py-2 text-center flex-1">
+                <p class="text-xs text-white/40 mb-1">음성</p>
+                <p class="text-white/90 text-xs font-medium flex items-center justify-center gap-1">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  TTS
+                </p>
+              </div>
             </div>
           </div>
           <!-- Application scope -->
@@ -506,12 +520,6 @@ const tabs = [
       </div>
     </div>
   </section>
-  <style>
-    @keyframes soundBar {
-      0% { transform: scaleY(0.3); }
-      100% { transform: scaleY(1); }
-    }
-  </style>
 
   <!-- Vertical Tab Section -->
   <section class="py-20 bg-gray-50">
