@@ -13,6 +13,8 @@ interface Props {
   canonicalUrl?: string;
   hideFixedButtons?: boolean;
   hidePdfButton?: boolean;
+  jsonLd?: Record<string, unknown>;
+  noindex?: boolean;
 }
 
 const {
@@ -23,6 +25,8 @@ const {
   canonicalUrl,
   hideFixedButtons = false,
   hidePdfButton = false,
+  jsonLd,
+  noindex = false,
 } = Astro.props;
 
 const siteUrl = 'https://www.safed.co.kr';
@@ -41,6 +45,10 @@ const canonical = canonicalUrl || new URL(Astro.url.pathname, siteUrl).href;
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
     <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <!-- Naver Search Advisor -->
+    <meta name="naver-site-verification" content="1651e4200fe4313c8cf0f5fd4a870677fccdf5be" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -78,16 +86,31 @@ const canonical = canonicalUrl || new URL(Astro.url.pathname, siteUrl).href;
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "SafeD",
+      "name": "세이프디 주식회사",
+      "alternateName": "SafeD",
       "url": siteUrl,
       "logo": `${siteUrl}/images/oglogo.jpg`,
-      "description": description,
+      "description": "SafeD - 스마트 안전관리 시스템. 건설현장 안전관리의 새로운 기준을 제시합니다.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "테헤란로 534, 21층 글라스타워",
+        "addressLocality": "강남구",
+        "addressRegion": "서울특별시",
+        "postalCode": "06178",
+        "addressCountry": "KR"
+      },
       "contactPoint": {
         "@type": "ContactPoint",
+        "telephone": "+82-2-6748-0835",
         "contactType": "customer service",
+        "email": "sales@safed.co.kr",
         "availableLanguage": "Korean"
-      }
+      },
+      "sameAs": []
     })} />
+    {jsonLd && (
+      <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    )}
 
     <slot name="head" />
   </head>
@@ -102,6 +125,17 @@ const canonical = canonicalUrl || new URL(Astro.url.pathname, siteUrl).href;
 
     {!hideFixedButtons && <FixedButtons />}
     {!hidePdfButton && <PdfFloatingButton />}
+
+    <!-- Naver Analytics -->
+    <script is:inline src="https://wcs.naver.net/wcslog.js"></script>
+    <script is:inline>
+      if (!window.wcs_add) window.wcs_add = {};
+      wcs_add["wa"] = "s_f9ed5407f8b";
+      if (window.wcs) {
+        wcs.inflow();
+        wcs_do();
+      }
+    </script>
 
     <!-- Scroll Reveal Observer -->
     <script>

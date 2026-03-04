@@ -11,6 +11,7 @@ interface Props {
   keywords?: string;
   breadcrumbs?: { label: string; href?: string }[];
   navLinks?: { name: string; url: string }[];
+  jsonLd?: Record<string, unknown>;
 }
 
 const {
@@ -21,10 +22,11 @@ const {
   keywords,
   breadcrumbs,
   navLinks,
+  jsonLd,
 } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description} keywords={keywords}>
+<BaseLayout title={title} description={description} keywords={keywords} jsonLd={jsonLd}>
   <SubHeroSection title={pageTitle} titleEn={pageTitleEn} breadcrumbs={breadcrumbs} />
   {navLinks && <HorizontalNav links={navLinks} />}
   <slot />

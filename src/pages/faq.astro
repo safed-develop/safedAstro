@@ -22,7 +22,17 @@ const faqs = [
   pageTitle="FAQ"
   pageTitleEn="Frequently Asked Questions"
   description="SafeD 자주 묻는 질문 - 스마트안전관리시스템"
+  keywords="SafeD FAQ, 자주묻는질문, 안전관리시스템 문의, SafeD 도입"
   navLinks={navLinks}
+  jsonLd={{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(f => ({
+      "@type": "Question",
+      "name": f.question,
+      "acceptedAnswer": { "@type": "Answer", "text": f.answer }
+    }))
+  }}
 >
   <section class="py-20">
     <div class="w-container max-w-3xl">

@@ -5,7 +5,22 @@ import MultiSlide from '../components/ui/MultiSlide.tsx';
 import HoverComponent from '../components/ui/HoverComponent.astro';
 ---
 
-<BaseLayout title="SafeD - 스마트 안전관리 시스템 | 건설현장 안전관리의 새로운 기준">
+<BaseLayout
+  title="SafeD - 스마트 안전관리 시스템 | 건설현장 안전관리의 새로운 기준"
+  description="SafeD는 건설현장 스마트 안전관리 시스템입니다. 위험성평가, GPS 모니터링, 비콘 기술로 중대재해를 예방합니다."
+  keywords="SafeD, 스마트안전관리, 건설현장안전, 중대재해처벌법, 위험성평가, 안전관리시스템, 건설안전, 산업안전"
+  jsonLd={{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "SafeD - 스마트안전관리시스템",
+    "url": "https://www.safed.co.kr",
+    "description": "건설현장 안전관리의 새로운 기준을 제시하는 스마트 안전관리 시스템",
+    "publisher": {
+      "@type": "Organization",
+      "name": "세이프디 주식회사"
+    }
+  }}
+>
   <!-- Hero Slide -->
   <SlideShow
     client:load

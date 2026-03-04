@@ -1,3 +1,4 @@
 User-agent: *
-Disallow: /private-directory/
-Sitemap: https://safed.kr/sitemap.xml
+Allow: /
+
+Sitemap: https://www.safed.co.kr/sitemap-index.xml
