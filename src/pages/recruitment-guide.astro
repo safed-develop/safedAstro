@@ -272,68 +272,6 @@ const navLinks = [
     </div>
   </section>
 
-  <!-- Culture & Work Environment -->
-  <section class="py-24 bg-white">
-    <div class="w-container max-w-5xl">
-      <div class="text-center mb-16 reveal">
-        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">Work Culture</p>
-        <h2 class="text-3xl lg:text-4xl font-bold tracking-tight">SafeD에서의 하루</h2>
-      </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <!-- Left: big culture statement -->
-        <div class="bg-gradient-to-br from-gray-950 to-gray-900 rounded-3xl p-10 text-white relative overflow-hidden reveal">
-          <div class="absolute top-0 right-0 w-40 h-40 bg-primary/10 rounded-full blur-3xl" aria-hidden="true"></div>
-          <div class="relative z-10">
-            <p class="eng text-xs tracking-widest uppercase text-primary font-semibold mb-6">Our Culture</p>
-            <h3 class="text-2xl font-bold leading-tight mb-6">
-              "야근 강요 없음.<br/>회식 강요 없음.<br/><span class="text-gradient-blue">일에 집중하는 문화.</span>"
-            </h3>
-            <p class="text-white/50 text-sm leading-relaxed mb-8">
-              SafeD는 구성원이 일에 집중할 수 있는 환경을 만듭니다.
-              자유로운 연차 사용, 출산 장려, 수평적 소통 —
-              불필요한 관행은 없앴습니다.
-            </p>
-            <div class="grid grid-cols-2 gap-4">
-              <div class="bg-white/5 rounded-xl p-4 border border-white/5">
-                <p class="eng text-2xl font-extrabold text-gradient-blue">100%</p>
-                <p class="text-white/40 text-xs mt-1">연차 사용률</p>
-              </div>
-              <div class="bg-white/5 rounded-xl p-4 border border-white/5">
-                <p class="eng text-2xl font-extrabold text-gradient-blue">0회</p>
-                <p class="text-white/40 text-xs mt-1">강제 야근·회식</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Right: daily schedule -->
-        <div class="space-y-4 reveal-right delay-200">
-          {[
-            { time: '09:00', event: '출근 & 아침식사', desc: '편안한 분위기에서 하루를 시작합니다', color: '#f59e0b' },
-            { time: '09:30', event: '팀 스탠드업', desc: '10분 내 간결하게 오늘의 목표를 공유', color: '#3b82f6' },
-            { time: '10:00', event: '딥워크 타임', desc: '집중 시간 — 불필요한 회의 없이 몰입', color: '#8b5cf6' },
-            { time: '12:00', event: '점심시간 (연장 가능)', desc: '제공되는 점심 식사와 여유로운 휴식', color: '#16a34a' },
-            { time: '14:00', event: '협업 & 리뷰', desc: '코드 리뷰, 디자인 리뷰, 피드백 공유', color: '#06b6d4' },
-            { time: '18:00', event: '퇴근', desc: '칼퇴 문화 — 개인 시간을 존중합니다', color: '#ef4444' },
-          ].map((item, i) => (
-            <div class={`flex items-start gap-4 group reveal delay-${Math.min((i + 1) * 100, 400)}`}>
-              <div class="flex-shrink-0 w-14 text-right">
-                <span class="eng text-sm font-bold" style={`color: ${item.color}`}>{item.time}</span>
-              </div>
-              <div class="relative flex-shrink-0 flex flex-col items-center">
-                <div class="w-2.5 h-2.5 rounded-full group-hover:scale-150 transition-transform" style={`background: ${item.color}; box-shadow: 0 0 8px ${item.color}40;`}></div>
-                {i < 5 && <div class="w-px flex-1 bg-gray-200 mt-1" style="min-height: 32px"></div>}
-              </div>
-              <div class="pb-4">
-                <p class="font-bold text-sm">{item.event}</p>
-                <p class="text-gray-400 text-xs mt-0.5">{item.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- CTA -->
   <section class="py-20 bg-primary text-white text-center">
     <div class="w-container reveal">

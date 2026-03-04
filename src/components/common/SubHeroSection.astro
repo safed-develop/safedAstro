@@ -42,13 +42,38 @@ const autoBreadcrumbs = breadcrumbs.length > 0 ? breadcrumbs : (() => {
 <section class="sub-hero">
   <div class="sub-hero-bg"></div>
 
-  <!-- Minimal geometric accents -->
+  <!-- Animated mesh gradient blobs -->
   <div class="sub-hero-shapes" aria-hidden="true">
-    <div class="glow-orb"></div>
-    <div class="line-h"></div>
-    <div class="line-v"></div>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
   </div>
 
+  <!-- Animated dot grid -->
+  <div class="dot-grid" aria-hidden="true">
+    {Array.from({ length: 80 }).map((_, i) => {
+      const col = i % 16;
+      const row = Math.floor(i / 16);
+      const delay = ((col + row) * 0.08).toFixed(2);
+      return (
+        <div
+          class="dot"
+          style={`left: ${6 + col * 5.8}%; top: ${10 + row * 18}%; animation-delay: ${delay}s;`}
+        />
+      );
+    })}
+  </div>
+
+  <!-- Geometric accent lines -->
+  <div class="accent-lines" aria-hidden="true">
+    <div class="line-diagonal"></div>
+    <div class="line-h line-h-1"></div>
+    <div class="line-h line-h-2"></div>
+    <div class="line-v line-v-1"></div>
+    <div class="line-v line-v-2"></div>
+  </div>
+
+  <!-- Bottom gradient accent -->
   <div class="sub-hero-accent"></div>
 
   <div class="sub-hero-inner w-container">
@@ -72,29 +97,44 @@ const autoBreadcrumbs = breadcrumbs.length > 0 ? breadcrumbs : (() => {
     </nav>
 
     <div class="sub-hero-content">
-      {titleEn && <p class="sub-hero-title-en eng">{titleEn}</p>}
+      {titleEn && (
+        <p class="sub-hero-title-en eng">
+          <span class="en-bar"></span>
+          {titleEn}
+        </p>
+      )}
       <h1 class="sub-hero-title">{title}</h1>
-      <div class="sub-hero-bar"></div>
+      <div class="sub-hero-bar-group">
+        <div class="sub-hero-bar bar-main"></div>
+        <div class="sub-hero-bar bar-accent"></div>
+        <div class="sub-hero-bar bar-dot"></div>
+      </div>
     </div>
   </div>
+
+  <!-- Top edge light sweep -->
+  <div class="light-sweep" aria-hidden="true"></div>
 </section>
 
 <style>
   .sub-hero {
     position: relative;
-    padding: 8rem 0 3.5rem;
+    padding: 9rem 0 4rem;
     overflow: hidden;
-    min-height: 240px;
+    min-height: 280px;
   }
 
   .sub-hero-bg {
     position: absolute;
     inset: 0;
-    background: linear-gradient(160deg, #0a1628 0%, #0f2042 40%, #132b55 70%, #0a1628 100%);
+    background:
+      radial-gradient(ellipse 120% 80% at 20% 100%, rgba(0, 60, 180, 0.2) 0%, transparent 50%),
+      radial-gradient(ellipse 80% 120% at 90% 0%, rgba(0, 123, 255, 0.12) 0%, transparent 50%),
+      linear-gradient(160deg, #070e1a 0%, #0b1a35 30%, #0f2550 60%, #091530 100%);
     z-index: 0;
   }
 
-  /* Minimal accents - Apple/Toss style */
+  /* Animated glow orbs */
   .sub-hero-shapes {
     position: absolute;
     inset: 0;
@@ -104,46 +144,168 @@ const autoBreadcrumbs = breadcrumbs.length > 0 ? breadcrumbs : (() => {
 
   .glow-orb {
     position: absolute;
-    width: 400px;
-    height: 400px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(0, 123, 255, 0.08) 0%, transparent 65%);
-    top: -100px;
-    right: -50px;
-    animation: orbBreathe 6s ease-in-out infinite;
+    filter: blur(40px);
+  }
+
+  .orb-1 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 123, 255, 0.12) 0%, transparent 60%);
+    top: -180px;
+    right: -80px;
+    animation: orbFloat1 8s ease-in-out infinite;
+  }
+
+  .orb-2 {
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(96, 165, 250, 0.08) 0%, transparent 60%);
+    bottom: -80px;
+    left: -60px;
+    animation: orbFloat2 10s ease-in-out infinite;
+  }
+
+  .orb-3 {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(0, 198, 255, 0.06) 0%, transparent 60%);
+    top: 40%;
+    left: 50%;
+    animation: orbFloat3 7s ease-in-out infinite;
+  }
+
+  @keyframes orbFloat1 {
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+    33% { transform: translate(-30px, 20px) scale(1.15); opacity: 1; }
+    66% { transform: translate(15px, -10px) scale(0.95); opacity: 0.8; }
+  }
+
+  @keyframes orbFloat2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(40px, -25px) scale(1.1); }
+  }
+
+  @keyframes orbFloat3 {
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+    50% { transform: translate(-20px, 15px) scale(1.2); opacity: 0.9; }
+  }
+
+  /* Animated dot grid */
+  .dot-grid {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .dot {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    animation: dotPulse 4s ease-in-out infinite;
+  }
+
+  @keyframes dotPulse {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.8); background: rgba(0, 123, 255, 0.3); }
+  }
+
+  /* Geometric accent lines */
+  .accent-lines {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .line-diagonal {
+    position: absolute;
+    top: 0;
+    right: 15%;
+    width: 1px;
+    height: 120%;
+    background: linear-gradient(180deg, transparent, rgba(0, 123, 255, 0.06) 30%, rgba(0, 123, 255, 0.06) 70%, transparent);
+    transform: rotate(15deg);
+    transform-origin: top center;
   }
 
   .line-h {
     position: absolute;
-    bottom: 35%;
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.04) 30%, rgba(255,255,255,0.04) 70%, transparent 100%);
+  }
+
+  .line-h-1 {
+    top: 30%;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.03) 20%, rgba(0,123,255,0.06) 50%, rgba(255,255,255,0.03) 80%, transparent 100%);
+    animation: lineSlide 6s ease-in-out infinite;
+  }
+
+  .line-h-2 {
+    bottom: 25%;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.02) 30%, rgba(255,255,255,0.04) 70%, transparent 100%);
   }
 
   .line-v {
     position: absolute;
     top: 0;
     bottom: 0;
-    right: 20%;
     width: 1px;
-    background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.03) 40%, rgba(255,255,255,0.03) 60%, transparent 100%);
   }
 
-  @keyframes orbBreathe {
-    0%, 100% { transform: scale(1); opacity: 0.8; }
-    50% { transform: scale(1.1); opacity: 1; }
+  .line-v-1 {
+    right: 25%;
+    background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.03) 30%, rgba(0,123,255,0.05) 60%, transparent 100%);
   }
 
+  .line-v-2 {
+    left: 15%;
+    background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.02) 50%, transparent 100%);
+  }
+
+  @keyframes lineSlide {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  /* Bottom accent bar - animated gradient */
   .sub-hero-accent {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 40%;
-    height: 2px;
-    background: linear-gradient(90deg, #007BFF, transparent);
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, #007BFF 20%, #00c6ff 50%, #007BFF 80%, transparent 100%);
+    background-size: 200% 100%;
     z-index: 4;
+    animation: accentShimmer 4s linear infinite;
+  }
+
+  @keyframes accentShimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* Light sweep across top */
+  .light-sweep {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    z-index: 5;
+    animation: sweep 6s ease-in-out infinite;
+  }
+
+  @keyframes sweep {
+    0% { left: -60%; }
+    50% { left: 100%; }
+    100% { left: 100%; }
   }
 
   .sub-hero-inner {
@@ -157,19 +319,20 @@ const autoBreadcrumbs = breadcrumbs.length > 0 ? breadcrumbs : (() => {
     gap: 0.5rem;
     font-size: 13px;
     color: rgba(255, 255, 255, 0.35);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
   }
 
   .breadcrumb a {
     color: rgba(255, 255, 255, 0.35);
-    transition: color 0.2s;
+    transition: color 0.3s, transform 0.3s;
     display: inline-flex;
     align-items: center;
     gap: 4px;
   }
 
   .breadcrumb a:hover {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.9);
+    transform: translateX(2px);
   }
 
   .breadcrumb svg {
@@ -183,48 +346,98 @@ const autoBreadcrumbs = breadcrumbs.length > 0 ? breadcrumbs : (() => {
   }
 
   .breadcrumb .current {
-    color: rgba(255, 255, 255, 0.8);
+    color: #60a5fa;
     font-weight: 600;
+    letter-spacing: 0.3px;
   }
 
   .sub-hero-content {
     display: flex;
     flex-direction: column;
+    animation: contentReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  @keyframes contentReveal {
+    to { opacity: 1; transform: translateY(0); }
   }
 
   .sub-hero-title-en {
-    font-size: 12px;
-    color: rgba(96, 165, 250, 0.7);
+    font-size: 13px;
+    color: rgba(96, 165, 250, 0.8);
     font-weight: 600;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     text-transform: uppercase;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: contentReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  .en-bar {
+    display: inline-block;
+    width: 24px;
+    height: 2px;
+    background: linear-gradient(90deg, #007BFF, #60a5fa);
+    border-radius: 1px;
+    flex-shrink: 0;
   }
 
   .sub-hero-title {
-    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
     font-weight: 800;
     color: #fff;
     letter-spacing: -1.5px;
     line-height: 1.15;
+    animation: contentReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .sub-hero-bar-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 1.5rem;
+    animation: contentReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+    opacity: 0;
+    transform: translateY(15px);
   }
 
   .sub-hero-bar {
+    height: 3px;
+    border-radius: 2px;
+  }
+
+  .bar-main {
     width: 40px;
-    height: 2px;
-    background: #007BFF;
-    border-radius: 1px;
-    margin-top: 1.25rem;
+    background: linear-gradient(90deg, #007BFF, #00c6ff);
+  }
+
+  .bar-accent {
+    width: 12px;
+    background: rgba(0, 123, 255, 0.4);
+  }
+
+  .bar-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(0, 123, 255, 0.25);
   }
 
   @media (max-width: 999px) {
     .sub-hero {
-      padding: 6rem 0 2rem;
-      min-height: 180px;
+      padding: 7rem 0 2.5rem;
+      min-height: 200px;
     }
 
     .sub-hero-title {
-      font-size: 1.8rem;
+      font-size: 1.9rem;
     }
 
     .sub-hero-title-en {
@@ -235,10 +448,33 @@ const autoBreadcrumbs = breadcrumbs.length > 0 ? breadcrumbs : (() => {
     .breadcrumb {
       font-size: 12px;
     }
+
+    .dot {
+      display: none;
+    }
+
+    .dot:nth-child(-n+30) {
+      display: block;
+    }
+
+    .line-diagonal {
+      display: none;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .glow-orb {
+    .glow-orb,
+    .dot,
+    .light-sweep,
+    .sub-hero-accent {
+      animation: none;
+    }
+    .sub-hero-content,
+    .sub-hero-title-en,
+    .sub-hero-title,
+    .sub-hero-bar-group {
+      opacity: 1;
+      transform: none;
       animation: none;
     }
   }

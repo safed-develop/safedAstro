@@ -15,37 +15,124 @@ const navLinks = [
   keywords="중대재해처벌법, 안전보건관리체계, 중대재해예방, 경영책임자의무, SafeD, 안전관리솔루션"
   navLinks={navLinks}
 >
-  <!-- Section 1 -->
-  <section class="py-20">
-    <div class="w-container max-w-4xl">
-      <div class="text-center reveal">
-        <h2 class="text-3xl lg:text-4xl font-bold mb-6 tracking-tight">중대재해처벌법이란?</h2>
-        <p class="text-gray-600 leading-relaxed text-lg">
-          반복되는 재해 사망사고와 악순환 '사고 공화국'이라는 부끄러운 오명을 이제
-          그 고리를 끊어내야 합니다. 작은 관심이 소중한 생명을 살리고 더 안전한 사회를
-          만듭니다.
-        </p>
-      </div>
-
-      <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 reveal delay-200">
-        {[
-          { num: '1명', label: '사망', desc: '이상' },
-          { num: '10명', label: '부상', desc: '이상 (2개월 이상 치료)' },
-          { num: '10명', label: '질병', desc: '이상 (3개월 이상 치료)' },
-        ].map((item) => (
-          <div class="bg-primary/5 rounded-2xl p-6 text-center">
-            <p class="text-4xl font-bold text-primary eng mb-2">{item.num}</p>
-            <p class="font-semibold text-gray-800 mb-1">{item.label}</p>
-            <p class="text-sm text-gray-500">{item.desc}</p>
+  <!-- Hero: Shocking Stats -->
+  <section class="relative py-28 bg-gray-950 text-white overflow-hidden">
+    <div class="absolute inset-0 bg-[url('/images/danger_bg.jpg')] bg-cover bg-center opacity-15"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-gray-950/60 via-gray-950/80 to-gray-950"></div>
+    <div class="w-container max-w-5xl relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal">
+          <p class="eng font-semibold text-sm tracking-widest uppercase mb-4 text-red-400">Serious Accident Punishment Act</p>
+          <h2 class="text-3xl lg:text-5xl font-extrabold tracking-tight leading-[1.1] mb-6">
+            매년 <span class="text-red-400">400명</span>이<br />건설현장에서 사망합니다.
+          </h2>
+          <p class="text-white/50 leading-relaxed mb-8">
+            반복되는 중대재해, '사고 공화국'이라는 부끄러운 오명.<br />
+            중대재해처벌법은 이 악순환의 고리를 끊기 위해 제정되었습니다.
+          </p>
+          <div class="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 rounded-full px-5 py-2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+            <span class="text-red-400 text-sm font-semibold">2024.1.27부터 5인 이상 사업장 전면 적용</span>
           </div>
-        ))}
+        </div>
+        <!-- Right: Stat cards -->
+        <div class="reveal-right delay-200">
+          <div class="grid grid-cols-1 gap-4">
+            <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 flex items-center gap-6">
+              <div class="w-16 h-16 rounded-2xl bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="1.5"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              </div>
+              <div>
+                <p class="eng text-3xl font-extrabold text-red-400">401건</p>
+                <p class="text-white/50 text-sm">2024년 건설업 사망사고</p>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-5 text-center">
+                <p class="eng text-2xl font-extrabold text-amber-400">1년+</p>
+                <p class="text-white/40 text-xs mt-1">징역 (사망사고)</p>
+              </div>
+              <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-5 text-center">
+                <p class="eng text-2xl font-extrabold text-amber-400">50억</p>
+                <p class="text-white/40 text-xs mt-1">법인 최대 벌금</p>
+              </div>
+            </div>
+            <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 flex items-center gap-6">
+              <div class="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center flex-shrink-0">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <p class="text-lg font-bold text-white/90">SafeD로 완벽 대비</p>
+                <p class="text-white/50 text-sm">4대 의무사항 100% 시스템 매핑</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 도입 필요성 - 외부/내부 요인 -->
+  <!-- 중대재해 기준 - Visual Infographic -->
+  <section class="py-24 bg-white">
+    <div class="w-container max-w-5xl">
+      <div class="text-center mb-16 reveal">
+        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">Definition</p>
+        <h2 class="text-3xl lg:text-4xl font-bold tracking-tight">중대재해란?</h2>
+        <p class="text-gray-500 mt-3">다음 중 하나에 해당하면 '중대산업재해'로 분류됩니다.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        {[
+          { num: '1명', label: '사망', desc: '이상 발생', color: '#ef4444', iconPath: 'M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0zM12 9v4M12 17h.01' },
+          { num: '10명', label: '부상', desc: '이상 (2개월+ 치료)', color: '#f59e0b', iconPath: 'M22 12h-4l-3 9L9 3l-3 9H2' },
+          { num: '10명', label: '질병', desc: '이상 (3개월+ 치료)', color: '#8b5cf6', iconPath: 'M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3.332.88-4.5 2.23A6.65 6.65 0 0 0 7.5 3 5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7 7-7z' },
+        ].map((item, i) => (
+          <div class={`relative overflow-hidden rounded-3xl p-8 text-center reveal delay-${(i + 1) * 100}`} style={`background: linear-gradient(135deg, ${item.color}08, ${item.color}03);`}>
+            <div class="absolute top-4 right-4 opacity-[0.06]">
+              <svg width="80" height="80" viewBox="0 0 24 24" fill={item.color} stroke="none"><path d={item.iconPath}/></svg>
+            </div>
+            <div class="relative z-10">
+              <div class="w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center" style={`background: ${item.color}15`}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={item.color} stroke-width="1.5"><path d={item.iconPath}/></svg>
+              </div>
+              <p class="eng text-5xl font-extrabold mb-1" style={`color: ${item.color}`}>{item.num}</p>
+              <p class="font-bold text-lg text-gray-800">{item.label}</p>
+              <p class="text-sm text-gray-400 mt-1">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Visual flow: 법 제정 배경 -->
+      <div class="bg-gray-50 rounded-3xl p-8 lg:p-10 reveal delay-200">
+        <h3 class="font-bold text-lg mb-6 text-center">법 제정 배경</h3>
+        <div class="flex flex-col md:flex-row items-center gap-4 md:gap-2">
+          {[
+            { text: '안전법령 개편에도\n중대재해 반복', icon: '🔄' },
+            { text: '현장 안전조치 위주\n규정의 한계', icon: '📋' },
+            { text: '경영책임자에게\n안전확보 의무 부과', icon: '⚖️' },
+            { text: '안전관리체계\n구축 의무화', icon: '🏗️' },
+          ].map((item, i) => (
+            <>
+              <div class="flex-1 bg-white rounded-2xl p-5 text-center shadow-sm min-w-0">
+                <p class="text-2xl mb-2">{item.icon}</p>
+                <p class="text-sm text-gray-600 font-medium whitespace-pre-line leading-relaxed">{item.text}</p>
+              </div>
+              {i < 3 && (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d1d5db" stroke-width="2" class="flex-shrink-0 hidden md:block"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              )}
+            </>
+          ))}
+        </div>
+        <p class="text-xs text-gray-400 text-center mt-6">
+          적용 대상: 상시근로자 5명 이상 사업장 (건설업: 공사금액 50억원 미만은 '24.1.27부터)
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 도입 필요성 - Visual Split -->
   <section class="py-24 bg-gray-950 text-white relative overflow-hidden">
-    <!-- Wave bars decoration -->
     <div class="absolute bottom-0 left-0 right-0 flex items-end gap-[2px] h-14 opacity-15 px-4" aria-hidden="true">
       {Array.from({length: 70}).map((_, i) => {
         const h = 20 + Math.sin(i * 0.5) * 22 + Math.sin(i * 1.1) * 12;
@@ -59,231 +146,160 @@ const navLinks = [
     <div class="w-container max-w-5xl relative z-10">
       <div class="text-center mb-16">
         <p class="eng font-semibold text-sm tracking-widest uppercase mb-4 text-primary reveal">Why We Need It</p>
-        <h2 class="sub-headline reveal delay-100">도입 필요성</h2>
-        <p class="text-white/50 mt-4 reveal delay-200">'24년 중대재해특별법 전면 시행에 따라 체계적인 시스템 구축이 필요합니다.</p>
+        <h2 class="text-3xl lg:text-4xl font-bold tracking-tight reveal delay-100">왜 시스템이 필요한가?</h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- 외부 요인 -->
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-8 reveal">
+        <div class="reveal">
           <div class="flex items-center gap-3 mb-6">
             <div class="w-10 h-10 rounded-xl bg-red-500/20 flex items-center justify-center">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
             </div>
             <h3 class="text-xl font-bold">외부 요인</h3>
           </div>
-          <div class="space-y-4">
+          <div class="space-y-3">
             {[
-              { title: '법령 강화', desc: '중대재해처벌법 전면 시행, 경영책임자 직접 처벌' },
-              { title: '처벌 수위', desc: '사망사고 시 1년 이상 징역, 10억 이하 벌금' },
-              { title: '적용 확대', desc: '상시근로자 5명 이상 모든 사업장으로 확대' },
+              { title: '법령 강화', desc: '중대재해처벌법 전면 시행, 경영책임자 직접 처벌', pct: 100 },
+              { title: '처벌 수위', desc: '사망사고 시 1년 이상 징역, 10억 이하 벌금', pct: 90 },
+              { title: '적용 확대', desc: '상시근로자 5명 이상 모든 사업장으로 확대', pct: 80 },
             ].map((item) => (
-              <div class="bg-white/5 rounded-xl p-4">
-                <p class="font-semibold text-sm text-white/90 mb-1">{item.title}</p>
-                <p class="text-sm text-white/50">{item.desc}</p>
+              <div class="bg-white/5 border border-white/10 rounded-xl p-5">
+                <div class="flex items-start justify-between gap-4 mb-3">
+                  <div>
+                    <p class="font-semibold text-sm text-white/90">{item.title}</p>
+                    <p class="text-xs text-white/40 mt-1">{item.desc}</p>
+                  </div>
+                  <span class="eng text-sm font-bold text-red-400 flex-shrink-0">{item.pct}%</span>
+                </div>
+                <div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-red-500 to-red-400 rounded-full" style={`width: ${item.pct}%`}></div>
+                </div>
               </div>
             ))}
           </div>
         </div>
         <!-- 내부 요인 -->
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-8 reveal delay-200">
+        <div class="reveal delay-200">
           <div class="flex items-center gap-3 mb-6">
             <div class="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007BFF" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
             <h3 class="text-xl font-bold">내부 요인</h3>
           </div>
-          <div class="space-y-4">
+          <div class="space-y-3">
             {[
-              { title: '관리 포인트 증가', desc: '위험성평가, 안전교육 등 교육·작성·기록·보관 비효율 증가' },
-              { title: '현장 복잡도', desc: '협력사(수), 근로자(수), 외국인 근로자 대응 필요' },
-              { title: 'DB·분석 필요', desc: '현장별 안전 데이터 취합/분석/모니터링 체계 부재' },
+              { title: '관리 포인트 증가', desc: '위험성평가, 안전교육 등 교육·작성·기록·보관 비효율', pct: 95 },
+              { title: '현장 복잡도', desc: '협력사, 근로자 수, 외국인 근로자 대응 필요', pct: 85 },
+              { title: 'DB·분석 부재', desc: '현장별 안전 데이터 취합/분석/모니터링 체계 부재', pct: 90 },
             ].map((item) => (
-              <div class="bg-white/5 rounded-xl p-4">
-                <p class="font-semibold text-sm text-white/90 mb-1">{item.title}</p>
-                <p class="text-sm text-white/50">{item.desc}</p>
+              <div class="bg-white/5 border border-white/10 rounded-xl p-5">
+                <div class="flex items-start justify-between gap-4 mb-3">
+                  <div>
+                    <p class="font-semibold text-sm text-white/90">{item.title}</p>
+                    <p class="text-xs text-white/40 mt-1">{item.desc}</p>
+                  </div>
+                  <span class="eng text-sm font-bold text-primary flex-shrink-0">{item.pct}%</span>
+                </div>
+                <div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-primary to-blue-400 rounded-full" style={`width: ${item.pct}%`}></div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      <!-- 대응 방향 -->
-      <div class="mt-8 bg-primary/10 border border-primary/30 rounded-2xl p-6 text-center reveal delay-300">
-        <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
-          <div class="text-center">
-            <p class="text-xs text-white/40 eng uppercase">사고예방</p>
-            <p class="text-sm text-white/80">현장 안전 프로세스 확립</p>
-          </div>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007BFF" stroke-width="2" class="hidden md:block"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          <div class="text-center">
-            <p class="text-xs text-white/40 eng uppercase">안전활동</p>
-            <p class="text-sm text-white/80">위험성평가 엄수·이행·검증</p>
-          </div>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007BFF" stroke-width="2" class="hidden md:block"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          <div class="text-center">
-            <p class="text-xs text-white/40 eng uppercase">사후대응</p>
-            <p class="text-sm text-white/80">근거 마련 (기록/보관)</p>
-          </div>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007BFF" stroke-width="2" class="hidden md:block"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          <div class="bg-primary rounded-xl px-4 py-2">
-            <p class="text-xs eng uppercase font-semibold">SMART</p>
-            <p class="text-sm font-bold">안전관리 시스템</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 2: 법 제정 목적 -->
-  <section class="py-20 bg-gray-50 relative overflow-hidden">
-    <div class="absolute inset-0 bg-[url('/images/danger_bg.jpg')] bg-cover bg-center opacity-10"></div>
-    <div class="relative z-10 w-container max-w-4xl">
-      <h2 class="text-3xl font-bold mb-8 text-center tracking-tight reveal">법 제정 목적</h2>
-      <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-8 lg:p-12 reveal delay-100">
-        <ul class="space-y-4">
+      <!-- 대응 방향 flow -->
+      <div class="mt-12 reveal delay-300">
+        <div class="flex flex-col md:flex-row items-stretch gap-3">
           {[
-            '다양한 안전·보건 관계 법령 및 제도 개편에도 불구하고 중대재해 반복 발생',
-            '종전 안전·보건 관계법령은 대부분 현장의 안전조치 위주로 규정하여 중대재해 예방에 한계 존재',
-            '경영책임자등에게 안전·보건 확보 의무를 부과',
-            '기업/기관이 중대재해 예방을 위한 안전·보건관리체계 구축 유도',
-          ].map((text) => (
-            <li class="flex items-start gap-3 text-gray-700 leading-relaxed">
-              <div class="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
-              <span>{text}</span>
-            </li>
+            { label: '사고예방', desc: '안전 프로세스 확립', color: 'rgba(239,68,68,0.15)', border: 'rgba(239,68,68,0.3)' },
+            { label: '안전활동', desc: '위험성평가 이행·검증', color: 'rgba(245,158,11,0.15)', border: 'rgba(245,158,11,0.3)' },
+            { label: '사후대응', desc: '근거자료 기록·보관', color: 'rgba(59,130,246,0.15)', border: 'rgba(59,130,246,0.3)' },
+            { label: 'SafeD', desc: '스마트 안전관리 시스템', color: 'rgba(0,123,255,0.3)', border: 'rgba(0,123,255,0.6)' },
+          ].map((item, i) => (
+            <>
+              <div class="flex-1 rounded-xl p-4 text-center" style={`background: ${item.color}; border: 1px solid ${item.border};`}>
+                <p class="eng text-xs uppercase font-bold mb-1" style={`color: ${item.border}`}>{item.label}</p>
+                <p class="text-xs text-white/60">{item.desc}</p>
+              </div>
+              {i < 3 && (
+                <div class="flex items-center justify-center flex-shrink-0">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2" class="hidden md:block"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+              )}
+            </>
           ))}
-        </ul>
-        <p class="mt-8 text-sm text-gray-500 border-t pt-6">
-          적용 대상: 상시근로자 5명 이상인 사업 또는 사업장
-          (건설업은 공사금액 50억원 미만의 공사는 24.1.27부터 적용)
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 제4조 3항 - 위험성평가 -->
-  <section class="py-20">
-    <div class="w-container max-w-4xl">
-      <div class="text-center mb-12 reveal">
-        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">Article 4-3</p>
-        <h2 class="text-3xl font-bold tracking-tight">위험성평가 = 법적 의무 이행</h2>
-      </div>
-      <div class="bg-gray-50 border-l-4 border-primary rounded-2xl p-8 lg:p-10 reveal delay-100">
-        <p class="text-sm text-primary font-semibold mb-3 eng">제4조 3항</p>
-        <p class="text-gray-700 leading-relaxed text-sm mb-4">
-          사업 또는 사업장의 특성에 따른 유해·위험요인을 확인하여 개선하는 업무절차를 마련하고,
-          해당 업무절차에 따라 유해·위험요인의 확인 및 개선이 이루어지는지를 <strong>반기 1회 이상 점검</strong>한 후 필요한 조치를 할 것.
-        </p>
-        <div class="bg-white rounded-xl p-6 border border-gray-200">
-          <p class="text-primary font-bold text-sm mb-2">핵심 포인트</p>
-          <p class="text-gray-600 text-sm leading-relaxed">
-            「산업안전보건법」 제36조에 따른 <strong class="text-primary">위험성평가</strong>를 하는 절차를 마련하고,
-            그 절차에 따라 위험성평가를 직접 실시하거나 실시하도록 하여 실시 결과를 보고받은 경우에는
-            <strong>유해·위험요인의 확인 및 개선에 대한 점검을 한 것으로 봅니다.</strong>
-          </p>
-        </div>
-        <div class="mt-6 bg-primary/5 rounded-xl p-4 text-center">
-          <p class="text-primary font-bold text-sm">즉, '위험성평가' 이행 = '유해·위험요인 확인 및 개선에 대한 점검'으로 간주!</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Section 3: Key Obligations -->
-  <section class="py-20 bg-gray-50">
-    <div class="w-container max-w-4xl">
-      <h2 class="text-3xl font-bold mb-8 text-center tracking-tight reveal">주요의무사항</h2>
-      <p class="text-gray-600 text-center mb-12 reveal delay-100">
-        사업주 또는 경영책임자 등은 종사자의 안전·보건상 유해 또는 위험을 방지하기 위해
-        다음의 조치를 취해야 합니다.
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {[
-          { num: '01', title: '안전보건관리체계', desc: '재해 예방에 필요한 인력 및 예산 등 안전보건관리체계의 구축 및 이행', safed: '위험성평가, DB 시스템, 점검활동' },
-          { num: '02', title: '재발방지 대책', desc: '재해 발생 시 재발방지 대책의 수립 및 이행', safed: '사고사례 DB, 데이터 분석, 사례 공유' },
-          { num: '03', title: '개선·시정 명령', desc: '관계 법령에 따라 개선, 시정 등을 명한 사항의 이행', safed: '자동 알림, 조치 추적, 실시간 모니터링' },
-          { num: '04', title: '관리상 조치', desc: '안전·보건 관계 법령에 따른 의무이행에 필요한 관리상의 조치', safed: '대시보드, 보고서 자동생성, 근거자료 보관' },
-        ].map((item, i) => (
-          <div class={`bg-white border border-gray-100 rounded-2xl p-6 reveal delay-${(i + 1) * 100}`}>
-            <span class="text-primary eng font-bold text-2xl opacity-30">{item.num}</span>
-            <h3 class="font-bold text-lg mt-2 mb-2">{item.title}</h3>
-            <p class="text-gray-500 text-sm leading-relaxed mb-3">{item.desc}</p>
-            <div class="bg-primary/5 rounded-lg px-3 py-2">
-              <p class="text-xs text-primary font-semibold">SafeD 대응: {item.safed}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- 현장·본사 니즈 -->
-  <section class="py-24">
+  <!-- 위험성평가 = 법적 의무 - Visual Diagram -->
+  <section class="py-24 bg-white">
     <div class="w-container max-w-5xl">
-      <div class="text-center mb-16">
-        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">Needs Analysis</p>
-        <h2 class="sub-headline reveal delay-100">현장과 본사의 요구사항</h2>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div class="reveal">
-          <div class="bg-orange-50 border border-orange-200 rounded-2xl p-8">
-            <div class="flex items-center gap-3 mb-6">
-              <div class="w-10 h-10 rounded-xl bg-orange-600/20 flex items-center justify-center">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="1.5"><path d="M2 20h20M5 20V8l7-5 7 5v12M9 20v-4h6v4"/></svg>
-              </div>
-              <h3 class="text-xl font-bold">현장 Needs</h3>
-            </div>
-            <div class="space-y-4">
-              {[
-                { num: '#1', title: '위험성평가 프로세스 체계화', items: ['최초/정기/수시/일일 위험성평가', '데이터 기반 위험요인 매칭'] },
-                { num: '#2', title: '안전관리체계 강화', items: ['위험성평가, 안전교육 관리 포인트 증가', '협력사·근로자·외국인 대응'] },
-                { num: '#3', title: 'DB·분석·모니터링', items: ['각 현장 안전활동 Database', '취합/분석/모니터링 체계'] },
-              ].map((need) => (
-                <div class="bg-white rounded-xl p-4">
-                  <div class="flex items-center gap-2 mb-2">
-                    <span class="text-xs font-bold text-orange-600 eng">{need.num}</span>
-                    <p class="font-semibold text-sm">{need.title}</p>
-                  </div>
-                  <ul class="space-y-1">
-                    {need.items.map((item) => (
-                      <li class="text-xs text-gray-500 flex items-start gap-2">
-                        <span class="text-orange-400">•</span>{item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+          <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">Article 4, Paragraph 3</p>
+          <h2 class="text-3xl lg:text-4xl font-bold tracking-tight leading-tight mb-6">
+            위험성평가 이행 =<br/><span class="text-gradient-blue">법적 의무 충족.</span>
+          </h2>
+          <div class="bg-gray-50 border-l-4 border-primary rounded-xl p-5 mb-6">
+            <p class="text-sm text-gray-600 leading-relaxed">
+              유해·위험요인을 확인하여 개선하는 업무절차를 마련하고,
+              <strong class="text-gray-800">반기 1회 이상 점검</strong>한 후 필요한 조치를 할 것.
+            </p>
+          </div>
+          <div class="bg-primary/5 rounded-xl p-5 border border-primary/10">
+            <div class="flex items-start gap-3">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007BFF" stroke-width="2" class="flex-shrink-0 mt-0.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <p class="text-sm text-gray-700 leading-relaxed">
+                <strong class="text-primary">위험성평가를 실시</strong>하고 결과를 보고받은 경우,
+                유해·위험요인의 확인 및 개선에 대한 점검을 한 것으로 <strong>간주</strong>합니다.
+              </p>
             </div>
           </div>
         </div>
-        <div class="reveal delay-200">
-          <div class="bg-blue-50 border border-blue-200 rounded-2xl p-8">
-            <div class="flex items-center gap-3 mb-6">
-              <div class="w-10 h-10 rounded-xl bg-blue-600/20 flex items-center justify-center">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.5"><path d="M3 21h18M3 7v14M21 7v14M6 7V3h12v4M9 21v-4h6v4M9 7h6"/></svg>
-              </div>
-              <h3 class="text-xl font-bold">본사 Needs</h3>
-            </div>
+        <!-- Right: Visual mapping -->
+        <div class="reveal-right delay-200">
+          <div class="relative">
+            <div class="absolute -inset-4 bg-gradient-to-br from-primary/5 to-transparent rounded-3xl -z-10"></div>
             <div class="space-y-4">
-              {[
-                { num: '#1', title: '전 현장 통합 모니터링', items: ['현장별 이행률 실시간 비교', '안전활동 KPI 대시보드'] },
-                { num: '#2', title: '법적 근거자료 확보', items: ['의무이행 증빙 자동 생성', '보고서 자동 출력·보관'] },
-                { num: '#3', title: '표준 안전관리 프로세스', items: ['전 현장 동일 프로세스 적용', '공종 DB·교육자료·가이드 제공'] },
-              ].map((need) => (
-                <div class="bg-white rounded-xl p-4">
-                  <div class="flex items-center gap-2 mb-2">
-                    <span class="text-xs font-bold text-blue-600 eng">{need.num}</span>
-                    <p class="font-semibold text-sm">{need.title}</p>
+              <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                <div class="flex items-center gap-3 mb-4">
+                  <div class="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
                   </div>
-                  <ul class="space-y-1">
-                    {need.items.map((item) => (
-                      <li class="text-xs text-gray-500 flex items-start gap-2">
-                        <span class="text-blue-400">•</span>{item}
-                      </li>
-                    ))}
-                  </ul>
+                  <p class="font-bold text-sm text-red-600">AS-IS: 기존 방식</p>
                 </div>
-              ))}
+                <div class="space-y-2">
+                  {['서류 기반 위험성평가', '엑셀 수기 관리', '근거자료 부재'].map((t) => (
+                    <div class="flex items-center gap-2 text-sm text-gray-400">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                      <span class="line-through">{t}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div class="flex justify-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#007BFF" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+              </div>
+              <div class="bg-primary/5 rounded-2xl p-6 border-2 border-primary/20 shadow-sm">
+                <div class="flex items-center gap-3 mb-4">
+                  <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#007BFF" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  </div>
+                  <p class="font-bold text-sm text-primary">TO-BE: SafeD 도입</p>
+                </div>
+                <div class="space-y-2">
+                  {['시스템 기반 위험성평가 (50,000 DB)', '실시간 모니터링·자동 알림', '근거자료 자동 생성·보관'].map((t) => (
+                    <div class="flex items-center gap-2 text-sm text-gray-700">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#007BFF" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span class="font-medium">{t}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -291,121 +307,195 @@ const navLinks = [
     </div>
   </section>
 
-  <!-- SafeD 안전보건관리체계 매핑 -->
+  <!-- 4대 의무사항 - Connected Flow -->
   <section class="py-24 bg-gray-50">
     <div class="w-container max-w-5xl">
       <div class="text-center mb-16">
-        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">SafeD Solution</p>
-        <h2 class="sub-headline reveal delay-100">안전보건관리체계를 SafeD로 구축</h2>
+        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">Key Obligations</p>
+        <h2 class="text-3xl lg:text-4xl font-bold tracking-tight reveal delay-100">4대 의무사항 × SafeD 대응</h2>
+        <p class="text-gray-500 mt-3 reveal delay-200">경영책임자가 이행해야 할 4대 의무를 SafeD가 시스템으로 해결합니다.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal delay-200">
+
+      <div class="space-y-6">
         {[
-          { iconPath: 'M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11', iconColor: '#ef4444', title: '시스템 기반 위험성평가', items: ['300+ 공종, 50,000+ 위험요인 DB', '최초/정기/수시/일일 평가 지원', '가능성·중대성 자동 점수 산출'] },
-          { iconPath: 'M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z', iconColor: '#3b82f6', title: 'Database 구축', items: ['260종 3만여 Case 탑재', '공종별 위험요인·안전대책 자동 매칭', '사고사례 DB 공유·학습'] },
-          { iconPath: '2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z', iconColor: '#16a34a', title: 'TBM·점검일지·안전교육', items: ['PC+모바일 동시 작성', '참석자 서명·문자 인증', '교육일지 자동 생성'] },
-          { iconPath: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M16 13H8M16 17H8M10 9H8', iconColor: '#8b5cf6', title: '작업계획서·허가서', items: ['사전 양식 빠른 작성', '결재선 승인 프로세스', '고위험작업 PTW 관리'] },
-          { iconPath: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10zM12 8v4M12 16h.01', iconColor: '#06b6d4', title: '비콘+GPS 센싱', items: ['위험지역 접근 경고', 'GPS 출역·동선 추적', '비용 90% 절감 비콘'] },
-          { iconPath: 'M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z', iconColor: '#f59e0b', title: '다국어 번역', items: ['Google AI 19개국어 지원', '모국어 자동 번역 + 음성 안내', '외국인 근로자 완전 참여'] },
-        ].map((item) => (
-          <div class="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-lg transition-shadow">
-            <div class="w-12 h-12 rounded-xl mb-3 flex items-center justify-center" style={`background: ${item.iconColor}10`}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={item.iconColor} stroke-width="1.5"><path d={item.iconPath}/></svg>
+          { num: '01', title: '안전보건관리체계 구축·이행', desc: '재해 예방에 필요한 인력 및 예산 등 안전보건관리체계의 구축 및 이행', safed: '위험성평가, 점검활동, DB 시스템 구축', image: '/images/safed_feature_01.png', color: '#ef4444' },
+          { num: '02', title: '재발방지 대책 수립·이행', desc: '재해 발생 시 재발방지 대책의 수립 및 이행', safed: '사고사례 DB, 현장 안전 데이터 분석, 사례 공유', image: '/images/safed_feature_02.png', color: '#f59e0b' },
+          { num: '03', title: '개선·시정 명령 이행', desc: '관계 법령에 따라 개선, 시정 등을 명한 사항의 이행', safed: '자동 알림, 조치 추적, 실시간 모니터링', image: '/images/safed_feature_04.png', color: '#3b82f6' },
+          { num: '04', title: '의무이행 관리상 조치', desc: '안전·보건 관계 법령에 따른 의무이행에 필요한 관리상의 조치', safed: '대시보드, 보고서 자동생성, 근거자료 보관', image: '/images/dboard.png', color: '#8b5cf6' },
+        ].map((item, i) => (
+          <div class={`grid grid-cols-1 lg:grid-cols-12 gap-6 items-center reveal delay-${Math.min((i + 1) * 100, 400)}`}>
+            {/* Image */}
+            <div class={`lg:col-span-4 ${i % 2 === 1 ? 'lg:order-2' : ''}`}>
+              <div class="bg-white rounded-2xl p-3 shadow-sm border border-gray-100 overflow-hidden">
+                <img src={item.image} alt={item.title} class="w-full rounded-xl object-cover" style="aspect-ratio: 16/10;" loading="lazy" />
+              </div>
             </div>
-            <h3 class="font-bold mb-3">{item.title}</h3>
-            <ul class="space-y-2">
-              {item.items.map((text) => (
-                <li class="text-xs text-gray-500 flex items-start gap-2">
-                  <svg class="w-4 h-4 text-primary flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                  {text}
-                </li>
-              ))}
-            </ul>
+            {/* Content */}
+            <div class={`lg:col-span-8 ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
+              <div class="bg-white rounded-2xl p-6 lg:p-8 border border-gray-100 shadow-sm">
+                <div class="flex items-center gap-4 mb-4">
+                  <span class="eng text-4xl font-extrabold" style={`color: ${item.color}20`}>{item.num}</span>
+                  <div>
+                    <p class="text-[10px] font-bold uppercase eng tracking-wider" style={`color: ${item.color}`}>법적 의무</p>
+                    <h3 class="font-bold text-lg tracking-tight">{item.title}</h3>
+                  </div>
+                </div>
+                <p class="text-gray-500 text-sm leading-relaxed mb-4">{item.desc}</p>
+                <div class="flex items-start gap-2 bg-primary/5 rounded-xl px-4 py-3">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#007BFF" stroke-width="2" class="flex-shrink-0 mt-0.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  <p class="text-sm"><strong class="text-primary">SafeD 대응:</strong> <span class="text-gray-600">{item.safed}</span></p>
+                </div>
+              </div>
+            </div>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- 도입 효과 비교 -->
-  <section class="py-24">
+  <!-- 현장/본사 Needs - Visual Comparison -->
+  <section class="py-24 bg-white">
+    <div class="w-container max-w-5xl">
+      <div class="text-center mb-16">
+        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">Needs Analysis</p>
+        <h2 class="text-3xl lg:text-4xl font-bold tracking-tight reveal delay-100">현장과 본사, 각각의 과제</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="reveal">
+          <div class="relative overflow-hidden rounded-3xl">
+            <div class="absolute inset-0 bg-gradient-to-br from-orange-500 to-amber-600"></div>
+            <div class="absolute inset-0 bg-[url('/images/harfbox1_bg.jpg')] bg-cover bg-center opacity-20"></div>
+            <div class="relative z-10 p-8 text-white">
+              <div class="flex items-center gap-3 mb-6">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 20h20M5 20V8l7-5 7 5v12M9 20v-4h6v4"/></svg>
+                <h3 class="text-xl font-bold">현장 Needs</h3>
+              </div>
+              <div class="space-y-3">
+                {[
+                  { title: '위험성평가 프로세스 체계화', items: ['최초/정기/수시/일일 평가', '데이터 기반 위험요인 매칭'] },
+                  { title: '안전관리체계 강화', items: ['관리 포인트 증가 대응', '외국인 근로자 언어 장벽 해소'] },
+                  { title: '현장 DB·모니터링', items: ['안전활동 Database 구축', '실시간 취합/분석/모니터링'] },
+                ].map((need) => (
+                  <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10">
+                    <p class="font-semibold text-sm mb-2">{need.title}</p>
+                    <div class="space-y-1">
+                      {need.items.map((item) => (
+                        <p class="text-xs text-white/70 flex items-center gap-2">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                          {item}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal delay-200">
+          <div class="relative overflow-hidden rounded-3xl">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-600 to-indigo-700"></div>
+            <div class="absolute inset-0 bg-[url('/images/harfbox2_bg.jpg')] bg-cover bg-center opacity-20"></div>
+            <div class="relative z-10 p-8 text-white">
+              <div class="flex items-center gap-3 mb-6">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M3 7v14M21 7v14M6 7V3h12v4M9 21v-4h6v4M9 7h6"/></svg>
+                <h3 class="text-xl font-bold">본사 Needs</h3>
+              </div>
+              <div class="space-y-3">
+                {[
+                  { title: '전 현장 통합 모니터링', items: ['현장별 이행률 실시간 비교', '안전활동 KPI 대시보드'] },
+                  { title: '법적 근거자료 확보', items: ['의무이행 증빙 자동 생성', '보고서 자동 출력·보관'] },
+                  { title: '표준 안전관리 프로세스', items: ['전 현장 동일 프로세스 적용', '공종 DB·교육자료 제공'] },
+                ].map((need) => (
+                  <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10">
+                    <p class="font-semibold text-sm mb-2">{need.title}</p>
+                    <div class="space-y-1">
+                      {need.items.map((item) => (
+                        <p class="text-xs text-white/70 flex items-center gap-2">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                          {item}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 도입 효과 - Visual Charts -->
+  <section class="py-24 bg-gray-50">
     <div class="w-container max-w-5xl">
       <div class="text-center mb-16">
         <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">Impact</p>
-        <h2 class="sub-headline reveal delay-100">도입 효과</h2>
+        <h2 class="text-3xl lg:text-4xl font-bold tracking-tight reveal delay-100">도입 효과</h2>
       </div>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-        <!-- 비효율 제거 차트 -->
-        <div class="reveal">
-          <h3 class="font-bold text-lg mb-6">업무 시간 비교 (1개 현장, 월 기준)</h3>
-          <div class="space-y-5">
-            {[
-              { label: '탐색·열람', before: 60, after: 10, unit: '분' },
-              { label: '발굴·조치', before: 120, after: 20, unit: '분' },
-              { label: '기록·보관', before: 60, after: 10, unit: '분' },
-            ].map((item) => (
-              <div>
-                <div class="flex justify-between text-sm mb-2">
-                  <span class="font-semibold">{item.label}</span>
-                  <span class="eng text-primary font-bold">{Math.round((1 - item.after / item.before) * 100)}% 절감</span>
-                </div>
-                <div class="space-y-1">
-                  <div class="flex items-center gap-3">
-                    <span class="text-xs text-gray-400 w-12">AS-IS</span>
-                    <div class="flex-1 h-6 bg-gray-100 rounded-full overflow-hidden">
-                      <div class="h-full bg-red-300 rounded-full flex items-center justify-end pr-2" style={`width: ${(item.before / 120) * 100}%`}>
-                        <span class="text-xs text-red-800 font-semibold">{item.before}{item.unit}</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex items-center gap-3">
-                    <span class="text-xs text-gray-400 w-12">TO-BE</span>
-                    <div class="flex-1 h-6 bg-gray-100 rounded-full overflow-hidden">
-                      <div class="h-full bg-primary rounded-full flex items-center justify-end pr-2" style={`width: ${(item.after / 120) * 100}%`}>
-                        <span class="text-xs text-white font-semibold">{item.after}{item.unit}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div class="mt-6 bg-gray-50 rounded-xl p-4 text-center">
-            <p class="text-sm text-gray-600">총 <strong class="eng text-primary">240분 → 40분</strong> | 월 <strong class="eng text-primary">60시간, 120만원</strong> 절감</p>
-          </div>
-        </div>
 
-        <!-- 핵심 효과 카드 -->
-        <div class="reveal delay-200">
-          <h3 class="font-bold text-lg mb-6">핵심 도입 효과</h3>
-          <div class="space-y-4">
-            {[
-              { iconPath: 'M13 2L3 14h9l-1 8 10-12h-9l1-8z', iconColor: '#f59e0b', num: '80%', title: '단순·반복 업무 제거', desc: '서류작성, 엑셀관리, 수기점검 등 비효율 업무 제거' },
-              { iconPath: 'M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM22 12l-10-2-2-10', iconColor: '#ef4444', num: '70%', title: '위험성평가 작성시간 단축', desc: '50,000건 DB 자동 매칭으로 원클릭 작성' },
-              { iconPath: 'M5 2h14v20H5zM12 18h.01', iconColor: '#3b82f6', num: '100%', title: '모바일 현장 대응', desc: 'PC+모바일 실시간 연동, 어디서든 접근 가능' },
-              { iconPath: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6', iconColor: '#8b5cf6', num: '자동', title: '법적 근거자료 생성', desc: '보고서, 회의록, 점검일지 자동 생성·보관' },
-            ].map((item) => (
-              <div class="flex items-start gap-4 bg-white border border-gray-100 rounded-xl p-5 hover:shadow-md transition-shadow">
-                <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={`background: ${item.iconColor}10`}>
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={item.iconColor} stroke-width="1.5"><path d={item.iconPath}/></svg>
+      <!-- Bar chart comparison -->
+      <div class="bg-white rounded-3xl p-8 lg:p-10 shadow-sm mb-8 impact-chart-wrap">
+        <h3 class="font-bold text-lg mb-8 text-center">업무 시간 비교 <span class="text-gray-400 text-sm font-normal">(1개 현장, 1일 기준)</span></h3>
+        <div class="space-y-8">
+          {[
+            { label: '탐색·열람', before: 60, after: 10, color: '#ef4444', idx: 0 },
+            { label: '발굴·조치', before: 120, after: 20, color: '#f59e0b', idx: 1 },
+            { label: '기록·보관', before: 60, after: 10, color: '#3b82f6', idx: 2 },
+          ].map((item) => (
+            <div class="impact-bar-row" data-bar-idx={item.idx}>
+              <div class="flex items-center justify-between mb-3">
+                <span class="font-bold text-sm">{item.label}</span>
+                <span class="eng text-sm font-bold impact-pct" style={`color: ${item.color}; opacity: 0;`}>{Math.round((1 - item.after / item.before) * 100)}% 절감</span>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <p class="text-xs text-gray-400 mb-1">AS-IS (기존)</p>
+                  <div class="h-10 bg-gray-100 rounded-xl overflow-hidden relative">
+                    <div class="h-full rounded-xl flex items-center justify-end pr-3 impact-bar" style={`width: 0%; background: ${item.color}30;`} data-target-width={`${(item.before / 120) * 100}%`}>
+                      <span class="eng text-xs font-bold" style={`color: ${item.color}`}>{item.before}분</span>
+                    </div>
+                  </div>
                 </div>
                 <div>
-                  <div class="flex items-center gap-2 mb-1">
-                    <span class="eng text-primary font-extrabold text-lg">{item.num}</span>
-                    <h4 class="font-bold text-sm">{item.title}</h4>
+                  <p class="text-xs text-gray-400 mb-1">TO-BE (SafeD)</p>
+                  <div class="h-10 bg-gray-100 rounded-xl overflow-hidden relative">
+                    <div class="h-full bg-primary rounded-xl flex items-center justify-end pr-3 impact-bar" style={`width: 0%;`} data-target-width={`${(item.after / 120) * 100}%`}>
+                      <span class="eng text-xs text-white font-bold">{item.after}분</span>
+                    </div>
                   </div>
-                  <p class="text-xs text-gray-500">{item.desc}</p>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
+        <div class="mt-8 bg-primary/5 rounded-xl p-5 text-center border border-primary/10 impact-summary" style="opacity: 0; transform: translateY(10px);">
+          <p class="text-lg font-bold">
+            총 <span class="eng text-primary">240분 → 40분</span> | 월 <span class="eng text-primary">120만원</span> 절감
+          </p>
+        </div>
+      </div>
+
+      <!-- Impact stats -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 reveal delay-300">
+        {[
+          { num: '80%', label: '단순·반복\n업무 제거', color: '#ef4444' },
+          { num: '70%', label: '위험성평가\n작성시간 단축', color: '#f59e0b' },
+          { num: '100%', label: '모바일\n현장 대응', color: '#3b82f6' },
+          { num: '자동', label: '법적 근거자료\n생성·보관', color: '#8b5cf6' },
+        ].map((item) => (
+          <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
+            <p class="eng text-3xl font-extrabold mb-2" style={`color: ${item.color}`}>{item.num}</p>
+            <p class="text-xs text-gray-500 whitespace-pre-line leading-relaxed font-medium">{item.label}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
   <!-- Penalty Section -->
   <section class="py-24 bg-gray-950 text-white relative overflow-hidden">
-    <!-- Warning pulse bars -->
     <div class="absolute top-0 left-0 right-0 flex items-start gap-[3px] h-10 opacity-10 px-4 rotate-180" aria-hidden="true">
       {Array.from({length: 50}).map((_, i) => {
         const h = 15 + Math.sin(i * 0.8) * 20 + Math.cos(i * 0.5) * 10;
@@ -416,51 +506,57 @@ const navLinks = [
         );
       })}
     </div>
-    <div class="w-container max-w-4xl relative z-10">
+    <div class="w-container max-w-5xl relative z-10">
       <div class="text-center mb-16">
         <p class="eng font-semibold text-sm tracking-widest uppercase mb-4 text-red-400 reveal">Penalty</p>
-        <h2 class="sub-headline reveal delay-100">위반 시 처벌 수위</h2>
-        <p class="text-white/50 mt-4 reveal delay-200">중대재해처벌법 위반 시 경영책임자에게 직접 책임이 부과됩니다.</p>
+        <h2 class="text-3xl lg:text-4xl font-bold tracking-tight reveal delay-100">위반 시 처벌</h2>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 reveal delay-100">
-          <p class="text-red-400 eng font-bold text-sm mb-4">사망사고 발생 시</p>
-          <p class="eng text-4xl font-extrabold mb-2">1년 이상</p>
-          <p class="text-white/60 text-sm mb-4">징역 또는 10억원 이하 벌금</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div class="relative overflow-hidden bg-gradient-to-br from-red-950/50 to-red-900/30 border border-red-500/20 rounded-3xl p-8 reveal">
+          <div class="absolute top-4 right-4">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.1)" stroke-width="1"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+          </div>
+          <p class="text-red-400 eng font-bold text-xs tracking-wider uppercase mb-6">사망사고 발생 시</p>
+          <p class="eng text-5xl lg:text-6xl font-extrabold text-white mb-2">1년+</p>
+          <p class="text-white/60 text-sm mb-6">징역 또는 10억원 이하 벌금</p>
           <div class="border-t border-white/10 pt-4">
-            <p class="text-white/40 text-xs">법인: 50억원 이하 벌금</p>
+            <p class="text-white/30 text-xs">법인: <span class="eng font-bold text-red-400/70">50억원</span> 이하 벌금</p>
           </div>
         </div>
-        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 reveal delay-200">
-          <p class="text-red-400 eng font-bold text-sm mb-4">부상·질병 발생 시</p>
-          <p class="eng text-4xl font-extrabold mb-2">7년 이하</p>
-          <p class="text-white/60 text-sm mb-4">징역 또는 1억원 이하 벌금</p>
+        <div class="relative overflow-hidden bg-gradient-to-br from-amber-950/50 to-amber-900/30 border border-amber-500/20 rounded-3xl p-8 reveal delay-200">
+          <div class="absolute top-4 right-4">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="rgba(245,158,11,0.1)" stroke-width="1"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <p class="text-amber-400 eng font-bold text-xs tracking-wider uppercase mb-6">부상·질병 발생 시</p>
+          <p class="eng text-5xl lg:text-6xl font-extrabold text-white mb-2">7년</p>
+          <p class="text-white/60 text-sm mb-6">이하 징역 또는 1억원 이하 벌금</p>
           <div class="border-t border-white/10 pt-4">
-            <p class="text-white/40 text-xs">법인: 10억원 이하 벌금</p>
+            <p class="text-white/30 text-xs">법인: <span class="eng font-bold text-amber-400/70">10억원</span> 이하 벌금</p>
           </div>
         </div>
       </div>
-      <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 reveal delay-300">
-        <div class="bg-red-500/10 border border-red-500/20 rounded-xl p-4 text-center">
-          <p class="eng font-bold text-red-400 text-2xl">50억</p>
-          <p class="text-xs text-white/50 mt-1">법인 최대 벌금 (사망)</p>
-        </div>
-        <div class="bg-red-500/10 border border-red-500/20 rounded-xl p-4 text-center">
-          <p class="eng font-bold text-red-400 text-2xl">징벌적</p>
-          <p class="text-xs text-white/50 mt-1">손해배상 부과 가능</p>
-        </div>
-        <div class="bg-red-500/10 border border-red-500/20 rounded-xl p-4 text-center">
-          <p class="eng font-bold text-red-400 text-2xl">실형</p>
-          <p class="text-xs text-white/50 mt-1">경영책임자 직접 처벌</p>
-        </div>
+
+      <div class="grid grid-cols-3 gap-4 reveal delay-300">
+        {[
+          { num: '50억', label: '법인 최대 벌금', sub: '사망사고' },
+          { num: '징벌적', label: '손해배상', sub: '부과 가능' },
+          { num: '실형', label: '경영책임자', sub: '직접 처벌' },
+        ].map((item) => (
+          <div class="bg-red-500/5 border border-red-500/10 rounded-xl p-4 text-center">
+            <p class="eng font-extrabold text-xl text-red-400">{item.num}</p>
+            <p class="text-xs text-white/60 mt-1">{item.label}</p>
+            <p class="text-[10px] text-white/30">{item.sub}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- Solution Bridge -->
+  <!-- Solution CTA -->
   <section class="py-28 bg-white">
     <div class="w-container max-w-4xl text-center">
-      <h2 class="hero-headline tracking-tight reveal">
+      <h2 class="text-3xl lg:text-5xl font-extrabold tracking-tight leading-[1.1] reveal">
         대비하지 않으면,<br /><span class="text-gradient-blue">대가를 치릅니다.</span>
       </h2>
       <p class="text-gray-500 text-lg mt-8 max-w-2xl mx-auto leading-relaxed reveal delay-100">
@@ -479,3 +575,67 @@ const navLinks = [
     </div>
   </section>
 </SubPageLayout>
+
+<style>
+  @keyframes wave-bar {
+    0% { transform: scaleY(0.3); }
+    100% { transform: scaleY(1); }
+  }
+
+  .impact-bar {
+    transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .impact-pct {
+    transition: opacity 0.5s ease;
+  }
+
+  .impact-summary {
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+</style>
+
+<script>
+  function initImpactBars() {
+    const wrap = document.querySelector('.impact-chart-wrap');
+    if (!wrap) return;
+
+    let animated = false;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !animated) {
+          animated = true;
+
+          const rows = wrap.querySelectorAll('.impact-bar-row');
+          rows.forEach((row, i) => {
+            setTimeout(() => {
+              const bars = row.querySelectorAll('.impact-bar') as NodeListOf<HTMLElement>;
+              bars.forEach((bar) => {
+                const target = bar.getAttribute('data-target-width');
+                if (target) bar.style.width = target;
+              });
+
+              const pct = row.querySelector('.impact-pct') as HTMLElement;
+              if (pct) pct.style.opacity = '1';
+            }, i * 300);
+          });
+
+          // Show summary after all bars
+          setTimeout(() => {
+            const summary = wrap.querySelector('.impact-summary') as HTMLElement;
+            if (summary) {
+              summary.style.opacity = '1';
+              summary.style.transform = 'translateY(0)';
+            }
+          }, rows.length * 300 + 600);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(wrap);
+  }
+
+  document.addEventListener('DOMContentLoaded', initImpactBars);
+  document.addEventListener('astro:page-load', initImpactBars);
+</script>
