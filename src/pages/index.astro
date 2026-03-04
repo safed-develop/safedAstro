@@ -4,6 +4,7 @@ import SlideShow from '../components/ui/SlideShow.tsx';
 import MultiSlide from '../components/ui/MultiSlide.tsx';
 import HoverComponent from '../components/ui/HoverComponent.astro';
 import TestimonialCarousel from '../components/ui/TestimonialCarousel.tsx';
+import PinScrollSection from '../components/ui/PinScrollSection.tsx';
 ---
 
 <BaseLayout
@@ -56,25 +57,48 @@ import TestimonialCarousel from '../components/ui/TestimonialCarousel.tsx';
     ]}
   />
 
-  <!-- Big Statement -->
-  <section class="py-32 lg:py-40 bg-white">
-    <div class="w-container max-w-5xl">
-      <div class="text-center">
-        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-6 reveal">About SafeD</p>
-        <h2 class="hero-headline tracking-tight leading-tight reveal delay-100">
-          현장의 생명을 지키는<br /><span class="text-gradient-blue">단 하나의 플랫폼.</span>
-        </h2>
-        <p class="text-gray-500 text-lg lg:text-xl leading-relaxed mt-8 max-w-2xl mx-auto reveal delay-200">
-          건설현장, 플랜트, 제조시설, 유지보수 — 어디서든.<br class="hidden lg:block" />
-          SafeD는 중대재해처벌법 대응부터 위험성평가, 실시간 모니터링까지<br class="hidden lg:block" />
-          안전관리의 모든 것을 하나로 연결합니다.
-        </p>
-        <a href="/safed-features" class="inline-flex items-center gap-2 mt-10 text-primary font-semibold hover:gap-3 transition-all reveal delay-300">
-          SafeD 자세히 알아보기
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-    </div>
+  <!-- Pin Scroll Marketing Section -->
+  <section class="py-20 lg:py-28 bg-white">
+    <PinScrollSection
+      client:visible
+      items={[
+        {
+          tag: 'Safety Platform',
+          headline: '서류가 아닌 시스템으로,\n생명을 지킵니다.',
+          desc: '260종 3만여 건의 위험 Case를 눈으로 확인하던 시대는 끝났습니다. SafeD는 1-click으로 위험요인을 조회하고, 현장에서 즉시 조치하는 올인원 안전관리 플랫폼입니다.',
+          stat: '80%',
+          statLabel: '단순·반복 업무 제거',
+        },
+        {
+          tag: 'Risk Assessment',
+          headline: '50,000개 위험요인 DB로\n원클릭 위험성평가.',
+          desc: '300여개 공종, 50,000개 위험요인·안전대책 DB를 기반으로 협력업체도 쉽고 빠르게 위험성평가를 작성합니다. 최초/정기/수시/일일 평가를 모두 지원합니다.',
+          stat: '70%',
+          statLabel: '작성 시간 단축',
+        },
+        {
+          tag: 'Legal Compliance',
+          headline: '중대재해처벌법,\n시스템으로 완벽 대응.',
+          desc: '안전보건관리체계 구축부터 의무이행 근거자료 자동생성까지. 경영책임자 1년 이상 징역, 10억 벌금의 리스크를 SafeD로 체계적으로 관리합니다.',
+          stat: '100%',
+          statLabel: '4대 의무사항 매핑',
+        },
+        {
+          tag: 'Cost Savings',
+          headline: '현장당 월 120만원,\n60시간을 절감합니다.',
+          desc: '탐색 60분→10분, 발굴 120분→20분, 기록 60분→10분. 총 240분의 일일 업무가 40분으로 줄어듭니다. 핵심업무에 집중할 수 있습니다.',
+          stat: '120만원',
+          statLabel: '월 비용 절감 (현장당)',
+        },
+        {
+          tag: 'Multilingual',
+          headline: '19개국어 자동번역,\n모든 근로자가 이해합니다.',
+          desc: 'Google AI 기반 실시간 번역으로 다국적 근로자가 모국어로 위험성평가·TBM·안전교육 내용을 확인합니다. 음성 안내까지 지원합니다.',
+          stat: '19개국어',
+          statLabel: 'AI 자동번역 지원',
+        },
+      ]}
+    />
   </section>
 
   <!-- Numbers Section -->

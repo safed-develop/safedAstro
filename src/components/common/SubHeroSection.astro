@@ -41,9 +41,8 @@ const autoBreadcrumbs = breadcrumbs.length > 0 ? breadcrumbs : (() => {
 ---
 
 <section class="sub-hero">
-  <!-- Background image with overlay -->
+  <!-- Pure gradient background (no image) -->
   <div class="sub-hero-bg"></div>
-  <div class="sub-hero-overlay"></div>
   <!-- Animated structural shapes -->
   <div class="sub-hero-shapes" aria-hidden="true">
     <div class="shape shape-1"></div>
@@ -107,23 +106,16 @@ const autoBreadcrumbs = breadcrumbs.length > 0 ? breadcrumbs : (() => {
   .sub-hero-bg {
     position: absolute;
     inset: 0;
-    background-image: url('/images/pageheader_bg.jpg');
-    background-size: cover;
-    background-position: center;
+    background: linear-gradient(135deg, #000c23 0%, #001a4a 30%, #002860 60%, #001030 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 12s ease-in-out infinite;
     z-index: 0;
-    animation: slowZoom 20s ease-in-out infinite alternate;
   }
 
-  @keyframes slowZoom {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.08); }
-  }
-
-  .sub-hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(0, 12, 35, 0.92) 0%, rgba(0, 50, 120, 0.8) 50%, rgba(0, 20, 55, 0.9) 100%);
-    z-index: 1;
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 
   /* Animated structural shapes */
