@@ -1,0 +1,108 @@
+---
+interface Props {
+  items: { question: string; answer: string }[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="accordion">
+  {items.map((item, i) => (
+    <div class="accordion-item" data-index={i}>
+      <button class="accordion-title" aria-expanded="false">
+        <span>{item.question}</span>
+        <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </button>
+      <div class="accordion-content">
+        <p>{item.answer}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
+<script>
+  document.querySelectorAll('.accordion-title').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isOpen = item?.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.accordion-item').forEach((el) => {
+        el.classList.remove('open');
+        el.querySelector('.accordion-title')?.setAttribute('aria-expanded', 'false');
+      });
+
+      // Toggle clicked
+      if (!isOpen) {
+        item?.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
+
+<style>
+  .accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .accordion-item {
+    border-bottom: 1px solid var(--color-gray-200);
+  }
+
+  .accordion-title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 0;
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-gray-800);
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    transition: color 0.2s ease;
+    letter-spacing: -0.5px;
+  }
+
+  .accordion-title:hover {
+    color: var(--color-primary);
+  }
+
+  .accordion-icon {
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    color: var(--color-gray-400);
+  }
+
+  .accordion-item.open .accordion-icon {
+    transform: rotate(180deg);
+    color: var(--color-primary);
+  }
+
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+    padding: 0;
+  }
+
+  .accordion-item.open .accordion-content {
+    max-height: 500px;
+    padding-bottom: 1.25rem;
+  }
+
+  .accordion-content p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--color-gray-600);
+    word-break: keep-all;
+  }
+</style>

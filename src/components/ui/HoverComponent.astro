@@ -1,0 +1,177 @@
+---
+interface HoverItem {
+  label: string;
+  title: string;
+  text: string;
+  image: string;
+}
+
+interface Props {
+  items: HoverItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="hover-comp">
+  <div class="hover-left">
+    {items.map((item, i) => (
+      <button
+        class:list={['hover-item', { active: i === 0 }]}
+        data-index={i}
+      >
+        <span class="hover-label">{item.label}</span>
+        <svg class="hover-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </button>
+    ))}
+  </div>
+  <div class="hover-right" data-default-image={items[0]?.image}>
+    <div class="hover-right-overlay">
+      <h3 class="hover-right-title">{items[0]?.title}</h3>
+      <p class="hover-right-text">{items[0]?.text}</p>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ items }}>
+  const hoverItems = document.querySelectorAll('.hover-item');
+  const rightPanel = document.querySelector('.hover-right') as HTMLElement;
+  const titleEl = document.querySelector('.hover-right-title');
+  const textEl = document.querySelector('.hover-right-text');
+
+  if (rightPanel && items[0]) {
+    rightPanel.style.backgroundImage = `url(${items[0].image})`;
+  }
+
+  hoverItems.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const index = parseInt(btn.getAttribute('data-index') || '0');
+      const item = items[index];
+      if (!item || !rightPanel || !titleEl || !textEl) return;
+
+      hoverItems.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      rightPanel.style.backgroundImage = `url(${item.image})`;
+      titleEl.textContent = item.title;
+      textEl.textContent = item.text;
+    });
+  });
+</script>
+
+<style>
+  .hover-comp {
+    display: flex;
+    min-height: 400px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .hover-left {
+    display: flex;
+    flex-direction: column;
+    background: #111;
+    min-width: 280px;
+  }
+
+  .hover-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: inherit;
+    text-align: left;
+    transition: all 0.25s ease;
+    letter-spacing: -0.3px;
+  }
+
+  .hover-item:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .hover-item.active {
+    color: #fff;
+    background: var(--color-primary);
+  }
+
+  .hover-arrow {
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: all 0.25s ease;
+  }
+
+  .hover-item.active .hover-arrow,
+  .hover-item:hover .hover-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .hover-right {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    transition: background-image 0.5s ease;
+  }
+
+  .hover-right-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 60, 120, 0.5), rgba(0, 30, 60, 0.7));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    color: #fff;
+    text-align: center;
+  }
+
+  .hover-right-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+  }
+
+  .hover-right-text {
+    font-size: 15px;
+    line-height: 1.6;
+    opacity: 0.85;
+    max-width: 400px;
+    word-break: keep-all;
+  }
+
+  @media (max-width: 768px) {
+    .hover-comp {
+      flex-direction: column;
+    }
+
+    .hover-left {
+      flex-direction: row;
+      overflow-x: auto;
+      min-width: unset;
+    }
+
+    .hover-item {
+      white-space: nowrap;
+      font-size: 14px;
+      padding: 0.75rem 1rem;
+    }
+
+    .hover-right {
+      min-height: 300px;
+    }
+  }
+</style>

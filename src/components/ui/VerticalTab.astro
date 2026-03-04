@@ -1,0 +1,129 @@
+---
+interface Props {
+  tabs: { name: string; content: string }[];
+}
+
+const { tabs } = Astro.props;
+---
+
+<div class="vtab-wrap">
+  <div class="vtab-buttons">
+    {tabs.map((tab, i) => (
+      <button
+        class:list={['vtab-btn', { active: i === 0 }]}
+        data-tab={tab.name}
+      >
+        {tab.name}
+      </button>
+    ))}
+  </div>
+  <div class="vtab-content">
+    {tabs.map((tab, i) => (
+      <div
+        class:list={['vtab-panel', { active: i === 0 }]}
+        data-panel={tab.name}
+        set:html={tab.content}
+      />
+    ))}
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.vtab-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const tabName = btn.getAttribute('data-tab');
+
+      // Update buttons
+      document.querySelectorAll('.vtab-btn').forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Update panels
+      document.querySelectorAll('.vtab-panel').forEach((p) => p.classList.remove('active'));
+      document.querySelector(`.vtab-panel[data-panel="${tabName}"]`)?.classList.add('active');
+    });
+  });
+</script>
+
+<style>
+  .vtab-wrap {
+    display: flex;
+    gap: 2rem;
+    min-height: 300px;
+  }
+
+  .vtab-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    min-width: 180px;
+    border-right: 1px solid var(--color-gray-200);
+    padding-right: 1.5rem;
+  }
+
+  .vtab-btn {
+    padding: 0.75rem 1rem;
+    background: none;
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-gray-500);
+    text-align: left;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    letter-spacing: -0.3px;
+    white-space: nowrap;
+  }
+
+  .vtab-btn:hover {
+    color: var(--color-gray-800);
+    background: var(--color-gray-50);
+  }
+
+  .vtab-btn.active {
+    color: var(--color-primary);
+    background: rgba(0, 123, 255, 0.06);
+    font-weight: 600;
+  }
+
+  .vtab-content {
+    flex: 1;
+  }
+
+  .vtab-panel {
+    display: none;
+    animation: vtab-fade 0.3s ease;
+  }
+
+  .vtab-panel.active {
+    display: block;
+  }
+
+  @keyframes vtab-fade {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
+    .vtab-wrap {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .vtab-buttons {
+      flex-direction: row;
+      overflow-x: auto;
+      border-right: none;
+      border-bottom: 1px solid var(--color-gray-200);
+      padding-right: 0;
+      padding-bottom: 0.5rem;
+      min-width: unset;
+    }
+
+    .vtab-btn {
+      font-size: 14px;
+      padding: 0.5rem 0.75rem;
+    }
+  }
+</style>

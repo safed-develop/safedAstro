@@ -1,0 +1,53 @@
+---
+interface Props {
+  src: string;
+  alt?: string;
+  height?: string;
+}
+
+const { src, alt = '', height = '400px' } = Astro.props;
+---
+
+<div class="parallax-wrap" style={`height: ${height}`} data-parallax>
+  <img src={src} alt={alt} class="parallax-img" loading="lazy" />
+</div>
+
+<script>
+  const parallaxElements = document.querySelectorAll('[data-parallax]');
+
+  function updateParallax() {
+    parallaxElements.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      const img = el.querySelector('.parallax-img') as HTMLElement;
+      if (!img) return;
+
+      const scrollPercent = (rect.top + rect.height) / (window.innerHeight + rect.height);
+      const offset = (scrollPercent - 0.5) * 60;
+      img.style.transform = `translateY(${offset}px) scale(1.15)`;
+    });
+  }
+
+  window.addEventListener('scroll', () => {
+    requestAnimationFrame(updateParallax);
+  }, { passive: true });
+
+  updateParallax();
+</script>
+
+<style>
+  .parallax-wrap {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  .parallax-img {
+    position: absolute;
+    top: -30px;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 60px);
+    object-fit: cover;
+    will-change: transform;
+  }
+</style>
