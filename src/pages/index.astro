@@ -29,6 +29,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
     slides={[
       {
         image: '/images/mainslide01.jpg',
+        featureImage: '/images/safed1.png',
         tag: 'Smart Safety Platform',
         title: '건설현장 안전관리의\n새로운 기준을 제시합니다',
         subtitle: '위험성평가, GPS 모니터링, AI 번역, 자동 알림까지. SafeD는 현장의 안전을 기술로 완성합니다.',
@@ -38,6 +39,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
       },
       {
         image: '/images/mainslide02.jpg',
+        featureImage: '/images/dboard.png',
         tag: '2021 스마트건설대상 수상',
         title: '검증된 안전관리 솔루션\n국내 150+ 현장 도입',
         subtitle: '스마트건설대상 안전대상 수상, 특허 2건 보유. 국내 주요 건설사가 선택한 안전관리 플랫폼입니다.',
@@ -47,6 +49,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
       },
       {
         image: '/images/mainslide03.jpg',
+        featureImage: '/images/safed2.png',
         tag: 'Contech Future Leader',
         title: '중대재해처벌법 대응\n체계적으로 해결합니다',
         subtitle: '안전보건관리체계 구축부터 의무이행 근거자료 자동생성까지, 법적 의무사항을 시스템으로 완벽 구현합니다.',
@@ -68,6 +71,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
           desc: '260종 3만여 건의 위험 Case를 눈으로 확인하던 시대는 끝났습니다. SafeD는 1-click으로 위험요인을 조회하고, 현장에서 즉시 조치하는 올인원 안전관리 플랫폼입니다.',
           stat: '80%',
           statLabel: '단순·반복 업무 제거',
+          image: '/images/safed_feature_01.png',
         },
         {
           tag: 'Risk Assessment',
@@ -75,6 +79,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
           desc: '300여개 공종, 50,000개 위험요인·안전대책 DB를 기반으로 협력업체도 쉽고 빠르게 위험성평가를 작성합니다. 최초/정기/수시/일일 평가를 모두 지원합니다.',
           stat: '70%',
           statLabel: '작성 시간 단축',
+          image: '/images/safed_feature_02.png',
         },
         {
           tag: 'Legal Compliance',
@@ -82,6 +87,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
           desc: '안전보건관리체계 구축부터 의무이행 근거자료 자동생성까지. 경영책임자 1년 이상 징역, 10억 벌금의 리스크를 SafeD로 체계적으로 관리합니다.',
           stat: '100%',
           statLabel: '4대 의무사항 매핑',
+          image: '/images/safed_feature_06.png',
         },
         {
           tag: 'Cost Savings',
@@ -89,6 +95,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
           desc: '탐색 60분→10분, 발굴 120분→20분, 기록 60분→10분. 총 240분의 일일 업무가 40분으로 줄어듭니다. 핵심업무에 집중할 수 있습니다.',
           stat: '120만원',
           statLabel: '월 비용 절감 (현장당)',
+          image: '/images/safed_feature_05.png',
         },
         {
           tag: 'Multilingual',
@@ -96,14 +103,26 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
           desc: 'Google AI 기반 실시간 번역으로 다국적 근로자가 모국어로 위험성평가·TBM·안전교육 내용을 확인합니다. 음성 안내까지 지원합니다.',
           stat: '19개국어',
           statLabel: 'AI 자동번역 지원',
+          image: '/images/safed_feature_03.png',
         },
       ]}
     />
   </section>
 
   <!-- Numbers Section -->
-  <section class="py-24 bg-gray-950 text-white overflow-hidden">
-    <div class="w-container">
+  <section class="py-24 bg-gray-950 text-white overflow-hidden relative">
+    <!-- Wave bar decoration -->
+    <div class="absolute bottom-0 left-0 right-0 flex items-end gap-[2px] h-16 opacity-20 px-4" aria-hidden="true">
+      {Array.from({length: 80}).map((_, i) => {
+        const h = 20 + Math.sin(i * 0.5) * 25 + Math.sin(i * 1.2) * 15;
+        const dur = (0.5 + Math.sin(i * 0.4) * 0.3).toFixed(2);
+        const del = (i * 0.03).toFixed(2);
+        return (
+          <div class="flex-1 rounded-t-sm" style={`height: ${h}%; background: linear-gradient(to top, rgba(0,123,255,0.6), rgba(0,198,255,0.2)); animation: wave-bar ${dur}s ease-in-out infinite alternate; animation-delay: ${del}s;`}></div>
+        );
+      })}
+    </div>
+    <div class="w-container relative z-10">
       <div class="text-center mb-16">
         <p class="eng font-semibold text-sm tracking-widest uppercase mb-4 text-primary reveal">Proven Results</p>
         <h2 class="sub-headline reveal delay-100">숫자가 증명하는 SafeD의 가치</h2>
@@ -212,8 +231,19 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
   </section>
 
   <!-- Safety Management System Mapping -->
-  <section class="py-24 bg-gray-950 text-white">
-    <div class="w-container max-w-5xl">
+  <section class="py-24 bg-gray-950 text-white relative overflow-hidden">
+    <!-- Top wave bars -->
+    <div class="absolute top-0 left-0 right-0 flex items-start gap-[2px] h-12 opacity-15 px-4 rotate-180" aria-hidden="true">
+      {Array.from({length: 60}).map((_, i) => {
+        const h = 15 + Math.sin(i * 0.6) * 20 + Math.cos(i * 0.9) * 12;
+        const dur = (0.6 + Math.sin(i * 0.3) * 0.4).toFixed(2);
+        const del = (i * 0.04).toFixed(2);
+        return (
+          <div class="flex-1 rounded-t-sm" style={`height: ${h}%; background: linear-gradient(to top, rgba(0,123,255,0.5), rgba(0,198,255,0.15)); animation: wave-bar ${dur}s ease-in-out infinite alternate; animation-delay: ${del}s;`}></div>
+        );
+      })}
+    </div>
+    <div class="w-container max-w-5xl relative z-10">
       <div class="text-center mb-16">
         <p class="eng font-semibold text-sm tracking-widest uppercase mb-4 text-primary reveal">Safety System</p>
         <h2 class="sub-headline reveal delay-100">안전보건관리체계를<br /><span class="text-gradient-blue">SafeD로 구축합니다</span></h2>
@@ -417,6 +447,17 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
   <section class="relative py-32 overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-[#2e4692] to-[#001f31]"></div>
     <div class="absolute inset-0 bg-[url('/images/feature02.jpg')] bg-cover bg-center bg-fixed opacity-20"></div>
+    <!-- Wave bars top -->
+    <div class="absolute top-0 left-0 right-0 flex items-start gap-[2px] h-10 opacity-10 px-2" aria-hidden="true">
+      {Array.from({length: 100}).map((_, i) => {
+        const h = 20 + Math.sin(i * 0.4) * 18 + Math.cos(i * 0.8) * 10;
+        const dur = (0.5 + Math.sin(i * 0.6) * 0.3).toFixed(2);
+        const del = (i * 0.02).toFixed(2);
+        return (
+          <div class="flex-1 rounded-b-sm" style={`height: ${h}%; background: linear-gradient(to bottom, rgba(0,123,255,0.5), transparent); animation: wave-bar ${dur}s ease-in-out infinite alternate; animation-delay: ${del}s;`}></div>
+        );
+      })}
+    </div>
     <div class="relative z-10 w-container">
       <div class="bg-white rounded-2xl p-12 lg:p-16 max-w-3xl mx-auto text-center shadow-2xl reveal-scale">
         <p class="eng text-gray-400 text-sm tracking-widest uppercase mb-4 font-semibold">Get Connected!</p>

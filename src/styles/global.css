@@ -100,6 +100,16 @@
   100% { background-position: 0% 50%; }
 }
 
+@keyframes grid-move {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(60px, 60px); }
+}
+
+@keyframes wave-bar {
+  0% { transform: scaleY(0.3); }
+  100% { transform: scaleY(1); }
+}
+
 /* --- Base Styles --- */
 @layer base {
   * {
@@ -121,6 +131,26 @@
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
     word-break: keep-all;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.025;
+    background-image:
+      linear-gradient(rgba(0,0,0,1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,0,0,1) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: grid-move 30s linear infinite;
+  }
+
+  body > * {
+    position: relative;
+    z-index: 1;
   }
 
   ::selection {

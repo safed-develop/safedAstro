@@ -16,51 +16,215 @@ const navLinks = [
   description="SafeD 스마트 안전관리 시스템 - 산업안전의 미래를 설계합니다."
   navLinks={navLinks}
 >
-  <section class="py-20">
-    <div class="w-container max-w-4xl">
-      <div class="reveal">
-        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">SafeD</p>
-        <h2 class="text-3xl lg:text-4xl font-bold mb-2 tracking-tight">스마트 안전관리 시스템</h2>
-        <p class="text-xl text-gray-500 mb-12">산업안전의 미래를 설계합니다</p>
-      </div>
-
-      <div class="prose prose-lg max-w-none text-gray-600 leading-relaxed space-y-6 reveal delay-200">
-        <p>안녕하세요, SAFED를 찾아주셔서 감사합니다.</p>
-        <p>
-          저희 SAFED는 산업 현장과 기업 환경에서의 안전 관리를 전문으로 하는 기업으로서,
-          고객님의 안전과 건강을 최우선으로 생각합니다. 우리는 다양한 산업 분야에서 축적된
-          경험과 최신 기술을 바탕으로, 각종 재해 예방, 안전 시스템 구축, 그리고 위험 관리에
-          있어 최적의 솔루션을 제공하고 있습니다.
-        </p>
-        <p>
-          특히, 저희 SAFED는 현장의 실질적인 안전 문제를 해결하기 위해 각 분야의 전문가와
-          협력하여 맞춤형 솔루션을 개발하고 있습니다. 이를 통해, 고객님의 사업장에서 발생할
-          수 있는 모든 위험 요소를 사전에 분석하고, 이를 예방할 수 있는 체계적인 관리 방안을
-          제시해 드리고 있습니다.
-        </p>
-        <p>
-          또한, 저희는 최신 IoT 기술과 빅데이터 분석을 활용한 스마트 안전 관리 시스템을
-          도입하여, 보다 효율적이고 정확한 안전 관리를 지원합니다. 이로 인해 고객님은 현장의
-          위험 요소를 실시간으로 모니터링하고, 즉각적인 대응이 가능해져 안전사고를 미연에
-          방지할 수 있습니다.
-        </p>
-        <p>
-          SAFED는 단순히 제품을 제공하는 것에 그치지 않고, 고객님의 안전 문화 정착을 위해
-          지속적인 교육과 컨설팅 서비스를 제공하여, 안전에 대한 인식을 높이고, 장기적으로
-          안전한 작업 환경을 구축하는 데 기여하고 있습니다.
-        </p>
-        <p>
-          앞으로도 저희 SAFED는 고객님의 신뢰를 바탕으로 더욱 안전하고 건강한 미래를
-          만들어가기 위해 최선을 다하겠습니다. 언제나 고객님의 목소리에 귀 기울이며,
-          안전 관리의 모든 과정에서 함께 고민하고 해결책을 제시하는 든든한 파트너가
-          되겠습니다.
-        </p>
-        <p class="font-semibold text-gray-800">감사합니다.</p>
+  <!-- Hero Statement -->
+  <section class="py-20 bg-white">
+    <div class="w-container max-w-5xl">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Left: Statement -->
+        <div class="lg:col-span-7 reveal">
+          <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">CEO Message</p>
+          <h2 class="text-3xl lg:text-4xl font-bold tracking-tight mb-6 leading-tight">
+            현장의 <span class="text-gradient-blue">안전</span>이 곧<br />기업의 <span class="text-gradient-blue">미래</span>입니다.
+          </h2>
+          <div class="w-12 h-1 bg-primary rounded-full mb-8"></div>
+          <blockquote class="text-xl text-gray-500 leading-relaxed italic border-l-4 border-primary/20 pl-6">
+            "한 사람의 생명을 지키는 것,<br />
+            그것이 SafeD가 존재하는 이유입니다."
+          </blockquote>
+        </div>
+        <!-- Right: Image -->
+        <div class="lg:col-span-5 reveal-right delay-200">
+          <div class="relative">
+            <div class="absolute -inset-4 bg-gradient-to-br from-primary/5 to-blue-500/5 rounded-3xl -z-10"></div>
+            <img src="/images/greeting_top.png" alt="SafeD CEO" class="rounded-2xl shadow-lg w-full object-cover" loading="lazy" />
+            <div class="absolute -bottom-4 -left-4 bg-primary text-white rounded-2xl px-5 py-3 shadow-lg">
+              <p class="eng font-bold text-sm">Since 2020</p>
+              <p class="text-xs opacity-80">스마트안전관리 전문기업</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Greeting Content -->
+  <section class="py-20 bg-gray-50">
+    <div class="w-container max-w-4xl">
+      <div class="bg-white rounded-3xl p-8 lg:p-12 shadow-sm reveal">
+        <div class="space-y-6 text-gray-600 leading-[1.9]">
+          <p class="text-lg">안녕하세요, <strong class="text-gray-900">SafeD</strong>를 찾아주셔서 감사합니다.</p>
+
+          <p>
+            저희 SafeD는 건설현장과 산업 환경에서의 <strong class="text-gray-800">스마트 안전관리</strong>를 전문으로 하는 기업으로서,
+            현장 근로자 한 분 한 분의 안전과 건강을 최우선으로 생각합니다.
+            300여개 공종, 50,000개 위험요인·안전대책 데이터베이스와 최신 IoT·AI 기술을 바탕으로
+            각종 재해 예방, 안전 시스템 구축, 위험 관리에 있어 최적의 솔루션을 제공하고 있습니다.
+          </p>
+
+          <p>
+            특히, SafeD는 현장의 실질적인 안전 문제를 해결하기 위해
+            <strong class="text-gray-800">GPS 기반 실시간 모니터링, 비콘(Beacon) 위험경고, Google AI 다국어 자동번역</strong> 등
+            혁신적인 기술을 접목한 맞춤형 솔루션을 개발하고 있습니다.
+            이를 통해 현장에서 발생할 수 있는 모든 위험 요소를 사전에 분석하고,
+            체계적인 예방 체계를 구축해 드립니다.
+          </p>
+
+          <p>
+            2022년 1월 <strong class="text-gray-800">중대재해처벌법</strong> 본격 시행 이후,
+            체계적인 안전관리 시스템의 필요성은 더욱 커졌습니다.
+            SafeD는 안전보건관리체계 구축부터 의무이행 근거자료 자동생성까지,
+            법적 의무사항을 시스템으로 완벽히 대응하여 경영책임자의 리스크를 관리합니다.
+          </p>
+
+          <p>
+            SafeD는 단순히 제품을 제공하는 것에 그치지 않고,
+            <strong class="text-gray-800">안전 문화 정착</strong>을 위한 지속적인 교육과 컨설팅 서비스를 제공하여,
+            장기적으로 안전한 작업 환경을 구축하는 데 기여하고 있습니다.
+          </p>
+
+          <p>
+            앞으로도 SafeD는 고객님의 신뢰를 바탕으로 더욱 안전하고 건강한 미래를 만들어가기 위해
+            최선을 다하겠습니다. 언제나 현장의 목소리에 귀 기울이며,
+            안전 관리의 든든한 파트너가 되겠습니다.
+          </p>
+
+          <p class="text-gray-400 text-sm">감사합니다.</p>
+        </div>
+
+        <!-- Signature -->
+        <div class="mt-10 pt-8 border-t border-gray-100 flex items-center justify-between flex-wrap gap-6">
+          <div>
+            <p class="text-gray-400 text-sm mb-1">세이프디 주식회사</p>
+            <p class="text-xl font-bold tracking-tight">대표이사</p>
+          </div>
+          <img src="/images/sign_logo_new.gif" alt="대표 서명" class="h-12 object-contain" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Commitments -->
+  <section class="py-20 bg-white">
+    <div class="w-container max-w-5xl">
+      <div class="text-center mb-14">
+        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">Our Commitment</p>
+        <h2 class="text-2xl lg:text-3xl font-bold tracking-tight reveal delay-100">SafeD가 약속하는 3가지 가치</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {[
+          {
+            iconPath: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z',
+            iconColor: '#ef4444',
+            title: '생명 최우선',
+            desc: '모든 의사결정의 중심에 현장 근로자의 생명과 안전을 둡니다. 기술은 수단이고, 목적은 사람입니다.',
+            num: '99.2%',
+            numLabel: '사고 예방률',
+          },
+          {
+            iconPath: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z',
+            iconColor: '#f59e0b',
+            title: '기술 혁신',
+            desc: 'IoT, AI, 빅데이터를 활용하여 서류 중심의 안전관리를 데이터 기반 스마트 관리로 전환합니다.',
+            num: '19개국어',
+            numLabel: 'AI 자동번역',
+          },
+          {
+            iconPath: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75M8.5 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z',
+            iconColor: '#3b82f6',
+            title: '현장 동반성장',
+            desc: '원청부터 협력업체, 근로자까지 모두가 쉽게 참여하는 안전활동 생태계를 만듭니다.',
+            num: '150+',
+            numLabel: '도입 현장',
+          },
+        ].map((item, i) => (
+          <div class={`bg-gray-50 rounded-3xl p-8 hover:shadow-lg transition-shadow reveal delay-${(i + 1) * 100}`}>
+            <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6" style={`background: ${item.iconColor}12`}>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={item.iconColor} stroke-width="1.5"><path d={item.iconPath}/></svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3 tracking-tight">{item.title}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed mb-6">{item.desc}</p>
+            <div class="flex items-baseline gap-2">
+              <span class="eng text-2xl font-extrabold text-gradient-blue">{item.num}</span>
+              <span class="text-xs text-gray-400 font-medium">{item.numLabel}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline / Milestones -->
+  <section class="py-20 bg-gray-950 text-white relative overflow-hidden">
+    <!-- Wave bars -->
+    <div class="absolute bottom-0 left-0 right-0 flex items-end gap-[2px] h-12 opacity-15 px-4" aria-hidden="true">
+      {Array.from({length: 60}).map((_, i) => {
+        const h = 18 + Math.sin(i * 0.5) * 20 + Math.sin(i * 1.1) * 10;
+        const dur = (0.5 + Math.sin(i * 0.4) * 0.3).toFixed(2);
+        const del = (i * 0.03).toFixed(2);
+        return (
+          <div class="flex-1 rounded-t-sm" style={`height: ${h}%; background: linear-gradient(to top, rgba(0,123,255,0.5), rgba(0,198,255,0.15)); animation: wave-bar ${dur}s ease-in-out infinite alternate; animation-delay: ${del}s;`}></div>
+        );
+      })}
+    </div>
+    <div class="w-container max-w-4xl relative z-10">
+      <div class="text-center mb-14">
+        <p class="eng font-semibold text-sm tracking-widest uppercase mb-4 text-primary reveal">Milestones</p>
+        <h2 class="text-2xl lg:text-3xl font-bold tracking-tight reveal delay-100">SafeD의 여정</h2>
+      </div>
+      <div class="space-y-8">
+        {[
+          { year: '2020', event: '세이프디 주식회사 설립', desc: '건설현장 스마트 안전관리의 새로운 장을 열다' },
+          { year: '2021', event: '스마트건설대상 안전대상 수상', desc: '국토교통부 주관 스마트건설 부문 수상' },
+          { year: '2021', event: '특허 2건 등록', desc: '안전관리 핵심 기술 특허 확보' },
+          { year: '2022', event: '중대재해처벌법 대응 시스템 출시', desc: '법적 의무사항 완벽 매핑 솔루션' },
+          { year: '2023', event: '국내 100+ 현장 도입 달성', desc: '주요 건설사 대규모 도입 확대' },
+          { year: '2024', event: '19개국어 AI 자동번역 도입', desc: 'Google AI 기반 다국어 음성 안내' },
+          { year: '2025', event: '150+ 현장 운영, 지속 확대 중', desc: '국내 유일 올인원 스마트안전관리 플랫폼' },
+        ].map((item, i) => (
+          <div class={`flex gap-6 items-start reveal delay-${Math.min((i + 1) * 100, 400)}`}>
+            <div class="flex-shrink-0 w-16 text-right">
+              <span class="eng text-sm font-bold text-primary">{item.year}</span>
+            </div>
+            <div class="relative flex-shrink-0 flex flex-col items-center">
+              <div class="w-3 h-3 rounded-full bg-primary shadow-[0_0_8px_rgba(0,123,255,0.5)]"></div>
+              {i < 6 && <div class="w-px flex-1 bg-white/10 mt-1" style="min-height: 40px"></div>}
+            </div>
+            <div class="pb-6">
+              <p class="font-bold text-white/90">{item.event}</p>
+              <p class="text-white/40 text-sm mt-1">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom Image -->
   <section class="w-full">
     <img src="/images/greeting_bottom.png" alt="" class="w-full object-cover" loading="lazy" />
   </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-primary text-white text-center">
+    <div class="w-container reveal">
+      <h2 class="text-2xl font-bold mb-4 tracking-tight">SafeD와 함께 안전한 현장을 만들어 가세요</h2>
+      <p class="opacity-80 mb-8 text-sm">무료 상담으로 현장에 맞는 안전관리 솔루션을 설계합니다</p>
+      <div class="flex gap-4 justify-center flex-wrap">
+        <a href="/inquiries" class="inline-flex items-center gap-2 px-8 py-3 bg-white text-primary rounded-full font-semibold hover:bg-gray-100 transition-colors text-sm">
+          무료 상담받기
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/safed-features" class="inline-flex items-center gap-2 px-8 py-3 border border-white/30 text-white rounded-full font-semibold hover:bg-white/10 transition-colors text-sm">
+          SafeD 기능 살펴보기
+        </a>
+      </div>
+    </div>
+  </section>
 </SubPageLayout>
+
+<style>
+  @keyframes wave-bar {
+    0% { transform: scaleY(0.3); }
+    100% { transform: scaleY(1); }
+  }
+</style>

@@ -9,6 +9,7 @@ interface Slide {
   highlights?: string[];
   link?: string;
   linkText?: string;
+  featureImage?: string;
 }
 
 interface Props {
@@ -96,7 +97,9 @@ export default function SlideShow({ slides, autoPlayInterval = 6000, height = '7
 
       {/* Content */}
       <div style={{ position: 'relative', zIndex: 2, height: '100%', display: 'flex', alignItems: 'center' }}>
-        <div style={{ padding: '0 clamp(2rem, 8vw, 10rem)', maxWidth: '950px', width: '100%' }}>
+        <div style={{ padding: '0 clamp(2rem, 8vw, 10rem)', maxWidth: '100%', width: '100%', display: 'flex', alignItems: 'center', gap: '2rem' }}>
+          {/* Left text area */}
+          <div style={{ flex: '0 1 55%', minWidth: 0 }}>
           <AnimatePresence mode="wait">
             <motion.div key={`c-${current}`}>
               {/* Tag badge */}
@@ -183,6 +186,57 @@ export default function SlideShow({ slides, autoPlayInterval = 6000, height = '7
               </motion.div>
             </motion.div>
           </AnimatePresence>
+          </div>
+
+          {/* Right feature image */}
+          {slide.featureImage && (
+            <div className="hidden lg:block" style={{ flex: '0 1 40%', position: 'relative' }}>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`feat-${current}`}
+                  initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -20, scale: 0.95 }}
+                  transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  style={{ position: 'relative' }}
+                >
+                  {/* Glow behind image */}
+                  <div style={{
+                    position: 'absolute', inset: '-10%',
+                    background: 'radial-gradient(circle, rgba(0,123,255,0.15) 0%, transparent 70%)',
+                    filter: 'blur(30px)',
+                  }} />
+                  <img
+                    src={slide.featureImage}
+                    alt=""
+                    style={{
+                      position: 'relative',
+                      width: '100%',
+                      maxHeight: '380px',
+                      objectFit: 'contain',
+                      borderRadius: '16px',
+                      filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.4))',
+                    }}
+                  />
+                  {/* Floating badge */}
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.8, duration: 0.4 }}
+                    style={{
+                      position: 'absolute', bottom: '-12px', left: '-12px',
+                      background: 'rgba(0,123,255,0.9)', backdropFilter: 'blur(10px)',
+                      padding: '8px 16px', borderRadius: '12px',
+                      color: '#fff', fontSize: '12px', fontWeight: 600,
+                      boxShadow: '0 4px 15px rgba(0,123,255,0.4)',
+                    }}
+                  >
+                    SafeD Platform
+                  </motion.div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          )}
         </div>
       </div>
 
