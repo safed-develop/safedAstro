@@ -1,36 +1,142 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SlideShow from '../components/ui/SlideShow.tsx';
+import MultiSlide from '../components/ui/MultiSlide.tsx';
+import HoverComponent from '../components/ui/HoverComponent.astro';
 ---
 
 <BaseLayout title="SafeD - 스마트 안전관리 시스템 | 건설현장 안전관리의 새로운 기준">
-  <!-- Hero Section placeholder -->
-  <section class="min-h-screen flex items-center justify-center bg-gray-900 text-white">
-    <div class="w-container text-center">
-      <p class="text-primary eng font-semibold mb-4 text-sm tracking-widest uppercase">Smart Safety Management System</p>
-      <h1 class="text-5xl font-bold mb-6 tracking-tight leading-tight">
-        건설현장 안전관리의<br />새로운 기준을 제시합니다
-      </h1>
-      <p class="text-lg text-gray-400 max-w-xl mx-auto">
-        SafeD는 스마트 기술을 활용한 건설현장 안전관리 솔루션으로,
-        현장의 안전을 체계적으로 관리합니다.
-      </p>
-      <div class="mt-10 flex gap-4 justify-center">
-        <a href="/inquiries" class="px-8 py-3 bg-primary text-white rounded-full font-semibold hover:bg-primary-dark transition-colors">
-          도입문의
-        </a>
-        <a href="/safed-features" class="px-8 py-3 border border-white/30 text-white rounded-full font-semibold hover:bg-white/10 transition-colors">
-          자세히 보기
+  <!-- Hero Slide -->
+  <SlideShow
+    client:load
+    slides={[
+      {
+        image: '/images/mainslide01.jpg',
+        title: '건설현장 안전관리의\n새로운 기준을 제시합니다',
+        subtitle: 'SafeD는 스마트 기술을 활용한 건설현장 안전관리 솔루션입니다.',
+        link: '/safed-features',
+      },
+      {
+        image: '/images/mainslide02.jpg',
+        title: '중대재해처벌법 대응\n체계적인 안전관리',
+        subtitle: '안전보건관리체계 구축부터 위험성평가까지 한번에 해결합니다.',
+        link: '/business-background',
+      },
+      {
+        image: '/images/mainslide03.jpg',
+        title: '스마트 안전관리\nContech Future Leader',
+        subtitle: 'IoT, GPS, 빅데이터를 활용한 차세대 안전관리 플랫폼',
+        link: '/inquiries',
+      },
+    ]}
+  />
+
+  <!-- Section 1: Introduction -->
+  <section class="py-24 bg-white">
+    <div class="w-container">
+      <div class="text-center max-w-3xl mx-auto">
+        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">About SafeD</p>
+        <h2 class="text-3xl lg:text-4xl font-bold mb-6 tracking-tight leading-snug reveal delay-100">
+          SafeD는 혁신적인 안전관리 솔루션을 제공하여<br class="hidden lg:block" />
+          산업 현장에서의 안전성을 높입니다
+        </h2>
+        <p class="text-gray-500 text-lg leading-relaxed reveal delay-200">
+          건설현장, 플랜트, 제조시설, 서비스업, 유지보수 등 다양한 산업 현장에
+          소프트웨어 플랫폼을 제공하며, 중대재해처벌법에 따른 의무를 이행하고
+          안전관리체계를 구축할 수 있도록 지원합니다.
+        </p>
+        <a href="/safed-features" class="inline-flex items-center gap-2 mt-8 text-primary font-semibold hover:gap-3 transition-all reveal delay-300">
+          자세히보기
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Placeholder sections -->
+  <!-- Section 2: Core Features -->
+  <section class="py-24 bg-gray-50">
+    <div class="w-container">
+      <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 text-center reveal">Core Features</p>
+      <h2 class="text-3xl lg:text-4xl font-bold mb-16 text-center tracking-tight reveal delay-100">
+        안전관리를 쉽고 간편하게!<br />SafeD 핵심기능
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { icon: '/images/safed_feature_01.png', title: '스마트 위험성평가', desc: '위험요인을 찾아 위험성의 크기를 평가하고 조치·검토할 수 있는 시스템', color: 'from-red-900/80 to-red-800/60' },
+          { icon: '/images/safed_feature_02.png', title: '위험요소 제거', desc: '추가위험을 발굴하고 위험요소들을 사전에 제거합니다', color: 'from-green-900/80 to-green-800/60' },
+          { icon: '/images/safed_feature_03.png', title: '다국어 지원', desc: '현장 별 다국적 근로자를 고려하여 Google AI 자동번역 기능 제공', color: 'from-lime-900/80 to-lime-800/60' },
+          { icon: '/images/safed_feature_04.png', title: '안전 모니터링', desc: 'GPS를 통해 출역·작업위치·동선 등을 실시간으로 확인', color: 'from-blue-900/80 to-blue-800/60' },
+          { icon: '/images/safed_feature_05.png', title: '비콘 경고', desc: '이동식 장비에 탈·부착 가능하며 접근경고로 작업자 안전 확보', color: 'from-cyan-900/80 to-cyan-800/60' },
+          { icon: '/images/safed_feature_06.png', title: '커뮤니케이션', desc: 'SMS, Mobile Push 알람으로 오늘할일, 잔여과제 자동 발송', color: 'from-emerald-900/80 to-emerald-800/60' },
+        ].map((feat, i) => (
+          <div class={`group relative overflow-hidden rounded-2xl p-8 bg-gradient-to-br ${feat.color} text-white min-h-[220px] flex flex-col justify-end reveal delay-${(i % 3 + 1) * 100}`}>
+            <img src={feat.icon} alt={feat.title} class="w-16 h-16 mb-4 object-contain opacity-90 group-hover:scale-110 transition-transform" />
+            <h3 class="text-lg font-bold mb-2">{feat.title}</h3>
+            <p class="text-sm opacity-80 leading-relaxed">{feat.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Interactive Feature Demo -->
   <section class="py-24 bg-white">
-    <div class="w-container text-center">
-      <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-3 reveal">FEATURES</p>
-      <h2 class="text-3xl font-bold mb-16 reveal delay-100">SafeD의 핵심 기능</h2>
-      <p class="text-gray-500 reveal delay-200">페이지 마이그레이션 시 콘텐츠가 추가됩니다.</p>
+    <div class="w-container">
+      <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 text-center reveal">Key Functions</p>
+      <h2 class="text-3xl lg:text-4xl font-bold mb-12 text-center tracking-tight reveal delay-100">SafeD 주요 기능</h2>
+      <div class="reveal delay-200">
+        <HoverComponent items={[
+          { label: '모바일 위험성평가', title: '스마트 위험성평가', text: '현장에서 모바일로 간편하게 위험성평가를 작성하고 관리할 수 있습니다.', image: '/images/feature01.jpg' },
+          { label: 'BEACON 경고', title: '비콘 위험경고 시스템', text: '비콘 기술로 위험지역 접근 시 자동 알림을 발송합니다.', image: '/images/feature02.jpg' },
+          { label: 'GPS 분석', title: 'GPS 동선 분석', text: 'GPS를 통한 근로자 위치 추적 및 동선 분석이 가능합니다.', image: '/images/feature04.jpg' },
+          { label: '다국어 번역', title: '다국어 자동번역', text: '다국적 근로자를 위한 실시간 AI 자동번역 기능을 제공합니다.', image: '/images/feature05.jpg' },
+        ]} />
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Voices from the Field -->
+  <section class="py-24 bg-gray-50">
+    <div class="w-container">
+      <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 text-center reveal">Voices from the Field</p>
+      <h2 class="text-3xl lg:text-4xl font-bold mb-16 text-center tracking-tight reveal delay-100">현장의 목소리</h2>
+      <div class="reveal delay-200">
+        <MultiSlide
+          client:visible
+          slides={[
+            { title: '현장소장', review: '위험성평가가 현장 안전에 최우선이 되는데, SafeD를 통해 파트너사의 위험성평가 내용이 더 세밀해졌습니다.', background: '#fdeee3' },
+            { title: '안전관리자', review: 'SafeD 적용 후 위험성평가 항목 개선으로 위험요소를 세밀하게 검토하여 제거할 수 있었습니다.', background: '#eae2f0' },
+            { title: '보건관리자', review: 'SafeD 앱을 통해 근로자와 소통하며 세심한 요구사항을 처리하고 있습니다.', background: '#e3f3fd' },
+            { title: '관리감독자', review: 'SafeD 적용 후 모든 관리감독자가 체계적으로 안전활동을 할 수 있게 되었습니다.', background: '#fdeee3' },
+            { title: '협력업체', review: '공종에 투입되는 작업에 대해 세밀하게 작성할 수 있어 편리합니다.', background: '#eae2f0' },
+            { title: '근로자', review: '앱으로 간단히 사진을 찍고 전송하면 위험요소를 제거해주고 있습니다.', background: '#e3f3fd' },
+          ]}
+          slidesPerView={3}
+          slideHeight="260px"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: CTA -->
+  <section class="relative py-32 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#2e4692] to-[#001f31]"></div>
+    <div class="absolute inset-0 bg-[url('/images/feature02.jpg')] bg-cover bg-center bg-fixed opacity-20"></div>
+    <div class="relative z-10 w-container">
+      <div class="bg-white rounded-2xl p-12 lg:p-16 max-w-3xl mx-auto text-center shadow-2xl reveal-scale">
+        <p class="eng text-gray-400 text-sm tracking-widest uppercase mb-4 font-semibold">Get Connected!</p>
+        <h2 class="text-2xl lg:text-3xl font-bold mb-4 tracking-tight">
+          SafeD와 함께 체계적인<br />건설현장을 만들어보세요!
+        </h2>
+        <p class="text-gray-500 mb-8 text-sm leading-relaxed max-w-md mx-auto">
+          SafeD는 2022년 1월 중대재해처벌법 본격 시행에 이어<br />
+          국내 다수 건설사에서 도입 중에 있습니다.
+        </p>
+        <a href="/inquiries" class="inline-flex items-center gap-2 px-8 py-3.5 bg-gray-900 text-white rounded-full font-semibold hover:bg-gray-800 transition-colors text-sm">
+          상담문의
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
     </div>
   </section>
 </BaseLayout>

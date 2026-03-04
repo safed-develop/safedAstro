@@ -1,0 +1,117 @@
+---
+import SubPageLayout from '../layouts/SubPageLayout.astro';
+
+const navLinks = [
+  { name: '공지사항', url: '/notices' },
+  { name: '보도자료', url: '/press-releases' },
+  { name: '상담문의', url: '/inquiries' },
+];
+
+const releases = [
+  {
+    title: '건설현장 안전 지킴이 \'세이프디(SafeD) 2.0\' 업그레이드',
+    description: '비콘(Beacon) 기반 위험지역 안내 기능 탑재…각종 산업 현장 안전관리 효율성 개선',
+    link: 'https://www.dnews.co.kr/uhtml/view.jsp?idxno=202105271547123180545',
+    source: '대한경제',
+  },
+  {
+    title: '물류센터 산재예방 위해 \'세이프디(SafeD) 2.0\' 출시',
+    description: '부동산 인프라 자산 관리 기업 산업 현장 사고예방을 효과적으로 도와주는 위험성 평가 프로세스 관리 솔루션',
+    link: 'https://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202105280082&t=NN',
+    source: '한국경제TV',
+  },
+  {
+    title: '중대재해법 시행 앞두고 산업현장 안전관리 솔루션 주목',
+    description: '업그레이드된 세이프디 2.0...정교한 감지로 위험 경고 및 자동 알람',
+    link: 'https://www.newsclaim.co.kr/news/articleView.html?idxno=1645551',
+    source: '뉴스클레임',
+  },
+  {
+    title: '건설현장 안전지킴이 나선 밸류업 플랫폼 세이프디 2.0 선보여',
+    description: '통합운영관리(O&M) 플랫폼 기업인 이도(YIDO)는 산업현장 사고 예방을 도와주는 위험성 평가 프로세스 관리 솔루션 개발',
+    link: 'http://www.wikileaks-kr.org/news/articleView.html?idxno=108674',
+    source: '위키리크스한국',
+  },
+  {
+    title: 'GPS 기반 안전관리 \'세이프디\' 개발',
+    description: '통합운영관리(O&M) 플랫폼 기업인 이도(YIDO)는 산업현장 사고 예방을 도와주는 솔루션 개발',
+    link: 'https://news.heraldcorp.com/view.php?ud=20210122000473',
+    source: '헤럴드경제',
+  },
+  {
+    title: 'O&M 플랫폼 GPS 기반 안전관리 토탈 솔루션 선봬',
+    description: '중대재해법이 1년 뒤부터 시행됨에 따라 기업들의 안전관리 책임이 강화된 가운데 GPS를 기반으로',
+    link: 'https://www.sentv.co.kr/news/view/587097',
+    source: '서울경제TV',
+  },
+];
+---
+
+<SubPageLayout
+  title="보도자료 - SafeD | 스마트안전관리시스템"
+  pageTitle="보도자료"
+  pageTitleEn="Press Releases"
+  description="SafeD 보도자료 - 스마트안전관리시스템 언론 보도"
+  navLinks={navLinks}
+>
+  <!-- Award Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="w-container max-w-4xl">
+      <div class="text-center reveal">
+        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">Award</p>
+        <h2 class="text-3xl font-bold mb-4 tracking-tight">스마트건설대상 수상</h2>
+        <p class="text-gray-500 mb-12">[2021 스마트건설대상 안전대상] 플랫폼 부분 - 세이프디 주식회사</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-8 lg:p-10 shadow-sm mb-8 reveal delay-100">
+        <p class="text-gray-600 leading-relaxed mb-8">
+          세이프디 주식회사는 국내 유일의 스마트안전관리솔루션 개발 회사입니다.
+          최근 출시한 위험성평가 프로세스관리 솔루션 '세이프디(SafeD)'가 스마트건설대상에서 주목을 받았습니다.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            { title: '쉽고 편리한 안전관리', desc: '위험성 평가 회의나 안전점검 결과를 \'원클릭\'으로 해결합니다. 각종 사업장에서 발생하는 표준위험공종 약 2만 5000건을 자료화해 편리하고 신속하게 회의록을 작성할 수 있습니다.' },
+            { title: '비용 절감 효과', desc: '세이프디(SafeD)는 시간과 비용을 절감하며 효율적인 안전관리 솔루션을 제공합니다.' },
+            { title: '모바일 GPS와 경고 시스템', desc: '모바일 GPS를 통해 작업 위치나 동선분석 등을 통해 위험지역 접근을 감지하고 즉시 경고하는 알람기능을 제공합니다.' },
+            { title: '비컨(Beacon) 기술', desc: '비컨(Beacon) 기술을 탑재해 지하, 터널 등 사각지대를 없애고, 복잡한 구조의 물류센터에서도 정교한 감지가 가능합니다.' },
+          ].map((item) => (
+            <div class="bg-gray-50 rounded-xl p-6">
+              <h4 class="font-semibold text-gray-800 mb-2">{item.title}</h4>
+              <p class="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Press List -->
+  <section class="py-20">
+    <div class="w-container max-w-4xl">
+      <div class="mb-12 reveal">
+        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">News</p>
+        <h2 class="text-2xl font-bold tracking-tight">언론 보도</h2>
+      </div>
+
+      <div class="space-y-0 reveal delay-100">
+        {releases.map((item, i) => (
+          <a href={item.link} target="_blank" rel="noopener noreferrer"
+             class="flex items-start gap-6 py-6 border-b border-gray-100 hover:bg-gray-50 transition-colors px-4 -mx-4 rounded-lg group">
+            <span class="eng text-primary font-bold text-lg flex-shrink-0 w-12 text-center mt-0.5">{String(i + 1).padStart(2, '0')}</span>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-xs text-primary bg-primary/5 px-2 py-0.5 rounded eng font-semibold">{item.source}</span>
+              </div>
+              <h3 class="font-semibold text-gray-800 mb-1 group-hover:text-primary transition-colors">{item.title}</h3>
+              <p class="text-sm text-gray-500 line-clamp-1">{item.description}</p>
+            </div>
+            <svg class="w-5 h-5 text-gray-300 group-hover:text-primary transition-colors flex-shrink-0 mt-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</SubPageLayout>

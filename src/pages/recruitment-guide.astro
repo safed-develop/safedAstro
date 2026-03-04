@@ -1,0 +1,103 @@
+---
+import SubPageLayout from '../layouts/SubPageLayout.astro';
+
+const navLinks = [
+  { name: '채용안내', url: '/recruitment-guide' },
+  { name: '채용정보', url: '/recruitment-info' },
+];
+
+const benefits = [
+  { icon: '💰', title: '지원금/보험', items: ['건강검진', '각종 경조사 지원'] },
+  { icon: '💵', title: '급여제도', items: ['퇴직연금', '인센티브제', '장기근속자 포상', '우수사원포상', '퇴직금', '직책수당', '자격증수당', '장기근속수당', '4대 보험'] },
+  { icon: '🎁', title: '선물', items: ['생일선물/파티', '웰컴키트 지급'] },
+  { icon: '📚', title: '교육/생활', items: ['우수사원시상식', '워크샵', '자격증취득지원', '교육비 지원', '자기계발비 지원', '점심식사 제공', '아침식사 제공', '간식 제공', '음료제공(차, 커피)', '점심시간 연장제도'] },
+  { icon: '🏢', title: '근무 환경', items: ['휴게실', '회의실', '노트북', '사무용품 지급', '최고 성능 컴퓨터'] },
+  { icon: '👥', title: '조직문화', items: ['수평적 조직문화', '회식강요 안함', '야근강요 안함', '자유로운 연차사용', '출산 장려'] },
+  { icon: '☀️', title: '리프레시', items: ['연차', '경조휴가제', '근로자의 날 휴무', '산전 후 휴가', '육아휴직'] },
+];
+
+const talents = [
+  { title: '창의적인 사고', items: ['새로운 아이디어를 창출하고 적용하는 능력', '기존의 틀을 깨는 혁신적 사고'] },
+  { title: '팀워크', items: ['협력과 소통을 중요시하는 태도', '다양한 팀과의 원활한 협업 능력'] },
+  { title: '책임감', items: ['자신의 업무에 대한 높은 책임감', '결과를 끝까지 책임지는 자세'] },
+  { title: '성장지향적', items: ['자기계발을 위한 지속적인 노력', '도전을 두려워하지 않는 자세'] },
+  { title: '긍정적인 마인드', items: ['어려운 상황에서도 긍정적으로 생각하는 능력', '적극적이고 에너지 넘치는 태도'] },
+  { title: '고객 중심', items: ['고객의 필요와 기대를 이해하고 충족시키는 능력', '고객 만족을 최우선으로 하는 마인드'] },
+];
+---
+
+<SubPageLayout
+  title="채용안내 - SafeD | 스마트안전관리시스템"
+  pageTitle="채용안내"
+  pageTitleEn="Recruitment Guide"
+  description="SafeD 채용안내 - 복리후생 및 인재상"
+  navLinks={navLinks}
+>
+  <!-- Benefits Section -->
+  <section class="py-20">
+    <div class="w-container">
+      <div class="text-center mb-16 reveal">
+        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">Our Commitment to Employees</p>
+        <h2 class="text-3xl font-bold tracking-tight">
+          SafeD는 <span class="text-primary">직원의 복리후생</span>도 중요해요
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {benefits.map((b, i) => (
+          <div class={`bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-shadow reveal delay-${((i % 4) + 1) * 100}`}>
+            <span class="text-3xl mb-4 block">{b.icon}</span>
+            <h3 class="font-bold text-lg mb-3">{b.title}</h3>
+            <ul class="space-y-1.5">
+              {b.items.map((item) => (
+                <li class="flex items-start gap-2 text-sm text-gray-500">
+                  <div class="w-1 h-1 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Ideal Candidate Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="w-container">
+      <div class="text-center mb-16 reveal">
+        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">Ideal Candidate Profile</p>
+        <h2 class="text-3xl font-bold tracking-tight">
+          SafeD가 찾는 <span class="text-primary">인재상</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {talents.map((t, i) => (
+          <div class={`bg-white rounded-2xl p-6 shadow-sm reveal delay-${((i % 3) + 1) * 100}`}>
+            <h3 class="font-bold text-lg mb-3 text-gray-800">{t.title}</h3>
+            <ul class="space-y-2">
+              {t.items.map((item) => (
+                <li class="flex items-start gap-2 text-sm text-gray-500 leading-relaxed">
+                  <div class="w-1.5 h-1.5 rounded-full bg-primary/50 mt-1.5 flex-shrink-0"></div>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-primary text-white text-center">
+    <div class="w-container reveal">
+      <h2 class="text-3xl font-bold mb-4 tracking-tight">SafeD와 함께 성장하세요</h2>
+      <p class="opacity-80 mb-8">SafeD는 열정 있는 인재를 기다립니다</p>
+      <a href="/recruitment-info" class="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-primary rounded-full font-semibold hover:bg-gray-100 transition-colors">
+        채용정보 보기
+      </a>
+    </div>
+  </section>
+</SubPageLayout>

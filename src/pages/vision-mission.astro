@@ -1,0 +1,45 @@
+---
+import SubPageLayout from '../layouts/SubPageLayout.astro';
+
+const navLinks = [
+  { name: '회사개요', url: '/company-overview' },
+  { name: '인사말', url: '/welcome' },
+  { name: '비전 및 미션', url: '/vision-mission' },
+  { name: '오시는 길', url: '/location' },
+];
+
+const visions = [
+  { title: '안전 혁신', desc: '건설 현장의 위험요소를 정확하게 식별하고 안전관리를 통해 사고를 미리 방지합니다.', color: '#7196ce' },
+  { title: '혁신적 솔루션', desc: 'GPS, 블루투스, 드론 등 최첨단 기술을 활용하여 효율적인 안전관리 솔루션을 제공합니다.', color: '#20275a' },
+  { title: '지속적인 도전', desc: '끊임없이 새로운 기술과 방법론을 연구하며, 안전성과 효율성을 극대화합니다.', color: '#3b52a4' },
+];
+---
+
+<SubPageLayout
+  title="비전 및 미션 - SafeD | 스마트안전관리시스템"
+  pageTitle="비전 및 미션"
+  pageTitleEn="Vision & Mission"
+  description="SafeD의 비전과 미션 - 안전 혁신, 혁신적 솔루션, 지속적인 도전"
+  navLinks={navLinks}
+>
+  <section class="py-20">
+    <div class="w-container">
+      <div class="text-center mb-16">
+        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">Vision · Mission</p>
+        <img src="/images/vision.svg" alt="SafeD Vision" class="max-w-2xl mx-auto w-full reveal delay-100" />
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+        {visions.map((v, i) => (
+          <div class={`relative bg-white rounded-2xl p-8 shadow-sm text-center reveal delay-${(i + 1) * 100}`}>
+            <div class="w-10 h-10 rounded-full mx-auto mb-6 flex items-center justify-center" style={`background: ${v.color}`}>
+              <div class="w-4 h-4 rounded-full bg-white"></div>
+            </div>
+            <h3 class="text-xl font-bold mb-4 tracking-tight">{v.title}</h3>
+            <p class="text-gray-500 leading-relaxed text-sm">{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</SubPageLayout>

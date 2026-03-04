@@ -1,0 +1,107 @@
+---
+import SubPageLayout from '../layouts/SubPageLayout.astro';
+
+const navLinks = [
+  { name: '사업배경', url: '/business-background' },
+  { name: 'SafeD Development', url: '/safed-features' },
+];
+---
+
+<SubPageLayout
+  title="사업배경 - SafeD | 스마트안전관리시스템"
+  pageTitle="사업배경"
+  pageTitleEn="Business Background"
+  description="중대재해처벌법과 SafeD의 안전관리 솔루션"
+  navLinks={navLinks}
+>
+  <!-- Section 1 -->
+  <section class="py-20">
+    <div class="w-container max-w-4xl">
+      <div class="text-center reveal">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-6 tracking-tight">중대재해처벌법이란?</h2>
+        <p class="text-gray-600 leading-relaxed text-lg">
+          반복되는 재해 사망사고와 악순환 '사고 공화국'이라는 부끄러운 오명을 이제
+          그 고리를 끊어내야 합니다. 작은 관심이 소중한 생명을 살리고 더 안전한 사회를
+          만듭니다.
+        </p>
+      </div>
+
+      <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 reveal delay-200">
+        {[
+          { num: '1명', label: '사망', desc: '이상' },
+          { num: '10명', label: '부상', desc: '이상 (2개월 이상 치료)' },
+          { num: '10명', label: '질병', desc: '이상 (3개월 이상 치료)' },
+        ].map((item) => (
+          <div class="bg-primary/5 rounded-2xl p-6 text-center">
+            <p class="text-4xl font-bold text-primary eng mb-2">{item.num}</p>
+            <p class="font-semibold text-gray-800 mb-1">{item.label}</p>
+            <p class="text-sm text-gray-500">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2 -->
+  <section class="py-20 bg-gray-50 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('/images/danger_bg.jpg')] bg-cover bg-center opacity-10"></div>
+    <div class="relative z-10 w-container max-w-4xl">
+      <h2 class="text-3xl font-bold mb-8 text-center tracking-tight reveal">법 제정 목적</h2>
+      <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-8 lg:p-12 reveal delay-100">
+        <ul class="space-y-4">
+          {[
+            '다양한 안전·보건 관계 법령 및 제도 개편에도 불구하고 중대재해 반복 발생',
+            '종전 안전·보건 관계법령은 대부분 현장의 안전조치 위주로 규정하여 중대재해 예방에 한계 존재',
+            '경영책임자등에게 안전·보건 확보 의무를 부과',
+            '기업/기관이 중대재해 예방을 위한 안전·보건관리체계 구축 유도',
+          ].map((text) => (
+            <li class="flex items-start gap-3 text-gray-700 leading-relaxed">
+              <div class="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+              <span>{text}</span>
+            </li>
+          ))}
+        </ul>
+        <p class="mt-8 text-sm text-gray-500 border-t pt-6">
+          적용 대상: 상시근로자 5명 이상인 사업 또는 사업장
+          (건설업은 공사금액 50억원 미만의 공사는 24.1.27부터 적용)
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Key Obligations -->
+  <section class="py-20">
+    <div class="w-container max-w-4xl">
+      <h2 class="text-3xl font-bold mb-8 text-center tracking-tight reveal">주요의무사항</h2>
+      <p class="text-gray-600 text-center mb-12 reveal delay-100">
+        사업주 또는 경영책임자 등은 종사자의 안전·보건상 유해 또는 위험을 방지하기 위해
+        다음의 조치를 취해야 합니다.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {[
+          { num: '01', title: '안전보건관리체계', desc: '재해 예방에 필요한 인력 및 예산 등 안전보건관리체계의 구축 및 이행' },
+          { num: '02', title: '재발방지 대책', desc: '재해 발생 시 재발방지 대책의 수립 및 이행' },
+          { num: '03', title: '개선·시정 명령', desc: '관계 법령에 따라 개선, 시정 등을 명한 사항의 이행' },
+          { num: '04', title: '관리상 조치', desc: '안전·보건 관계 법령에 따른 의무이행에 필요한 관리상의 조치' },
+        ].map((item, i) => (
+          <div class={`bg-white border border-gray-100 rounded-2xl p-6 reveal delay-${(i + 1) * 100}`}>
+            <span class="text-primary eng font-bold text-2xl opacity-30">{item.num}</span>
+            <h3 class="font-bold text-lg mt-2 mb-2">{item.title}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-primary text-white text-center">
+    <div class="w-container reveal">
+      <h2 class="text-3xl font-bold mb-4 tracking-tight">안전보건관리체계를 SafeD로 구축할 수 있습니다</h2>
+      <p class="opacity-80 mb-8">SafeD와 함께 체계적인 안전관리를 시작하세요</p>
+      <a href="/inquiries" class="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-primary rounded-full font-semibold hover:bg-gray-100 transition-colors">
+        도입문의
+      </a>
+    </div>
+  </section>
+</SubPageLayout>

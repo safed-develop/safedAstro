@@ -1,0 +1,79 @@
+---
+import SubPageLayout from '../layouts/SubPageLayout.astro';
+import ParallaxImage from '../components/ui/ParallaxImage.astro';
+
+const navLinks = [
+  { name: '회사개요', url: '/company-overview' },
+  { name: '인사말', url: '/welcome' },
+  { name: '비전 및 미션', url: '/vision-mission' },
+  { name: '오시는 길', url: '/location' },
+];
+---
+
+<SubPageLayout
+  title="회사개요 - SafeD | 스마트안전관리시스템"
+  pageTitle="회사개요"
+  pageTitleEn="About Us"
+  description="SafeD는 차별화된 기술력으로 스마트안전관리시스템을 개발하여 현장의 생명을 지키는 회사입니다."
+  navLinks={navLinks}
+>
+  <!-- Company Intro -->
+  <section class="py-20">
+    <div class="w-container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal">
+          <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">About Us · 회사소개</p>
+          <h2 class="text-4xl font-bold mb-6 tracking-tight leading-tight">
+            SAFE<span class="text-primary">D</span>
+          </h2>
+          <p class="text-gray-600 text-lg leading-relaxed mb-8">
+            SafeD는 다양성, 차별화된 기술력으로 스마트안전관리시스템을 개발하여
+            현장의 생명을 위험요소로부터 지켜 고객의 풍요로운 삶과 행복한 미래를
+            함께 만드는 회사입니다.
+          </p>
+        </div>
+        <div class="reveal-right delay-200">
+          <img src="/images/about_svg.svg" alt="SafeD 소개" class="w-full" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Patents -->
+  <section class="py-20 bg-gray-50">
+    <div class="w-container">
+      <div class="text-center mb-16">
+        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">Patents & Awards</p>
+        <h2 class="text-3xl font-bold tracking-tight reveal delay-100">특허 및 인증</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div class="bg-white rounded-2xl p-8 shadow-sm reveal delay-200">
+          <img src="/images/patent_202512_01.png" alt="특허증" class="w-full rounded-lg" />
+        </div>
+        <div class="bg-white rounded-2xl p-8 shadow-sm reveal delay-300">
+          <img src="/images/patent_202512_02.png" alt="특허증" class="w-full rounded-lg" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Half Boxes -->
+  <section class="flex flex-col lg:flex-row w-full">
+    <div class="flex-1 bg-cover bg-center flex items-center justify-center p-12 min-h-[300px]" style="background-image: url('/images/harfbox1_bg.jpg')">
+      <img src="/images/harfbox1.svg" alt="SafeD 기능" class="w-3/5 reveal" />
+    </div>
+    <div class="flex-1 bg-cover bg-center flex items-center justify-center p-12 min-h-[300px]" style="background-image: url('/images/harfbox2_bg.jpg')">
+      <img src="/images/harfbox2.svg" alt="SafeD 구조" class="w-3/5 reveal delay-200" />
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 bg-[#0060B7]">
+    <div class="w-container text-center">
+      <h2 class="text-3xl font-bold text-white mb-6 reveal">SafeD와 함께 시작하세요</h2>
+      <a href="/inquiries" class="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-primary rounded-full font-semibold hover:bg-gray-100 transition-colors reveal delay-200">
+        도입문의
+      </a>
+    </div>
+  </section>
+</SubPageLayout>

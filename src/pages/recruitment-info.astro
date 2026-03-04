@@ -1,0 +1,64 @@
+---
+import SubPageLayout from '../layouts/SubPageLayout.astro';
+
+const navLinks = [
+  { name: '채용안내', url: '/recruitment-guide' },
+  { name: '채용정보', url: '/recruitment-info' },
+];
+
+const jobs = [
+  {
+    title: '2024 SafeD 채용공고',
+    description: '2024 SafeD 채용공고 관련 안내드립니다.',
+    date: '2024.12.01',
+    status: '진행중',
+  },
+];
+---
+
+<SubPageLayout
+  title="채용정보 - SafeD | 스마트안전관리시스템"
+  pageTitle="채용정보"
+  pageTitleEn="Job Openings"
+  description="SafeD 채용정보 - 스마트안전관리시스템 채용 공고"
+  navLinks={navLinks}
+>
+  <section class="py-20">
+    <div class="w-container max-w-4xl">
+      <div class="mb-12 reveal">
+        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">Career</p>
+        <h2 class="text-2xl font-bold tracking-tight">채용 공고</h2>
+      </div>
+
+      <div class="space-y-0 reveal delay-100">
+        {jobs.length > 0 ? (
+          jobs.map((item, i) => (
+            <div class="flex items-center gap-6 py-6 border-b border-gray-100 hover:bg-gray-50 transition-colors px-4 -mx-4 rounded-lg">
+              <span class="eng text-primary font-bold text-lg flex-shrink-0 w-12 text-center">{String(i + 1).padStart(2, '0')}</span>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-2 mb-1">
+                  {item.status && (
+                    <span class="text-xs text-white bg-primary px-2 py-0.5 rounded">{item.status}</span>
+                  )}
+                  <h3 class="font-semibold text-gray-800 truncate">{item.title}</h3>
+                </div>
+                <p class="text-sm text-gray-500 truncate">{item.description}</p>
+              </div>
+              <span class="text-sm text-gray-400 eng flex-shrink-0 hidden sm:block">{item.date}</span>
+            </div>
+          ))
+        ) : (
+          <div class="py-20 text-center text-gray-400">
+            <p>현재 진행 중인 채용 공고가 없습니다.</p>
+          </div>
+        )}
+      </div>
+
+      <div class="mt-16 bg-gray-50 rounded-2xl p-8 text-center reveal delay-200">
+        <p class="text-gray-600 mb-2">채용에 관한 문의사항이 있으시면</p>
+        <p class="text-gray-500 text-sm mb-4">이메일: <a href="mailto:sales@safed.co.kr" class="text-primary hover:underline">sales@safed.co.kr</a></p>
+        <a href="/recruitment-guide" class="text-primary text-sm font-semibold hover:underline">채용안내 보기 →</a>
+      </div>
+    </div>
+  </section>
+</SubPageLayout>
