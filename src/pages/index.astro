@@ -67,6 +67,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
       items={[
         {
           tag: 'Safety Platform',
+          tagKo: '안전관리 플랫폼',
           headline: '종이 위험성평가,\n그 사이 사고가 납니다.',
           desc: '260종 3만여 건의 위험 Case를 눈으로 확인하시겠습니까? SafeD는 1-click으로 위험요인을 즉시 조회하고, 현장에서 바로 조치합니다. 서류 더미가 아닌 시스템이 생명을 지킵니다.',
           stat: '80%',
@@ -75,6 +76,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
         },
         {
           tag: 'Risk Assessment',
+          tagKo: '위험성평가',
           headline: '위험성평가, 아직 4시간\n걸리고 계십니까?',
           desc: '300여개 공종, 50,000개 위험요인·안전대책 DB가 자동 매칭됩니다. 협력업체도 10분 안에 작성 완료. 최초/정기/수시/일일 평가 모두 지원. 더 이상 시간 낭비하지 마십시오.',
           stat: '70%',
@@ -83,6 +85,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
         },
         {
           tag: 'Legal Compliance',
+          tagKo: '법적 대응',
           headline: '징역 1년, 벌금 10억.\n준비 안 된 당신의 리스크.',
           desc: '중대재해처벌법 4대 의무사항을 SafeD가 100% 시스템으로 매핑합니다. 안전보건관리체계 구축부터 의무이행 근거자료 자동생성까지. 법적 리스크를 완벽 차단합니다.',
           stat: '100%',
@@ -91,6 +94,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
         },
         {
           tag: 'Cost Savings',
+          tagKo: '비용 절감',
           headline: '월 120만원이 절감됩니다.\n도입 안 할 이유가 없습니다.',
           desc: '탐색 60분→10분, 발굴 120분→20분, 기록 60분→10분. 하루 240분의 업무가 40분으로. 현장당 월 120만원, 연간 1,440만원 절감. 투자 대비 ROI가 압도적입니다.',
           stat: '1,440만원',
@@ -99,6 +103,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
         },
         {
           tag: 'Multilingual',
+          tagKo: '다국어 지원',
           headline: '외국인 근로자가 위험을\n모르면, 사고가 됩니다.',
           desc: '베트남·중국·태국·미얀마 등 19개국어를 Google AI가 실시간 번역합니다. 위험성평가·TBM·안전교육을 모국어로 확인하고 음성으로 듣습니다. 소통 단절이 곧 사고입니다.',
           stat: '19개국어',
@@ -278,54 +283,26 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
     </div>
   </section>
 
-  <!-- Section 4: Voices from the Field + Industries - 2 Column -->
-  <section class="py-24 bg-gray-50">
-    <div class="w-container">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        <!-- Left: Testimonials with auto-scroll -->
-        <div class="lg:col-span-7">
-          <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">Voices from the Field</p>
-          <h2 class="text-3xl font-bold mb-8 tracking-tight reveal delay-100">현장의 목소리</h2>
-          <div class="reveal delay-200">
-            <TestimonialCarousel
-              client:visible
-              testimonials={[
-                { title: '현장소장(총괄책임자)', review: 'SafeD를 통해 위험성평가 내용이 세밀해졌고, 위험요소를 제거하여 안전사고 Zero를 달성했습니다.', iconPath: 'M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M8.5 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z', color: '#f97316' },
-                { title: '안전관리자', review: '위험요소를 세밀하게 검토하여 제거할 수 있었고, 관리감독자의 안전활동을 크게 개선했습니다.', iconPath: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z', color: '#8b5cf6' },
-                { title: '보건관리자', review: '근로자와 앱으로 소통하며 건강상태, 교육 이수 여부를 세밀하게 체크합니다.', iconPath: 'M22 12h-4l-3 9L9 3l-3 9H2', color: '#3b82f6' },
-                { title: '관리감독자', review: '모든 관리감독자가 체계적으로 안전활동을 할 수 있고, 이행여부 체크가 편리합니다.', iconPath: 'M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11', color: '#16a34a' },
-                { title: '협력업체', review: '공종 작업에 대해 세밀하게 작성할 수 있어 편리하며, 공사팀 모두 큰 도움을 받고 있습니다.', iconPath: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75', color: '#06b6d4' },
-                { title: '근로자', review: '앱으로 사진을 찍고 전송하면 위험요소를 제거해줍니다. 외국인 근로자도 쉽게 사용합니다.', iconPath: 'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z', color: '#ef4444' },
-              ]}
-              interval={4000}
-            />
-          </div>
-        </div>
-        <!-- Right: Industries -->
-        <div class="lg:col-span-5">
-          <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">Industries</p>
-          <h2 class="text-3xl font-bold mb-8 tracking-tight reveal delay-100">적용 산업</h2>
-          <div class="space-y-4">
-            {[
-              { iconPath: 'M2 20h20M5 20V8l7-5 7 5v12M9 20v-4h6v4', label: '건설현장', desc: '아파트, 도로, 교량, 터널 등 건설 현장', color: '#3b82f6' },
-              { iconPath: 'M2 20h20M6 20V10h4v10M10 20V6h4v14M14 20V8h4v12', label: '플랜트', desc: '화학, 석유, 가스 플랜트 시설', color: '#8b5cf6' },
-              { iconPath: 'M3 21h18M3 7v14M21 7v14M6 7V3h12v4M9 21v-4h6v4M9 7h6', label: '제조시설', desc: '공장, 생산라인 제조 시설', color: '#06b6d4' },
-              { iconPath: 'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z', label: '유지관리', desc: '시설물 유지보수, 정비', color: '#f59e0b' },
-              { iconPath: 'M22 12h-4l-3 9L9 3l-3 9H2', label: '서비스업', desc: '의료, 물류, 유통 서비스', color: '#ef4444' },
-            ].map((item, i) => (
-              <div class={`flex items-center gap-4 bg-white rounded-2xl p-5 border border-gray-100 hover:shadow-md transition-shadow group reveal delay-${(i + 1) * 100}`}>
-                <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform" style={`background: ${item.color}10`}>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={item.color} stroke-width="1.5"><path d={item.iconPath}/></svg>
-                </div>
-                <div class="flex-1 min-w-0">
-                  <p class="font-bold text-sm">{item.label}</p>
-                  <p class="text-xs text-gray-400 mt-0.5">{item.desc}</p>
-                </div>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-              </div>
-            ))}
-          </div>
-        </div>
+  <!-- Section 4: Voices from the Field - Editorial Quote -->
+  <section class="py-28 bg-white relative">
+    <div class="w-container max-w-4xl">
+      <div class="text-center reveal">
+        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-6">Voices from the Field</p>
+        <svg class="mx-auto mb-6 text-primary/15" width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+      </div>
+      <div class="reveal delay-100">
+        <TestimonialCarousel
+          client:visible
+          testimonials={[
+            { title: '현장소장(총괄책임자)', review: 'SafeD를 통해 위험성평가 내용이 세밀해졌고, 위험요소를 제거하여 안전사고 Zero를 달성했습니다.', iconPath: 'M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M8.5 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z', color: '#f97316' },
+            { title: '안전관리자', review: '위험요소를 세밀하게 검토하여 제거할 수 있었고, 관리감독자의 안전활동을 크게 개선했습니다.', iconPath: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z', color: '#8b5cf6' },
+            { title: '보건관리자', review: '근로자와 앱으로 소통하며 건강상태, 교육 이수 여부를 세밀하게 체크합니다.', iconPath: 'M22 12h-4l-3 9L9 3l-3 9H2', color: '#3b82f6' },
+            { title: '관리감독자', review: '모든 관리감독자가 체계적으로 안전활동을 할 수 있고, 이행여부 체크가 편리합니다.', iconPath: 'M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11', color: '#16a34a' },
+            { title: '협력업체', review: '공종 작업에 대해 세밀하게 작성할 수 있어 편리하며, 공사팀 모두 큰 도움을 받고 있습니다.', iconPath: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75', color: '#06b6d4' },
+            { title: '근로자', review: '앱으로 사진을 찍고 전송하면 위험요소를 제거해줍니다. 외국인 근로자도 쉽게 사용합니다.', iconPath: 'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z', color: '#ef4444' },
+          ]}
+          interval={4000}
+        />
       </div>
     </div>
   </section>
@@ -382,6 +359,23 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
               </div>
             </div>
           </div>
+        </div>
+      <!-- Industries inline -->
+      <div class="mt-16 pt-12 border-t border-white/5 reveal delay-300">
+        <p class="text-white/25 text-xs font-medium mb-6 text-center eng tracking-widest uppercase">Industries</p>
+        <div class="flex items-center justify-center gap-8 flex-wrap">
+          {[
+            { label: '건설', iconPath: 'M2 20h20M5 20V8l7-5 7 5v12M9 20v-4h6v4' },
+            { label: '플랜트', iconPath: 'M2 20h20M6 20V10h4v10M10 20V6h4v14M14 20V8h4v12' },
+            { label: '제조', iconPath: 'M3 21h18M3 7v14M21 7v14M6 7V3h12v4M9 21v-4h6v4M9 7h6' },
+            { label: '유지보수', iconPath: 'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z' },
+            { label: '서비스', iconPath: 'M22 12h-4l-3 9L9 3l-3 9H2' },
+          ].map((item) => (
+            <div class="flex items-center gap-2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"><path d={item.iconPath}/></svg>
+              <span class="text-white/40 text-xs font-medium">{item.label}</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>

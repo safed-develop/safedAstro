@@ -532,16 +532,154 @@ const tabs = [
     </div>
   </section>
 
-  <!-- Vertical Tab Section -->
-  <section class="py-20 bg-gray-50">
-    <div class="w-container max-w-5xl">
-      <div class="text-center mb-12 reveal">
-        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">Detailed Features</p>
-        <h2 class="text-3xl font-bold tracking-tight">기능 상세</h2>
-        <p class="text-gray-500 mt-3">각 기능을 클릭하여 상세 내용을 확인하세요.</p>
+  <!-- Procedural Workflow Infographic -->
+  <section class="py-24 bg-gray-50 overflow-hidden">
+    <div class="w-container max-w-6xl">
+      <div class="text-center mb-16 reveal">
+        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">How SafeD Works</p>
+        <h2 class="text-3xl lg:text-4xl font-bold tracking-tight">현장 안전관리, 이렇게 작동합니다</h2>
+        <p class="text-gray-500 mt-3">8단계 프로세스로 현장의 모든 안전활동을 체계적으로 관리합니다.</p>
       </div>
-      <div class="bg-white rounded-2xl p-8 lg:p-12 shadow-sm reveal delay-200">
-        <VerticalTab tabs={tabs} />
+
+      <!-- Workflow Steps -->
+      <div class="relative">
+        <!-- Vertical connecting line (desktop) -->
+        <div class="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/30 via-primary/10 to-transparent -translate-x-1/2" aria-hidden="true"></div>
+
+        {[
+          {
+            step: '01',
+            title: '위험성평가 작성',
+            desc: '300여개 공종, 50,000개 위험요인·안전대책 DB에서 원클릭 조회. 최초/정기/수시/일일 평가를 모바일에서 즉시 작성합니다.',
+            details: ['위험요인·안전대책 자동 매칭', '가능성·중대성 점수 자동 산출', '총괄책임자 승인 후 회의록 자동 생성'],
+            image: '/images/safed_feature_01.png',
+            stat: '50,000+',
+            statLabel: '위험요인 DB',
+            color: '#ef4444',
+            iconPath: 'M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2',
+          },
+          {
+            step: '02',
+            title: '중점·일상 점검활동',
+            desc: '위험성평가에서 분류된 상(중점)·중(일상) 등급 항목을 매일 현장에서 점검하고 결과를 즉시 등록합니다.',
+            details: ['점검 목록 자동 생성', '모바일 사진 촬영·등록', '안전책임자 지정 및 알람'],
+            image: '/images/safed_feature_02.png',
+            stat: '매일',
+            statLabel: '현장 점검',
+            color: '#f59e0b',
+            iconPath: 'M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11',
+          },
+          {
+            step: '03',
+            title: '순회점검일지 작성',
+            desc: '산업안전보건법 제64조에 따른 작업장 순회점검을 체계적으로 이행. 건설업은 2일에 1회 이상 실시합니다.',
+            details: ['점검항목·점검자 사전 지정', '승인/반려 프로세스', '보고서 형태 자동 출력'],
+            image: '/images/safed_feature_04.png',
+            stat: '자동',
+            statLabel: '보고서 생성',
+            color: '#3b82f6',
+            iconPath: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6 M16 13H8 M16 17H8 M10 9H8',
+          },
+          {
+            step: '04',
+            title: '안전교육 · TBM',
+            desc: 'PC+모바일에서 동시에 교육과 TBM을 기록. 참석자 서명, 문자 인증, 교육일지 자동 생성까지.',
+            details: ['TBM 참석자 모바일 서명', '일용근로자 문자 인증', '계절별 안전교육 자료 관리'],
+            image: '/images/safed_feature_07.png',
+            stat: 'PC+모바일',
+            statLabel: '동시 지원',
+            color: '#8b5cf6',
+            iconPath: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75M8.5 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z',
+          },
+          {
+            step: '05',
+            title: '추가위험 발굴',
+            desc: '근로자가 스마트폰으로 직접 위험요소를 신고. 안전건의함·작업중지권 QR코드로 간편하게 참여합니다.',
+            details: ['사진 촬영·전송만으로 위험 신고', 'QR코드 기반 작업중지권', '외국인 근로자 모국어 참여'],
+            image: '/images/safed_feature_08.png',
+            stat: 'QR코드',
+            statLabel: '즉시 참여',
+            color: '#16a34a',
+            iconPath: 'M12 9v2m0 4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z',
+          },
+          {
+            step: '06',
+            title: '다국어 자동번역',
+            desc: 'Google AI로 19개국어 실시간 번역. 위험성평가·TBM 내용을 모국어로 확인하고 음성으로 듣습니다.',
+            details: ['19개국어 자동번역', '음성 안내 지원', '외국인 근로자 완전 참여'],
+            image: '/images/safed_feature_03.png',
+            stat: '19개국어',
+            statLabel: 'AI 번역',
+            color: '#06b6d4',
+            iconPath: 'M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 0 1 6.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129',
+          },
+          {
+            step: '07',
+            title: '작업계획서 · 허가서',
+            desc: '고위험작업 진행 시 작업계획서와 PTW(작업허가서)를 체계적으로 작성하고 결재합니다.',
+            details: ['사전 입력 양식으로 빠른 작성', '결재선 설정 및 의견 작성', '작업허가→진행→완료 프로세스'],
+            image: '/images/safed_feature_09.png',
+            stat: '원스톱',
+            statLabel: '결재 프로세스',
+            color: '#ec4899',
+            iconPath: 'M11 5H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-5m-1.414-9.414a2 2 0 1 1 2.828 2.828L11.828 15H9v-2.828l8.586-8.586z',
+          },
+          {
+            step: '08',
+            title: '대시보드 · 보고서',
+            desc: '본사에서 전국 각 현장별 안전활동 이행률을 실시간 모니터링. 모든 문서를 보고서로 자동 정리·출력합니다.',
+            details: ['현장별 이행률 비교', '항목별 통계 분석', '보고서 자동 생성·인쇄'],
+            image: '/images/dboard.png',
+            stat: '실시간',
+            statLabel: '모니터링',
+            color: '#0ea5e9',
+            iconPath: 'M18 20V10M12 20V4M6 20v-6',
+          },
+        ].map((item, i) => (
+          <div class={`relative mb-16 last:mb-0 reveal delay-${Math.min((i % 4 + 1) * 100, 400)}`}>
+            {/* Step connector dot */}
+            <div class="hidden lg:flex absolute left-1/2 top-8 -translate-x-1/2 z-10 w-10 h-10 rounded-full items-center justify-center" style={`background: ${item.color}; box-shadow: 0 0 20px ${item.color}40;`}>
+              <span class="eng text-white text-xs font-bold">{item.step}</span>
+            </div>
+
+            <div class={`lg:grid lg:grid-cols-2 lg:gap-16 items-center ${i % 2 === 1 ? 'lg:direction-rtl' : ''}`}>
+              {/* Content side */}
+              <div class={`${i % 2 === 1 ? 'lg:order-2 lg:text-right' : 'lg:order-1'} mb-6 lg:mb-0 ${i % 2 === 1 ? 'lg:pr-16' : 'lg:pl-0 lg:text-right lg:pr-16'}`}>
+                <div class={`inline-flex items-center gap-2 mb-3 ${i % 2 === 0 ? 'lg:flex-row-reverse' : ''}`}>
+                  <span class="lg:hidden eng text-xs font-bold text-white px-2 py-1 rounded-full" style={`background: ${item.color}`}>{item.step}</span>
+                  <span class="eng text-xs font-semibold tracking-wider uppercase" style={`color: ${item.color}`}>Step {item.step}</span>
+                </div>
+                <h3 class="text-xl lg:text-2xl font-bold tracking-tight mb-3">{item.title}</h3>
+                <p class="text-gray-500 text-sm leading-relaxed mb-4">{item.desc}</p>
+                <ul class={`space-y-2 ${i % 2 === 0 ? 'lg:flex lg:flex-col lg:items-end' : ''}`}>
+                  {item.details.map((d) => (
+                    <li class="flex items-center gap-2 text-sm text-gray-600">
+                      <svg class="flex-shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={item.color} stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>{d}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div class={`inline-flex items-baseline gap-2 mt-4 px-4 py-2 rounded-xl ${i % 2 === 0 ? '' : ''}`} style={`background: ${item.color}08; border: 1px solid ${item.color}15;`}>
+                  <span class="eng text-lg font-extrabold" style={`color: ${item.color}`}>{item.stat}</span>
+                  <span class="text-xs text-gray-500 font-medium">{item.statLabel}</span>
+                </div>
+              </div>
+
+              {/* Image side */}
+              <div class={`${i % 2 === 1 ? 'lg:order-1 lg:pl-16' : 'lg:order-2 lg:pl-16'}`}>
+                <div class="relative group">
+                  <div class="absolute -inset-3 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity" style={`background: ${item.color}08;`}></div>
+                  <div class="relative bg-white rounded-2xl p-4 shadow-sm border border-gray-100 overflow-hidden">
+                    <img src={item.image} alt={item.title} class="w-full rounded-xl object-cover" style="aspect-ratio: 16/10;" loading="lazy" />
+                    <div class="absolute top-6 right-6 w-10 h-10 rounded-xl flex items-center justify-center" style={`background: ${item.color}; box-shadow: 0 4px 12px ${item.color}30;`}>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d={item.iconPath}/></svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>

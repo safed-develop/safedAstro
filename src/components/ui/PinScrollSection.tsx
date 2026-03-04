@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 
 interface PinItem {
   tag: string;
+  tagKo?: string;
   headline: string;
   desc: string;
   stat: string;
@@ -117,13 +118,25 @@ export default function PinScrollSection({ items }: Props) {
                   background: i === activeIndex ? '#007BFF' : '#e5e7eb',
                   transition: 'all 0.3s',
                 }} />
-                <span style={{
-                  fontSize: '13px', fontWeight: i === activeIndex ? 700 : 400,
-                  color: i === activeIndex ? '#111' : '#9ca3af',
-                  transition: 'all 0.3s',
-                }}>
-                  {item.tag}
-                </span>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                  <span style={{
+                    fontSize: '13px', fontWeight: i === activeIndex ? 700 : 400,
+                    color: i === activeIndex ? '#111' : '#9ca3af',
+                    transition: 'all 0.3s',
+                  }}>
+                    {item.tagKo || item.tag}
+                  </span>
+                  <span style={{
+                    fontSize: '10px', fontWeight: 500,
+                    color: i === activeIndex ? '#007BFF' : '#d1d5db',
+                    fontFamily: 'var(--font-english)',
+                    letterSpacing: '0.5px',
+                    textTransform: 'uppercase' as const,
+                    transition: 'all 0.3s',
+                  }}>
+                    {item.tag}
+                  </span>
+                </div>
               </button>
             ))}
           </div>
