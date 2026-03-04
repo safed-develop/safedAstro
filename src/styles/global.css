@@ -28,7 +28,8 @@
 
   /* Fonts */
   --font-primary: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-  --font-english: 'Nunito Sans', sans-serif;
+  --font-english: 'DM Sans', sans-serif;
+  --font-number: 'DM Sans', sans-serif;
 
   /* Container widths */
   --container-sm: 640px;
@@ -134,23 +135,18 @@
     position: relative;
   }
 
-  body::before {
+  body::after {
     content: '';
     position: fixed;
-    inset: 0;
-    z-index: 0;
+    inset: -60px;
+    z-index: 9990;
     pointer-events: none;
-    opacity: 0.035;
+    opacity: 0.04;
     background-image:
-      linear-gradient(rgba(0,0,0,1) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,0,0,1) 1px, transparent 1px);
+      linear-gradient(rgba(100,100,120,1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(100,100,120,1) 1px, transparent 1px);
     background-size: 60px 60px;
-    animation: grid-move 30s linear infinite;
-  }
-
-  body > * {
-    position: relative;
-    z-index: 1;
+    animation: grid-move 20s linear infinite;
   }
 
   ::selection {
@@ -190,7 +186,7 @@
 /* --- Utility Classes --- */
 @layer utilities {
   .eng {
-    font-family: var(--font-english);
+    font-family: var(--font-number);
   }
 
   .w-container {
@@ -295,6 +291,7 @@
 
   /* Counter animation */
   .counter-num {
+    font-family: var(--font-number);
     font-variant-numeric: tabular-nums;
     font-feature-settings: 'tnum';
   }
