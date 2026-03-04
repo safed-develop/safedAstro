@@ -103,7 +103,7 @@ export default function SlideShow({ slides, autoPlayInterval = 6000, height = '7
           <AnimatePresence mode="wait">
             <motion.div key={`c-${current}`}>
               {/* Tag badge */}
-              <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.4, delay: 0.15 }}>
+              <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.4, delay: 0.15 }}>
                 <span style={{
                   display: 'inline-flex', alignItems: 'center', gap: '8px',
                   padding: '7px 18px', border: '1px solid rgba(0,123,255,0.5)', borderRadius: '50px',

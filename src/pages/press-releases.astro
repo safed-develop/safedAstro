@@ -5,6 +5,7 @@ const navLinks = [
   { name: '공지사항', url: '/notices' },
   { name: '보도자료', url: '/press-releases' },
   { name: '상담문의', url: '/inquiries' },
+  { name: 'FAQ', url: '/faq' },
 ];
 
 const releases = [
@@ -54,61 +55,87 @@ const releases = [
   description="SafeD 보도자료 - 스마트안전관리시스템 언론 보도"
   navLinks={navLinks}
 >
-  <!-- Award Section -->
-  <section class="py-20 bg-gray-50">
-    <div class="w-container max-w-4xl">
-      <div class="text-center reveal">
-        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">Award</p>
-        <h2 class="text-3xl font-bold mb-4 tracking-tight">스마트건설대상 수상</h2>
-        <p class="text-gray-500 mb-12">[2021 스마트건설대상 안전대상] 플랫폼 부분 - 세이프디 주식회사</p>
-      </div>
-
-      <div class="bg-white rounded-2xl p-8 lg:p-10 shadow-sm mb-8 reveal delay-100">
-        <p class="text-gray-600 leading-relaxed mb-8">
-          세이프디 주식회사는 국내 유일의 스마트안전관리솔루션 개발 회사입니다.
-          최근 출시한 위험성평가 프로세스관리 솔루션 '세이프디(SafeD)'가 스마트건설대상에서 주목을 받았습니다.
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {[
-            { title: '쉽고 편리한 안전관리', desc: '위험성 평가 회의나 안전점검 결과를 \'원클릭\'으로 해결합니다. 각종 사업장에서 발생하는 표준위험공종 약 2만 5000건을 자료화해 편리하고 신속하게 회의록을 작성할 수 있습니다.' },
-            { title: '비용 절감 효과', desc: '세이프디(SafeD)는 시간과 비용을 절감하며 효율적인 안전관리 솔루션을 제공합니다.' },
-            { title: '모바일 GPS와 경고 시스템', desc: '모바일 GPS를 통해 작업 위치나 동선분석 등을 통해 위험지역 접근을 감지하고 즉시 경고하는 알람기능을 제공합니다.' },
-            { title: '비컨(Beacon) 기술', desc: '비컨(Beacon) 기술을 탑재해 지하, 터널 등 사각지대를 없애고, 복잡한 구조의 물류센터에서도 정교한 감지가 가능합니다.' },
-          ].map((item) => (
-            <div class="bg-gray-50 rounded-xl p-6">
-              <h4 class="font-semibold text-gray-800 mb-2">{item.title}</h4>
-              <p class="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+  <!-- Award Highlight -->
+  <section class="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <div class="w-container max-w-5xl">
+      <div class="relative bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-sm reveal">
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-0">
+          <!-- Left: Award visual -->
+          <div class="lg:col-span-2 bg-gradient-to-br from-gray-900 to-gray-800 p-8 lg:p-10 flex flex-col justify-center text-white relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-40 h-40 bg-primary/10 rounded-full blur-[60px]"></div>
+            <div class="relative z-10">
+              <div class="w-14 h-14 bg-yellow-400/10 rounded-2xl flex items-center justify-center mb-6">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#facc15" stroke-width="1.5">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+              </div>
+              <p class="eng text-yellow-400 font-bold text-xs tracking-widest uppercase mb-3">Award</p>
+              <h2 class="text-2xl lg:text-3xl font-extrabold tracking-tight leading-tight mb-4">
+                2021 스마트건설대상<br />안전대상 수상
+              </h2>
+              <p class="text-white/50 text-sm leading-relaxed">
+                플랫폼 부문 - 세이프디 주식회사
+              </p>
             </div>
-          ))}
+          </div>
+
+          <!-- Right: Award details -->
+          <div class="lg:col-span-3 p-8 lg:p-10">
+            <p class="text-gray-600 leading-relaxed mb-8">
+              세이프디 주식회사는 국내 유일의 스마트안전관리솔루션 개발 회사입니다.
+              위험성평가 프로세스관리 솔루션 'SafeD'가 스마트건설대상에서 주목을 받았습니다.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                { icon: '⚡', title: '원클릭 안전관리', desc: '위험성 평가 회의 결과를 원클릭으로 해결. 약 25,000건 표준위험공종 자료화' },
+                { icon: '💰', title: '비용 절감 효과', desc: '시간과 비용을 절감하는 효율적인 안전관리 솔루션' },
+                { icon: '📍', title: 'GPS 경고 시스템', desc: '작업 위치·동선 분석으로 위험지역 접근 감지 및 즉시 경고' },
+                { icon: '📡', title: '비콘 기술 탑재', desc: '지하·터널 사각지대 제거, 복잡한 물류센터도 정교한 감지' },
+              ].map((item) => (
+                <div class="bg-gray-50 rounded-xl p-5 hover:bg-primary/5 transition-colors group">
+                  <div class="flex items-center gap-3 mb-2">
+                    <span class="text-lg">{item.icon}</span>
+                    <h4 class="font-bold text-sm text-gray-800 group-hover:text-primary transition-colors">{item.title}</h4>
+                  </div>
+                  <p class="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Press List -->
+  <!-- Press Coverage -->
   <section class="py-20">
-    <div class="w-container max-w-4xl">
-      <div class="mb-12 reveal">
-        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">News</p>
-        <h2 class="text-2xl font-bold tracking-tight">언론 보도</h2>
+    <div class="w-container max-w-5xl">
+      <div class="flex items-end justify-between mb-10 reveal">
+        <div>
+          <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-3">Media Coverage</p>
+          <h2 class="text-2xl lg:text-3xl font-bold tracking-tight">언론 보도</h2>
+        </div>
+        <p class="eng text-sm text-gray-400 hidden sm:block">
+          <span class="font-bold text-gray-600">{releases.length}</span> articles
+        </p>
       </div>
 
-      <div class="space-y-0 reveal delay-100">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 reveal delay-100">
         {releases.map((item, i) => (
           <a href={item.link} target="_blank" rel="noopener noreferrer"
-             class="flex items-start gap-6 py-6 border-b border-gray-100 hover:bg-gray-50 transition-colors px-4 -mx-4 rounded-lg group">
-            <span class="eng text-primary font-bold text-lg flex-shrink-0 w-12 text-center mt-0.5">{String(i + 1).padStart(2, '0')}</span>
-            <div class="flex-1 min-w-0">
-              <div class="flex items-center gap-2 mb-1">
-                <span class="text-xs text-primary bg-primary/5 px-2 py-0.5 rounded eng font-semibold">{item.source}</span>
-              </div>
-              <h3 class="font-semibold text-gray-800 mb-1 group-hover:text-primary transition-colors">{item.title}</h3>
-              <p class="text-sm text-gray-500 line-clamp-1">{item.description}</p>
+             class="group relative bg-white border border-gray-100 rounded-2xl p-6 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="w-8 h-8 rounded-lg bg-primary/5 flex items-center justify-center">
+                <span class="eng text-primary font-bold text-xs">{String(i + 1).padStart(2, '0')}</span>
+              </span>
+              <span class="text-xs text-primary bg-primary/5 px-2.5 py-1 rounded-full eng font-semibold">{item.source}</span>
+              <svg class="w-4 h-4 text-gray-200 group-hover:text-primary ml-auto transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
             </div>
-            <svg class="w-5 h-5 text-gray-300 group-hover:text-primary transition-colors flex-shrink-0 mt-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
-            </svg>
+            <h3 class="font-bold text-gray-800 mb-2 leading-snug group-hover:text-primary transition-colors line-clamp-2">{item.title}</h3>
+            <p class="text-sm text-gray-500 line-clamp-2 leading-relaxed">{item.description}</p>
           </a>
         ))}
       </div>

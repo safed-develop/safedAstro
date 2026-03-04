@@ -6,6 +6,7 @@ const navLinks = [
   { name: '공지사항', url: '/notices' },
   { name: '보도자료', url: '/press-releases' },
   { name: '상담문의', url: '/inquiries' },
+  { name: 'FAQ', url: '/faq' },
 ];
 ---
 
@@ -17,75 +18,92 @@ const navLinks = [
   keywords="SafeD문의, 안전관리시스템도입, 건설안전상담, SafeD견적"
   navLinks={navLinks}
 >
-  <section class="py-20">
+  <!-- Trust indicators -->
+  <section class="py-6 border-b border-gray-100">
     <div class="w-container">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-        <!-- Left: Info -->
-        <div class="reveal">
-          <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">Get in Touch</p>
-          <h2 class="text-3xl font-bold mb-6 tracking-tight">SafeD 도입을 위한<br />상담을 신청해 주세요</h2>
-          <p class="text-gray-500 leading-relaxed mb-10">
-            SafeD 도입에 관심이 있으시다면 아래 양식을 작성해 주세요.<br />
-            담당자가 빠르게 연락드리겠습니다.
+      <div class="flex items-center justify-center gap-8 flex-wrap">
+        {[
+          { num: '150+', label: '도입 현장' },
+          { num: '24h', label: '내 빠른 응답' },
+          { num: '무료', label: '초기 상담' },
+        ].map((item) => (
+          <div class="flex items-center gap-2 text-sm">
+            <span class="eng font-bold text-primary">{item.num}</span>
+            <span class="text-gray-400">{item.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20">
+    <div class="w-container max-w-5xl">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
+        <!-- Left: Info (2/5) -->
+        <div class="lg:col-span-2 reveal">
+          <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-3">Get in Touch</p>
+          <h2 class="text-2xl lg:text-3xl font-bold mb-4 tracking-tight leading-tight">SafeD 도입을 위한<br />상담을 신청하세요</h2>
+          <p class="text-gray-500 leading-relaxed mb-10 text-sm">
+            담당자가 <strong class="text-gray-700">24시간 내</strong> 연락드립니다.
           </p>
 
-          <div class="space-y-6">
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2">
+          <!-- Contact cards -->
+          <div class="space-y-4 mb-10">
+            <a href="tel:02-6949-0706" class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl hover:bg-primary/5 transition-colors group">
+              <div class="w-11 h-11 bg-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm group-hover:shadow-md transition-shadow">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
                 </svg>
               </div>
               <div>
-                <p class="font-semibold text-gray-800 mb-1">전화 문의</p>
-                <p class="text-gray-500 text-sm">02-6748-0835 / 02-6748-0836</p>
+                <p class="font-semibold text-gray-800 text-sm">전화 문의</p>
+                <p class="text-gray-500 text-xs eng">02-6949-0706</p>
               </div>
-            </div>
+            </a>
 
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2">
+            <a href="mailto:safed@solset.co.kr" class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl hover:bg-primary/5 transition-colors group">
+              <div class="w-11 h-11 bg-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm group-hover:shadow-md transition-shadow">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
                 </svg>
               </div>
               <div>
-                <p class="font-semibold text-gray-800 mb-1">이메일</p>
-                <a href="mailto:sales@safed.co.kr" class="text-gray-500 text-sm hover:text-primary transition-colors">sales@safed.co.kr</a>
+                <p class="font-semibold text-gray-800 text-sm">이메일</p>
+                <p class="text-gray-500 text-xs eng">safed@solset.co.kr</p>
+              </div>
+            </a>
+
+            <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl">
+              <div class="w-11 h-11 bg-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-800 text-sm">방문 상담</p>
+                <p class="text-gray-500 text-xs">서울 구로구 디지털로31길 53 이앤씨드림타워 7차 901호</p>
               </div>
             </div>
           </div>
+
+          <!-- Response time badge -->
+          <div class="bg-primary/5 border border-primary/10 rounded-xl p-4 text-center">
+            <p class="text-xs text-primary font-semibold">평균 응답 시간</p>
+            <p class="eng text-2xl font-extrabold text-primary mt-1">4<span class="text-sm font-medium ml-1">시간</span></p>
+          </div>
         </div>
 
-        <!-- Right: Form -->
-        <div class="reveal delay-200">
-          <div class="bg-gray-50 rounded-2xl p-8 lg:p-10">
+        <!-- Right: Form (3/5) -->
+        <div class="lg:col-span-3 reveal delay-200">
+          <div class="bg-white border border-gray-100 rounded-2xl p-8 lg:p-10 shadow-sm">
+            <div class="mb-6">
+              <h3 class="font-bold text-lg text-gray-800">상담 신청서</h3>
+              <p class="text-sm text-gray-400 mt-1">아래 양식을 작성해 주시면 빠르게 안내드리겠습니다.</p>
+            </div>
             <ContactForm client:visible />
           </div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- Marquee -->
-  <section class="py-12 overflow-hidden border-t border-gray-100">
-    <div class="animate-marquee whitespace-nowrap">
-      <span class="eng text-4xl font-bold text-gray-100 mx-8">Contech Future Leader</span>
-      <span class="eng text-4xl font-bold text-gray-100 mx-8">Contech Future Leader</span>
-      <span class="eng text-4xl font-bold text-gray-100 mx-8">Contech Future Leader</span>
-      <span class="eng text-4xl font-bold text-gray-100 mx-8">Contech Future Leader</span>
-      <span class="eng text-4xl font-bold text-gray-100 mx-8">Contech Future Leader</span>
-      <span class="eng text-4xl font-bold text-gray-100 mx-8">Contech Future Leader</span>
-    </div>
-  </section>
 </SubPageLayout>
-
-<style>
-  .animate-marquee {
-    display: flex;
-    animation: marquee 20s linear infinite;
-  }
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-</style>
