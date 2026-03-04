@@ -14,12 +14,12 @@ interface Slide {
 interface Props {
   slides: Slide[];
   autoPlayInterval?: number;
+  height?: string;
 }
 
-export default function SlideShow({ slides, autoPlayInterval = 6000 }: Props) {
+export default function SlideShow({ slides, autoPlayInterval = 6000, height = '75vh' }: Props) {
   const [current, setCurrent] = useState(0);
   const [progress, setProgress] = useState(0);
-  const [direction, setDirection] = useState(1);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const progressRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
@@ -31,49 +31,42 @@ export default function SlideShow({ slides, autoPlayInterval = 6000 }: Props) {
     }, 30);
   }, [autoPlayInterval]);
 
-  const goTo = useCallback((index: number, dir: number = 1) => {
-    setDirection(dir);
+  const goTo = useCallback((index: number) => {
     setCurrent(index);
     startProgress();
-  }, [startProgress]);
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => {
+      setCurrent((c) => (c + 1) % slides.length);
+      startProgress();
+    }, autoPlayInterval);
+  }, [startProgress, autoPlayInterval, slides.length]);
 
-  const next = useCallback(() => {
-    goTo((current + 1) % slides.length, 1);
-  }, [current, slides.length, goTo]);
-
-  const prev = useCallback(() => {
-    goTo((current - 1 + slides.length) % slides.length, -1);
-  }, [current, slides.length, goTo]);
+  const next = useCallback(() => goTo((current + 1) % slides.length), [current, slides.length, goTo]);
+  const prev = useCallback(() => goTo((current - 1 + slides.length) % slides.length), [current, slides.length, goTo]);
 
   useEffect(() => {
     startProgress();
     intervalRef.current = setInterval(() => {
-      setCurrent((c) => {
-        const nextIdx = (c + 1) % slides.length;
-        setDirection(1);
-        return nextIdx;
-      });
+      setCurrent((c) => (c + 1) % slides.length);
       startProgress();
     }, autoPlayInterval);
-
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
       if (progressRef.current) clearInterval(progressRef.current);
     };
-  }, [autoPlayInterval, slides.length, startProgress]);
+  }, []);
 
-  // Ken Burns animation variants - alternating zoom directions
-  const kenBurnsVariants = [
-    { initial: { scale: 1.15, x: '-3%' }, animate: { scale: 1, x: '3%' } },
-    { initial: { scale: 1.2, x: '3%' }, animate: { scale: 1.05, x: '-2%' } },
-    { initial: { scale: 1.1, y: '-3%' }, animate: { scale: 1.2, y: '2%' } },
+  const kenBurns = [
+    { initial: { scale: 1.15, x: '-2%' }, animate: { scale: 1.02, x: '2%' } },
+    { initial: { scale: 1.2, x: '2%' }, animate: { scale: 1.05, x: '-1%' } },
+    { initial: { scale: 1.1, y: '-2%' }, animate: { scale: 1.18, y: '1%' } },
   ];
 
   const slide = slides[current];
-  const kb = kenBurnsVariants[current % kenBurnsVariants.length];
+  const kb = kenBurns[current % kenBurns.length];
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: '100vh', overflow: 'hidden', background: '#000' }}>
+    <div style={{ position: 'relative', width: '100%', height, minHeight: '500px', overflow: 'hidden', background: '#000', borderRadius: '0 0 24px 24px' }}>
       {/* Background with Ken Burns */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -82,390 +75,186 @@ export default function SlideShow({ slides, autoPlayInterval = 6000 }: Props) {
           animate={{ opacity: 1, ...kb.animate }}
           exit={{ opacity: 0, scale: 1.05 }}
           transition={{
-            opacity: { duration: 1, ease: 'easeInOut' },
+            opacity: { duration: 0.8, ease: 'easeInOut' },
             scale: { duration: autoPlayInterval / 1000, ease: 'linear' },
             x: { duration: autoPlayInterval / 1000, ease: 'linear' },
             y: { duration: autoPlayInterval / 1000, ease: 'linear' },
           }}
           style={{
-            position: 'absolute',
-            inset: '-5%',
-            width: '110%',
-            height: '110%',
-            backgroundImage: `url(${slide.image})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            position: 'absolute', inset: '-5%', width: '110%', height: '110%',
+            backgroundImage: `url(${slide.image})`, backgroundSize: 'cover', backgroundPosition: 'center',
           }}
         />
       </AnimatePresence>
 
-      {/* Gradient Overlay */}
-      <div style={{
-        position: 'absolute',
-        inset: 0,
-        background: 'linear-gradient(135deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.5) 100%)',
-        zIndex: 1,
-      }} />
+      {/* Overlays */}
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(0,10,30,0.7) 0%, rgba(0,0,0,0.2) 50%, rgba(0,20,60,0.6) 100%)', zIndex: 1 }} />
+      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '50%', background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)', zIndex: 1 }} />
 
-      {/* Bottom gradient for better readability */}
-      <div style={{
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        height: '40%',
-        background: 'linear-gradient(to top, rgba(0,0,0,0.7), transparent)',
-        zIndex: 1,
-      }} />
+      {/* Decorative grid lines */}
+      <div style={{ position: 'absolute', inset: 0, zIndex: 1, opacity: 0.03, backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)', backgroundSize: '80px 80px' }} />
 
       {/* Content */}
-      <div style={{
-        position: 'relative',
-        zIndex: 2,
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        padding: '0 clamp(2rem, 8vw, 10rem)',
-        maxWidth: '900px',
-      }}>
-        <AnimatePresence mode="wait">
-          <motion.div key={`content-${current}`}>
-            {/* Tag */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 30 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <span style={{
-                display: 'inline-block',
-                padding: '6px 16px',
-                border: '1px solid rgba(255,255,255,0.3)',
-                borderRadius: '50px',
-                color: '#fff',
-                fontSize: '13px',
-                fontWeight: 600,
-                fontFamily: 'var(--font-english)',
-                letterSpacing: '2px',
-                textTransform: 'uppercase',
-                marginBottom: '1.5rem',
-                backdropFilter: 'blur(10px)',
-                background: 'rgba(255,255,255,0.08)',
-              }}>
-                {slide.tag}
-              </span>
-            </motion.div>
-
-            {/* Title */}
-            <motion.h2
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              style={{
-                fontSize: 'clamp(2rem, 5vw, 3.8rem)',
-                fontWeight: 800,
-                lineHeight: 1.15,
-                letterSpacing: '-2px',
-                color: '#fff',
-                marginBottom: '1.25rem',
-                wordBreak: 'keep-all',
-              }}
-            >
-              {slide.title.split('\n').map((line, i) => (
-                <span key={i}>
-                  {line}
-                  {i < slide.title.split('\n').length - 1 && <br />}
+      <div style={{ position: 'relative', zIndex: 2, height: '100%', display: 'flex', alignItems: 'center' }}>
+        <div style={{ padding: '0 clamp(2rem, 8vw, 10rem)', maxWidth: '950px', width: '100%' }}>
+          <AnimatePresence mode="wait">
+            <motion.div key={`c-${current}`}>
+              {/* Tag badge */}
+              <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.4, delay: 0.15 }}>
+                <span style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '8px',
+                  padding: '7px 18px', border: '1px solid rgba(0,123,255,0.5)', borderRadius: '50px',
+                  color: '#a4d8ff', fontSize: '12px', fontWeight: 600, fontFamily: 'var(--font-english)',
+                  letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '1.25rem',
+                  background: 'rgba(0,123,255,0.1)', backdropFilter: 'blur(10px)',
+                }}>
+                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#007BFF', boxShadow: '0 0 8px #007BFF' }} />
+                  {slide.tag}
                 </span>
-              ))}
-            </motion.h2>
-
-            {/* Subtitle */}
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              style={{
-                fontSize: 'clamp(0.95rem, 1.5vw, 1.2rem)',
-                color: 'rgba(255,255,255,0.8)',
-                lineHeight: 1.7,
-                wordBreak: 'keep-all',
-                maxWidth: '600px',
-              }}
-            >
-              {slide.subtitle}
-            </motion.p>
-
-            {/* Highlights */}
-            {slide.highlights && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-                style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '1.5rem' }}
-              >
-                {slide.highlights.map((h, i) => (
-                  <span
-                    key={i}
-                    style={{
-                      padding: '6px 14px',
-                      background: 'rgba(0,123,255,0.2)',
-                      border: '1px solid rgba(0,123,255,0.4)',
-                      borderRadius: '8px',
-                      color: '#a4d8ff',
-                      fontSize: '13px',
-                      fontWeight: 500,
-                      backdropFilter: 'blur(4px)',
-                    }}
-                  >
-                    {h}
-                  </span>
-                ))}
               </motion.div>
-            )}
 
-            {/* CTA Button */}
-            {slide.link && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5, delay: 1 }}
-                style={{ marginTop: '2rem' }}
+              {/* Title */}
+              <motion.h2
+                initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                style={{ fontSize: 'clamp(1.8rem, 4.5vw, 3.2rem)', fontWeight: 800, lineHeight: 1.2, letterSpacing: '-1.5px', color: '#fff', marginBottom: '1rem', wordBreak: 'keep-all' }}
               >
-                <a
-                  href={slide.link}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '10px',
-                    padding: '14px 32px',
-                    background: '#007BFF',
-                    borderRadius: '50px',
-                    color: '#fff',
-                    fontSize: '15px',
-                    fontWeight: 600,
-                    textDecoration: 'none',
-                    transition: 'all 0.3s',
-                    boxShadow: '0 4px 20px rgba(0,123,255,0.4)',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = '#0060B7';
-                    e.currentTarget.style.transform = 'translateY(-2px)';
-                    e.currentTarget.style.boxShadow = '0 6px 30px rgba(0,123,255,0.5)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = '#007BFF';
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,123,255,0.4)';
-                  }}
+                {slide.title.split('\n').map((line, i) => (
+                  <span key={i}>{line}{i < slide.title.split('\n').length - 1 && <br />}</span>
+                ))}
+              </motion.h2>
+
+              {/* Subtitle */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
+                transition={{ duration: 0.4, delay: 0.5 }}
+                style={{ fontSize: 'clamp(0.9rem, 1.3vw, 1.1rem)', color: 'rgba(255,255,255,0.75)', lineHeight: 1.7, wordBreak: 'keep-all', maxWidth: '560px' }}
+              >
+                {slide.subtitle}
+              </motion.p>
+
+              {/* Highlights */}
+              {slide.highlights && (
+                <motion.div
+                  initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4, delay: 0.65 }}
+                  style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '1.25rem' }}
                 >
-                  {slide.linkText || '자세히 보기'}
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
+                  {slide.highlights.map((h, i) => (
+                    <span key={i} style={{
+                      padding: '5px 12px', background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)',
+                      borderRadius: '6px', color: 'rgba(255,255,255,0.7)', fontSize: '12px', fontWeight: 500,
+                    }}>
+                      {h}
+                    </span>
+                  ))}
+                </motion.div>
+              )}
+
+              {/* CTA + secondary link */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
+                transition={{ duration: 0.4, delay: 0.8 }}
+                style={{ display: 'flex', alignItems: 'center', gap: '16px', marginTop: '1.75rem', flexWrap: 'wrap' }}
+              >
+                {slide.link && (
+                  <a href={slide.link} style={{
+                    display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 28px',
+                    background: '#007BFF', borderRadius: '50px', color: '#fff', fontSize: '14px', fontWeight: 600,
+                    textDecoration: 'none', transition: 'all 0.3s', boxShadow: '0 4px 20px rgba(0,123,255,0.35)',
+                  }}
+                    onMouseEnter={(e) => { e.currentTarget.style.background = '#0060B7'; e.currentTarget.style.boxShadow = '0 6px 30px rgba(0,123,255,0.5)'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.background = '#007BFF'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,123,255,0.35)'; }}
+                  >
+                    {slide.linkText || '자세히 보기'}
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                  </a>
+                )}
+                <a href="/inquiries" style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '12px 24px',
+                  border: '1px solid rgba(255,255,255,0.25)', borderRadius: '50px', color: '#fff', fontSize: '14px', fontWeight: 500,
+                  textDecoration: 'none', transition: 'all 0.3s', background: 'rgba(255,255,255,0.05)',
+                }}
+                  onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; }}
+                >
+                  무료 상담받기
                 </a>
               </motion.div>
-            )}
-          </motion.div>
-        </AnimatePresence>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
 
-      {/* Slide Indicator - Right side vertical */}
-      <div style={{
-        position: 'absolute',
-        right: 'clamp(1.5rem, 4vw, 4rem)',
-        top: '50%',
-        transform: 'translateY(-50%)',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '12px',
-        zIndex: 3,
-      }}>
+      {/* Right side dots */}
+      <div style={{ position: 'absolute', right: 'clamp(1rem, 3vw, 3rem)', top: '50%', transform: 'translateY(-50%)', display: 'flex', flexDirection: 'column', gap: '10px', zIndex: 3 }}>
         {slides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => goTo(i, i > current ? 1 : -1)}
-            aria-label={`슬라이드 ${i + 1}`}
-            style={{
-              width: i === current ? '4px' : '4px',
-              height: i === current ? '40px' : '20px',
-              borderRadius: '4px',
-              background: i === current ? '#007BFF' : 'rgba(255,255,255,0.3)',
-              border: 'none',
-              cursor: 'pointer',
-              transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-              padding: 0,
-            }}
-          />
+          <button key={i} onClick={() => goTo(i)} aria-label={`슬라이드 ${i + 1}`} style={{
+            width: '4px', height: i === current ? '36px' : '16px', borderRadius: '4px', padding: 0,
+            background: i === current ? '#007BFF' : 'rgba(255,255,255,0.25)', border: 'none', cursor: 'pointer',
+            transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+            boxShadow: i === current ? '0 0 10px rgba(0,123,255,0.5)' : 'none',
+          }} />
         ))}
       </div>
 
-      {/* Bottom Navigation Bar */}
-      <div style={{
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        zIndex: 3,
-      }}>
-        {/* Progress bar */}
-        <div style={{
-          width: '100%',
-          height: '3px',
-          background: 'rgba(255,255,255,0.1)',
-        }}>
-          <div style={{
-            height: '100%',
-            width: `${progress}%`,
-            background: 'linear-gradient(90deg, #007BFF, #00c6ff)',
-            transition: 'width 0.03s linear',
-          }} />
+      {/* Bottom bar */}
+      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, zIndex: 3 }}>
+        {/* Segmented progress */}
+        <div style={{ display: 'flex', gap: '3px', padding: '0 clamp(2rem, 8vw, 10rem)', marginBottom: '12px' }}>
+          {slides.map((_, i) => (
+            <div key={i} style={{ flex: 1, height: '2px', background: 'rgba(255,255,255,0.1)', borderRadius: '2px', overflow: 'hidden' }}>
+              <div style={{
+                height: '100%', borderRadius: '2px',
+                background: 'linear-gradient(90deg, #007BFF, #00c6ff)',
+                width: i < current ? '100%' : i === current ? `${progress}%` : '0%',
+                transition: i === current ? 'width 0.03s linear' : 'width 0.3s ease',
+              }} />
+            </div>
+          ))}
         </div>
 
-        {/* Bottom info bar */}
+        {/* Nav bar */}
         <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          padding: '16px clamp(2rem, 8vw, 10rem)',
-          background: 'rgba(0,0,0,0.4)',
-          backdropFilter: 'blur(20px)',
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          padding: '12px clamp(2rem, 8vw, 10rem)', background: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(20px)',
         }}>
-          {/* Arrows + Counter */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-            <button
-              onClick={prev}
-              aria-label="이전 슬라이드"
-              style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '50%',
-                border: '1px solid rgba(255,255,255,0.2)',
-                background: 'transparent',
-                color: '#fff',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                transition: 'all 0.2s',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'transparent';
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
-              }}
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M19 12H5M12 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <span style={{
-              color: '#fff',
-              fontSize: '14px',
-              fontFamily: 'var(--font-english)',
-              fontWeight: 600,
-              letterSpacing: '2px',
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <button onClick={prev} aria-label="이전" style={{
+              width: '36px', height: '36px', borderRadius: '50%', border: '1px solid rgba(255,255,255,0.15)',
+              background: 'transparent', color: '#fff', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
             }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+            </button>
+            <span style={{ color: '#fff', fontSize: '13px', fontFamily: 'var(--font-english)', fontWeight: 600, letterSpacing: '2px' }}>
               {String(current + 1).padStart(2, '0')}
-              <span style={{ color: 'rgba(255,255,255,0.3)', margin: '0 6px' }}>/</span>
+              <span style={{ color: 'rgba(255,255,255,0.25)', margin: '0 4px' }}>/</span>
               {String(slides.length).padStart(2, '0')}
             </span>
-            <button
-              onClick={next}
-              aria-label="다음 슬라이드"
-              style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '50%',
-                border: '1px solid rgba(255,255,255,0.2)',
-                background: 'transparent',
-                color: '#fff',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                transition: 'all 0.2s',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'transparent';
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)';
-              }}
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
+            <button onClick={next} aria-label="다음" style={{
+              width: '36px', height: '36px', borderRadius: '50%', border: '1px solid rgba(255,255,255,0.15)',
+              background: 'transparent', color: '#fff', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
             </button>
           </div>
 
-          {/* Slide mini titles */}
-          <div style={{
-            display: 'flex',
-            gap: '24px',
-          }}>
+          {/* Slide tab buttons */}
+          <div style={{ display: 'flex', gap: '4px' }}>
             {slides.map((s, i) => (
-              <button
-                key={i}
-                onClick={() => goTo(i, i > current ? 1 : -1)}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  color: i === current ? '#fff' : 'rgba(255,255,255,0.35)',
-                  fontSize: '13px',
-                  fontWeight: i === current ? 600 : 400,
-                  cursor: 'pointer',
-                  padding: '4px 0',
-                  borderBottom: i === current ? '2px solid #007BFF' : '2px solid transparent',
-                  transition: 'all 0.3s',
-                  whiteSpace: 'nowrap',
-                }}
-              >
+              <button key={i} onClick={() => goTo(i)} style={{
+                background: i === current ? 'rgba(0,123,255,0.15)' : 'transparent',
+                border: i === current ? '1px solid rgba(0,123,255,0.3)' : '1px solid transparent',
+                borderRadius: '20px', padding: '5px 14px',
+                color: i === current ? '#a4d8ff' : 'rgba(255,255,255,0.35)', fontSize: '12px',
+                fontWeight: i === current ? 600 : 400, cursor: 'pointer', transition: 'all 0.3s', whiteSpace: 'nowrap',
+              }}>
                 {s.tag}
               </button>
             ))}
           </div>
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        animate={{ y: [0, 8, 0] }}
-        transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
-        style={{
-          position: 'absolute',
-          bottom: '100px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          zIndex: 3,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '6px',
-        }}
-      >
-        <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '11px', fontFamily: 'var(--font-english)', letterSpacing: '2px', textTransform: 'uppercase' }}>Scroll</span>
-        <svg width="16" height="24" viewBox="0 0 16 24" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5">
-          <rect x="1" y="1" width="14" height="22" rx="7" />
-          <motion.circle
-            cx="8"
-            cy="8"
-            r="2"
-            fill="rgba(255,255,255,0.6)"
-            animate={{ cy: [6, 14, 6] }}
-            transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
-          />
-        </svg>
-      </motion.div>
     </div>
   );
 }

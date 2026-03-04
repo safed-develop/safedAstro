@@ -186,6 +186,100 @@ import HoverComponent from '../components/ui/HoverComponent.astro';
     </div>
   </section>
 
+  <!-- Efficiency Section -->
+  <section class="py-24 bg-white">
+    <div class="w-container max-w-5xl">
+      <div class="text-center mb-16">
+        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">Efficiency</p>
+        <h2 class="sub-headline reveal delay-100">단순·반복 업무 80% 제거</h2>
+        <p class="text-gray-500 mt-4 max-w-xl mx-auto reveal delay-200">현장 내 비효율적인 업무를 시스템화하여 핵심업무에 집중할 수 있습니다.</p>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="reveal">
+          <div class="space-y-6">
+            {[
+              { label: '탐색·열람', before: '60분', after: '10분', save: '83%' },
+              { label: '발굴·조치', before: '120분', after: '20분', save: '83%' },
+              { label: '기록·보관', before: '60분', after: '10분', save: '83%' },
+            ].map((item) => (
+              <div class="bg-gray-50 rounded-xl p-4">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="font-semibold text-sm">{item.label}</span>
+                  <span class="eng text-primary font-bold text-sm">{item.save} 절감</span>
+                </div>
+                <div class="flex gap-2 items-center">
+                  <div class="flex-1">
+                    <div class="h-3 bg-red-100 rounded-full overflow-hidden">
+                      <div class="h-full bg-red-400 rounded-full" style={`width: 100%`}></div>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-1">AS-IS: {item.before}</p>
+                  </div>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  <div class="flex-1">
+                    <div class="h-3 bg-blue-100 rounded-full overflow-hidden">
+                      <div class="h-full bg-primary rounded-full" style={`width: 17%`}></div>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-1">TO-BE: {item.after}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="reveal delay-200">
+          <div class="bg-gray-950 text-white rounded-3xl p-8 lg:p-10">
+            <p class="eng text-xs text-white/40 tracking-widest uppercase mb-6">Monthly Savings (per site)</p>
+            <div class="grid grid-cols-2 gap-6 mb-6">
+              <div>
+                <p class="eng text-4xl font-extrabold text-gradient-blue">60h</p>
+                <p class="text-sm text-white/60 mt-1">시간 절감</p>
+              </div>
+              <div>
+                <p class="eng text-4xl font-extrabold text-gradient-blue">120만</p>
+                <p class="text-sm text-white/60 mt-1">비용 절감</p>
+              </div>
+            </div>
+            <div class="border-t border-white/10 pt-6">
+              <p class="text-sm text-white/50">1개 현장, 1달 기준</p>
+              <p class="text-white/80 text-sm mt-2 leading-relaxed">260종 3만여 Case를 눈으로 확인하던 방식에서<br />1-click 조회·참조 All-in-One 디지털 처리로 전환</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Safety Management System Mapping -->
+  <section class="py-24 bg-gray-950 text-white">
+    <div class="w-container max-w-5xl">
+      <div class="text-center mb-16">
+        <p class="eng font-semibold text-sm tracking-widest uppercase mb-4 text-primary reveal">Safety System</p>
+        <h2 class="sub-headline reveal delay-100">안전보건관리체계를<br /><span class="text-gradient-blue">SafeD로 구축합니다</span></h2>
+        <p class="text-white/50 mt-4 reveal delay-200">중대재해처벌법 제4조의 의무사항을 SafeD 기능으로 완벽 매핑</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal delay-200">
+        {[
+          { duty: '안전보건관리체계 구축·이행', solution: '위험성평가, 점검활동, DB 시스템 구축', icon: '🏗️' },
+          { duty: '재발방지 대책 수립·이행', solution: '사고사례 DB, 현장 안전 데이터 분석', icon: '🔄' },
+          { duty: '개선·시정 명령 이행', solution: '실시간 모니터링, 자동 알림·조치 추적', icon: '📋' },
+          { duty: '의무이행 관리 조치', solution: '대시보드, 보고서 자동 생성, 근거자료 보관', icon: '📊' },
+        ].map((item) => (
+          <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
+            <div class="flex items-start gap-4">
+              <span class="text-3xl">{item.icon}</span>
+              <div>
+                <p class="text-red-400 text-xs font-semibold mb-1 eng uppercase">법적 의무</p>
+                <p class="font-semibold text-white/90 mb-2">{item.duty}</p>
+                <p class="text-primary text-xs font-semibold mb-1 eng uppercase">SafeD 솔루션</p>
+                <p class="text-white/60 text-sm">{item.solution}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- Section 4: Voices from the Field -->
   <section class="py-24 bg-gray-50">
     <div class="w-container">
@@ -195,16 +289,73 @@ import HoverComponent from '../components/ui/HoverComponent.astro';
         <MultiSlide
           client:visible
           slides={[
-            { title: '현장소장', review: '위험성평가가 현장 안전에 최우선이 되는데, SafeD를 통해 파트너사의 위험성평가 내용이 더 세밀해졌습니다.', background: '#fdeee3' },
-            { title: '안전관리자', review: 'SafeD 적용 후 위험성평가 항목 개선으로 위험요소를 세밀하게 검토하여 제거할 수 있었습니다.', background: '#eae2f0' },
-            { title: '보건관리자', review: 'SafeD 앱을 통해 근로자와 소통하며 세심한 요구사항을 처리하고 있습니다.', background: '#e3f3fd' },
-            { title: '관리감독자', review: 'SafeD 적용 후 모든 관리감독자가 체계적으로 안전활동을 할 수 있게 되었습니다.', background: '#fdeee3' },
-            { title: '협력업체', review: '공종에 투입되는 작업에 대해 세밀하게 작성할 수 있어 편리합니다.', background: '#eae2f0' },
-            { title: '근로자', review: '앱으로 간단히 사진을 찍고 전송하면 위험요소를 제거해주고 있습니다.', background: '#e3f3fd' },
+            { title: '현장소장(총괄책임자)', review: '위험성평가가 현장의 안전에 가장 최우선이 되는데, SafeD를 통해 파트너사에서 작성되는 위험성평가의 내용이 좀 더 세밀하게 되었습니다. 위험성평가를 통해 현장의 위험요소를 제거하고 철저한 관리로 안전사고 Zero를 달성했습니다.', background: '#fdeee3' },
+            { title: '안전관리자', review: 'SafeD 적용 후 위험성평가의 항목 개선, 증가로 위험요소를 세밀하게 검토하여 제거할 수 있었습니다. 데이터베이스를 통해 공종의 위험요소를 세밀하게 체크할 수 있고, 관리감독자의 안전활동을 크게 개선할 수 있었습니다.', background: '#eae2f0' },
+            { title: '보건관리자', review: 'SafeD 앱을 통해 근로자와 소통을 할 수 있어 세심한 요구사항을 처리하고 있습니다. 안전건의함, 위험성평가 근로자 의견 등 근로자가 쉽게 접근할 수 있어 안전에 큰 도움이 되고, 건강상태·교육 이수 여부도 세밀하게 체크합니다.', background: '#e3f3fd' },
+            { title: '관리감독자', review: 'SafeD 적용 후 모든 관리감독자가 체계적으로 안전활동을 할 수 있습니다. 부장~사원까지 모든 직원이 평등하게 안전활동을 이행하며, 미리 설정된 데이터를 바탕으로 현장의 이행여부를 체크할 수 있어 편리합니다.', background: '#fdeee3' },
+            { title: '협력업체', review: '위험성평가 작성 시 공종에 투입되는 작업에 대해 세밀하게 작성할 수 있어 편리하며, 잘 몰랐던 내용도 알 수 있어 매우 큰 도움을 받고 있습니다. 공사팀, 반장 모두 많은 도움을 받고 있습니다.', background: '#eae2f0' },
+            { title: '근로자', review: '앱을 통해 눈치볼 필요없이 간단히 사진을 찍고 전송하면 위험요소를 제거해주고 있습니다. 외국인 근로자들도 위험요소를 미리 확인하고 작업할 수 있으며, TBM도 모바일로 내용 확인이 가능해 편리합니다.', background: '#e3f3fd' },
           ]}
           slidesPerView={3}
-          slideHeight="260px"
+          slideHeight="300px"
         />
+      </div>
+    </div>
+  </section>
+
+  <!-- Supported Industries -->
+  <section class="py-20 bg-white">
+    <div class="w-container max-w-5xl">
+      <div class="text-center mb-12">
+        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">Industries</p>
+        <h2 class="text-2xl lg:text-3xl font-bold tracking-tight reveal delay-100">다양한 산업현장에 적용됩니다</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-4 reveal delay-200">
+        {[
+          { icon: '🏗️', label: '건설현장' },
+          { icon: '🏭', label: '플랜트' },
+          { icon: '🏢', label: '제조시설' },
+          { icon: '🔧', label: '유지관리' },
+          { icon: '🏥', label: '서비스업' },
+        ].map((item) => (
+          <div class="bg-gray-50 rounded-2xl p-6 text-center hover:bg-primary/5 hover:border-primary/20 border border-transparent transition-colors">
+            <p class="text-3xl mb-3">{item.icon}</p>
+            <p class="font-semibold text-sm">{item.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- App Download & System Access -->
+  <section class="py-20 bg-gray-50">
+    <div class="w-container max-w-4xl">
+      <div class="text-center mb-12">
+        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">Get Started</p>
+        <h2 class="text-2xl lg:text-3xl font-bold tracking-tight reveal delay-100">지금 바로 시작하세요</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal delay-200">
+        <a href="https://safed.co.kr/login" target="_blank" rel="noopener noreferrer" class="bg-white rounded-2xl p-8 text-center border border-gray-100 hover:shadow-lg hover:border-primary/20 transition-all group">
+          <div class="w-16 h-16 mx-auto mb-4 bg-primary/5 rounded-2xl flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <p class="font-bold mb-1">PC 접속</p>
+          <p class="text-xs text-gray-400">Chrome 브라우저 권장</p>
+        </a>
+        <a href="https://safed.co.kr/goAppDown" target="_blank" rel="noopener noreferrer" class="bg-white rounded-2xl p-8 text-center border border-gray-100 hover:shadow-lg hover:border-primary/20 transition-all group">
+          <div class="w-16 h-16 mx-auto mb-4 bg-primary/5 rounded-2xl flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="3"/><circle cx="12" cy="18" r="1"/></svg>
+          </div>
+          <p class="font-bold mb-1">모바일 앱 설치</p>
+          <p class="text-xs text-gray-400">Android · iOS 지원</p>
+        </a>
+        <a href="/inquiries" class="bg-primary rounded-2xl p-8 text-center text-white hover:bg-primary-dark transition-colors group">
+          <div class="w-16 h-16 mx-auto mb-4 bg-white/10 rounded-2xl flex items-center justify-center group-hover:bg-white/20 transition-colors">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.11 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <p class="font-bold mb-1">무료 상담받기</p>
+          <p class="text-xs opacity-70">맞춤 견적 제공</p>
+        </a>
       </div>
     </div>
   </section>
