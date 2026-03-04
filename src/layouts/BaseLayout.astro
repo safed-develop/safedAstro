@@ -1,5 +1,9 @@
 ---
 import '../styles/global.css';
+import Navigation from '../components/common/Navigation.astro';
+import Footer from '../components/common/Footer.astro';
+import FixedButtons from '../components/common/FixedButtons.astro';
+import PdfFloatingButton from '../components/common/PdfFloatingButton.astro';
 
 interface Props {
   title: string;
@@ -7,6 +11,8 @@ interface Props {
   keywords?: string;
   ogImage?: string;
   canonicalUrl?: string;
+  hideFixedButtons?: boolean;
+  hidePdfButton?: boolean;
 }
 
 const {
@@ -15,6 +21,8 @@ const {
   keywords = 'SafeD, 안전관리, 스마트안전, 건설안전, 안전관리시스템',
   ogImage = '/images/oglogo.jpg',
   canonicalUrl,
+  hideFixedButtons = false,
+  hidePdfButton = false,
 } = Astro.props;
 
 const siteUrl = 'https://www.safed.co.kr';
@@ -84,11 +92,16 @@ const canonical = canonicalUrl || new URL(Astro.url.pathname, siteUrl).href;
     <slot name="head" />
   </head>
   <body>
-    <slot name="header" />
+    <Navigation />
+
     <main>
       <slot />
     </main>
-    <slot name="footer" />
+
+    <Footer />
+
+    {!hideFixedButtons && <FixedButtons />}
+    {!hidePdfButton && <PdfFloatingButton />}
 
     <!-- Scroll Reveal Observer -->
     <script>

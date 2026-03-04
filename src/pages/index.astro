@@ -2,9 +2,35 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="SafeD - 스마트 안전관리 시스템">
-  <section>
-    <h1>SafeD - 스마트 안전관리 시스템</h1>
-    <p>건설현장 안전관리의 새로운 기준을 제시합니다.</p>
+<BaseLayout title="SafeD - 스마트 안전관리 시스템 | 건설현장 안전관리의 새로운 기준">
+  <!-- Hero Section placeholder -->
+  <section class="min-h-screen flex items-center justify-center bg-gray-900 text-white">
+    <div class="w-container text-center">
+      <p class="text-primary eng font-semibold mb-4 text-sm tracking-widest uppercase">Smart Safety Management System</p>
+      <h1 class="text-5xl font-bold mb-6 tracking-tight leading-tight">
+        건설현장 안전관리의<br />새로운 기준을 제시합니다
+      </h1>
+      <p class="text-lg text-gray-400 max-w-xl mx-auto">
+        SafeD는 스마트 기술을 활용한 건설현장 안전관리 솔루션으로,
+        현장의 안전을 체계적으로 관리합니다.
+      </p>
+      <div class="mt-10 flex gap-4 justify-center">
+        <a href="/inquiries" class="px-8 py-3 bg-primary text-white rounded-full font-semibold hover:bg-primary-dark transition-colors">
+          도입문의
+        </a>
+        <a href="/safed-features" class="px-8 py-3 border border-white/30 text-white rounded-full font-semibold hover:bg-white/10 transition-colors">
+          자세히 보기
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Placeholder sections -->
+  <section class="py-24 bg-white">
+    <div class="w-container text-center">
+      <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-3 reveal">FEATURES</p>
+      <h2 class="text-3xl font-bold mb-16 reveal delay-100">SafeD의 핵심 기능</h2>
+      <p class="text-gray-500 reveal delay-200">페이지 마이그레이션 시 콘텐츠가 추가됩니다.</p>
+    </div>
   </section>
 </BaseLayout>

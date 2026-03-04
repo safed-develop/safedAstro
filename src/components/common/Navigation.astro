@@ -1,0 +1,434 @@
+---
+const currentPath = Astro.url.pathname;
+const isMainPage = currentPath === '/';
+
+const menuItems = [
+  {
+    label: 'About Us',
+    href: '/company-overview',
+    submenu: [
+      { label: '회사개요', href: '/company-overview' },
+      { label: '인사말', href: '/welcome' },
+      { label: '비전 및 미션', href: '/vision-mission' },
+      { label: '오시는 길', href: '/location' },
+    ],
+  },
+  {
+    label: 'Our Business',
+    href: '/business-background',
+    submenu: [
+      { label: '사업배경', href: '/business-background' },
+      { label: 'SafeD Development', href: '/safed-features' },
+    ],
+  },
+  {
+    label: 'Careers',
+    href: '/recruitment-guide',
+    submenu: [
+      { label: '채용안내', href: '/recruitment-guide' },
+      { label: '채용정보', href: '/recruitment-info' },
+    ],
+  },
+  {
+    label: 'Support',
+    href: '/notices',
+    submenu: [
+      { label: '공지사항', href: '/notices' },
+      { label: '보도자료', href: '/press-releases' },
+      { label: '상담문의', href: '/inquiries' },
+    ],
+  },
+];
+
+const overlayColumns = [
+  { title: '회사소개', items: menuItems[0].submenu },
+  { title: '사업소개', items: menuItems[1].submenu },
+  { title: '채용정보', items: menuItems[2].submenu },
+  { title: '고객지원', items: menuItems[3].submenu },
+];
+---
+
+<header
+  class:list={['nav-wrap', { 'is-main': isMainPage }]}
+  id="main-nav"
+  data-main={isMainPage ? 'true' : 'false'}
+>
+  <nav class="nav-inner w-container">
+    <a href="/" class="nav-logo">
+      <img src="/images/sign_logo_new.gif" alt="SafeD 로고" class="logo-color" />
+    </a>
+
+    <ul class="nav-menu">
+      {menuItems.map((item) => (
+        <li class="nav-item">
+          <a
+            href={item.href}
+            class:list={['nav-link eng', { active: currentPath.startsWith(item.href) }]}
+          >
+            {item.label}
+          </a>
+          <div class="submenu">
+            {item.submenu.map((sub) => (
+              <a
+                href={sub.href}
+                class:list={['submenu-link', { active: currentPath === sub.href }]}
+              >
+                {sub.label}
+              </a>
+            ))}
+          </div>
+        </li>
+      ))}
+    </ul>
+
+    <div class="nav-right">
+      <a href="/inquiries" class="inquiry-btn eng">도입문의</a>
+      <button class="ham-btn" id="ham-btn" aria-label="메뉴 열기">
+        <span class="ham-line"></span>
+        <span class="ham-line"></span>
+        <span class="ham-line"></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- Overlay Menu -->
+<div class="overlay" id="nav-overlay">
+  <div class="overlay-content">
+    <button class="close-btn" id="close-btn" aria-label="메뉴 닫기">
+      <svg width="28" height="28" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <line x1="4" y1="4" x2="20" y2="20" />
+        <line x1="20" y1="4" x2="4" y2="20" />
+      </svg>
+    </button>
+    <div class="overlay-links">
+      {overlayColumns.map((col) => (
+        <div class="overlay-column">
+          <h3 class="eng">{col.title}</h3>
+          <ul>
+            {col.items.map((item) => (
+              <li><a href={item.href}>{item.label}</a></li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  const hamBtn = document.getElementById('ham-btn');
+  const closeBtn = document.getElementById('close-btn');
+  const overlay = document.getElementById('nav-overlay');
+  const isMain = nav?.dataset.main === 'true';
+
+  // Scroll detection
+  function handleScroll() {
+    if (!nav) return;
+    if (window.scrollY > window.innerHeight * 0.8) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  }
+
+  if (isMain) {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+  } else {
+    nav?.classList.add('scrolled');
+  }
+
+  // Overlay toggle
+  hamBtn?.addEventListener('click', () => {
+    overlay?.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+
+  closeBtn?.addEventListener('click', () => {
+    overlay?.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+
+  overlay?.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+</script>
+
+<style>
+  /* Navigation Wrapper */
+  .nav-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.3s ease;
+  }
+
+  .nav-wrap.is-main:not(.scrolled) {
+    background: transparent;
+  }
+
+  .nav-wrap.scrolled,
+  .nav-wrap:not(.is-main) {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 1px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Nav Inner */
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+
+  /* Logo */
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    z-index: 10;
+  }
+
+  .nav-logo img {
+    height: 28px;
+    width: auto;
+    transition: filter 0.3s ease;
+  }
+
+  .is-main:not(.scrolled) .nav-logo img {
+    filter: brightness(0) invert(1);
+  }
+
+  /* Menu */
+  .nav-menu {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-item {
+    position: relative;
+  }
+
+  .nav-link {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-gray-800);
+    letter-spacing: 0.5px;
+    padding: 0.5rem 0;
+    transition: color 0.2s ease;
+  }
+
+  .is-main:not(.scrolled) .nav-link {
+    color: #fff;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--color-primary);
+  }
+
+  .is-main:not(.scrolled) .nav-link:hover {
+    color: var(--color-primary-light);
+  }
+
+  /* Submenu */
+  .submenu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    min-width: 160px;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 0.75rem 0;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    pointer-events: none;
+  }
+
+  .nav-item:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+
+  .submenu-link {
+    display: block;
+    padding: 0.5rem 1.25rem;
+    font-size: 14px;
+    color: var(--color-gray-700);
+    white-space: nowrap;
+    transition: color 0.2s, background-color 0.2s;
+  }
+
+  .submenu-link:hover,
+  .submenu-link.active {
+    color: var(--color-primary);
+    background-color: rgba(0, 123, 255, 0.05);
+  }
+
+  /* Right Section */
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .inquiry-btn {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    background: var(--color-primary);
+    color: #fff;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+  }
+
+  .inquiry-btn:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-1px);
+  }
+
+  /* Hamburger */
+  .ham-btn {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+
+  .ham-line {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--color-gray-800);
+    border-radius: 2px;
+    transition: background 0.3s ease;
+  }
+
+  .is-main:not(.scrolled) .ham-line {
+    background: #fff;
+  }
+
+  /* Overlay */
+  .overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s;
+  }
+
+  .overlay.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .overlay-content {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 120px 2rem 2rem;
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: transform 0.3s ease;
+  }
+
+  .close-btn:hover {
+    transform: rotate(90deg);
+  }
+
+  .overlay-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+  }
+
+  .overlay-column h3 {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .overlay-column ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .overlay-column a {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+  }
+
+  .overlay-column a:hover {
+    color: var(--color-primary-light);
+    padding-left: 4px;
+  }
+
+  /* Responsive */
+  @media (max-width: 999px) {
+    .nav-menu {
+      display: none;
+    }
+
+    .inquiry-btn {
+      display: none;
+    }
+
+    .ham-btn {
+      display: flex;
+    }
+
+    .overlay-links {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .overlay-links {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>

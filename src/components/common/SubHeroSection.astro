@@ -1,0 +1,127 @@
+---
+interface Props {
+  title: string;
+  titleEn?: string;
+  breadcrumbs?: { label: string; href?: string }[];
+}
+
+const { title, titleEn, breadcrumbs = [] } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+// Auto-generate breadcrumbs from path if not provided
+const autoBreadcrumbs = breadcrumbs.length > 0 ? breadcrumbs : (() => {
+  const segments = currentPath.split('/').filter(Boolean);
+  const pathMap: Record<string, string> = {
+    'company-overview': '회사개요',
+    'welcome': '인사말',
+    'vision-mission': '비전 및 미션',
+    'location': '오시는 길',
+    'business-background': '사업배경',
+    'business-overview': '사업개요',
+    'safed-features': 'SafeD Development',
+    'services': '서비스',
+    'recruitment': '채용',
+    'recruitment-guide': '채용안내',
+    'recruitment-info': '채용정보',
+    'notices': '공지사항',
+    'press-releases': '보도자료',
+    'inquiries': '상담문의',
+    'faq': 'FAQ',
+    'contact': '연락처',
+    'privacy-policy': '개인정보처리방침',
+    'terms-of-service': '이용약관',
+    'about': '회사소개',
+  };
+
+  return segments.map((seg, i) => ({
+    label: pathMap[seg] || seg,
+    href: i < segments.length - 1 ? '/' + segments.slice(0, i + 1).join('/') : undefined,
+  }));
+})();
+---
+
+<section class="sub-hero">
+  <div class="sub-hero-inner w-container">
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="/">Home</a>
+      {autoBreadcrumbs.map((crumb, i) => (
+        <>
+          <span class="separator" aria-hidden="true">/</span>
+          {crumb.href ? (
+            <a href={crumb.href}>{crumb.label}</a>
+          ) : (
+            <span class="current">{crumb.label}</span>
+          )}
+        </>
+      ))}
+    </nav>
+    <h1 class="sub-hero-title">{title}</h1>
+    {titleEn && <p class="sub-hero-title-en eng">{titleEn}</p>}
+  </div>
+</section>
+
+<style>
+  .sub-hero {
+    padding: 7rem 0 2.5rem;
+    background: #fff;
+    border-bottom: 1px solid var(--color-gray-100);
+  }
+
+  .sub-hero-inner {
+    text-align: left;
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 13px;
+    color: var(--color-gray-500);
+    margin-bottom: 1rem;
+  }
+
+  .breadcrumb a {
+    color: var(--color-gray-500);
+    transition: color 0.2s;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--color-primary);
+  }
+
+  .separator {
+    color: var(--color-gray-300);
+    font-size: 11px;
+  }
+
+  .breadcrumb .current {
+    color: var(--color-gray-800);
+    font-weight: 500;
+  }
+
+  .sub-hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-gray-900);
+    letter-spacing: -1.5px;
+    line-height: 1.2;
+  }
+
+  .sub-hero-title-en {
+    font-size: 15px;
+    color: var(--color-gray-400);
+    margin-top: 0.5rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+  }
+
+  @media (max-width: 999px) {
+    .sub-hero {
+      padding: 5.5rem 0 1.5rem;
+    }
+
+    .sub-hero-title {
+      font-size: 1.5rem;
+    }
+  }
+</style>

@@ -1,0 +1,77 @@
+---
+interface Props {
+  links: { name: string; url: string }[];
+}
+
+const { links } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="h-nav" aria-label="섹션 네비게이션">
+  <div class="h-nav-inner">
+    {links.map((link) => (
+      <a
+        href={link.url}
+        class:list={['h-nav-link', { active: currentPath === link.url }]}
+      >
+        <span>{link.name}</span>
+      </a>
+    ))}
+  </div>
+</nav>
+
+<style>
+  .h-nav {
+    background: #fff;
+    border-bottom: 1px solid var(--color-gray-200);
+    position: sticky;
+    top: 72px;
+    z-index: 100;
+  }
+
+  .h-nav-inner {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    max-width: var(--container-xl);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .h-nav-link {
+    padding: 1rem 1.5rem;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-gray-500);
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+    letter-spacing: -0.3px;
+  }
+
+  .h-nav-link:hover {
+    color: var(--color-gray-800);
+  }
+
+  .h-nav-link.active {
+    color: var(--color-gray-900);
+    border-bottom-color: var(--color-primary);
+  }
+
+  @media (max-width: 999px) {
+    .h-nav-inner {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .h-nav-inner::-webkit-scrollbar {
+      display: none;
+    }
+
+    .h-nav-link {
+      font-size: 14px;
+      padding: 0.75rem 1rem;
+    }
+  }
+</style>
