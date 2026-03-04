@@ -65,17 +65,25 @@ export default function PinScrollSection({ items }: Props) {
           <p style={{ color: 'var(--color-primary)', fontSize: '12px', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', fontFamily: 'var(--font-english)', marginBottom: '1rem' }}>
             Why SafeD?
           </p>
-          <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 800, lineHeight: 1.2, letterSpacing: '-1px', color: '#111', marginBottom: '1.5rem' }}>
-            현장의 생명을 지키는<br />
+          <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 800, lineHeight: 1.2, letterSpacing: '-1px', color: '#111', marginBottom: '1rem' }}>
+            도입하지 않으면,<br />
             <span style={{ background: 'linear-gradient(135deg, #007BFF, #00c6ff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-              단 하나의 플랫폼.
+              당신의 현장이 위험합니다.
             </span>
           </h2>
-          <p style={{ color: '#6b7280', lineHeight: 1.7, fontSize: '15px', marginBottom: '2rem' }}>
-            SafeD는 중대재해처벌법 대응부터 위험성평가,<br />
-            실시간 모니터링까지 안전관리의 모든 것을<br />
-            하나로 연결합니다.
+          <p style={{ color: '#374151', lineHeight: 1.7, fontSize: '15px', marginBottom: '1rem', fontWeight: 500 }}>
+            서류로 때우는 안전관리, 형식적인 위험성평가,<br />
+            소통 안 되는 외국인 근로자.<br />
+            <strong style={{ color: '#111' }}>사고는 예고 없이 찾아옵니다.</strong>
           </p>
+          <div style={{
+            background: '#fef2f2', border: '1px solid #fecaca', borderRadius: '12px',
+            padding: '12px 16px', marginBottom: '2rem',
+          }}>
+            <p style={{ color: '#991b1b', fontSize: '13px', fontWeight: 600, lineHeight: 1.6 }}>
+              2024년 건설업 사망사고 <strong>401건</strong> · 중대재해처벌법 위반 시 <strong>징역 1년+</strong>
+            </p>
+          </div>
 
           {/* Progress bar */}
           <div style={{ width: '100%', height: '2px', background: '#e5e7eb', borderRadius: '1px', marginBottom: '1.5rem', overflow: 'hidden' }}>
@@ -129,9 +137,9 @@ export default function PinScrollSection({ items }: Props) {
               Why SafeD?
             </p>
             <h2 style={{ fontSize: '1.8rem', fontWeight: 800, lineHeight: 1.2, letterSpacing: '-1px' }}>
-              현장의 생명을 지키는{' '}
+              도입하지 않으면,{' '}
               <span style={{ background: 'linear-gradient(135deg, #007BFF, #00c6ff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                단 하나의 플랫폼.
+                당신의 현장이 위험합니다.
               </span>
             </h2>
           </div>
