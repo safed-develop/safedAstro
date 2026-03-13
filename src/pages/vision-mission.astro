@@ -16,16 +16,16 @@ const navLinks = [
   description="SafeD의 비전과 미션 - 기술로 생명을 지키는 스마트안전관리 플랫폼"
   navLinks={navLinks}
 >
-  <!-- Vision Statement - Big Typography -->
+  <!-- Vision Statement -->
   <section class="py-24 bg-white">
     <div class="w-container max-w-5xl">
       <div class="text-center reveal">
-        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-6">Our Vision</p>
-        <h2 class="text-4xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] mb-8">
+        <p class="text-[#2563EB] eng font-semibold text-sm tracking-widest uppercase mb-6">Our Vision</p>
+        <h2 class="text-4xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] mb-8 text-[#111]">
           기술로 생명을 지키는<br />
-          <span class="text-gradient-blue">안전관리의 새로운 기준.</span>
+          <span class="text-[#2563EB]">안전관리의 새로운 기준.</span>
         </h2>
-        <p class="text-gray-500 text-lg leading-relaxed max-w-2xl mx-auto">
+        <p class="text-[#6B6B6B] text-lg leading-relaxed max-w-2xl mx-auto">
           SafeD는 건설현장에서 한 명의 사망자도 나오지 않는 세상을 만듭니다.<br />
           서류가 아닌 시스템으로, 사후 대응이 아닌 사전 예방으로.
         </p>
@@ -33,21 +33,20 @@ const navLinks = [
     </div>
   </section>
 
-  <!-- Mission Cards - Full Width -->
-  <section class="py-24 bg-gray-50">
+  <!-- Mission Cards -->
+  <section class="py-24 bg-[#F5F5F5]">
     <div class="w-container max-w-6xl">
       <div class="text-center mb-16">
-        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">Our Mission</p>
-        <h2 class="text-3xl lg:text-4xl font-bold tracking-tight reveal delay-100">우리가 매일 실행하는 미션</h2>
+        <p class="text-[#2563EB] eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">Our Mission</p>
+        <h2 class="text-3xl lg:text-4xl font-bold tracking-tight text-[#111] reveal delay-100">우리가 매일 실행하는 미션</h2>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-[1px] bg-[#E0E0E0] border border-[#E0E0E0]">
         {[
           {
             num: '01',
             title: '사고 제로 달성',
             desc: '50,000개 위험요인 DB와 실시간 모니터링으로 현장의 모든 위험을 사전에 차단합니다. 형식적인 안전관리가 아닌, 실제로 작동하는 안전 시스템을 구축합니다.',
             iconPath: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z',
-            iconColor: '#ef4444',
             stat: '99.2%',
             statLabel: '사고 예방률',
           },
@@ -56,7 +55,6 @@ const navLinks = [
             title: '디지털 전환 가속',
             desc: 'GPS·비콘·AI 번역·자동 알림을 하나의 플랫폼에 통합합니다. 종이와 엑셀에 의존하는 구시대적 관리를 끝내고, 데이터 기반 스마트 안전관리로 전환합니다.',
             iconPath: 'M13 2L3 14h9l-1 8 10-12h-9l1-8z',
-            iconColor: '#3b82f6',
             stat: '80%',
             statLabel: '업무 효율 향상',
           },
@@ -65,24 +63,23 @@ const navLinks = [
             title: '모두의 안전 참여',
             desc: '원청·협력업체·관리자·근로자 모두가 참여하는 안전관리 생태계를 만듭니다. 19개국어 지원으로 언어 장벽도 해소합니다.',
             iconPath: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75M8.5 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z',
-            iconColor: '#16a34a',
             stat: '19개국어',
             statLabel: 'AI 자동번역',
           },
         ].map((item, i) => (
-          <div class={`bg-white rounded-3xl p-8 lg:p-10 shadow-sm hover:shadow-xl transition-all group reveal delay-${(i + 1) * 100}`}>
+          <div class={`bg-white p-8 lg:p-10 reveal delay-${(i + 1) * 100}`}>
             <div class="flex items-center justify-between mb-8">
-              <div class="w-14 h-14 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform" style={`background: ${item.iconColor}12`}>
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={item.iconColor} stroke-width="1.5"><path d={item.iconPath}/></svg>
+              <div class="w-14 h-14 bg-[#F5F5F5] flex items-center justify-center">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5"><path d={item.iconPath}/></svg>
               </div>
-              <span class="eng text-5xl font-extrabold text-gray-100 group-hover:text-gray-200 transition-colors">{item.num}</span>
+              <span class="eng text-5xl font-extrabold text-[#F5F5F5]">{item.num}</span>
             </div>
-            <h3 class="text-xl font-bold mb-4 tracking-tight">{item.title}</h3>
-            <p class="text-gray-500 text-sm leading-relaxed mb-6">{item.desc}</p>
-            <div class="pt-4 border-t border-gray-100">
+            <h3 class="text-xl font-bold mb-4 tracking-tight text-[#111]">{item.title}</h3>
+            <p class="text-[#6B6B6B] text-sm leading-relaxed mb-6">{item.desc}</p>
+            <div class="pt-4 border-t border-[#E0E0E0]">
               <div class="flex items-baseline gap-2">
-                <span class="eng text-2xl font-extrabold text-gradient-blue">{item.stat}</span>
-                <span class="text-xs text-gray-400 font-medium">{item.statLabel}</span>
+                <span class="eng text-2xl font-extrabold text-[#2563EB]">{item.stat}</span>
+                <span class="text-xs text-[#6B6B6B] font-medium">{item.statLabel}</span>
               </div>
             </div>
           </div>
@@ -91,37 +88,35 @@ const navLinks = [
     </div>
   </section>
 
-  <!-- Core Values - Horizontal Scroll Effect -->
-  <section class="py-24 bg-gray-950 text-white relative overflow-hidden">
-    <!-- Wave bars -->
-    <div class="absolute bottom-0 left-0 right-0 flex items-end gap-[2px] h-14 opacity-15 px-4" aria-hidden="true">
-      {Array.from({length: 70}).map((_, i) => {
-        const h = 20 + Math.sin(i * 0.5) * 22 + Math.sin(i * 1.1) * 12;
-        const dur = (0.5 + Math.sin(i * 0.4) * 0.3).toFixed(2);
-        const del = (i * 0.03).toFixed(2);
-        return (
-          <div class="flex-1 rounded-t-sm" style={`height: ${h}%; background: linear-gradient(to top, rgba(0,123,255,0.5), rgba(0,198,255,0.15)); animation: wave-bar ${dur}s ease-in-out infinite alternate; animation-delay: ${del}s;`}></div>
-        );
-      })}
-    </div>
+  <!-- Core Values -->
+  <section class="vm-values-section py-24 text-white relative overflow-hidden">
     <div class="w-container max-w-5xl relative z-10">
       <div class="text-center mb-16">
-        <p class="eng font-semibold text-sm tracking-widest uppercase mb-4 text-primary reveal">Core Values</p>
+        <p class="eng font-semibold text-sm tracking-widest uppercase mb-4 text-[#2563EB] reveal">Core Values</p>
         <h2 class="text-3xl lg:text-4xl font-bold tracking-tight reveal delay-100">SafeD를 움직이는 가치</h2>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        {[
-          { title: '생명 최우선', desc: '모든 결정의 기준은 현장 근로자의 생명입니다.', icon: '❤️' },
-          { title: '기술 혁신', desc: 'IoT·AI·빅데이터로 안전의 패러다임을 바꿉니다.', icon: '⚡' },
-          { title: '현장 중심', desc: '사무실이 아닌 현장에서 바로 작동해야 합니다.', icon: '🏗️' },
-          { title: '함께 성장', desc: '원청부터 근로자까지 모두의 안전에 기여합니다.', icon: '🤝' },
-        ].map((item, i) => (
-          <div class={`bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all reveal delay-${(i + 1) * 100}`}>
-            <p class="text-3xl mb-4">{item.icon}</p>
-            <h3 class="font-bold text-white/90 mb-2">{item.title}</h3>
-            <p class="text-white/50 text-sm leading-relaxed">{item.desc}</p>
-          </div>
-        ))}
+      <div class="vm-carousel-wrap" id="vm-carousel">
+        <div class="vm-carousel-track" id="vm-carousel-track">
+          {[
+            { title: '생명 최우선', desc: '모든 결정의 기준은 현장 근로자의 생명입니다.', iconPath: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z' },
+            { title: '기술 혁신', desc: 'IoT·AI·빅데이터로 안전의 패러다임을 바꿉니다.', iconPath: 'M13 2L3 14h9l-1 8 10-12h-9l1-8z' },
+            { title: '현장 중심', desc: '사무실이 아닌 현장에서 바로 작동해야 합니다.', iconPath: 'M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z' },
+            { title: '함께 성장', desc: '원청부터 근로자까지 모두의 안전에 기여합니다.', iconPath: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75M8.5 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z' },
+          ].map((item, i) => (
+            <div class="vm-carousel-card" data-idx={i}>
+              <div class="w-12 h-12 bg-white/5 border border-white/10 flex items-center justify-center mb-4">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5"><path d={item.iconPath}/></svg>
+              </div>
+              <h3 class="font-bold text-white/90 mb-2">{item.title}</h3>
+              <p class="text-white/50 text-sm leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+        <div class="vm-carousel-dots" id="vm-carousel-dots">
+          {[0, 1, 2, 3].map((i) => (
+            <button class={`vm-dot ${i === 0 ? 'active' : ''}`} data-idx={i} aria-label={`슬라이드 ${i + 1}`}></button>
+          ))}
+        </div>
       </div>
     </div>
   </section>
@@ -130,17 +125,32 @@ const navLinks = [
   <section class="py-24 bg-white">
     <div class="w-container max-w-5xl">
       <div class="text-center mb-16">
-        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">Roadmap</p>
-        <h2 class="text-3xl lg:text-4xl font-bold tracking-tight reveal delay-100">SafeD가 그리는 미래</h2>
+        <p class="text-[#2563EB] eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">Roadmap</p>
+        <h2 class="text-3xl lg:text-4xl font-bold tracking-tight text-[#111] reveal delay-100">SafeD가 그리는 미래</h2>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Timeline connector -->
+      <div class="hidden md:block relative mb-12">
+        <div class="absolute top-1/2 left-0 right-0 h-px bg-[#E0E0E0] -translate-y-1/2"></div>
+        <div class="flex justify-between relative z-10">
+          {[
+            { year: '2020', status: '완료' },
+            { year: '2024', status: '진행 중' },
+            { year: '2026', status: '계획' },
+          ].map((dot, i) => (
+            <div class={`flex flex-col items-center reveal delay-${(i + 1) * 100}`}>
+              <div class="w-4 h-4 border-[3px] bg-white border-[#2563EB]"></div>
+              <span class="eng text-xs font-bold mt-2 text-[#2563EB]">{dot.year}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-[1px] bg-[#E0E0E0] border border-[#E0E0E0]">
         {[
           {
             phase: 'Phase 1',
             year: '2020-2023',
             title: '플랫폼 구축',
             items: ['스마트 위험성평가 시스템 개발', '50,000개 위험요인 DB 구축', 'GPS·비콘 모니터링 기술 확보', '150+ 현장 도입 달성'],
-            color: '#3b82f6',
             status: '완료',
           },
           {
@@ -148,7 +158,6 @@ const navLinks = [
             year: '2024-2025',
             title: '기술 고도화',
             items: ['19개국어 AI 자동번역 도입', '빅데이터 기반 사고 예측 모델', '대시보드 실시간 모니터링 강화', '전국 현장 확대 적용'],
-            color: '#8b5cf6',
             status: '진행 중',
           },
           {
@@ -156,32 +165,26 @@ const navLinks = [
             year: '2026-',
             title: 'AI 안전관리',
             items: ['AI 자동 위험 감지 & 경고', 'IoT 센서 통합 안전 네트워크', '글로벌 시장 진출 (동남아)', '산업 전 분야 확대'],
-            color: '#16a34a',
             status: '계획',
           },
         ].map((item, i) => (
-          <div class={`relative reveal delay-${(i + 1) * 100}`}>
-            <div class="bg-gray-50 rounded-3xl p-8 h-full">
-              <div class="flex items-center gap-3 mb-6">
-                <span class="eng text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full" style={`background: ${item.color}12; color: ${item.color}`}>{item.phase}</span>
-                <span class="eng text-xs text-gray-400 font-medium">{item.year}</span>
+          <div class={`bg-white reveal delay-${(i + 1) * 100}`}>
+            <div class="p-7 h-full border-t-[3px] border-t-[#2563EB]">
+              <div class="flex items-center justify-between mb-5">
+                <span class="eng text-xs font-bold tracking-widest uppercase px-3 py-1 bg-[#2563EB]/5 text-[#2563EB]">{item.phase}</span>
+                <span class="eng text-xs font-semibold px-2.5 py-1 bg-[#F5F5F5] text-[#6B6B6B] border border-[#E0E0E0]">{item.status}</span>
               </div>
-              <h3 class="text-xl font-bold mb-1 tracking-tight">{item.title}</h3>
-              <span class="inline-block text-xs font-semibold px-2 py-0.5 rounded-full mb-4" style={`background: ${item.color}12; color: ${item.color}`}>{item.status}</span>
-              <ul class="space-y-3">
+              <h3 class="text-xl font-bold mb-1 tracking-tight text-[#111]">{item.title}</h3>
+              <p class="eng text-xs text-[#6B6B6B] font-medium mb-5">{item.year}</p>
+              <ul class="space-y-2.5">
                 {item.items.map((text) => (
-                  <li class="flex items-start gap-2 text-sm text-gray-600">
-                    <svg class="w-4 h-4 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke={item.color} stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <li class="flex items-start gap-2 text-sm text-[#3A3A3A]">
+                    <svg class="w-4 h-4 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                     <span>{text}</span>
                   </li>
                 ))}
               </ul>
             </div>
-            {i < 2 && (
-              <div class="hidden md:block absolute top-1/2 -right-5 transform -translate-y-1/2 z-10">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d1d5db" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </div>
-            )}
           </div>
         ))}
       </div>
@@ -189,23 +192,23 @@ const navLinks = [
   </section>
 
   <!-- Impact Numbers -->
-  <section class="py-20 bg-gray-50">
+  <section class="py-20 bg-[#F5F5F5]">
     <div class="w-container max-w-4xl">
       <div class="text-center mb-14">
-        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">Impact</p>
-        <h2 class="text-2xl lg:text-3xl font-bold tracking-tight reveal delay-100">비전을 향한 성과</h2>
+        <p class="text-[#2563EB] eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">Impact</p>
+        <h2 class="text-2xl lg:text-3xl font-bold tracking-tight text-[#111] reveal delay-100">비전을 향한 성과</h2>
       </div>
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-[1px] bg-[#E0E0E0] border border-[#E0E0E0]">
         {[
           { num: '150+', label: '도입 현장', desc: '전국' },
           { num: '50,000', label: '위험요인 DB', desc: '업계 최다' },
           { num: '99.2%', label: '사고 예방률', desc: '도입 후' },
           { num: '2건', label: '특허 보유', desc: '핵심 기술' },
         ].map((item, i) => (
-          <div class={`text-center reveal delay-${(i + 1) * 100}`}>
-            <p class="eng text-3xl lg:text-4xl font-extrabold text-gradient-blue mb-1">{item.num}</p>
-            <p class="font-semibold text-sm mb-0.5">{item.label}</p>
-            <p class="text-xs text-gray-400">{item.desc}</p>
+          <div class={`bg-white p-6 text-center reveal delay-${(i + 1) * 100}`}>
+            <p class="eng text-3xl lg:text-4xl font-extrabold text-[#2563EB] mb-1">{item.num}</p>
+            <p class="font-semibold text-sm text-[#111] mb-0.5">{item.label}</p>
+            <p class="text-xs text-[#6B6B6B]">{item.desc}</p>
           </div>
         ))}
       </div>
@@ -213,16 +216,16 @@ const navLinks = [
   </section>
 
   <!-- CTA -->
-  <section class="py-16 bg-primary text-white text-center">
+  <section class="py-16 bg-[#1C1C1E] text-white text-center">
     <div class="w-container reveal">
       <h2 class="text-2xl font-bold mb-4 tracking-tight">SafeD의 비전에 함께 하세요</h2>
       <p class="opacity-80 mb-8 text-sm">현장의 안전을 바꾸는 여정, 지금 시작하세요</p>
       <div class="flex gap-4 justify-center flex-wrap">
-        <a href="/inquiries" class="inline-flex items-center gap-2 px-8 py-3 bg-white text-primary rounded-full font-semibold hover:bg-gray-100 transition-colors text-sm">
+        <a href="/inquiries" class="inline-flex items-center gap-2 px-8 py-3 bg-[#2563EB] text-white font-semibold hover:bg-[#1d4ed8] transition-colors text-sm">
           무료 상담받기
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="/safed-features" class="inline-flex items-center gap-2 px-8 py-3 border border-white/30 text-white rounded-full font-semibold hover:bg-white/10 transition-colors text-sm">
+        <a href="/safed-features" class="inline-flex items-center gap-2 px-8 py-3 border border-white/30 text-white font-semibold hover:bg-white/10 transition-colors text-sm">
           SafeD 기능 살펴보기
         </a>
       </div>
@@ -231,8 +234,155 @@ const navLinks = [
 </SubPageLayout>
 
 <style>
-  @keyframes wave-bar {
-    0% { transform: scaleY(0.3); }
-    100% { transform: scaleY(1); }
+  .vm-values-section {
+    background: linear-gradient(135deg, #0a0f1e 0%, #111827 20%, #0f172a 40%, #1a1040 60%, #0f172a 80%, #111827 100%);
+    background-size: 400% 400%;
+    animation: vm-gradient 12s ease infinite;
+  }
+
+  @keyframes vm-gradient {
+    0% { background-position: 0% 50%; }
+    25% { background-position: 50% 0%; }
+    50% { background-position: 100% 50%; }
+    75% { background-position: 50% 100%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Carousel */
+  .vm-carousel-wrap {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .vm-carousel-track {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .vm-carousel-card {
+    background: rgba(28, 28, 30, 0.9);
+    border: none;
+    padding: 1.5rem;
+    transition: background 0.3s;
+    min-width: 0;
+  }
+
+  .vm-carousel-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .vm-carousel-card.active-card {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .vm-carousel-dots {
+    display: none;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+  }
+
+  .vm-dot {
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, width 0.3s;
+    padding: 0;
+  }
+
+  .vm-dot.active {
+    width: 20px;
+    background: #2563EB;
+  }
+
+  @media (max-width: 767px) {
+    .vm-carousel-track {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      gap: 1px;
+      padding-bottom: 0.25rem;
+    }
+
+    .vm-carousel-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .vm-carousel-card {
+      min-width: 80%;
+      flex-shrink: 0;
+      scroll-snap-align: center;
+    }
+
+    .vm-carousel-dots {
+      display: flex;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vm-values-section { animation: none; }
   }
 </style>
+
+<script>
+  const track = document.getElementById('vm-carousel-track');
+  const dots = document.querySelectorAll('.vm-dot');
+  if (track && dots.length > 0) {
+    let current = 0;
+    const total = 4;
+    let autoTimer: ReturnType<typeof setInterval>;
+
+    function scrollToCard(idx: number) {
+      const cards = track.querySelectorAll('.vm-carousel-card');
+      if (cards[idx]) {
+        cards[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+      current = idx;
+    }
+
+    function startAuto() {
+      autoTimer = setInterval(() => {
+        current = (current + 1) % total;
+        scrollToCard(current);
+      }, 3000);
+    }
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        clearInterval(autoTimer);
+        scrollToCard(Number((dot as HTMLElement).dataset.idx));
+        startAuto();
+      });
+    });
+
+    track.addEventListener('scroll', () => {
+      const cards = track.querySelectorAll('.vm-carousel-card');
+      const trackRect = track.getBoundingClientRect();
+      let closest = 0;
+      let minDist = Infinity;
+      cards.forEach((card, i) => {
+        const rect = card.getBoundingClientRect();
+        const dist = Math.abs(rect.left + rect.width / 2 - trackRect.left - trackRect.width / 2);
+        if (dist < minDist) { minDist = dist; closest = i; }
+      });
+      if (closest !== current) {
+        current = closest;
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      }
+    }, { passive: true });
+
+    const mq = window.matchMedia('(max-width: 767px)');
+    if (mq.matches) startAuto();
+    mq.addEventListener('change', (e) => {
+      if (e.matches) startAuto();
+      else clearInterval(autoTimer);
+    });
+  }
+</script>

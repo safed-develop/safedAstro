@@ -46,7 +46,7 @@ export default function CardParallax({ image, title, description }: Props) {
         overflow: 'hidden',
         cursor: 'pointer',
         transform,
-        transition: 'transform 0.3s ease-out',
+        transition: 'transform 0.12s ease-out',
         height: '320px',
       }}
     >
@@ -58,7 +58,7 @@ export default function CardParallax({ image, title, description }: Props) {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           transform: bgTransform,
-          transition: 'transform 0.3s ease-out',
+          transition: 'transform 0.12s ease-out',
         }}
       />
       <div

@@ -55,18 +55,29 @@ const releases = [
   description="SafeD 보도자료 - 스마트안전관리시스템 언론 보도"
   navLinks={navLinks}
 >
+  <!-- Hero Statement -->
+  <section class="py-24 lg:py-32 bg-white">
+    <div class="w-container max-w-4xl text-center">
+      <h2 class="text-4xl lg:text-5xl font-extrabold tracking-tight text-[#111] reveal">
+        현장의 변화,<br /><span class="text-[#2563EB]">언론이 주목합니다.</span>
+      </h2>
+      <p class="text-[#6B6B6B] text-lg lg:text-xl mt-8 leading-relaxed max-w-2xl mx-auto reveal delay-100">
+        SafeD가 만들어가는 건설 안전의 새로운 기준.<br/>주요 언론이 보도한 SafeD의 성과와 기술 혁신을 확인하세요.
+      </p>
+    </div>
+  </section>
+
   <!-- Award Highlight -->
   <section class="py-20 bg-gradient-to-b from-gray-50 to-white">
     <div class="w-container max-w-5xl">
-      <div class="relative bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-sm reveal">
+      <div class="relative bg-white border border-[#E0E0E0] overflow-hidden reveal">
         <div class="grid grid-cols-1 lg:grid-cols-5 gap-0">
           <!-- Left: Award visual -->
           <div class="lg:col-span-2 bg-gradient-to-br from-gray-900 to-gray-800 p-8 lg:p-10 flex flex-col justify-center text-white relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-40 h-40 bg-primary/10 rounded-full blur-[60px]"></div>
             <div class="relative z-10">
-              <div class="w-14 h-14 bg-yellow-400/10 rounded-2xl flex items-center justify-center mb-6">
+              <div class="w-14 h-14 bg-yellow-400/10 flex items-center justify-center mb-6">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#facc15" stroke-width="1.5">
-                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
                 </svg>
               </div>
               <p class="eng text-yellow-400 font-bold text-xs tracking-widest uppercase mb-3">Award</p>
@@ -81,24 +92,24 @@ const releases = [
 
           <!-- Right: Award details -->
           <div class="lg:col-span-3 p-8 lg:p-10">
-            <p class="text-gray-600 leading-relaxed mb-8">
+            <p class="text-[#3A3A3A] leading-relaxed mb-8">
               세이프디 주식회사는 국내 유일의 스마트안전관리솔루션 개발 회사입니다.
               위험성평가 프로세스관리 솔루션 'SafeD'가 스마트건설대상에서 주목을 받았습니다.
             </p>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-[1px] bg-[#E0E0E0]">
               {[
-                { icon: '⚡', title: '원클릭 안전관리', desc: '위험성 평가 회의 결과를 원클릭으로 해결. 약 25,000건 표준위험공종 자료화' },
-                { icon: '💰', title: '비용 절감 효과', desc: '시간과 비용을 절감하는 효율적인 안전관리 솔루션' },
-                { icon: '📍', title: 'GPS 경고 시스템', desc: '작업 위치·동선 분석으로 위험지역 접근 감지 및 즉시 경고' },
-                { icon: '📡', title: '비콘 기술 탑재', desc: '지하·터널 사각지대 제거, 복잡한 물류센터도 정교한 감지' },
+                { icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>', title: '원클릭 안전관리', desc: '위험성 평가 회의 결과를 원클릭으로 해결. 약 25,000건 표준위험공종 자료화' },
+                { icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>', title: '비용 절감 효과', desc: '시간과 비용을 절감하는 효율적인 안전관리 솔루션' },
+                { icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>', title: 'GPS 경고 시스템', desc: '작업 위치·동선 분석으로 위험지역 접근 감지 및 즉시 경고' },
+                { icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.4"/><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.4"/><path d="M19.1 4.9C23 8.8 23 15.1 19.1 19"/></svg>', title: '비콘 기술 탑재', desc: '지하·터널 사각지대 제거, 복잡한 물류센터도 정교한 감지' },
               ].map((item) => (
-                <div class="bg-gray-50 rounded-xl p-5 hover:bg-primary/5 transition-colors group">
+                <div class="bg-white p-5">
                   <div class="flex items-center gap-3 mb-2">
-                    <span class="text-lg">{item.icon}</span>
-                    <h4 class="font-bold text-sm text-gray-800 group-hover:text-primary transition-colors">{item.title}</h4>
+                    <span class="flex-shrink-0" set:html={item.icon} />
+                    <h4 class="font-bold text-sm text-[#111]">{item.title}</h4>
                   </div>
-                  <p class="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
+                  <p class="text-xs text-[#6B6B6B] leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -111,34 +122,84 @@ const releases = [
   <!-- Press Coverage -->
   <section class="py-20">
     <div class="w-container max-w-5xl">
-      <div class="flex items-end justify-between mb-10 reveal">
+      <div class="flex items-end justify-between mb-10 pb-6 border-b border-[#E0E0E0] reveal">
         <div>
-          <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-3">Media Coverage</p>
-          <h2 class="text-2xl lg:text-3xl font-bold tracking-tight">언론 보도</h2>
+          <p class="text-[#2563EB] eng font-semibold text-sm tracking-widest uppercase mb-3">Media Coverage</p>
+          <h2 class="text-2xl lg:text-3xl font-bold tracking-tight text-[#111]">언론 보도</h2>
         </div>
-        <p class="eng text-sm text-gray-400 hidden sm:block">
-          <span class="font-bold text-gray-600">{releases.length}</span> articles
-        </p>
+        <div class="hidden sm:flex items-center gap-3">
+          <img src="/images/sign_logo_new.gif" alt="SafeD" class="h-5 opacity-40" />
+          <p class="eng text-sm text-[#6B6B6B]">
+            <span class="font-bold text-[#111]">{releases.length}</span> articles
+          </p>
+        </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 reveal delay-100">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-[#E0E0E0] border border-[#E0E0E0] reveal delay-100">
         {releases.map((item, i) => (
           <a href={item.link} target="_blank" rel="noopener noreferrer"
-             class="group relative bg-white border border-gray-100 rounded-2xl p-6 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300">
+             class="group bg-white p-6 hover:bg-[#F5F5F5] transition-colors">
             <div class="flex items-center gap-2 mb-4">
-              <span class="w-8 h-8 rounded-lg bg-primary/5 flex items-center justify-center">
-                <span class="eng text-primary font-bold text-xs">{String(i + 1).padStart(2, '0')}</span>
+              <span class="w-8 h-8 bg-[#F5F5F5] flex items-center justify-center">
+                <span class="eng text-[#2563EB] font-bold text-xs">{String(i + 1).padStart(2, '0')}</span>
               </span>
-              <span class="text-xs text-primary bg-primary/5 px-2.5 py-1 rounded-full eng font-semibold">{item.source}</span>
-              <svg class="w-4 h-4 text-gray-200 group-hover:text-primary ml-auto transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <span class="text-xs text-[#2563EB] bg-[#2563EB]/5 px-2.5 py-1 eng font-semibold">{item.source}</span>
+              <svg class="w-4 h-4 text-[#E0E0E0] ml-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
               </svg>
             </div>
-            <h3 class="font-bold text-gray-800 mb-2 leading-snug group-hover:text-primary transition-colors line-clamp-2">{item.title}</h3>
-            <p class="text-sm text-gray-500 line-clamp-2 leading-relaxed">{item.description}</p>
+            <h3 class="font-bold text-[#111] mb-2 leading-snug line-clamp-2">{item.title}</h3>
+            <p class="text-sm text-[#6B6B6B] line-clamp-2 leading-relaxed">{item.description}</p>
           </a>
         ))}
       </div>
     </div>
   </section>
+
+  <!-- Bottom CTA -->
+  <section class="py-20 bg-[#1C1C1E] text-white text-center relative overflow-hidden">
+    <div class="absolute inset-0 flex items-center justify-center opacity-[0.04]" aria-hidden="true">
+      <span class="pr-glow-d eng text-[300px] font-extrabold leading-none select-none">D</span>
+    </div>
+    <div class="w-container relative z-10 reveal">
+      <p class="pr-first-step eng text-sm font-bold tracking-[0.3em] uppercase mb-6 text-[#2563EB]">First Step</p>
+      <h2 class="text-3xl lg:text-4xl font-extrabold tracking-tight mb-4">
+        안전관리의 <span class="pr-outline-text">첫걸음</span>,<br />SafeD와 함께
+      </h2>
+      <p class="text-white/50 mb-8">언론이 주목한 기술력, 직접 확인해 보세요.</p>
+      <a href="/inquiries" class="inline-flex items-center gap-2 px-8 py-3.5 bg-[#2563EB] text-white font-semibold hover:bg-[#1d4ed8] transition-colors text-sm">
+        무료 상담받기
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
 </SubPageLayout>
+
+<style>
+  .pr-outline-text {
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(37, 99, 235, 0.8);
+    animation: pr-outline-sparkle 3s ease-in-out infinite;
+  }
+
+  @keyframes pr-outline-sparkle {
+    0%, 100% { -webkit-text-stroke-color: rgba(37, 99, 235, 0.5); }
+    50% { -webkit-text-stroke-color: rgba(37, 99, 235, 1); }
+  }
+
+  .pr-glow-d {
+    color: rgba(37, 99, 235, 0.3);
+    text-shadow: 0 0 80px rgba(37, 99, 235, 0.15), 0 0 160px rgba(37, 99, 235, 0.05);
+    animation: pr-d-glow 4s ease-in-out infinite;
+  }
+
+  @keyframes pr-d-glow {
+    0%, 100% { opacity: 0.03; }
+    50% { opacity: 0.06; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pr-outline-text { animation: none; -webkit-text-stroke-color: rgba(37, 99, 235, 0.8); color: transparent; }
+    .pr-glow-d { animation: none; }
+  }
+</style>

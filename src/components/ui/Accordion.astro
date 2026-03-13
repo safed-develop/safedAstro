@@ -51,7 +51,7 @@ const { items } = Astro.props;
   }
 
   .accordion-item {
-    border-bottom: 1px solid var(--color-gray-200);
+    border-bottom: 1px solid #E0E0E0;
   }
 
   .accordion-title {
@@ -64,7 +64,7 @@ const { items } = Astro.props;
     border: none;
     font-size: 16px;
     font-weight: 600;
-    color: var(--color-gray-800);
+    color: #111111;
     cursor: pointer;
     text-align: left;
     font-family: inherit;
@@ -73,18 +73,18 @@ const { items } = Astro.props;
   }
 
   .accordion-title:hover {
-    color: var(--color-primary);
+    color: #2563EB;
   }
 
   .accordion-icon {
     transition: transform 0.3s ease;
     flex-shrink: 0;
-    color: var(--color-gray-400);
+    color: #6B6B6B;
   }
 
   .accordion-item.open .accordion-icon {
     transform: rotate(180deg);
-    color: var(--color-primary);
+    color: #2563EB;
   }
 
   .accordion-content {
@@ -102,7 +102,7 @@ const { items } = Astro.props;
   .accordion-content p {
     font-size: 15px;
     line-height: 1.7;
-    color: var(--color-gray-600);
+    color: #3A3A3A;
     word-break: keep-all;
   }
 </style>

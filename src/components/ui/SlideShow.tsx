@@ -82,7 +82,7 @@ export default function SlideShow({ slides, autoPlayInterval = 6000, height = '7
             y: { duration: autoPlayInterval / 1000, ease: 'linear' },
           }}
           style={{
-            position: 'absolute', inset: '-5%', width: '110%', height: '110%',
+            position: 'absolute', inset: '-10%', width: '120%', height: '120%',
             backgroundImage: `url(${slide.image})`, backgroundSize: 'cover', backgroundPosition: 'center',
           }}
         />
@@ -90,14 +90,14 @@ export default function SlideShow({ slides, autoPlayInterval = 6000, height = '7
 
       {/* Overlays */}
       <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(0,10,30,0.7) 0%, rgba(0,0,0,0.2) 50%, rgba(0,20,60,0.6) 100%)', zIndex: 1 }} />
-      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '50%', background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)', zIndex: 1 }} />
+      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '60%', background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 40%, transparent 100%)', zIndex: 1 }} />
 
       {/* Decorative grid lines */}
       <div style={{ position: 'absolute', inset: 0, zIndex: 1, opacity: 0.03, backgroundImage: 'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)', backgroundSize: '80px 80px' }} />
 
       {/* Content */}
       <div style={{ position: 'relative', zIndex: 2, height: '100%', display: 'flex', alignItems: 'center' }}>
-        <div style={{ padding: '0 clamp(2rem, 8vw, 10rem)', maxWidth: '100%', width: '100%', display: 'flex', alignItems: 'center', gap: '2rem' }}>
+        <div style={{ padding: '0 clamp(0rem, 27vw, 32rem)', maxWidth: '100%', width: '100%', display: 'flex', alignItems: 'center', gap: 0 }}>
           {/* Left text area */}
           <div style={{ flex: '0 1 55%', minWidth: 0 }}>
           <AnimatePresence mode="wait">
@@ -173,6 +173,21 @@ export default function SlideShow({ slides, autoPlayInterval = 6000, height = '7
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                   </a>
                 )}
+                <a href="https://safed.co.kr/login" target="_blank" rel="noopener noreferrer" style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 28px',
+                  borderRadius: '50px', color: '#fff', fontSize: '14px', fontWeight: 600,
+                  textDecoration: 'none', transition: 'all 0.3s',
+                  background: 'linear-gradient(135deg, #E8A63A 0%, #f0c060 50%, #E8A63A 100%)',
+                  backgroundSize: '200% 100%',
+                  boxShadow: '0 4px 20px rgba(232,166,58,0.4)',
+                  animation: 'metallic-shift 3s ease infinite',
+                }}
+                  onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 6px 30px rgba(232,166,58,0.6)'; e.currentTarget.style.transform = 'translateY(-1px)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 4px 20px rgba(232,166,58,0.4)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+                >
+                  SafeD 솔루션 바로가기
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" /></svg>
+                </a>
                 <a href="/inquiries" style={{
                   display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '12px 24px',
                   border: '1px solid rgba(255,255,255,0.25)', borderRadius: '50px', color: '#fff', fontSize: '14px', fontWeight: 500,
@@ -271,7 +286,7 @@ export default function SlideShow({ slides, autoPlayInterval = 6000, height = '7
         {/* Nav bar */}
         <div style={{
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          padding: '12px clamp(2rem, 8vw, 10rem)', background: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(20px)',
+          padding: '12px clamp(2rem, 8vw, 10rem)', background: 'transparent',
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <button onClick={prev} aria-label="이전" style={{

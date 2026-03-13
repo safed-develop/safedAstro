@@ -1,4 +1,4 @@
-import { useState, type FormEvent, type ChangeEvent } from 'react';
+import { useState, useEffect, type FormEvent, type ChangeEvent } from 'react';
 import axios from 'axios';
 
 interface FormData {
@@ -17,6 +17,30 @@ interface Errors {
 const API_BASE_URL = import.meta.env.PUBLIC_API_URL || 'http://localhost:5000';
 
 export default function ContactForm() {
+  useEffect(() => {
+    if (document.getElementById('metallic-keyframes')) return;
+    const style = document.createElement('style');
+    style.id = 'metallic-keyframes';
+    style.textContent = `
+      @keyframes metallic-shift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      .contact-row-3 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+      }
+      @media (max-width: 639px) {
+        .contact-row-3 {
+          grid-template-columns: 1fr;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }, []);
+
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -41,7 +65,7 @@ export default function ContactForm() {
     const newErrors: Errors = {};
 
     if (!field || field === 'name') {
-      if (!formData.name.trim()) newErrors.name = '이름을 입력해주세요.';
+      if (!formData.name.trim()) newErrors.name = '담당자명을 입력해주세요.';
     }
     if (!field || field === 'email') {
       if (!formData.email.trim()) {
@@ -112,10 +136,10 @@ export default function ContactForm() {
 
   const inputStyle = {
     width: '100%',
-    padding: '0.875rem 0',
+    padding: '0.75rem 0',
     border: 'none',
-    borderBottom: '2px solid #eee',
-    fontSize: '16px',
+    borderBottom: '2px solid #ddd',
+    fontSize: '15px',
     fontFamily: 'inherit',
     outline: 'none',
     background: 'transparent',
@@ -123,21 +147,21 @@ export default function ContactForm() {
   };
 
   const labelStyle = {
-    fontSize: '13px',
+    fontSize: '12px',
     fontWeight: 600 as const,
-    color: '#999',
-    marginBottom: '0.25rem',
+    color: '#888',
+    marginBottom: '0.125rem',
     display: 'block',
   };
 
   const errorStyle = {
     color: '#e74c3c',
-    fontSize: '12px',
-    marginTop: '0.25rem',
+    fontSize: '11px',
+    marginTop: '0.125rem',
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ maxWidth: '600px' }}>
+    <form onSubmit={handleSubmit}>
       {submitResult === 'success' && (
         <div style={{
           padding: '1rem',
@@ -164,38 +188,49 @@ export default function ContactForm() {
         </div>
       )}
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-        {/* Name */}
-        <div>
-          <label style={labelStyle}>이름 *</label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            onBlur={() => handleBlur('name')}
-            placeholder="이름을 입력하세요"
-            style={inputStyle}
-          />
-          {touched.name && errors.name && <p style={errorStyle}>{errors.name}</p>}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.125rem' }}>
+        {/* 3-column row: 회사명, 담당자명*, 이메일* */}
+        <div className="contact-row-3">
+          <div>
+            <label style={labelStyle}>회사명</label>
+            <input
+              type="text"
+              name="company"
+              value={formData.company}
+              onChange={handleChange}
+              placeholder="회사명 (선택)"
+              style={inputStyle}
+            />
+          </div>
+          <div>
+            <label style={labelStyle}>담당자명 *</label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              onBlur={() => handleBlur('name')}
+              placeholder="담당자명을 입력하세요"
+              style={inputStyle}
+            />
+            {touched.name && errors.name && <p style={errorStyle}>{errors.name}</p>}
+          </div>
+          <div>
+            <label style={labelStyle}>이메일 *</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              onBlur={() => handleBlur('email')}
+              placeholder="example@email.com"
+              style={inputStyle}
+            />
+            {touched.email && errors.email && <p style={errorStyle}>{errors.email}</p>}
+          </div>
         </div>
 
-        {/* Email */}
-        <div>
-          <label style={labelStyle}>이메일 *</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            onBlur={() => handleBlur('email')}
-            placeholder="example@email.com"
-            style={inputStyle}
-          />
-          {touched.email && errors.email && <p style={errorStyle}>{errors.email}</p>}
-        </div>
-
-        {/* Contact */}
+        {/* 연락처 - single row */}
         <div>
           <label style={labelStyle}>연락처 *</label>
           <input
@@ -208,19 +243,6 @@ export default function ContactForm() {
             style={inputStyle}
           />
           {touched.contact && errors.contact && <p style={errorStyle}>{errors.contact}</p>}
-        </div>
-
-        {/* Company */}
-        <div>
-          <label style={labelStyle}>회사명</label>
-          <input
-            type="text"
-            name="company"
-            value={formData.company}
-            onChange={handleChange}
-            placeholder="회사명을 입력하세요 (선택)"
-            style={inputStyle}
-          />
         </div>
 
         {/* Content */}
@@ -267,18 +289,26 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
+          className="contact-submit-btn"
           style={{
             width: '100%',
-            padding: '1rem',
-            background: isSubmitting ? '#999' : '#091f5b',
+            padding: '0.875rem',
             color: '#fff',
             border: 'none',
-            borderRadius: '8px',
-            fontSize: '16px',
+            borderRadius: '50px',
+            fontSize: '15px',
             fontWeight: 600,
             cursor: isSubmitting ? 'not-allowed' : 'pointer',
-            transition: 'background 0.2s ease',
             fontFamily: 'inherit',
+            position: 'relative',
+            overflow: 'hidden',
+            background: isSubmitting
+              ? '#999'
+              : 'linear-gradient(135deg, #0060B7 0%, #007BFF 25%, #3b9eff 50%, #007BFF 75%, #0060B7 100%)',
+            backgroundSize: '300% 100%',
+            animation: isSubmitting ? 'none' : 'metallic-shift 4s ease infinite',
+            boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.25), inset 0 -1px 0 rgba(0,0,0,0.15), 0 4px 15px rgba(0,123,255,0.3)',
+            transition: 'transform 0.2s ease, box-shadow 0.2s ease',
           }}
         >
           {isSubmitting ? '전송 중...' : '문의하기'}

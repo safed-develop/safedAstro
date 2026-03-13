@@ -1,6 +1,5 @@
 ---
 import SubPageLayout from '../layouts/SubPageLayout.astro';
-import VerticalTab from '../components/ui/VerticalTab.astro';
 
 const navLinks = [
   { name: '사업배경', url: '/business-background' },
@@ -17,221 +16,6 @@ const features = [
   { icon: '/images/safed_feature_07.png', title: 'QR코드', desc: '통합QR코드 하나로 위험성평가 확인, 안전건의함 작성, 작업중지권 신청까지. 근로자 참여를 극대화합니다.' },
   { icon: '/images/safed_feature_08.png', title: '안전교육·TBM·협의체', desc: 'PC+모바일 동시 작성. TBM 참석자 서명, 문자 인증, 보고서 자동 생성. 노사협의체 회의록 관리까지.' },
   { icon: '/images/safed_feature_09.png', title: '점검일지·작업계획서·허가서(PTW)', desc: '사전 입력 양식으로 빠른 작성. 결재선 설정, 승인/반려 프로세스, 보고서 자동 출력까지 원스톱.' },
-];
-
-const tabs = [
-  {
-    name: '위험성평가',
-    content: `
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6 lg:p-8">
-        <div>
-          <h3 class="text-xl font-bold mb-4 tracking-tight">시스템 기반 스마트 위험성평가</h3>
-          <p class="text-gray-600 text-sm leading-relaxed mb-4">300여개 공종과 50,000개의 위험요인·안전대책 데이터베이스를 보유하고 있어, 원클릭으로 공종을 조회하고 위험성평가를 작성할 수 있습니다.</p>
-          <ul class="space-y-3">
-            <li class="flex items-start gap-2 text-sm text-gray-700"><span class="text-primary font-bold">•</span> 최초/정기/수시/일일 위험성평가 지원</li>
-            <li class="flex items-start gap-2 text-sm text-gray-700"><span class="text-primary font-bold">•</span> 가능성(빈도)·중대성(강도) 자동 점수 산출</li>
-            <li class="flex items-start gap-2 text-sm text-gray-700"><span class="text-primary font-bold">•</span> 상(중점)·중(일상)·하(일반) 점검 자동 분류</li>
-            <li class="flex items-start gap-2 text-sm text-gray-700"><span class="text-primary font-bold">•</span> 총괄책임자 승인 후 회의록 자동 생성·출력</li>
-            <li class="flex items-start gap-2 text-sm text-gray-700"><span class="text-primary font-bold">•</span> 근로자 QR코드로 위험성평가 열람·의견 작성</li>
-          </ul>
-        </div>
-        <div class="bg-gray-50 rounded-xl p-6 flex flex-col justify-center">
-          <div class="grid grid-cols-2 gap-4 text-center">
-            <div class="bg-white rounded-lg p-4 shadow-sm">
-              <p class="text-2xl font-extrabold text-primary eng">300+</p>
-              <p class="text-xs text-gray-500 mt-1">표준위험공종</p>
-            </div>
-            <div class="bg-white rounded-lg p-4 shadow-sm">
-              <p class="text-2xl font-extrabold text-primary eng">50,000+</p>
-              <p class="text-xs text-gray-500 mt-1">위험요인·안전대책</p>
-            </div>
-            <div class="bg-white rounded-lg p-4 shadow-sm">
-              <p class="text-2xl font-extrabold text-primary eng">4종</p>
-              <p class="text-xs text-gray-500 mt-1">평가 유형</p>
-            </div>
-            <div class="bg-white rounded-lg p-4 shadow-sm">
-              <p class="text-2xl font-extrabold text-primary eng">자동</p>
-              <p class="text-xs text-gray-500 mt-1">회의록 생성</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    `,
-  },
-  {
-    name: '중점점검활동',
-    content: `
-      <div class="p-6 lg:p-8">
-        <h3 class="text-xl font-bold mb-4 tracking-tight">중점점검활동 PROCESS</h3>
-        <p class="text-gray-600 text-sm leading-relaxed mb-6">위험성평가 회의에서 '상(중점점검)' 등급으로 분류된 항목을 집중 관리합니다.</p>
-        <div class="grid grid-cols-5 gap-3">
-          <div class="bg-primary/5 rounded-xl p-4 text-center">
-            <p class="text-2xl mb-2">📋</p>
-            <p class="text-xs font-semibold text-gray-700">목록 확인</p>
-          </div>
-          <div class="bg-primary/5 rounded-xl p-4 text-center">
-            <p class="text-2xl mb-2">🔍</p>
-            <p class="text-xs font-semibold text-gray-700">현장 확인</p>
-          </div>
-          <div class="bg-primary/5 rounded-xl p-4 text-center">
-            <p class="text-2xl mb-2">✏️</p>
-            <p class="text-xs font-semibold text-gray-700">결과 작성</p>
-          </div>
-          <div class="bg-primary/5 rounded-xl p-4 text-center">
-            <p class="text-2xl mb-2">📸</p>
-            <p class="text-xs font-semibold text-gray-700">사진 촬영</p>
-          </div>
-          <div class="bg-primary/5 rounded-xl p-4 text-center">
-            <p class="text-2xl mb-2">✅</p>
-            <p class="text-xs font-semibold text-gray-700">등록 완료</p>
-          </div>
-        </div>
-        <p class="text-sm text-gray-500 mt-4">위험성평가 회의 내용을 기반으로 점검 목록이 자동 생성되며, 모바일에서 현장 사진과 함께 점검 결과를 즉시 등록할 수 있습니다.</p>
-      </div>
-    `,
-  },
-  {
-    name: '일상점검활동',
-    content: `
-      <div class="p-6 lg:p-8">
-        <h3 class="text-xl font-bold mb-4 tracking-tight">일상점검활동</h3>
-        <p class="text-gray-600 text-sm leading-relaxed mb-4">위험성평가에서 '중(일상점검)' 등급으로 분류된 항목을 매일 점검하고 기록합니다.</p>
-        <ul class="space-y-3">
-          <li class="flex items-start gap-2 text-sm text-gray-700"><span class="text-primary font-bold">•</span> 일일 안전책임자 지정 및 스마트폰 알람 예약</li>
-          <li class="flex items-start gap-2 text-sm text-gray-700"><span class="text-primary font-bold">•</span> 모바일 앱에서 점검 목록 확인 및 결과 입력</li>
-          <li class="flex items-start gap-2 text-sm text-gray-700"><span class="text-primary font-bold">•</span> 현장 사진 촬영·첨부로 실질적 점검 증빙</li>
-          <li class="flex items-start gap-2 text-sm text-gray-700"><span class="text-primary font-bold">•</span> 관리자·협력사 맞춤형 화면 제공</li>
-        </ul>
-      </div>
-    `,
-  },
-  {
-    name: '점검일지',
-    content: `
-      <div class="p-6 lg:p-8">
-        <h3 class="text-xl font-bold mb-4 tracking-tight">순회점검일지 & 점검일지 관리</h3>
-        <p class="text-gray-600 text-sm leading-relaxed mb-4">산업안전보건법 제64조에 따른 작업장 순회점검을 체계적으로 이행합니다. 건설업·제조업은 2일에 1회 이상 실시해야 합니다.</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="bg-gray-50 rounded-lg p-4">
-            <p class="font-semibold text-sm mb-2">순회점검일지</p>
-            <ul class="text-xs text-gray-600 space-y-1">
-              <li>• 점검항목·점검자 사전 지정</li>
-              <li>• 모바일 앱에서 즉시 촬영·전송</li>
-              <li>• 승인자 검토 후 승인/반려</li>
-              <li>• 보고서 형태 자동 출력</li>
-            </ul>
-          </div>
-          <div class="bg-gray-50 rounded-lg p-4">
-            <p class="font-semibold text-sm mb-2">점검일지 관리</p>
-            <ul class="text-xs text-gray-600 space-y-1">
-              <li>• 점검주기(매주/매월) 설정</li>
-              <li>• PC·모바일 동시 등록</li>
-              <li>• 조치 완료 상태 추적</li>
-              <li>• 이력 관리 및 통계</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    `,
-  },
-  {
-    name: '교육·TBM',
-    content: `
-      <div class="p-6 lg:p-8">
-        <h3 class="text-xl font-bold mb-4 tracking-tight">안전교육 & TBM (Tool Box Meeting)</h3>
-        <p class="text-gray-600 text-sm leading-relaxed mb-4">PC+모바일에서 동시에 쉽고 빠르게 교육과 TBM을 기록·관리합니다.</p>
-        <div class="space-y-4">
-          <div class="bg-blue-50/50 border border-blue-100 rounded-lg p-4">
-            <p class="font-semibold text-sm text-blue-900 mb-2">TBM 주요 기능</p>
-            <ul class="text-xs text-gray-600 space-y-1">
-              <li>• TBM명, 일시, 공종, 작업내용, 위험요인 및 안전대책 입력</li>
-              <li>• 모바일 앱 또는 SMS를 통한 참석자 서명 확인</li>
-              <li>• 일용근로자도 이름+전화번호 입력 → 문자 인증 참석 확인</li>
-              <li>• TBM 점검/교육일지 자동 생성 및 인쇄</li>
-            </ul>
-          </div>
-          <div class="bg-green-50/50 border border-green-100 rounded-lg p-4">
-            <p class="font-semibold text-sm text-green-900 mb-2">안전교육</p>
-            <ul class="text-xs text-gray-600 space-y-1">
-              <li>• 계절별 특성에 맞는 안전교육 자료 사전 입력</li>
-              <li>• PC 등록, 모바일 열람 동시 지원</li>
-              <li>• 교육 이수 여부 자동 체크</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    `,
-  },
-  {
-    name: '추가위험발굴',
-    content: `
-      <div class="p-6 lg:p-8">
-        <h3 class="text-xl font-bold mb-4 tracking-tight">추가위험발굴 & 안전건의함</h3>
-        <p class="text-gray-600 text-sm leading-relaxed mb-4">현장 근로자가 직접 위험요소를 발굴하고, 안전건의함을 통해 소통합니다.</p>
-        <ul class="space-y-3">
-          <li class="flex items-start gap-2 text-sm text-gray-700"><span class="text-primary font-bold">•</span> 근로자가 스마트폰으로 사진 촬영·전송만으로 위험 신고</li>
-          <li class="flex items-start gap-2 text-sm text-gray-700"><span class="text-primary font-bold">•</span> 안전건의함: 건의 내용+사진 첨부 → 즉시 관리자에게 전달</li>
-          <li class="flex items-start gap-2 text-sm text-gray-700"><span class="text-primary font-bold">•</span> 작업중지권: QR코드로 간편 신청, 관리자 PC·모바일 실시간 조회</li>
-          <li class="flex items-start gap-2 text-sm text-gray-700"><span class="text-primary font-bold">•</span> 외국인 근로자도 모국어 자동번역으로 참여 가능</li>
-        </ul>
-      </div>
-    `,
-  },
-  {
-    name: '작업계획서·허가서',
-    content: `
-      <div class="p-6 lg:p-8">
-        <h3 class="text-xl font-bold mb-4 tracking-tight">작업계획서 & 작업허가서(PTW)</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-          <div class="bg-gray-50 rounded-lg p-4">
-            <p class="font-semibold text-sm mb-2">작업계획서</p>
-            <p class="text-xs text-gray-600 leading-relaxed">산업안전보건기준에 관한 규칙 제38조에 따른 작업계획서를 사전 입력 양식으로 빠르게 작성. 도구·절차·순서를 고려한 안전작업계획을 수립합니다.</p>
-            <ul class="text-xs text-gray-600 space-y-1 mt-2">
-              <li>• 사전 입력 양식 + 추가 양식 작성 가능</li>
-              <li>• 결재선 설정 및 의견 작성</li>
-            </ul>
-          </div>
-          <div class="bg-gray-50 rounded-lg p-4">
-            <p class="font-semibold text-sm mb-2">작업허가서 (PTW)</p>
-            <p class="text-xs text-gray-600 leading-relaxed">고위험작업 진행 시 안전성을 검토·확인하여 작업을 진행합니다.</p>
-            <ul class="text-xs text-gray-600 space-y-1 mt-2">
-              <li>• 위험요인·개선대책·점검사항 사전 데이터 활용</li>
-              <li>• 협력업체 작성 → 시공담당 → 안전담당 → 총괄 순 결재</li>
-              <li>• 작업허가 → 작업진행 → 작업완료 결재 프로세스</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    `,
-  },
-  {
-    name: '보고서·대시보드',
-    content: `
-      <div class="p-6 lg:p-8">
-        <h3 class="text-xl font-bold mb-4 tracking-tight">성과측정 & 보고서</h3>
-        <p class="text-gray-600 text-sm leading-relaxed mb-4">본사 관리자는 전국 각 현장별 안전활동 이행률을 실시간으로 모니터링하고 비교할 수 있습니다.</p>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-          <div class="bg-primary/5 rounded-lg p-4 text-center">
-            <p class="text-xl mb-1">📊</p>
-            <p class="text-xs font-semibold">현장별 이행률</p>
-          </div>
-          <div class="bg-primary/5 rounded-lg p-4 text-center">
-            <p class="text-xl mb-1">📈</p>
-            <p class="text-xs font-semibold">항목별 비교</p>
-          </div>
-          <div class="bg-primary/5 rounded-lg p-4 text-center">
-            <p class="text-xl mb-1">📄</p>
-            <p class="text-xs font-semibold">자동 보고서</p>
-          </div>
-          <div class="bg-primary/5 rounded-lg p-4 text-center">
-            <p class="text-xl mb-1">🖨️</p>
-            <p class="text-xs font-semibold">인쇄·출력</p>
-          </div>
-        </div>
-        <p class="text-xs text-gray-500 mt-4">위험성평가 회의록, TBM 교육일지, 순회점검일지, 작업계획서, 작업허가서 등 모든 문서가 보고서 형태로 자동 정리되어 출력 가능합니다.</p>
-      </div>
-    `,
-  },
 ];
 ---
 
@@ -257,7 +41,7 @@ const tabs = [
     }
   }}
 >
-  <!-- Hero Statement -->
+  <!-- ═══ HERO (unchanged) ═══ -->
   <section class="py-24 lg:py-32 bg-white">
     <div class="w-container max-w-4xl text-center">
       <h2 class="hero-headline tracking-tight reveal">
@@ -270,150 +54,172 @@ const tabs = [
     </div>
   </section>
 
-  <!-- Efficiency / ROI Section -->
-  <section class="py-24 bg-gray-950 text-white">
-    <div class="w-container max-w-5xl">
-      <div class="text-center mb-16">
-        <p class="eng font-semibold text-sm tracking-widest uppercase mb-4 text-primary reveal">Efficiency</p>
-        <h2 class="sub-headline reveal delay-100">단순·반복 업무 <span class="text-gradient-blue">80% 제거</span></h2>
-        <p class="text-white/50 mt-4 max-w-xl mx-auto reveal delay-200">현장 내 다양한 단순/반복 업무를 시스템화하여, 작업자 개개인의 핵심업무에 집중할 수 있도록 도와줍니다.</p>
+  <!-- ═══ Efficiency / ROI ═══ -->
+  <section class="bg-[#1C1C1E] text-white">
+    <div class="w-container max-w-5xl py-20 lg:py-24">
+      <div class="text-center mb-14">
+        <p class="eng font-medium text-xs tracking-[0.15em] uppercase mb-2 text-[#6B6B6B] reveal">Efficiency</p>
+        <h2 class="text-2xl lg:text-3xl font-bold tracking-tight reveal delay-100">단순·반복 업무 <span class="text-[#2563EB]">80% 제거</span></h2>
+        <p class="text-white/40 mt-4 max-w-xl mx-auto text-sm reveal delay-200">현장 내 다양한 단순/반복 업무를 시스템화하여, 작업자 개개인의 핵심업무에 집중할 수 있도록 도와줍니다.</p>
       </div>
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 reveal delay-200">
+
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-[1px] bg-white/10 border border-white/10 mb-8 reveal delay-200">
         {[
           { num: '80%', label: '단순반복 업무', sub: '제거' },
           { num: '60h', label: '월간 절감 시간', sub: '1개 현장 기준' },
           { num: '120만원', label: '월간 비용 절감', sub: '1개 현장 기준' },
           { num: '70%', label: '위험성평가', sub: '작성시간 단축' },
         ].map((item) => (
-          <div class="text-center bg-white/5 border border-white/10 rounded-2xl p-6">
-            <p class="eng text-3xl lg:text-4xl font-extrabold text-gradient-blue mb-2">{item.num}</p>
-            <p class="font-semibold text-white/90 text-sm mb-1">{item.label}</p>
+          <div class="bg-[#1C1C1E] p-6 text-center">
+            <p class="eng text-2xl lg:text-3xl font-bold text-[#2563EB] mb-2">{item.num}</p>
+            <p class="font-semibold text-white/80 text-sm mb-1">{item.label}</p>
             <p class="text-xs text-white/40">{item.sub}</p>
           </div>
         ))}
       </div>
-      <div class="mt-12 bg-white/5 border border-white/10 rounded-2xl p-6 lg:p-8 reveal delay-300">
+
+      <div class="border border-white/10 p-6 lg:p-8 reveal delay-300">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
           <div>
-            <p class="text-red-400 text-xs font-semibold mb-2 uppercase eng">AS-IS</p>
-            <p class="text-white/60 text-sm">260종 문서를 눈으로 확인<br />사진 출력·작성·점검에 240분 소요<br />정보(문서) 파편화로 탐색·학습 어려움</p>
+            <p class="text-[#6B6B6B] text-xs font-semibold mb-2 uppercase eng">AS-IS</p>
+            <p class="text-white/50 text-sm">260종 문서를 눈으로 확인<br/>사진 출력·작성·점검에 240분 소요<br/>정보(문서) 파편화로 탐색·학습 어려움</p>
           </div>
           <div class="flex items-center justify-center">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#007BFF" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </div>
           <div>
-            <p class="text-primary text-xs font-semibold mb-2 uppercase eng">TO-BE (SafeD)</p>
-            <p class="text-white/80 text-sm">1-click 조회 및 참조<br />All-in-One 디지털 온라인 처리 40분<br />실시간 저장·열람·탐색·학습</p>
+            <p class="text-[#2563EB] text-xs font-semibold mb-2 uppercase eng">TO-BE (SafeD)</p>
+            <p class="text-white/70 text-sm">1-click 조회 및 참조<br/>All-in-One 디지털 온라인 처리 40분<br/>실시간 저장·열람·탐색·학습</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Video Section -->
-  <section class="py-20 bg-gray-50">
-    <div class="w-container max-w-5xl">
-      <div class="text-center mb-12 reveal">
-        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">Watch Demo</p>
-        <h2 class="text-3xl lg:text-4xl font-bold mb-4 tracking-tight">
-          스마트 위험성평가 · 다국적 근로자를 고려한
-          <span class="text-primary">자동번역 기능</span>
-        </h2>
-      </div>
-      <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg reveal delay-200">
-        <iframe
-          class="absolute inset-0 w-full h-full"
-          src="https://www.youtube.com/embed/tu9mHC7H_Kw"
-          title="SafeD 소개 영상"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          loading="lazy"
-        ></iframe>
+  <!-- ═══ Video Section ═══ -->
+  <section class="border-b border-[#E0E0E0]">
+    <div class="w-container max-w-5xl py-20 lg:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-5 reveal">
+          <p class="eng font-medium text-xs tracking-[0.15em] uppercase text-[#6B6B6B] mb-4">Watch Demo</p>
+          <h2 class="text-2xl lg:text-3xl font-bold mb-4 tracking-tight leading-snug text-[#111]">
+            스마트 위험성평가 ·<br/>다국적 근로자를 고려한
+            <span class="text-[#2563EB]">자동번역 기능</span>
+          </h2>
+          <p class="text-[#6B6B6B] text-sm leading-relaxed mb-6">SafeD의 핵심 기능을 영상으로 확인하세요. 위험성평가 작성부터 다국어 자동번역, 음성 안내까지 한눈에 볼 수 있습니다.</p>
+          <div class="divide-y divide-[#E0E0E0] border border-[#E0E0E0]">
+            {[
+              { label: '원클릭 위험성평가', desc: '50,000 DB 자동 매칭' },
+              { label: '19개국어 자동번역', desc: 'Google AI 기반 실시간' },
+              { label: '음성 안내 TTS', desc: '모국어 음성 출력 지원' },
+            ].map((item) => (
+              <div class="flex items-center gap-3 p-3">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5" class="flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-sm font-semibold text-[#111]">{item.label}</span>
+                <span class="text-xs text-[#6B6B6B] ml-auto">{item.desc}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="lg:col-span-7 reveal delay-200">
+          <div class="relative w-full aspect-video overflow-hidden border border-[#E0E0E0]">
+            <iframe
+              class="absolute inset-0 w-full h-full"
+              src="https://www.youtube.com/embed/tu9mHC7H_Kw"
+              title="SafeD 소개 영상"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Feature Cards -->
-  <section class="py-20">
-    <div class="w-container">
-      <div class="text-center mb-16 reveal">
-        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">Core Features</p>
-        <h2 class="text-3xl font-bold tracking-tight">주요 기능</h2>
-        <p class="text-gray-500 mt-3">PC + 모바일 동시 지원, 실시간 연동</p>
+  <!-- ═══ Core Features Grid ═══ -->
+  <section class="border-b border-[#E0E0E0]">
+    <div class="w-container max-w-5xl py-20 lg:py-24">
+      <div class="text-center mb-14 reveal">
+        <p class="eng font-medium text-xs tracking-[0.15em] uppercase text-[#6B6B6B] mb-2">Core Features</p>
+        <h2 class="text-2xl lg:text-3xl font-bold tracking-tight text-[#111]">주요 기능</h2>
+        <p class="text-[#6B6B6B] mt-3 text-sm">PC + 모바일 동시 지원, 실시간 연동</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[1px] bg-[#E0E0E0] border border-[#E0E0E0]">
         {features.map((item, i) => (
-          <div class={`bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg hover:border-primary/20 transition-all reveal delay-${((i % 3) + 1) * 100}`}>
-            <img src={item.icon} alt={item.title} class="w-16 h-16 object-contain mb-4" loading="lazy" />
-            <h3 class="font-bold text-lg mb-2">{item.title}</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+          <div class={`sf-card reveal delay-${Math.min((i + 1) * 100, 400)}`}>
+            <div class="sf-card-img">
+              <img src={item.icon} alt={item.title} loading="lazy" />
+            </div>
+            <div class="sf-card-body">
+              <span class="sf-card-num eng">{String(i + 1).padStart(2, '0')}</span>
+              <h3 class="sf-card-title">{item.title}</h3>
+              <p class="sf-card-desc">{item.desc}</p>
+            </div>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Beacon Deep Dive -->
-  <section class="py-24 bg-gray-950 text-white">
-    <div class="w-container max-w-5xl">
+  <!-- ═══ Beacon Deep Dive ═══ -->
+  <section class="bg-[#1C1C1E] text-white">
+    <div class="w-container max-w-5xl py-20 lg:py-24">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div class="reveal">
-          <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">Smart Beacon</p>
-          <h2 class="sub-headline mb-6">스마트 안전 비콘<br /><span class="text-gradient-blue">비용 90% 절감</span></h2>
-          <p class="text-white/60 leading-relaxed mb-6 text-sm">
+          <p class="eng font-medium text-xs tracking-[0.15em] uppercase text-[#6B6B6B] mb-4">Smart Beacon</p>
+          <h2 class="text-2xl lg:text-3xl font-bold tracking-tight mb-6">스마트 안전 비콘<br/><span class="text-[#2563EB]">비용 90% 절감</span></h2>
+          <p class="text-white/50 leading-relaxed mb-6 text-sm">
             기존 고비용 송신기(1세트 60만원)를 스마트폰으로 대체하여 비콘 1개당 6만원으로 동일한 기능을 구현합니다.
             명함 80% 크기로 어디든 탈·부착 가능하며, 3~5년 배터리 수명을 보장합니다.
           </p>
-          <div class="grid grid-cols-3 gap-4 mb-6">
+          <div class="grid grid-cols-3 gap-[1px] bg-white/10 border border-white/10 mb-6">
             {[
               { label: '크기', value: '명함 80%' },
               { label: '수명', value: '3~5년' },
               { label: '단가', value: '6만원' },
             ].map((item) => (
-              <div class="bg-white/5 border border-white/10 rounded-xl p-3 text-center">
-                <p class="eng font-bold text-lg text-primary">{item.value}</p>
+              <div class="bg-[#1C1C1E] p-3 text-center">
+                <p class="eng font-bold text-lg text-[#2563EB]">{item.value}</p>
                 <p class="text-xs text-white/40 mt-1">{item.label}</p>
               </div>
             ))}
           </div>
-          <div class="space-y-3">
+          <div class="divide-y divide-white/10">
             {[
               '위험지역 접근 시 1차 경고 (스마트폰 알림)',
               '접근 지속 시 안전관리자 2차 경고 발송',
               '이동식 장비(덤프트럭, 크레인)에도 부착 가능',
               '반경 1~50m 유효 작동 범위 설정',
             ].map((text) => (
-              <div class="flex items-center gap-3">
-                <div class="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#007BFF" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-                </div>
-                <span class="text-white/80 text-sm">{text}</span>
+              <div class="flex items-center gap-3 py-3">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5" class="flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-white/70 text-sm">{text}</span>
               </div>
             ))}
           </div>
         </div>
+
         <div class="reveal-right delay-200">
-          <div class="relative">
-            <div class="bg-white/5 border border-white/10 rounded-3xl p-8 lg:p-12">
-              <div class="text-center mb-6">
-                <p class="eng text-xs text-white/40 tracking-widest uppercase mb-2">Cost Comparison</p>
-                <h3 class="text-xl font-bold">SafeD vs 타사</h3>
+          <div class="border border-white/10 p-8 lg:p-10">
+            <div class="text-center mb-6">
+              <p class="eng text-xs text-white/40 tracking-widest uppercase mb-2">Cost Comparison</p>
+              <h3 class="text-xl font-bold">SafeD vs 타사</h3>
+            </div>
+            <div class="grid grid-cols-2 gap-[1px] bg-white/10">
+              <div class="bg-[#2563EB]/10 border border-[#2563EB]/30 p-6 text-center">
+                <p class="eng text-3xl font-bold text-[#2563EB]">6만원</p>
+                <p class="text-sm text-white/70 mt-2">SafeD 비콘</p>
+                <p class="text-xs text-white/40 mt-1">비콘 + 스마트폰</p>
               </div>
-              <div class="grid grid-cols-2 gap-4">
-                <div class="bg-primary/10 border border-primary/30 rounded-2xl p-6 text-center">
-                  <p class="eng text-3xl font-extrabold text-primary">6만원</p>
-                  <p class="text-sm text-white/70 mt-2">SafeD 비콘</p>
-                  <p class="text-xs text-white/40 mt-1">비콘 + 스마트폰</p>
-                </div>
-                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
-                  <p class="eng text-3xl font-extrabold text-red-400">60만원</p>
-                  <p class="text-sm text-white/70 mt-2">타사 솔루션</p>
-                  <p class="text-xs text-white/40 mt-1">비콘 + AP + 송신기</p>
-                </div>
+              <div class="bg-white/5 p-6 text-center">
+                <p class="eng text-3xl font-bold text-white/60">60만원</p>
+                <p class="text-sm text-white/70 mt-2">타사 솔루션</p>
+                <p class="text-xs text-white/40 mt-1">비콘 + AP + 송신기</p>
               </div>
-              <div class="mt-4 bg-primary/5 rounded-xl p-3 text-center">
-                <p class="text-primary font-bold eng text-sm">90% 비용 절감</p>
-              </div>
+            </div>
+            <div class="mt-4 border border-[#2563EB]/20 bg-[#2563EB]/[0.05] p-3 text-center">
+              <p class="text-[#2563EB] font-bold eng text-sm">90% 비용 절감</p>
             </div>
           </div>
         </div>
@@ -421,108 +227,103 @@ const tabs = [
     </div>
   </section>
 
-  <!-- Multilingual Support -->
-  <section class="py-24 bg-gradient-to-b from-white to-gray-50">
-    <div class="w-container max-w-6xl">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        <!-- Left: Title + Sound Visual -->
-        <div class="lg:col-span-5 reveal">
-          <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">Multilingual</p>
-          <h2 class="text-3xl lg:text-4xl font-bold tracking-tight mb-4 leading-tight">
-            Google AI<br /><span class="text-gradient-blue">다국어 자동번역</span>
+  <!-- ═══ Multilingual Support ═══ -->
+  <section class="border-b border-[#E0E0E0]">
+    <div class="w-container max-w-6xl py-20 lg:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-5 reveal lg:sticky lg:top-24">
+          <p class="eng font-medium text-xs tracking-[0.15em] uppercase text-[#6B6B6B] mb-4">Multilingual</p>
+          <h2 class="text-2xl lg:text-3xl font-bold tracking-tight mb-4 leading-tight text-[#111]">
+            Google AI<br/><span class="text-[#2563EB]">다국어 자동번역</span>
           </h2>
-          <p class="text-gray-500 leading-relaxed mb-8">현장별 다국적 근로자 현황을 고려하여 19개국어 자동번역과 음성 안내를 지원합니다.</p>
-          <!-- Sound + Translation visual -->
-          <div class="bg-gray-950 rounded-2xl p-6 mb-6">
+          <p class="text-[#6B6B6B] leading-relaxed mb-8 text-sm">현장별 다국적 근로자 현황을 고려하여 19개국어 자동번역과 음성 안내를 지원합니다.</p>
+
+          <div class="bg-[#1C1C1E] p-6 mb-6">
             <div class="flex items-center gap-4 mb-5">
-              <div class="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+              <div class="w-10 h-10 border border-[#2563EB]/30 flex items-center justify-center flex-shrink-0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
               </div>
               <div>
                 <p class="text-white text-sm font-semibold">음성 안내 지원</p>
                 <p class="text-white/40 text-xs">TTS 기반 모국어 음성 출력</p>
               </div>
             </div>
-            <!-- Sound wave bars -->
             <div class="flex items-end gap-[3px] h-12 mb-5">
               {Array.from({length: 32}).map((_, i) => {
                 const h = 25 + Math.sin(i * 0.7) * 20 + Math.sin(i * 1.3) * 10;
                 const dur = (0.4 + Math.sin(i * 0.5) * 0.3).toFixed(2);
                 const del = (i * 0.04).toFixed(2);
                 return (
-                  <div class="flex-1 rounded-sm" style={`height: ${h}%; background: linear-gradient(to top, rgba(59,130,246,0.8), rgba(0,198,255,0.4)); animation: soundBar ${dur}s ease-in-out infinite alternate; animation-delay: ${del}s;`}></div>
+                  <div class="flex-1" style={`height: ${h}%; background: #2563EB; opacity: 0.6; animation: soundBar ${dur}s ease-in-out infinite alternate; animation-delay: ${del}s;`}></div>
                 );
               })}
             </div>
-            <!-- Translation flow -->
-            <div class="flex items-center gap-3 justify-between">
-              <div class="bg-white/5 rounded-lg px-3 py-2 text-center flex-1">
+            <div class="grid grid-cols-3 gap-[1px] bg-white/10">
+              <div class="bg-[#1C1C1E] p-2.5 text-center">
                 <p class="text-xs text-white/40 mb-1">원문</p>
                 <p class="text-white/90 text-xs font-medium">안전모 착용</p>
               </div>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" class="flex-shrink-0"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              <div class="bg-primary/15 rounded-lg px-3 py-2 text-center flex-1 border border-primary/30">
-                <p class="text-xs text-primary/60 mb-1">번역</p>
-                <p class="text-primary text-xs font-medium">Wear a helmet</p>
+              <div class="bg-[#2563EB]/10 p-2.5 text-center">
+                <p class="text-xs text-[#2563EB]/60 mb-1">번역</p>
+                <p class="text-[#2563EB] text-xs font-medium">Wear a helmet</p>
               </div>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" class="flex-shrink-0"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              <div class="bg-white/5 rounded-lg px-3 py-2 text-center flex-1">
+              <div class="bg-[#1C1C1E] p-2.5 text-center">
                 <p class="text-xs text-white/40 mb-1">음성</p>
                 <p class="text-white/90 text-xs font-medium flex items-center justify-center gap-1">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
                   TTS
                 </p>
               </div>
             </div>
           </div>
-          <!-- Application scope -->
-          <div class="space-y-3">
+
+          <div class="divide-y divide-[#E0E0E0] border border-[#E0E0E0]">
             {[
-              { iconPath: 'M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11', label: '위험성평가', desc: 'QR 스캔 시 모국어 자동 번역', color: '#3b82f6' },
-              { iconPath: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75', label: 'TBM', desc: '작업내용을 다국어로 전달', color: '#16a34a' },
-              { iconPath: 'M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z', label: '안전교육', desc: '교육자료 번역 + 음성 안내', color: '#8b5cf6' },
+              { iconPath: 'M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11', label: '위험성평가', desc: 'QR 스캔 시 모국어 자동 번역' },
+              { iconPath: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75', label: 'TBM', desc: '작업내용을 다국어로 전달' },
+              { iconPath: 'M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z', label: '안전교육', desc: '교육자료 번역 + 음성 안내' },
             ].map((item) => (
-              <div class="flex items-center gap-3 bg-white rounded-xl p-4 border border-gray-100 shadow-sm">
-                <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={`background: ${item.color}10`}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={item.color} stroke-width="2"><path d={item.iconPath}/></svg>
+              <div class="flex items-center gap-3 p-4">
+                <div class="w-8 h-8 border border-[#E0E0E0] flex items-center justify-center flex-shrink-0">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5"><path d={item.iconPath}/></svg>
                 </div>
                 <div>
-                  <p class="font-bold text-sm">{item.label}</p>
-                  <p class="text-gray-400 text-xs">{item.desc}</p>
+                  <p class="font-bold text-sm text-[#111]">{item.label}</p>
+                  <p class="text-[#6B6B6B] text-xs">{item.desc}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
-        <!-- Right: Country flags grid -->
+
         <div class="lg:col-span-7 reveal-right delay-200">
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-[1px] bg-[#E0E0E0] border border-[#E0E0E0]">
             {[
-              { flag: '\u{1F1EC}\u{1F1E7}', name: 'English', ko: '영어' },
-              { flag: '\u{1F1E8}\u{1F1F3}', name: '简体中文', ko: '중국어(간체)' },
-              { flag: '\u{1F1F9}\u{1F1FC}', name: '繁體中文', ko: '중국어(번체)' },
-              { flag: '\u{1F1FB}\u{1F1F3}', name: 'Tiếng Việt', ko: '베트남어' },
-              { flag: '\u{1F1F9}\u{1F1ED}', name: 'ไทย', ko: '태국어' },
-              { flag: '\u{1F1F2}\u{1F1F2}', name: 'ဗမာ', ko: '미얀마어' },
-              { flag: '\u{1F1F3}\u{1F1F5}', name: 'नेपाली', ko: '네팔어' },
-              { flag: '\u{1F1EE}\u{1F1E9}', name: 'Indonesia', ko: '인도네시아어' },
-              { flag: '\u{1F1F2}\u{1F1F3}', name: 'Монгол', ko: '몽골어' },
-              { flag: '\u{1F1F0}\u{1F1ED}', name: 'ខ្មែរ', ko: '크메르어' },
-              { flag: '\u{1F1F1}\u{1F1E6}', name: 'ລາວ', ko: '라오어' },
-              { flag: '\u{1F1F7}\u{1F1FA}', name: 'Русский', ko: '러시아어' },
-              { flag: '\u{1F1F5}\u{1F1ED}', name: 'Tagalog', ko: '타갈로그어' },
-              { flag: '\u{1F1F0}\u{1F1FF}', name: 'Қазақ', ko: '카자흐어' },
-              { flag: '\u{1F1FA}\u{1F1FF}', name: "O'zbek", ko: '우즈베크어' },
-              { flag: '\u{1F1F2}\u{1F1FE}', name: 'Melayu', ko: '말레이어' },
-              { flag: '\u{1F1F1}\u{1F1F0}', name: 'සිංහල', ko: '스리랑카어' },
-              { flag: '\u{1F1F8}\u{1F1F0}', name: 'Slovák', ko: '슬로바키아어' },
-              { flag: '\u{1F1FA}\u{1F1E6}', name: 'Українська', ko: '우크라이나어' },
-            ].map((lang, i) => (
-              <div class={`flex items-center gap-3 bg-white rounded-xl p-3 border border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all`}>
-                <span class="text-2xl flex-shrink-0">{lang.flag}</span>
+              { code: 'gb', name: 'English', ko: '영어' },
+              { code: 'cn', name: '简体中文', ko: '중국어(간체)' },
+              { code: 'tw', name: '繁體中文', ko: '중국어(번체)' },
+              { code: 'vn', name: 'Tiếng Việt', ko: '베트남어' },
+              { code: 'th', name: 'ไทย', ko: '태국어' },
+              { code: 'mm', name: 'ဗမာ', ko: '미얀마어' },
+              { code: 'np', name: 'नेपाली', ko: '네팔어' },
+              { code: 'id', name: 'Indonesia', ko: '인도네시아어' },
+              { code: 'mn', name: 'Монгол', ko: '몽골어' },
+              { code: 'kh', name: 'ខ្មែរ', ko: '크메르어' },
+              { code: 'la', name: 'ລາວ', ko: '라오어' },
+              { code: 'ru', name: 'Русский', ko: '러시아어' },
+              { code: 'ph', name: 'Tagalog', ko: '타갈로그어' },
+              { code: 'kz', name: 'Қазақ', ko: '카자흐어' },
+              { code: 'uz', name: "O'zbek", ko: '우즈베크어' },
+              { code: 'my', name: 'Melayu', ko: '말레이어' },
+              { code: 'lk', name: 'සිංහල', ko: '스리랑카어' },
+              { code: 'sk', name: 'Slovák', ko: '슬로바키아어' },
+              { code: 'ua', name: 'Українська', ko: '우크라이나어' },
+            ].map((lang) => (
+              <div class="flex items-center gap-3 bg-white p-3 hover:bg-[#2563EB]/[0.02] transition-colors">
+                <img src={`https://flagcdn.com/w40/${lang.code}.png`} alt={lang.ko} width="28" height="21" class="flex-shrink-0 object-cover" style="aspect-ratio:4/3;" loading="lazy" />
                 <div class="min-w-0">
-                  <p class="font-semibold text-sm truncate">{lang.name}</p>
-                  <p class="text-xs text-gray-400">{lang.ko}</p>
+                  <p class="font-semibold text-sm text-[#111] truncate">{lang.name}</p>
+                  <p class="text-xs text-[#6B6B6B]">{lang.ko}</p>
                 </div>
               </div>
             ))}
@@ -532,150 +333,45 @@ const tabs = [
     </div>
   </section>
 
-  <!-- Procedural Workflow Infographic -->
-  <section class="py-24 bg-gray-50 overflow-hidden">
-    <div class="w-container max-w-6xl">
-      <div class="text-center mb-16 reveal">
-        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">How SafeD Works</p>
-        <h2 class="text-3xl lg:text-4xl font-bold tracking-tight">현장 안전관리, 이렇게 작동합니다</h2>
-        <p class="text-gray-500 mt-3">8단계 프로세스로 현장의 모든 안전활동을 체계적으로 관리합니다.</p>
+  <!-- ═══ Procedural Workflow ═══ -->
+  <section class="border-b border-[#E0E0E0]">
+    <div class="w-container max-w-5xl py-20 lg:py-24">
+      <div class="text-center mb-14 reveal">
+        <p class="eng font-medium text-xs tracking-[0.15em] uppercase text-[#6B6B6B] mb-2">How SafeD Works</p>
+        <h2 class="text-2xl lg:text-3xl font-bold tracking-tight text-[#111]">현장 안전관리, 이렇게 작동합니다</h2>
+        <p class="text-[#6B6B6B] mt-3 text-sm">8단계 프로세스로 현장의 모든 안전활동을 체계적으로 관리합니다.</p>
       </div>
 
-      <!-- Workflow Steps -->
-      <div class="relative">
-        <!-- Vertical connecting line (desktop) -->
-        <div class="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/30 via-primary/10 to-transparent -translate-x-1/2" aria-hidden="true"></div>
-
+      <div class="space-y-[1px] bg-[#E0E0E0] border border-[#E0E0E0]">
         {[
-          {
-            step: '01',
-            title: '위험성평가 작성',
-            desc: '300여개 공종, 50,000개 위험요인·안전대책 DB에서 원클릭 조회. 최초/정기/수시/일일 평가를 모바일에서 즉시 작성합니다.',
-            details: ['위험요인·안전대책 자동 매칭', '가능성·중대성 점수 자동 산출', '총괄책임자 승인 후 회의록 자동 생성'],
-            image: '/images/safed_feature_01.png',
-            stat: '50,000+',
-            statLabel: '위험요인 DB',
-            color: '#ef4444',
-            iconPath: 'M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2',
-          },
-          {
-            step: '02',
-            title: '중점·일상 점검활동',
-            desc: '위험성평가에서 분류된 상(중점)·중(일상) 등급 항목을 매일 현장에서 점검하고 결과를 즉시 등록합니다.',
-            details: ['점검 목록 자동 생성', '모바일 사진 촬영·등록', '안전책임자 지정 및 알람'],
-            image: '/images/safed_feature_02.png',
-            stat: '매일',
-            statLabel: '현장 점검',
-            color: '#f59e0b',
-            iconPath: 'M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11',
-          },
-          {
-            step: '03',
-            title: '순회점검일지 작성',
-            desc: '산업안전보건법 제64조에 따른 작업장 순회점검을 체계적으로 이행. 건설업은 2일에 1회 이상 실시합니다.',
-            details: ['점검항목·점검자 사전 지정', '승인/반려 프로세스', '보고서 형태 자동 출력'],
-            image: '/images/safed_feature_04.png',
-            stat: '자동',
-            statLabel: '보고서 생성',
-            color: '#3b82f6',
-            iconPath: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6 M16 13H8 M16 17H8 M10 9H8',
-          },
-          {
-            step: '04',
-            title: '안전교육 · TBM',
-            desc: 'PC+모바일에서 동시에 교육과 TBM을 기록. 참석자 서명, 문자 인증, 교육일지 자동 생성까지.',
-            details: ['TBM 참석자 모바일 서명', '일용근로자 문자 인증', '계절별 안전교육 자료 관리'],
-            image: '/images/safed_feature_07.png',
-            stat: 'PC+모바일',
-            statLabel: '동시 지원',
-            color: '#8b5cf6',
-            iconPath: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75M8.5 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z',
-          },
-          {
-            step: '05',
-            title: '추가위험 발굴',
-            desc: '근로자가 스마트폰으로 직접 위험요소를 신고. 안전건의함·작업중지권 QR코드로 간편하게 참여합니다.',
-            details: ['사진 촬영·전송만으로 위험 신고', 'QR코드 기반 작업중지권', '외국인 근로자 모국어 참여'],
-            image: '/images/safed_feature_08.png',
-            stat: 'QR코드',
-            statLabel: '즉시 참여',
-            color: '#16a34a',
-            iconPath: 'M12 9v2m0 4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z',
-          },
-          {
-            step: '06',
-            title: '다국어 자동번역',
-            desc: 'Google AI로 19개국어 실시간 번역. 위험성평가·TBM 내용을 모국어로 확인하고 음성으로 듣습니다.',
-            details: ['19개국어 자동번역', '음성 안내 지원', '외국인 근로자 완전 참여'],
-            image: '/images/safed_feature_03.png',
-            stat: '19개국어',
-            statLabel: 'AI 번역',
-            color: '#06b6d4',
-            iconPath: 'M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 0 1 6.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129',
-          },
-          {
-            step: '07',
-            title: '작업계획서 · 허가서',
-            desc: '고위험작업 진행 시 작업계획서와 PTW(작업허가서)를 체계적으로 작성하고 결재합니다.',
-            details: ['사전 입력 양식으로 빠른 작성', '결재선 설정 및 의견 작성', '작업허가→진행→완료 프로세스'],
-            image: '/images/safed_feature_09.png',
-            stat: '원스톱',
-            statLabel: '결재 프로세스',
-            color: '#ec4899',
-            iconPath: 'M11 5H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-5m-1.414-9.414a2 2 0 1 1 2.828 2.828L11.828 15H9v-2.828l8.586-8.586z',
-          },
-          {
-            step: '08',
-            title: '대시보드 · 보고서',
-            desc: '본사에서 전국 각 현장별 안전활동 이행률을 실시간 모니터링. 모든 문서를 보고서로 자동 정리·출력합니다.',
-            details: ['현장별 이행률 비교', '항목별 통계 분석', '보고서 자동 생성·인쇄'],
-            image: '/images/dboard.png',
-            stat: '실시간',
-            statLabel: '모니터링',
-            color: '#0ea5e9',
-            iconPath: 'M18 20V10M12 20V4M6 20v-6',
-          },
+          { step: '01', title: '위험성평가 작성', desc: '300여개 공종, 50,000개 위험요인·안전대책 DB에서 원클릭 조회. 최초/정기/수시/일일 평가를 모바일에서 즉시 작성합니다.', details: ['위험요인·안전대책 자동 매칭', '가능성·중대성 점수 자동 산출', '총괄책임자 승인 후 회의록 자동 생성'], image: '/images/safed_feature_01.png', stat: '50,000+', statLabel: '위험요인 DB' },
+          { step: '02', title: '중점·일상 점검활동', desc: '위험성평가에서 분류된 상(중점)·중(일상) 등급 항목을 매일 현장에서 점검하고 결과를 즉시 등록합니다.', details: ['점검 목록 자동 생성', '모바일 사진 촬영·등록', '안전책임자 지정 및 알람'], image: '/images/safed_feature_02.png', stat: '매일', statLabel: '현장 점검' },
+          { step: '03', title: '순회점검일지 작성', desc: '산업안전보건법 제64조에 따른 작업장 순회점검을 체계적으로 이행. 건설업은 2일에 1회 이상 실시합니다.', details: ['점검항목·점검자 사전 지정', '승인/반려 프로세스', '보고서 형태 자동 출력'], image: '/images/safed_feature_04.png', stat: '자동', statLabel: '보고서 생성' },
+          { step: '04', title: '안전교육 · TBM', desc: 'PC+모바일에서 동시에 교육과 TBM을 기록. 참석자 서명, 문자 인증, 교육일지 자동 생성까지.', details: ['TBM 참석자 모바일 서명', '일용근로자 문자 인증', '계절별 안전교육 자료 관리'], image: '/images/safed_feature_07.png', stat: 'PC+모바일', statLabel: '동시 지원' },
+          { step: '05', title: '추가위험 발굴', desc: '근로자가 스마트폰으로 직접 위험요소를 신고. 안전건의함·작업중지권 QR코드로 간편하게 참여합니다.', details: ['사진 촬영·전송만으로 위험 신고', 'QR코드 기반 작업중지권', '외국인 근로자 모국어 참여'], image: '/images/safed_feature_08.png', stat: 'QR코드', statLabel: '즉시 참여' },
+          { step: '06', title: '다국어 자동번역', desc: 'Google AI로 19개국어 실시간 번역. 위험성평가·TBM 내용을 모국어로 확인하고 음성으로 듣습니다.', details: ['19개국어 자동번역', '음성 안내 지원', '외국인 근로자 완전 참여'], image: '/images/safed_feature_03.png', stat: '19개국어', statLabel: 'AI 번역' },
+          { step: '07', title: '작업계획서 · 허가서', desc: '고위험작업 진행 시 작업계획서와 PTW(작업허가서)를 체계적으로 작성하고 결재합니다.', details: ['사전 입력 양식으로 빠른 작성', '결재선 설정 및 의견 작성', '작업허가→진행→완료 프로세스'], image: '/images/safed_feature_09.png', stat: '원스톱', statLabel: '결재 프로세스' },
+          { step: '08', title: '대시보드 · 보고서', desc: '본사에서 전국 각 현장별 안전활동 이행률을 실시간 모니터링. 모든 문서를 보고서로 자동 정리·출력합니다.', details: ['현장별 이행률 비교', '항목별 통계 분석', '보고서 자동 생성·인쇄'], image: '/images/dboard.png', stat: '실시간', statLabel: '모니터링' },
         ].map((item, i) => (
-          <div class={`relative mb-16 last:mb-0 reveal delay-${Math.min((i % 4 + 1) * 100, 400)}`}>
-            {/* Step connector dot */}
-            <div class="hidden lg:flex absolute left-1/2 top-8 -translate-x-1/2 z-10 w-10 h-10 rounded-full items-center justify-center" style={`background: ${item.color}; box-shadow: 0 0 20px ${item.color}40;`}>
-              <span class="eng text-white text-xs font-bold">{item.step}</span>
+          <div class={`grid grid-cols-1 lg:grid-cols-12 bg-white reveal delay-${Math.min((i % 4 + 1) * 100, 400)}`}>
+            <div class={`lg:col-span-4 overflow-hidden ${i % 2 === 1 ? 'lg:order-2' : ''}`}>
+              <img src={item.image} alt={item.title} class="w-full h-full object-cover" style="aspect-ratio: 16/10; min-height: 200px;" loading="lazy" />
             </div>
-
-            <div class={`lg:grid lg:grid-cols-2 lg:gap-16 items-center ${i % 2 === 1 ? 'lg:direction-rtl' : ''}`}>
-              {/* Content side */}
-              <div class={`${i % 2 === 1 ? 'lg:order-2 lg:text-right' : 'lg:order-1'} mb-6 lg:mb-0 ${i % 2 === 1 ? 'lg:pr-16' : 'lg:pl-0 lg:text-right lg:pr-16'}`}>
-                <div class={`inline-flex items-center gap-2 mb-3 ${i % 2 === 0 ? 'lg:flex-row-reverse' : ''}`}>
-                  <span class="lg:hidden eng text-xs font-bold text-white px-2 py-1 rounded-full" style={`background: ${item.color}`}>{item.step}</span>
-                  <span class="eng text-xs font-semibold tracking-wider uppercase" style={`color: ${item.color}`}>Step {item.step}</span>
-                </div>
-                <h3 class="text-xl lg:text-2xl font-bold tracking-tight mb-3">{item.title}</h3>
-                <p class="text-gray-500 text-sm leading-relaxed mb-4">{item.desc}</p>
-                <ul class={`space-y-2 ${i % 2 === 0 ? 'lg:flex lg:flex-col lg:items-end' : ''}`}>
-                  {item.details.map((d) => (
-                    <li class="flex items-center gap-2 text-sm text-gray-600">
-                      <svg class="flex-shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={item.color} stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                      <span>{d}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div class={`inline-flex items-baseline gap-2 mt-4 px-4 py-2 rounded-xl ${i % 2 === 0 ? '' : ''}`} style={`background: ${item.color}08; border: 1px solid ${item.color}15;`}>
-                  <span class="eng text-lg font-extrabold" style={`color: ${item.color}`}>{item.stat}</span>
-                  <span class="text-xs text-gray-500 font-medium">{item.statLabel}</span>
-                </div>
-              </div>
-
-              {/* Image side */}
-              <div class={`${i % 2 === 1 ? 'lg:order-1 lg:pl-16' : 'lg:order-2 lg:pl-16'}`}>
-                <div class="relative group">
-                  <div class="absolute -inset-3 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity" style={`background: ${item.color}08;`}></div>
-                  <div class="relative bg-white rounded-2xl p-4 shadow-sm border border-gray-100 overflow-hidden">
-                    <img src={item.image} alt={item.title} class="w-full rounded-xl object-cover" style="aspect-ratio: 16/10;" loading="lazy" />
-                    <div class="absolute top-6 right-6 w-10 h-10 rounded-xl flex items-center justify-center" style={`background: ${item.color}; box-shadow: 0 4px 12px ${item.color}30;`}>
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d={item.iconPath}/></svg>
-                    </div>
-                  </div>
-                </div>
+            <div class={`lg:col-span-8 p-6 lg:p-8 flex flex-col justify-center ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
+              <p class="eng text-xs font-semibold tracking-wider uppercase text-[#2563EB] mb-1">Step {item.step}</p>
+              <h3 class="text-lg lg:text-xl font-bold tracking-tight text-[#111] mb-2">{item.title}</h3>
+              <p class="text-[#3A3A3A] text-sm leading-relaxed mb-4">{item.desc}</p>
+              <ul class="space-y-1.5 mb-4">
+                {item.details.map((d) => (
+                  <li class="flex items-center gap-2 text-sm text-[#3A3A3A]">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5" class="flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+                    {d}
+                  </li>
+                ))}
+              </ul>
+              <div class="inline-flex items-baseline gap-2">
+                <span class="eng text-lg font-bold text-[#2563EB]">{item.stat}</span>
+                <span class="text-xs text-[#6B6B6B]">{item.statLabel}</span>
               </div>
             </div>
           </div>
@@ -684,89 +380,70 @@ const tabs = [
     </div>
   </section>
 
-  <!-- 3-Stage Goal -->
-  <section class="py-24">
-    <div class="w-container max-w-5xl">
-      <div class="text-center mb-16">
-        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">System Goal</p>
-        <h2 class="sub-headline reveal delay-100">단계적 안전관리 체계 구축</h2>
-        <p class="text-gray-500 mt-4 reveal delay-200">물리적·인적 위험 제거 → 재발방지 체계 구축을 통해 현장 무재해를 달성합니다.</p>
+  <!-- ═══ 3-Stage Goal ═══ -->
+  <section class="border-b border-[#E0E0E0]">
+    <div class="w-container max-w-5xl py-20 lg:py-24">
+      <div class="text-center mb-14">
+        <p class="eng font-medium text-xs tracking-[0.15em] uppercase text-[#6B6B6B] mb-2 reveal">System Goal</p>
+        <h2 class="text-2xl lg:text-3xl font-bold tracking-tight text-[#111] reveal delay-100">단계적 안전관리 체계 구축</h2>
+        <p class="text-[#6B6B6B] mt-3 text-sm reveal delay-200">물리적·인적 위험 제거 → 재발방지 체계 구축을 통해 현장 무재해를 달성합니다.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-[#E0E0E0] border border-[#E0E0E0] max-w-4xl mx-auto">
         {[
-          {
-            step: '1단계',
-            title: "'물리적' 위험 요인 제거",
-            desc: '스마트 위험성평가로 장비·시설·구조물에 의한 안전사고를 예방합니다.',
-            icon: '🛡️',
-            color: 'bg-blue-50 border-blue-200',
-          },
-          {
-            step: '2단계',
-            title: "'인적' 위험 요인 제거",
-            desc: '비콘+GPS 복합센싱으로 추락·협착·끼임 등 부주의 사고를 예방합니다.',
-            icon: '📡',
-            color: 'bg-green-50 border-green-200',
-          },
-          {
-            step: '3단계',
-            title: "'재발방지' 체계 구축",
-            desc: '현장 안전 DB를 활용하여 사례 공유·전파·학습·참조로 재발을 방지합니다.',
-            icon: '📊',
-            color: 'bg-purple-50 border-purple-200',
-          },
-          {
-            step: 'GOAL',
-            title: '현장 무재해 달성',
-            desc: '안전관리자 1인이 아닌, 현장 관계자 모두가 참여하는 안전활동 생활화.',
-            icon: '🏆',
-            color: 'bg-primary/5 border-primary/30',
-          },
+          { step: '1단계', title: "'물리적' 위험 요인 제거", desc: '스마트 위험성평가로 장비·시설·구조물에 의한 안전사고를 예방합니다.', iconPath: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z' },
+          { step: '2단계', title: "'인적' 위험 요인 제거", desc: '비콘+GPS 복합센싱으로 추락·협착·끼임 등 부주의 사고를 예방합니다.', iconPath: 'M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10' },
+          { step: '3단계', title: "'재발방지' 체계 구축", desc: '현장 안전 DB를 활용하여 사례 공유·전파·학습·참조로 재발을 방지합니다.', iconPath: 'M18 20V10M12 20V4M6 20v-6' },
+          { step: 'GOAL', title: '현장 무재해 달성', desc: '안전관리자 1인이 아닌, 현장 관계자 모두가 참여하는 안전활동 생활화.', iconPath: 'M12 15l-3 3 1-4-3-3h4L12 7l1 4h4l-3 3 1 4zM12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z' },
         ].map((item, i) => (
-          <div class={`relative rounded-2xl border p-6 ${item.color} reveal delay-${(i + 1) * 100}`}>
-            <span class="eng text-xs font-bold text-gray-400 uppercase">{item.step}</span>
-            <p class="text-3xl mt-2 mb-3">{item.icon}</p>
-            <h3 class="font-bold text-sm mb-2">{item.title}</h3>
-            <p class="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
-            {i < 3 && (
-              <div class="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <div class={`bg-white p-6 reveal delay-${(i + 1) * 100}`}>
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-10 h-10 border border-[#2563EB]/20 flex items-center justify-center flex-shrink-0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5"><path d={item.iconPath}/></svg>
               </div>
-            )}
+              <div>
+                <span class="eng text-xs font-bold text-[#6B6B6B] uppercase">{item.step}</span>
+                <h3 class="font-bold tracking-tight text-[#111]">{item.title}</h3>
+              </div>
+            </div>
+            <p class="text-[#3A3A3A] text-sm leading-relaxed">{item.desc}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Dashboard -->
-  <section class="py-20 bg-gray-50 hidden md:block">
-    <div class="w-container">
+  <!-- ═══ Dashboard ═══ -->
+  <section class="border-b border-[#E0E0E0] hidden md:block">
+    <div class="w-container py-20 lg:py-24">
       <div class="text-center mb-12 reveal">
-        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">Dashboard</p>
-        <h2 class="text-3xl font-bold tracking-tight">통합 대시보드</h2>
-        <p class="text-gray-500 mt-3">본사에서 전국 각 현장별 안전활동 이행률을 실시간 모니터링하고 비교합니다.</p>
+        <p class="eng font-medium text-xs tracking-[0.15em] uppercase text-[#6B6B6B] mb-2">Dashboard</p>
+        <h2 class="text-2xl lg:text-3xl font-bold tracking-tight text-[#111]">통합 대시보드</h2>
+        <p class="text-[#6B6B6B] mt-3 text-sm">본사에서 전국 각 현장별 안전활동 이행률을 실시간 모니터링하고 비교합니다.</p>
       </div>
-      <div class="reveal delay-200">
-        <img src="/images/dboard.png" alt="SafeD 대시보드" class="w-full rounded-2xl shadow-lg" loading="lazy" />
+      <div class="reveal delay-200 border border-[#E0E0E0]">
+        <img src="/images/dboard.png" alt="SafeD 대시보드" class="w-full" loading="lazy" />
       </div>
     </div>
   </section>
 
-  <!-- Before / After Comparison -->
-  <section class="py-28 bg-white">
-    <div class="w-container max-w-5xl">
-      <div class="text-center mb-16">
-        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">Before & After</p>
-        <h2 class="sub-headline reveal delay-100">SafeD 도입 전후 비교</h2>
+  <!-- ═══ Before / After ═══ -->
+  <section class="border-b border-[#E0E0E0]">
+    <div class="w-container max-w-5xl py-20 lg:py-24">
+      <div class="text-center mb-14">
+        <p class="eng font-medium text-xs tracking-[0.15em] uppercase text-[#6B6B6B] mb-2 reveal">Before & After</p>
+        <h2 class="text-2xl lg:text-3xl font-bold tracking-tight text-[#111] reveal delay-100">SafeD 도입 전후 비교</h2>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="bg-white rounded-3xl p-8 border-2 border-gray-200 reveal">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-[#E0E0E0] border border-[#E0E0E0]">
+        <div class="bg-white p-8 reveal">
           <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-bold">✕</div>
-            <h3 class="text-xl font-bold text-gray-400">도입 전</h3>
+            <div class="w-9 h-9 border border-[#E0E0E0] flex items-center justify-center">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6B6B6B" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-[#6B6B6B]">도입 전</h3>
           </div>
-          <ul class="space-y-4">
+          <ul class="space-y-3">
             {[
               '수기 위험성평가, 서류 더미에 묻히는 안전 데이터',
               '엑셀 기반 관리 — 실시간 현황 파악 불가',
@@ -775,19 +452,22 @@ const tabs = [
               '중대재해처벌법 대응 근거자료 확보 어려움',
               '위험성평가 탐색·작성·보관에 월 240분 소요',
             ].map((text) => (
-              <li class="flex items-start gap-3 text-gray-400 text-sm">
+              <li class="flex items-start gap-3 text-[#6B6B6B] text-sm">
                 <span class="mt-0.5">—</span>
                 <span>{text}</span>
               </li>
             ))}
           </ul>
         </div>
-        <div class="bg-gray-900 rounded-3xl p-8 text-white reveal delay-200">
+
+        <div class="bg-[#1C1C1E] p-8 text-white reveal delay-200">
           <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold">✓</div>
-            <h3 class="text-xl font-bold">도입 후</h3>
+            <div class="w-9 h-9 border border-[#2563EB]/30 flex items-center justify-center">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3 class="text-lg font-bold">도입 후</h3>
           </div>
-          <ul class="space-y-4">
+          <ul class="space-y-3">
             {[
               '모바일 원클릭 위험성평가, 50,000건 DB 자동 매칭',
               '실시간 대시보드 — 본사에서 전 현장 모니터링',
@@ -797,8 +477,8 @@ const tabs = [
               '월 40분으로 단축 — 업무 효율 80% 향상',
             ].map((text) => (
               <li class="flex items-start gap-3 text-sm">
-                <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                <span class="text-white/90">{text}</span>
+                <svg class="w-4 h-4 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-white/80">{text}</span>
               </li>
             ))}
           </ul>
@@ -807,39 +487,39 @@ const tabs = [
     </div>
   </section>
 
-  <!-- Supported Platforms -->
-  <section class="py-16 bg-gray-50">
-    <div class="w-container max-w-4xl">
+  <!-- ═══ Supported Platforms ═══ -->
+  <section class="border-b border-[#E0E0E0]">
+    <div class="w-container max-w-4xl py-16">
       <div class="text-center reveal">
-        <p class="eng text-gray-400 text-sm tracking-widest uppercase font-semibold mb-4">Platform</p>
-        <h2 class="text-2xl font-bold tracking-tight mb-8">PC · Android · iOS 모든 환경 지원</h2>
+        <p class="eng font-medium text-xs tracking-[0.15em] uppercase text-[#6B6B6B] mb-2">Platform</p>
+        <h2 class="text-2xl font-bold tracking-tight text-[#111] mb-8">PC · Android · iOS 모든 환경 지원</h2>
       </div>
-      <div class="grid grid-cols-3 gap-6 max-w-lg mx-auto reveal delay-200">
+      <div class="grid grid-cols-3 gap-[1px] bg-[#E0E0E0] border border-[#E0E0E0] max-w-lg mx-auto reveal delay-200">
         {[
-          { icon: '🖥️', label: 'PC (Web)', desc: 'Chrome 브라우저 권장' },
-          { icon: '📱', label: 'Android', desc: 'Google Play 설치' },
-          { icon: '📱', label: 'iOS', desc: 'App Store 설치' },
+          { icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>', label: 'PC (Web)', desc: 'Chrome 브라우저 권장' },
+          { icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>', label: 'Android', desc: 'Google Play 설치' },
+          { icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>', label: 'iOS', desc: 'App Store 설치' },
         ].map((item) => (
-          <div class="text-center">
-            <p class="text-3xl mb-2">{item.icon}</p>
-            <p class="font-semibold text-sm">{item.label}</p>
-            <p class="text-xs text-gray-400">{item.desc}</p>
+          <div class="bg-white p-5 text-center">
+            <div class="flex justify-center mb-2" set:html={item.icon} />
+            <p class="font-semibold text-sm text-[#111]">{item.label}</p>
+            <p class="text-xs text-[#6B6B6B]">{item.desc}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-20 bg-primary text-white text-center">
-    <div class="w-container reveal">
-      <h2 class="text-3xl font-bold mb-4 tracking-tight">SafeD로 스마트한 안전관리를 시작하세요</h2>
-      <p class="opacity-80 mb-8">위험성평가부터 모니터링까지 올인원 솔루션 · 무료 상담으로 시작하세요</p>
+  <!-- ═══ CTA ═══ -->
+  <section class="bg-[#1C1C1E] text-white py-20">
+    <div class="w-container text-center reveal">
+      <h2 class="text-2xl lg:text-3xl font-bold mb-4 tracking-tight">SafeD로 스마트한 안전관리를 시작하세요</h2>
+      <p class="text-white/50 mb-8 text-sm">위험성평가부터 모니터링까지 올인원 솔루션 · 무료 상담으로 시작하세요</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/inquiries" class="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-primary rounded-full font-semibold hover:bg-gray-100 transition-colors">
+        <a href="/inquiries" class="inline-flex items-center gap-2 px-8 py-3.5 bg-[#2563EB] text-white font-semibold hover:bg-[#1d4ed8] transition-colors">
           도입문의
         </a>
-        <a href="https://safed.co.kr/login" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-3.5 border border-white/30 text-white rounded-full font-semibold hover:bg-white/10 transition-colors">
+        <a href="https://safed.co.kr/login" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-3.5 border border-white/20 text-white font-semibold hover:bg-white/5 transition-colors">
           SafeD 시스템 바로가기
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
         </a>
@@ -852,5 +532,53 @@ const tabs = [
   @keyframes soundBar {
     0% { transform: scaleY(0.3); }
     100% { transform: scaleY(1); }
+  }
+
+  .sf-card {
+    background: #fff;
+    overflow: hidden;
+  }
+
+  .sf-card-img {
+    background: #f8fafc;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 140px;
+    overflow: hidden;
+  }
+
+  .sf-card-img img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .sf-card-body {
+    padding: 1.25rem;
+  }
+
+  .sf-card-num {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #2563EB;
+    letter-spacing: 0.05em;
+  }
+
+  .sf-card-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.3px;
+    color: #111;
+  }
+
+  .sf-card-desc {
+    font-size: 0.8rem;
+    color: #6B6B6B;
+    line-height: 1.6;
+    word-break: keep-all;
   }
 </style>

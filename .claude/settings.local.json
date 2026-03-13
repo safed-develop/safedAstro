@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx astro:*)",
+      "WebFetch(domain:kr.pinterest.com)",
+      "Bash(python3:*)",
+      "Bash(python:*)",
+      "Bash(PYTHONIOENCODING=utf-8 python:*)",
+      "Bash(grep:*)",
+      "Bash(node:*)",
+      "Bash(ls:*)",
+      "Bash(find:*)"
+    ]
+  }
+}

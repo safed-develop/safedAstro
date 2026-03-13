@@ -14,83 +14,49 @@ const navLinks = [
   description="SafeD 채용안내 - 복리후생, 인재상, 채용절차 안내"
   navLinks={navLinks}
 >
-  <!-- Hero Statement -->
+  <!-- ═══ HERO ═══ -->
   <section class="py-24 bg-white">
     <div class="w-container max-w-5xl">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div class="reveal">
-          <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">Join SafeD</p>
-          <h2 class="text-3xl lg:text-5xl font-extrabold tracking-tight leading-[1.1] mb-6">
-            기술로 생명을 지키는<br />
-            <span class="text-gradient-blue">여정에 함께하세요.</span>
+          <p class="eng font-medium text-xs tracking-[0.15em] uppercase mb-4 text-[#6B6B6B]">Join SafeD</p>
+          <h2 class="text-3xl lg:text-[44px] font-bold tracking-tight leading-[1.1] mb-6 text-[#111]">
+            기술로 생명을 지키는<br/>
+            <span class="text-[#2563EB]">여정에 함께하세요.</span>
           </h2>
-          <p class="text-gray-500 leading-relaxed mb-8">
+          <p class="text-[#6B6B6B] leading-relaxed mb-8 text-sm">
             SafeD는 건설현장의 안전을 혁신하는 스마트 안전관리 플랫폼 기업입니다.
             수평적 문화 속에서 기술로 세상을 바꾸고 싶은 인재를 찾고 있습니다.
           </p>
-          <div class="flex flex-wrap gap-3">
-            <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full text-sm font-medium text-primary">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              수평적 조직문화
-            </div>
-            <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full text-sm font-medium text-primary">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              자율 출퇴근
-            </div>
-            <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full text-sm font-medium text-primary">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              성장 지원
-            </div>
+          <div class="flex flex-wrap gap-[1px] bg-[#E0E0E0] border border-[#E0E0E0] w-fit">
+            {['수평적 조직문화', '유연근무제', '성장 지원'].map((label) => (
+              <div class="flex items-center gap-2 px-4 py-2.5 bg-white text-sm font-medium text-[#111]">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                {label}
+              </div>
+            ))}
           </div>
         </div>
+
         <div class="reveal-right delay-200">
-          <div class="relative">
-            <div class="absolute -inset-4 bg-gradient-to-br from-primary/5 to-blue-500/5 rounded-3xl -z-10"></div>
-            <div class="bg-gray-950 rounded-3xl p-8 text-white relative overflow-hidden">
-              <!-- Decorative dots -->
-              <div class="absolute top-4 right-4 flex gap-1.5" aria-hidden="true">
-                <div class="w-2 h-2 rounded-full bg-red-400/60"></div>
-                <div class="w-2 h-2 rounded-full bg-yellow-400/60"></div>
-                <div class="w-2 h-2 rounded-full bg-green-400/60"></div>
-              </div>
-              <div class="space-y-4 mt-4">
-                <div class="flex items-center gap-3">
-                  <div class="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <div class="bg-[#1C1C1E] p-8 text-white border border-white/10">
+            <div class="divide-y divide-white/10">
+              {[
+                { label: '함께하는 팀', desc: '개발 · 안전공학 · 디자인 · 영업', iconPath: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75M8.5 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z' },
+                { label: '도입 현장', desc: '150+ 건설현장 운영 중', iconPath: 'M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4L12 14.01l-3-3' },
+                { label: '스마트건설대상 수상', desc: '국내 유일 올인원 안전관리 플랫폼', iconPath: 'M12 15l-3 3 1-4-3-3h4L12 7l1 4h4l-3 3 1 4z' },
+                { label: '미션', desc: '기술로 생명을 지키는 안전관리', iconPath: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z' },
+              ].map((item) => (
+                <div class="flex items-center gap-3 py-4 first:pt-0 last:pb-0">
+                  <div class="w-8 h-8 border border-[#2563EB]/30 flex items-center justify-center flex-shrink-0">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5"><path d={item.iconPath}/></svg>
                   </div>
                   <div>
-                    <p class="text-white/90 text-sm font-bold">함께하는 팀</p>
-                    <p class="text-white/40 text-xs">개발 · 안전공학 · 디자인 · 영업</p>
+                    <p class="text-white/90 text-sm font-bold">{item.label}</p>
+                    <p class="text-white/40 text-xs">{item.desc}</p>
                   </div>
                 </div>
-                <div class="flex items-center gap-3">
-                  <div class="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                  </div>
-                  <div>
-                    <p class="text-white/90 text-sm font-bold">도입 현장</p>
-                    <p class="text-white/40 text-xs eng">150+ 건설현장 운영 중</p>
-                  </div>
-                </div>
-                <div class="flex items-center gap-3">
-                  <div class="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2"><path d="M12 15l-3 3 1-4-3-3h4L12 7l1 4h4l-3 3 1 4z"/></svg>
-                  </div>
-                  <div>
-                    <p class="text-white/90 text-sm font-bold">스마트건설대상 수상</p>
-                    <p class="text-white/40 text-xs">국내 유일 올인원 안전관리 플랫폼</p>
-                  </div>
-                </div>
-                <div class="flex items-center gap-3">
-                  <div class="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                  </div>
-                  <div>
-                    <p class="text-white/90 text-sm font-bold">미션</p>
-                    <p class="text-white/40 text-xs">기술로 생명을 지키는 안전관리</p>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
@@ -98,201 +64,190 @@ const navLinks = [
     </div>
   </section>
 
-  <!-- Benefits - Visual Categories -->
-  <section class="py-24 bg-gray-50">
-    <div class="w-container max-w-6xl">
-      <div class="text-center mb-16 reveal">
-        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">Benefits & Welfare</p>
-        <h2 class="text-3xl lg:text-4xl font-bold tracking-tight">일하기 좋은 이유</h2>
-        <p class="text-gray-500 mt-3">SafeD 구성원이 누리는 혜택을 소개합니다.</p>
+  <!-- ═══ Benefits & Welfare ═══ -->
+  <section class="border-b border-[#E0E0E0]">
+    <div class="w-container max-w-5xl py-20 lg:py-24">
+      <div class="flex items-end justify-between mb-8 reveal">
+        <div>
+          <p class="eng font-medium text-xs tracking-[0.15em] uppercase text-[#6B6B6B] mb-2">Benefits & Welfare</p>
+          <h2 class="text-2xl lg:text-3xl font-bold tracking-tight text-[#111]">일하기 좋은 이유</h2>
+        </div>
+        <p class="hidden sm:block text-xs text-[#6B6B6B]">SafeD 구성원이 누리는 <strong class="text-[#111]">20+ 혜택</strong></p>
       </div>
 
-      <!-- Top: 3 highlight benefits -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-[1px] bg-[#E0E0E0] border border-[#E0E0E0] mb-6">
         {[
           {
             iconPath: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z',
-            color: '#16a34a',
             title: '급여 & 보상',
-            desc: '경쟁력 있는 연봉, 퇴직연금, 인센티브제, 장기근속자 포상까지.',
-            tags: ['인센티브', '퇴직연금', '4대보험', '자격증수당', '직책수당'],
+            items: [
+              { name: '경쟁력 있는 연봉', sub: '업계 상위' },
+              { name: '인센티브제', sub: '성과연동' },
+              { name: '퇴직연금 · 4대보험', sub: '기본 보장' },
+              { name: '자격증 · 직책수당', sub: '추가 수당' },
+              { name: '장기근속자 포상', sub: '3년/5년' },
+            ],
           },
           {
             iconPath: 'M4.318 6.318a4.5 4.5 0 0 0 0 6.364L12 20.364l7.682-7.682a4.5 4.5 0 0 0-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 0 0-6.364 0z',
-            color: '#ef4444',
             title: '건강 & 생활',
-            desc: '건강검진, 아침·점심 제공, 간식·음료 무한, 점심시간 연장까지.',
-            tags: ['건강검진', '식사제공', '간식·음료', '경조사지원'],
+            items: [
+              { name: '아침 · 점심 식사 제공', sub: '매일' },
+              { name: '간식 · 음료 무한 제공', sub: '상시' },
+              { name: '건강검진', sub: '연 1회' },
+              { name: '경조사 지원금', sub: '규정 지급' },
+              { name: '점심시간 연장', sub: '1.5시간' },
+            ],
           },
           {
             iconPath: 'M13 2L3 14h9l-1 8 10-12h-9l1-8z',
-            color: '#8b5cf6',
             title: '성장 & 교육',
-            desc: '자격증취득 지원, 교육비·자기계발비 지원, 워크샵, 우수사원 시상.',
-            tags: ['교육비지원', '자기계발비', '자격증취득', '워크샵'],
+            items: [
+              { name: '자격증 취득 지원', sub: '전액 지원' },
+              { name: '교육비 · 자기계발비', sub: '월 지원' },
+              { name: '사내 워크샵', sub: '분기별' },
+              { name: '우수사원 시상', sub: '반기별' },
+              { name: '컨퍼런스 참가 지원', sub: '연 2회' },
+            ],
           },
         ].map((item, i) => (
-          <div class={`bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all group reveal delay-${(i + 1) * 100}`}>
-            <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform" style={`background: ${item.color}10`}>
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={item.color} stroke-width="1.5"><path d={item.iconPath}/></svg>
+          <div class={`bg-white reveal delay-${(i + 1) * 100}`}>
+            <div class="flex items-center gap-3 p-4 border-b border-[#E0E0E0]">
+              <div class="w-8 h-8 border border-[#2563EB]/20 flex items-center justify-center flex-shrink-0">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5"><path d={item.iconPath}/></svg>
+              </div>
+              <h3 class="font-bold text-sm text-[#111]">{item.title}</h3>
+              <span class="ml-auto eng text-[10px] font-bold text-[#2563EB]">{item.items.length}</span>
             </div>
-            <h3 class="text-xl font-bold mb-2 tracking-tight">{item.title}</h3>
-            <p class="text-gray-500 text-sm leading-relaxed mb-5">{item.desc}</p>
-            <div class="flex flex-wrap gap-2">
-              {item.tags.map((tag) => (
-                <span class="text-xs px-3 py-1 rounded-full font-medium" style={`background: ${item.color}08; color: ${item.color}`}>{tag}</span>
+            <div class="divide-y divide-[#E0E0E0]/50">
+              {item.items.map((benefit) => (
+                <div class="flex items-center justify-between px-4 py-2.5">
+                  <div class="flex items-center gap-2">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span class="text-sm text-[#3A3A3A]">{benefit.name}</span>
+                  </div>
+                  <span class="text-[10px] text-[#6B6B6B] eng flex-shrink-0">{benefit.sub}</span>
+                </div>
               ))}
             </div>
           </div>
         ))}
       </div>
 
-      <!-- Bottom: 4 mini benefits in row -->
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-[1px] bg-[#E0E0E0] border border-[#E0E0E0] reveal delay-300">
         {[
-          { iconPath: 'M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5h4v5m-4 0h4', title: '최고 사양 장비', desc: '노트북·PC·사무용품 완비', color: '#3b82f6' },
-          { iconPath: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75M8.5 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z', title: '수평적 문화', desc: '야근·회식 강요 없음', color: '#f59e0b' },
-          { iconPath: 'M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z', title: '생일 파티 & 선물', desc: '웰컴키트·생일 축하', color: '#ec4899' },
-          { iconPath: 'M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z', title: '자유로운 연차', desc: '연차·경조·육아휴직', color: '#06b6d4' },
-        ].map((item, i) => (
-          <div class={`flex items-start gap-4 bg-white rounded-2xl p-5 border border-gray-100 reveal delay-${(i + 1) * 100}`}>
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={`background: ${item.color}10`}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={item.color} stroke-width="1.5"><path d={item.iconPath}/></svg>
-            </div>
-            <div>
-              <p class="font-bold text-sm">{item.title}</p>
-              <p class="text-xs text-gray-400 mt-0.5">{item.desc}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Ideal Candidate - Visual Hexagon Style -->
-  <section class="py-24 bg-white">
-    <div class="w-container max-w-5xl">
-      <div class="text-center mb-16 reveal">
-        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">Ideal Candidate</p>
-        <h2 class="text-3xl lg:text-4xl font-bold tracking-tight">SafeD가 찾는 인재</h2>
-        <p class="text-gray-500 mt-3">이런 분과 함께 일하고 싶습니다.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-200 rounded-3xl overflow-hidden reveal delay-100">
-        {[
-          { num: '01', title: '창의적 사고', desc: '새로운 아이디어를 창출하고 기존의 틀을 깨는 혁신적 사고를 가진 분', iconPath: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z', color: '#f59e0b' },
-          { num: '02', title: '팀워크', desc: '다양한 팀과의 소통과 협력을 통해 함께 성장하는 분', iconPath: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75M8.5 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z', color: '#3b82f6' },
-          { num: '03', title: '책임감', desc: '맡은 업무에 대한 높은 책임감으로 결과를 끝까지 책임지는 분', iconPath: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z', color: '#ef4444' },
-          { num: '04', title: '성장 지향', desc: '지속적인 자기계발과 새로운 도전을 두려워하지 않는 분', iconPath: 'M13 2L3 14h9l-1 8 10-12h-9l1-8z', color: '#8b5cf6' },
-          { num: '05', title: '긍정적 마인드', desc: '어려운 상황에서도 적극적으로 해결책을 찾아 나서는 분', iconPath: 'M14.828 14.828a4 4 0 0 1-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z', color: '#16a34a' },
-          { num: '06', title: '고객 중심', desc: '현장 근로자의 안전이라는 본질적 가치에 공감하는 분', iconPath: 'M4.318 6.318a4.5 4.5 0 0 0 0 6.364L12 20.364l7.682-7.682a4.5 4.5 0 0 0-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 0 0-6.364 0z', color: '#ec4899' },
+          { icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/></svg>', title: '최고 사양 장비', desc: '노트북·PC·듀얼모니터' },
+          { icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>', title: '수평적 문화', desc: '야근·회식 강요 없음' },
+          { icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>', title: '생일 파티 & 선물', desc: '웰컴키트·생일 축하' },
+          { icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>', title: '자유로운 연차', desc: '연차·경조·육아휴직' },
         ].map((item) => (
-          <div class="bg-white p-8 group hover:bg-gray-50 transition-colors">
-            <div class="flex items-center justify-between mb-5">
-              <div class="w-12 h-12 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform" style={`background: ${item.color}10`}>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={item.color} stroke-width="1.5"><path d={item.iconPath}/></svg>
-              </div>
-              <span class="eng text-4xl font-extrabold text-gray-100 group-hover:text-gray-200 transition-colors">{item.num}</span>
+          <div class="flex items-center gap-3 bg-white p-3">
+            <span class="flex-shrink-0" set:html={item.icon} />
+            <div class="min-w-0">
+              <p class="font-bold text-xs text-[#111] truncate">{item.title}</p>
+              <p class="text-[10px] text-[#6B6B6B] truncate">{item.desc}</p>
             </div>
-            <h3 class="text-lg font-bold tracking-tight mb-2">{item.title}</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Recruitment Process Timeline -->
-  <section class="py-24 bg-gray-950 text-white relative overflow-hidden">
-    <!-- Wave bars -->
-    <div class="absolute bottom-0 left-0 right-0 flex items-end gap-[2px] h-12 opacity-15 px-4" aria-hidden="true">
-      {Array.from({length: 60}).map((_, i) => {
-        const h = 18 + Math.sin(i * 0.5) * 20 + Math.sin(i * 1.1) * 10;
-        const dur = (0.5 + Math.sin(i * 0.4) * 0.3).toFixed(2);
-        const del = (i * 0.03).toFixed(2);
-        return (
-          <div class="flex-1 rounded-t-sm" style={`height: ${h}%; background: linear-gradient(to top, rgba(0,123,255,0.5), rgba(0,198,255,0.15)); animation: wave-bar ${dur}s ease-in-out infinite alternate; animation-delay: ${del}s;`}></div>
-        );
-      })}
-    </div>
-    <div class="w-container max-w-5xl relative z-10">
-      <div class="text-center mb-16">
-        <p class="eng font-semibold text-sm tracking-widest uppercase mb-4 text-primary reveal">Hiring Process</p>
-        <h2 class="text-3xl lg:text-4xl font-bold tracking-tight reveal delay-100">채용 절차</h2>
-        <p class="text-white/40 mt-3 reveal delay-200">지원서 접수부터 최종합격까지, 투명하고 빠른 프로세스.</p>
-      </div>
-
-      <!-- Desktop: horizontal timeline -->
-      <div class="hidden md:block">
-        <div class="relative">
-          <!-- Connecting line -->
-          <div class="absolute top-6 left-[10%] right-[10%] h-px bg-gradient-to-r from-primary/50 via-primary/30 to-primary/50" aria-hidden="true"></div>
-          <div class="grid grid-cols-5 gap-4">
-            {[
-              { step: '01', title: '서류전형', desc: '이력서·포트폴리오 검토', iconPath: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6 M16 13H8 M16 17H8', duration: '1~3일' },
-              { step: '02', title: '1차 면접', desc: '실무진 역량 면접', iconPath: 'M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z', duration: '1주 내' },
-              { step: '03', title: '과제전형', desc: '직무 관련 실무 과제', iconPath: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z', duration: '1주 내' },
-              { step: '04', title: '2차 면접', desc: '대표 면접 · 컬쳐핏', iconPath: 'M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M8.5 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z', duration: '1주 내' },
-              { step: '05', title: '최종합격', desc: '처우 협의 · 입사', iconPath: 'M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4L12 14.01l-3-3', duration: '즉시' },
-            ].map((item, i) => (
-              <div class={`flex flex-col items-center text-center reveal delay-${(i + 1) * 100}`}>
-                <div class="w-12 h-12 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center mb-4 relative z-10" style="box-shadow: 0 0 20px rgba(0,123,255,0.3);">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.5"><path d={item.iconPath}/></svg>
+  <!-- ═══ Ideal Candidate ═══ -->
+  <section class="border-b border-[#E0E0E0]">
+    <div class="w-container max-w-5xl py-20 lg:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0 reveal">
+        <div class="lg:col-span-4 lg:pr-8">
+          <p class="eng font-medium text-xs tracking-[0.15em] uppercase text-[#6B6B6B] mb-2">Ideal Candidate</p>
+          <h2 class="text-2xl lg:text-3xl font-bold tracking-tight text-[#111] mb-3">SafeD가 찾는 인재</h2>
+          <p class="text-[#6B6B6B] text-sm leading-relaxed mb-4">이런 분과 함께 일하고 싶습니다.</p>
+          <div class="border border-[#2563EB]/15 bg-[#2563EB]/[0.03] p-4">
+            <p class="text-xs text-[#2563EB] font-semibold mb-2">핵심 요건</p>
+            <div class="space-y-2">
+              {['안전관리에 대한 사명감', '기술 기반 문제해결 역량', '팀 중심 협업 마인드'].map((t) => (
+                <div class="flex items-center gap-2 text-sm text-[#3A3A3A]">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>{t}</span>
                 </div>
-                <span class="eng text-xs font-bold text-primary mb-1">Step {item.step}</span>
-                <h3 class="font-bold text-white/90 text-sm mb-1">{item.title}</h3>
-                <p class="text-white/40 text-xs leading-relaxed">{item.desc}</p>
-                <span class="eng text-[10px] text-white/25 mt-2 font-medium">{item.duration}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-8 lg:border-l lg:border-[#E0E0E0] lg:pl-8">
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-[1px] bg-[#E0E0E0] border border-[#E0E0E0]">
+            {[
+              { title: '창의적 사고', desc: '기존의 틀을 깨는 혁신적 아이디어', iconPath: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z', keyword: 'Innovation' },
+              { title: '팀워크', desc: '소통과 협력으로 함께 성장', iconPath: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75M8.5 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z', keyword: 'Collaboration' },
+              { title: '책임감', desc: '맡은 일을 끝까지 책임지는 자세', iconPath: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z', keyword: 'Ownership' },
+              { title: '성장 지향', desc: '새로운 도전을 두려워하지 않는 마인드', iconPath: 'M13 2L3 14h9l-1 8 10-12h-9l1-8z', keyword: 'Growth' },
+              { title: '긍정적 마인드', desc: '적극적으로 해결책을 찾는 자세', iconPath: 'M14.828 14.828a4 4 0 0 1-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z', keyword: 'Positivity' },
+              { title: '고객 중심', desc: '현장 안전이라는 본질적 가치에 공감', iconPath: 'M4.318 6.318a4.5 4.5 0 0 0 0 6.364L12 20.364l7.682-7.682a4.5 4.5 0 0 0-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 0 0-6.364 0z', keyword: 'Empathy' },
+            ].map((item) => (
+              <div class="bg-white p-5">
+                <div class="flex items-center gap-2.5 mb-3">
+                  <div class="w-8 h-8 border border-[#2563EB]/20 flex items-center justify-center flex-shrink-0">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5"><path d={item.iconPath}/></svg>
+                  </div>
+                  <div class="min-w-0">
+                    <p class="font-bold text-sm text-[#111] leading-tight">{item.title}</p>
+                    <p class="eng text-[10px] font-medium text-[#2563EB]">{item.keyword}</p>
+                  </div>
+                </div>
+                <p class="text-[#6B6B6B] text-xs leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Mobile: vertical steps -->
-      <div class="md:hidden space-y-6">
+  <!-- ═══ Hiring Process ═══ -->
+  <section class="bg-[#1C1C1E] text-white">
+    <div class="w-container max-w-5xl py-20 lg:py-24">
+      <div class="text-center mb-14">
+        <p class="eng font-medium text-xs tracking-[0.15em] uppercase text-[#6B6B6B] mb-2 reveal">Hiring Process</p>
+        <h2 class="text-2xl lg:text-3xl font-bold tracking-tight reveal delay-100">채용 절차</h2>
+        <p class="text-white/40 mt-3 text-sm reveal delay-200">지원서 접수부터 최종합격까지, 투명하고 빠른 프로세스.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-[1px] bg-white/10 border border-white/10">
         {[
-          { step: '01', title: '서류전형', desc: '이력서·포트폴리오 검토' },
-          { step: '02', title: '1차 면접', desc: '실무진 역량 면접' },
-          { step: '03', title: '과제전형', desc: '직무 관련 실무 과제' },
-          { step: '04', title: '2차 면접', desc: '대표 면접 · 컬쳐핏' },
-          { step: '05', title: '최종합격', desc: '처우 협의 · 입사' },
+          { step: '01', title: '서류전형', desc: '이력서·포트폴리오 검토', iconPath: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6 M16 13H8 M16 17H8', duration: '1~3일' },
+          { step: '02', title: '1차 면접', desc: '실무진 역량 면접', iconPath: 'M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z', duration: '1주 내' },
+          { step: '03', title: '과제전형', desc: '직무 관련 실무 과제', iconPath: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z', duration: '1주 내' },
+          { step: '04', title: '2차 면접', desc: '대표 면접 · 컬쳐핏', iconPath: 'M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M8.5 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z', duration: '1주 내' },
+          { step: '05', title: '최종합격', desc: '처우 협의 · 입사', iconPath: 'M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4L12 14.01l-3-3', duration: '즉시' },
         ].map((item, i) => (
-          <div class={`flex items-center gap-4 reveal delay-${(i + 1) * 100}`}>
-            <div class="w-10 h-10 rounded-full bg-primary/20 border border-primary flex items-center justify-center flex-shrink-0">
-              <span class="eng text-xs font-bold text-primary">{item.step}</span>
+          <div class={`bg-[#1C1C1E] p-6 text-center reveal delay-${(i + 1) * 100}`}>
+            <div class="w-10 h-10 border border-[#2563EB]/30 flex items-center justify-center mx-auto mb-4">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5"><path d={item.iconPath}/></svg>
             </div>
-            <div>
-              <p class="font-bold text-white/90 text-sm">{item.title}</p>
-              <p class="text-white/40 text-xs">{item.desc}</p>
-            </div>
+            <p class="eng text-xs font-semibold text-[#2563EB] mb-1">Step {item.step}</p>
+            <h3 class="font-bold text-white/90 text-sm mb-1">{item.title}</h3>
+            <p class="text-white/40 text-xs leading-relaxed">{item.desc}</p>
+            <p class="eng text-[10px] text-white/25 mt-2 font-medium">{item.duration}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-20 bg-primary text-white text-center">
-    <div class="w-container reveal">
+  <!-- ═══ CTA ═══ -->
+  <section class="bg-[#1C1C1E] text-white py-20 border-t border-white/10">
+    <div class="w-container text-center reveal">
       <h2 class="text-2xl lg:text-3xl font-bold mb-4 tracking-tight">SafeD와 함께 성장하세요</h2>
-      <p class="opacity-80 mb-8 text-sm">기술로 생명을 지키는 여정, 지금 합류하세요</p>
+      <p class="text-white/50 mb-8 text-sm">기술로 생명을 지키는 여정, 지금 합류하세요</p>
       <div class="flex gap-4 justify-center flex-wrap">
-        <a href="/recruitment-info" class="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-primary rounded-full font-semibold hover:bg-gray-100 transition-colors text-sm">
+        <a href="/recruitment-info" class="inline-flex items-center gap-2 px-8 py-3.5 bg-[#2563EB] text-white font-semibold hover:bg-[#1d4ed8] transition-colors text-sm">
           채용정보 보기
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="/inquiries" class="inline-flex items-center gap-2 px-8 py-3.5 border border-white/30 text-white rounded-full font-semibold hover:bg-white/10 transition-colors text-sm">
+        <a href="/inquiries" class="inline-flex items-center gap-2 px-8 py-3.5 border border-white/20 text-white font-semibold hover:bg-white/5 transition-colors text-sm">
           문의하기
         </a>
       </div>
     </div>
   </section>
 </SubPageLayout>
-
-<style>
-  @keyframes wave-bar {
-    0% { transform: scaleY(0.3); }
-    100% { transform: scaleY(1); }
-  }
-</style>

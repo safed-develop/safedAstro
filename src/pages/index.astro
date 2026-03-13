@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SlideShow from '../components/ui/SlideShow.tsx';
 import MultiSlide from '../components/ui/MultiSlide.tsx';
-import HoverComponent from '../components/ui/HoverComponent.astro';
 import TestimonialCarousel from '../components/ui/TestimonialCarousel.tsx';
 import PinScrollSection from '../components/ui/PinScrollSection.tsx';
 ---
@@ -23,13 +22,16 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
     }
   }}
 >
+  <!-- Blur Intro -->
+  <div id="blur-intro" aria-hidden="true"></div>
+
   <!-- Hero Slide -->
   <SlideShow
     client:load
     slides={[
       {
         image: '/images/mainslide01.jpg',
-        featureImage: '/images/safed1.png',
+        featureImage: '/images/icon_01.png',
         tag: '#1 Smart Safety Platform',
         title: '사고를 기다리시겠습니까?\n지금 바로 예방하십시오.',
         subtitle: '매년 건설현장 사망사고 400건 이상. SafeD는 위험성평가·GPS·비콘·AI 번역을 하나로 통합하여, 사고가 발생하기 전에 차단합니다.',
@@ -38,8 +40,8 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
         linkText: '지금 기능 확인하기',
       },
       {
-        image: '/images/mainslide02.jpg',
-        featureImage: '/images/dboard.png',
+        image: '/images/mainslide03_2026.png',
+        featureImage: '/images/mainslide03_2026.png',
         tag: '국내 150+ 현장이 선택',
         title: '대한민국 1위 건설사들이\n이미 도입했습니다.',
         subtitle: '스마트건설대상 수상, 특허 2건 보유. 150개 이상의 건설현장에서 검증된 유일한 올인원 안전관리 플랫폼.',
@@ -48,8 +50,8 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
         linkText: '도입 사례 보기',
       },
       {
-        image: '/images/mainslide03.jpg',
-        featureImage: '/images/safed2.png',
+        image: '/images/mainslide03_2026.png',
+        featureImage: '/images/icon_01.png',
         tag: '경영책임자 징역 1년 이상',
         title: '중대재해처벌법,\n아직도 서류로 대응하십니까?',
         subtitle: '경영책임자 1년 이상 징역, 법인 10억 벌금. SafeD는 4대 의무사항을 시스템으로 100% 매핑하고, 근거자료를 자동 생성합니다.',
@@ -90,7 +92,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
           desc: '중대재해처벌법 4대 의무사항을 SafeD가 100% 시스템으로 매핑합니다. 안전보건관리체계 구축부터 의무이행 근거자료 자동생성까지. 법적 리스크를 완벽 차단합니다.',
           stat: '100%',
           statLabel: '법적 의무 완벽 대응',
-          image: '/images/safed_feature_06.png',
+          image: '/images/main_img_02.png',
         },
         {
           tag: 'Cost Savings',
@@ -99,7 +101,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
           desc: '탐색 60분→10분, 발굴 120분→20분, 기록 60분→10분. 하루 240분의 업무가 40분으로. 현장당 월 120만원, 연간 1,440만원 절감. 투자 대비 ROI가 압도적입니다.',
           stat: '1,440만원',
           statLabel: '연간 절감 (현장당)',
-          image: '/images/safed_feature_05.png',
+          image: '/images/main_img_02.png',
         },
         {
           tag: 'Multilingual',
@@ -108,25 +110,15 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
           desc: '베트남·중국·태국·미얀마 등 19개국어를 Google AI가 실시간 번역합니다. 위험성평가·TBM·안전교육을 모국어로 확인하고 음성으로 듣습니다. 소통 단절이 곧 사고입니다.',
           stat: '19개국어',
           statLabel: '실시간 자동번역',
-          image: '/images/safed_feature_03.png',
+          image: '/images/main_img_02.png',
         },
       ]}
     />
   </section>
 
   <!-- Numbers Section -->
-  <section class="py-24 bg-gray-950 text-white overflow-hidden relative">
-    <!-- Wave bar decoration -->
-    <div class="absolute bottom-0 left-0 right-0 flex items-end gap-[2px] h-16 opacity-20 px-4" aria-hidden="true">
-      {Array.from({length: 80}).map((_, i) => {
-        const h = 20 + Math.sin(i * 0.5) * 25 + Math.sin(i * 1.2) * 15;
-        const dur = (0.5 + Math.sin(i * 0.4) * 0.3).toFixed(2);
-        const del = (i * 0.03).toFixed(2);
-        return (
-          <div class="flex-1 rounded-t-sm" style={`height: ${h}%; background: linear-gradient(to top, rgba(0,123,255,0.6), rgba(0,198,255,0.2)); animation: wave-bar ${dur}s ease-in-out infinite alternate; animation-delay: ${del}s;`}></div>
-        );
-      })}
-    </div>
+  <section class="pr-aurora py-24 text-white overflow-hidden relative">
+
     <div class="w-container relative z-10">
       <div class="text-center mb-16">
         <p class="eng font-semibold text-sm tracking-widest uppercase mb-4 text-primary reveal">Proven Results</p>
@@ -134,12 +126,21 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
       </div>
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
         {[
-          { num: '25,000+', label: '표준위험공종 데이터', sub: '업계 최다 위험공종 DB 보유' },
-          { num: '99.2%', label: '사고 예방률', sub: '도입 현장 기준' },
-          { num: '150+', label: '도입 현장', sub: '국내 주요 건설사 파트너' },
-          { num: '24/7', label: '실시간 모니터링', sub: 'GPS · Beacon · Push' },
+          { num: '150+', label: '도입 현장', sub: '전국',
+            icon: 'M3 21h18M5 21V7l8-4 8 4v14M9 21v-6h6v6M9 9h.01M15 9h.01M9 13h.01M15 13h.01' },
+          { num: '50,000', label: '위험요인 DB', sub: '업계 최다',
+            icon: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10zM9 12l2 2 4-4' },
+          { num: '99.2%', label: '사고 예방률', sub: '도입 후',
+            icon: 'M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4L12 14.01l-3-3' },
+          { num: '2건', label: '특허 보유', sub: '핵심 기술',
+            icon: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M9 15l2 2 4-4' },
         ].map((item, i) => (
           <div class={`text-center reveal delay-${(i + 1) * 100}`}>
+            <div class="flex justify-center mb-4">
+              <svg class="stat-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path class="stat-icon-path" d={item.icon} />
+              </svg>
+            </div>
             <p class="eng text-4xl lg:text-5xl font-extrabold text-gradient-blue counter-num mb-2">{item.num}</p>
             <p class="font-semibold text-white/90 mb-1">{item.label}</p>
             <p class="text-sm text-white/40">{item.sub}</p>
@@ -185,7 +186,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
         </div>
         <div class="reveal-right delay-200">
           <div class="relative">
-            <img src="/images/dboard.png" alt="SafeD 대시보드" class="rounded-2xl shadow-2xl glow" />
+            <img src="/images/mainslide03_2026.png" alt="SafeD 대시보드" class="rounded-2xl shadow-2xl glow" />
             <div class="absolute -bottom-6 -left-6 bg-primary text-white rounded-2xl px-6 py-4 shadow-lg">
               <p class="eng font-bold text-2xl">70%</p>
               <p class="text-xs opacity-80">업무 효율 향상</p>
@@ -196,89 +197,112 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
     </div>
   </section>
 
-  <!-- Section 2: Core Features -->
-  <section class="py-24 bg-gray-50">
-    <div class="w-container">
-      <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 text-center reveal">Core Features</p>
-      <h2 class="text-3xl lg:text-4xl font-bold mb-6 text-center tracking-tight reveal delay-100">
-        하나의 플랫폼에서<br />안전관리의 <span class="text-gradient-blue">모든 것</span>을.
-      </h2>
-      <p class="text-gray-500 text-center mb-16 reveal delay-200">6가지 핵심 기능으로 현장 안전을 완벽하게 커버합니다.</p>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {[
-          { icon: '/images/safed_feature_01.png', title: '스마트 위험성평가', desc: '위험요인을 찾아 위험성의 크기를 평가하고 조치·검토할 수 있는 시스템', color: 'from-red-900/80 to-red-800/60' },
-          { icon: '/images/safed_feature_02.png', title: '위험요소 제거', desc: '추가위험을 발굴하고 위험요소들을 사전에 제거합니다', color: 'from-green-900/80 to-green-800/60' },
-          { icon: '/images/safed_feature_03.png', title: '다국어 지원', desc: '현장 별 다국적 근로자를 고려하여 Google AI 자동번역 기능 제공', color: 'from-lime-900/80 to-lime-800/60' },
-          { icon: '/images/safed_feature_04.png', title: '안전 모니터링', desc: 'GPS를 통해 출역·작업위치·동선 등을 실시간으로 확인', color: 'from-blue-900/80 to-blue-800/60' },
-          { icon: '/images/safed_feature_05.png', title: '비콘 경고', desc: '이동식 장비에 탈·부착 가능하며 접근경고로 작업자 안전 확보', color: 'from-cyan-900/80 to-cyan-800/60' },
-          { icon: '/images/safed_feature_06.png', title: '커뮤니케이션', desc: 'SMS, Mobile Push 알람으로 오늘할일, 잔여과제 자동 발송', color: 'from-emerald-900/80 to-emerald-800/60' },
-        ].map((feat, i) => (
-          <div class={`group relative overflow-hidden rounded-2xl p-8 bg-gradient-to-br ${feat.color} text-white min-h-[220px] flex flex-col justify-end reveal delay-${(i % 3 + 1) * 100}`}>
-            <img src={feat.icon} alt={feat.title} class="w-16 h-16 mb-4 object-contain opacity-90 group-hover:scale-110 transition-transform" />
-            <h3 class="text-lg font-bold mb-2">{feat.title}</h3>
-            <p class="text-sm opacity-80 leading-relaxed">{feat.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+  <!-- Section 2: Core Features — Convergence Scroll -->
+  <section id="core-features-section" class="cf-section">
+    <div class="cf-sticky">
+      <!-- Dynamic background & glow -->
+      <div class="cf-bg-layer" aria-hidden="true"></div>
+      <div class="cf-glow-center" aria-hidden="true"></div>
 
-  <!-- Section 3: Interactive Feature Demo -->
-  <section class="py-24 bg-white">
-    <div class="w-container">
-      <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 text-center reveal">Key Functions</p>
-      <h2 class="text-3xl lg:text-4xl font-bold mb-12 text-center tracking-tight reveal delay-100">SafeD 주요 기능</h2>
-      <div class="reveal delay-200">
-        <HoverComponent items={[
-          { label: '모바일 위험성평가', title: '스마트 위험성평가', text: '현장에서 모바일로 간편하게 위험성평가를 작성하고 관리할 수 있습니다.', image: '/images/feature01.jpg' },
-          { label: 'BEACON 경고', title: '비콘 위험경고 시스템', text: '비콘 기술로 위험지역 접근 시 자동 알림을 발송합니다.', image: '/images/feature02.jpg' },
-          { label: 'GPS 분석', title: 'GPS 동선 분석', text: 'GPS를 통한 근로자 위치 추적 및 동선 분석이 가능합니다.', image: '/images/feature04.jpg' },
-          { label: '다국어 번역', title: '다국어 자동번역', text: '다국적 근로자를 위한 실시간 AI 자동번역 기능을 제공합니다.', image: '/images/feature05.jpg' },
-        ]} />
-      </div>
-    </div>
-  </section>
-
-  <!-- Safety Management System Mapping -->
-  <section class="py-24 bg-gray-950 text-white relative overflow-hidden">
-    <!-- Top wave bars -->
-    <div class="absolute top-0 left-0 right-0 flex items-start gap-[2px] h-12 opacity-15 px-4 rotate-180" aria-hidden="true">
-      {Array.from({length: 60}).map((_, i) => {
-        const h = 15 + Math.sin(i * 0.6) * 20 + Math.cos(i * 0.9) * 12;
-        const dur = (0.6 + Math.sin(i * 0.3) * 0.4).toFixed(2);
-        const del = (i * 0.04).toFixed(2);
-        return (
-          <div class="flex-1 rounded-t-sm" style={`height: ${h}%; background: linear-gradient(to top, rgba(0,123,255,0.5), rgba(0,198,255,0.15)); animation: wave-bar ${dur}s ease-in-out infinite alternate; animation-delay: ${del}s;`}></div>
-        );
-      })}
-    </div>
-    <div class="w-container max-w-5xl relative z-10">
-      <div class="text-center mb-16">
-        <p class="eng font-semibold text-sm tracking-widest uppercase mb-4 text-primary reveal">Safety System</p>
-        <h2 class="sub-headline reveal delay-100">안전보건관리체계를<br /><span class="text-gradient-blue">SafeD로 구축합니다</span></h2>
-        <p class="text-white/50 mt-4 reveal delay-200">중대재해처벌법 제4조의 의무사항을 SafeD 기능으로 완벽 매핑</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal delay-200">
-        {[
-          { duty: '안전보건관리체계 구축·이행', solution: '위험성평가, 점검활동, DB 시스템 구축', iconPath: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z', iconColor: '#ef4444' },
-          { duty: '재발방지 대책 수립·이행', solution: '사고사례 DB, 현장 안전 데이터 분석', iconPath: 'M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15', iconColor: '#f59e0b' },
-          { duty: '개선·시정 명령 이행', solution: '실시간 모니터링, 자동 알림·조치 추적', iconPath: 'M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11', iconColor: '#3b82f6' },
-          { duty: '의무이행 관리 조치', solution: '대시보드, 보고서 자동 생성, 근거자료 보관', iconPath: 'M18 20V10M12 20V4M6 20v-6', iconColor: '#8b5cf6' },
-        ].map((item) => (
-          <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 rounded-xl flex items-center justify-center" style={`background: ${item.iconColor}15`}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={item.iconColor} stroke-width="1.5"><path d={item.iconPath}/></svg>
-              </div>
-              <div>
-                <p class="text-red-400 text-xs font-semibold mb-1 eng uppercase">법적 의무</p>
-                <p class="font-semibold text-white/90 mb-2">{item.duty}</p>
-                <p class="text-primary text-xs font-semibold mb-1 eng uppercase">SafeD 솔루션</p>
-                <p class="text-white/60 text-sm">{item.solution}</p>
+      <!-- Content layer: heading + grid -->
+      <div class="cf-content w-container">
+        <div class="cf-heading">
+          <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">Core Features</p>
+          <h2 class="text-3xl lg:text-4xl font-bold mb-6 tracking-tight">
+            하나의 플랫폼에서<br />안전관리의 <span class="text-gradient-blue">모든 것</span>을.
+          </h2>
+          <p class="text-gray-500 mb-12">6가지 핵심 기능으로 현장 안전을 완벽하게 커버합니다.</p>
+        </div>
+        <div class="cf-grid">
+          {[
+            { icon: '/images/icon_01.png', title: '스마트 위험성평가', desc: '위험요인 평가·조치·검토', accent: '#ef4444', glow: '#ef4444' },
+            { icon: '/images/icon_02.png', title: '위험요소 제거', desc: '추가위험 발굴·사전 제거', accent: '#22c55e', glow: '#22c55e' },
+            { icon: '/images/icon_03.png', title: '다국어 지원', desc: 'AI 자동번역 19개국어', accent: '#eab308', glow: '#eab308' },
+            { icon: '/images/icon_04.png', title: '안전 모니터링', desc: 'GPS 실시간 위치 추적', accent: '#3b82f6', glow: '#3b82f6' },
+            { icon: '/images/icon_05.png', title: '비콘 경고', desc: '접근경고 안전 확보', accent: '#06b6d4', glow: '#06b6d4' },
+            { icon: '/images/icon_06.png', title: '커뮤니케이션', desc: 'SMS·Push 자동 발송', accent: '#10b981', glow: '#10b981' },
+          ].map((feat, i) => (
+            <div class="cf-card" data-cf-card={i} style={`--card-accent: ${feat.accent}; --card-glow: ${feat.glow}; --label-color: ${feat.accent}`}>
+              <img src={feat.icon} alt={feat.title} class="cf-card-icon" loading="lazy" />
+              <div class="cf-card-label">
+                <strong class="cf-card-title">{feat.title}</strong>
+                <span class="cf-card-desc">{feat.desc}</span>
               </div>
             </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- CTA (convergence target — dramatic reveal) -->
+      <div class="cf-cta-block">
+        <div class="cf-cta-ring" aria-hidden="true"></div>
+        <p class="cf-cta-badge eng">ALL-IN-ONE PLATFORM</p>
+        <h3 class="cf-cta-title">SafeD 하나로,<br/>안전관리 끝.</h3>
+        <p class="cf-cta-sub">6가지 핵심 기능이 하나의 플랫폼에서 완벽하게 통합됩니다.</p>
+        <a href="/inquiries" class="cf-cta-btn">
+          <span>무료 상담받기</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Safety System Mapping Panel (scroll-linked) -->
+      <div class="ss-panel">
+        <div class="w-container max-w-5xl">
+          <div class="ss-header text-center mb-8">
+            <p class="eng font-semibold text-sm tracking-widest uppercase mb-3" style="color: #60a5fa">Safety System</p>
+            <h3 class="text-2xl lg:text-3xl font-bold text-white tracking-tight mb-2">안전보건관리체계를 <span class="text-gradient-blue">SafeD로 구축합니다</span></h3>
+            <p class="text-sm" style="color: rgba(255,255,255,0.4)">중대재해처벌법 제4조의 의무사항을 SafeD 기능으로 완벽 매핑</p>
           </div>
-        ))}
+          <div class="ss-rows">
+            {[
+              { duty: '안전보건관리체계 구축·이행', clause: '제4조 제1항 제1호', title: '위험성평가 시스템', desc: '위험성평가, 점검활동, DB 시스템 구축', color: '#3B82F6', icon: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z' },
+              { duty: '재발방지 대책 수립·이행', clause: '제4조 제1항 제2호', title: '사고 분석 엔진', desc: '사고사례 DB, 현장 안전 데이터 분석', color: '#8B5CF6', icon: 'M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15' },
+              { duty: '개선·시정 명령 이행', clause: '제4조 제1항 제3호', title: '실시간 모니터링', desc: '실시간 모니터링, 자동 알림·조치 추적', color: '#10B981', icon: 'M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11' },
+              { duty: '의무이행 관리 조치', clause: '제4조 제1항 제4호', title: '자동 보고 시스템', desc: '대시보드, 보고서 자동 생성, 근거자료 보관', color: '#F59E0B', icon: 'M18 20V10M12 20V4M6 20v-6' },
+            ].map((item) => (
+              <div class="ss-row" style={`--row-color: ${item.color}`}>
+                <div class="ss-left">
+                  <span class="ss-left-dot"></span>
+                  <span class="ss-badge-duty">법적 의무</span>
+                  <p class="ss-duty-text">{item.duty}</p>
+                  <p class="ss-clause">{item.clause}</p>
+                </div>
+                <div class="ss-conn">
+                  <svg class="ss-svg-desktop" viewBox="0 0 120 60" fill="none">
+                    <path class="ss-path-base" d="M0,30 C40,10 80,50 120,30" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/>
+                    <path class="ss-path-active" d="M0,30 C40,10 80,50 120,30" stroke={item.color} stroke-width="2" fill="none"/>
+                    <circle class="ss-dot" r="5" cx="0" cy="30" fill={item.color} style={`filter: drop-shadow(0 0 6px ${item.color})`}/>
+                    <g class="ss-check">
+                      <circle cx="60" cy="30" r="10" fill={item.color} opacity="0.25"/>
+                      <path d="M56.5,30.5 L59,33 L63.5,27.5" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                  </svg>
+                  <div class="ss-conn-mobile">
+                    <div class="ss-vline"></div>
+                    <div class="ss-check-mobile" style={`background: ${item.color}`}>
+                      <svg viewBox="0 0 24 24" fill="none" width="14" height="14"><path d="M5 12l5 5L20 7" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="ss-right">
+                  <div class="ss-solution-header">
+                    <span class="ss-badge-solution">SafeD 솔루션</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={item.color} stroke-width="1.5"><path d={item.icon}/></svg>
+                  </div>
+                  <p class="ss-solution-title">{item.title}</p>
+                  <p class="ss-solution-desc">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div class="ss-complete">
+            <div class="ss-complete-inner">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
+              <span>4/4 법적 의무 완벽 매핑</span>
+            </div>
+            <p class="ss-complete-sub">중대재해처벌법 대응, SafeD 하나로 완성됩니다</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -308,7 +332,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
   </section>
 
   <!-- Get Started - Split Showcase -->
-  <section class="py-24 bg-gray-950 text-white relative overflow-hidden">
+  <section class="py-14 lg:py-16 bg-gray-950 text-white relative overflow-hidden">
     <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.5) 1px, transparent 0); background-size: 32px 32px;" aria-hidden="true"></div>
     <div class="w-container relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -352,7 +376,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
           <div class="relative">
             <div class="absolute -inset-8 bg-gradient-to-br from-primary/10 to-blue-600/5 rounded-[2rem] blur-2xl"></div>
             <div class="relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-6 border border-white/10 shadow-2xl">
-              <img src="/images/dboard.png" alt="SafeD 대시보드" class="rounded-xl w-full" loading="lazy" />
+              <img src="/images/mainslide03_2026.png" alt="SafeD 대시보드" class="rounded-xl w-full" loading="lazy" />
               <div class="absolute -bottom-4 -right-4 bg-white rounded-2xl px-5 py-3 shadow-xl">
                 <p class="eng font-extrabold text-lg text-gradient-blue">150+</p>
                 <p class="text-[11px] text-gray-500 font-medium">현장 운영 중</p>
@@ -361,9 +385,9 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
           </div>
         </div>
       <!-- Industries inline -->
-      <div class="mt-16 pt-12 border-t border-white/5 reveal delay-300">
+      <div class="lg:col-span-2 mt-10 pt-8 border-t border-white/5 reveal delay-300">
         <p class="text-white/25 text-xs font-medium mb-6 text-center eng tracking-widest uppercase">Industries</p>
-        <div class="flex items-center justify-center gap-8 flex-wrap">
+        <div class="grid grid-cols-5 max-w-lg mx-auto">
           {[
             { label: '건설', iconPath: 'M2 20h20M5 20V8l7-5 7 5v12M9 20v-4h6v4' },
             { label: '플랜트', iconPath: 'M2 20h20M6 20V10h4v10M10 20V6h4v14M14 20V8h4v12' },
@@ -371,7 +395,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
             { label: '유지보수', iconPath: 'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z' },
             { label: '서비스', iconPath: 'M22 12h-4l-3 9L9 3l-3 9H2' },
           ].map((item) => (
-            <div class="flex items-center gap-2">
+            <div class="flex flex-col items-center gap-1.5">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"><path d={item.iconPath}/></svg>
               <span class="text-white/40 text-xs font-medium">{item.label}</span>
             </div>
@@ -464,7 +488,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
   <!-- Section: Marquee -->
   <section class="py-8 bg-white overflow-hidden border-y border-gray-100">
     <div class="marquee-track">
-      {Array.from({ length: 8 }).map(() => (
+      {Array.from({ length: 16 }).map(() => (
         <span class="eng text-5xl font-extrabold text-gray-100 mx-6 whitespace-nowrap select-none">
           Contech Future Leader ·
         </span>
@@ -472,39 +496,51 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
     </div>
   </section>
 
-  <!-- Section 5: CTA -->
+  <!-- CTA: SafeD와 함께 시작하세요 -->
+  <section class="relative py-28 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-primary to-blue-800"></div>
+    <div class="absolute inset-0 opacity-10" style="background-image: url('/images/feature02.jpg'); background-size: cover; background-position: center;"></div>
+    <div class="absolute top-10 right-10 w-64 h-64 border border-white/10 rounded-full"></div>
+    <div class="absolute bottom-10 left-10 w-40 h-40 border border-white/5 rounded-full"></div>
+    <div class="relative z-10 w-container text-center">
+      <div class="max-w-2xl mx-auto">
+        <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-white/10 flex items-center justify-center reveal">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.11 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4 tracking-tight reveal delay-100">SafeD와 함께 시작하세요</h2>
+        <p class="text-white/70 mb-8 reveal delay-200">무료 상담을 통해 현장에 맞는 안전관리 솔루션을 제안받으세요.</p>
+        <div class="flex items-center justify-center gap-4 flex-wrap reveal delay-300">
+          <a href="/inquiries" class="cta-metallic-btn">
+            도입문의
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="/safed-features" class="inline-flex items-center gap-2 px-8 py-3.5 border border-white/30 text-white rounded-full font-semibold hover:bg-white/10 transition-colors">
+            기능 살펴보기
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: CTA (기존 - 주석처리)
   <section class="relative py-32 overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-[#2e4692] to-[#001f31]"></div>
     <div class="absolute inset-0 bg-[url('/images/feature02.jpg')] bg-cover bg-center bg-fixed opacity-20"></div>
-    <!-- Wave bars top -->
-    <div class="absolute top-0 left-0 right-0 flex items-start gap-[2px] h-10 opacity-10 px-2" aria-hidden="true">
-      {Array.from({length: 100}).map((_, i) => {
-        const h = 20 + Math.sin(i * 0.4) * 18 + Math.cos(i * 0.8) * 10;
-        const dur = (0.5 + Math.sin(i * 0.6) * 0.3).toFixed(2);
-        const del = (i * 0.02).toFixed(2);
-        return (
-          <div class="flex-1 rounded-b-sm" style={`height: ${h}%; background: linear-gradient(to bottom, rgba(0,123,255,0.5), transparent); animation: wave-bar ${dur}s ease-in-out infinite alternate; animation-delay: ${del}s;`}></div>
-        );
-      })}
-    </div>
+    <div class="absolute top-0 left-0 right-0 flex items-start gap-[2px] h-10 opacity-10 px-2" aria-hidden="true"></div>
     <div class="relative z-10 w-container">
       <div class="bg-white rounded-2xl p-12 lg:p-16 max-w-3xl mx-auto text-center shadow-2xl reveal-scale">
         <p class="eng text-primary text-sm tracking-widest uppercase mb-4 font-bold">지금 바로 시작하세요</p>
-        <h2 class="text-2xl lg:text-3xl font-bold mb-3 tracking-tight">
-          내일의 사고를 오늘 막을 수 있습니다.
-        </h2>
+        <h2 class="text-2xl lg:text-3xl font-bold mb-3 tracking-tight">내일의 사고를 오늘 막을 수 있습니다.</h2>
         <p class="text-gray-500 mb-3 text-sm leading-relaxed max-w-md mx-auto">
           국내 150+ 건설현장이 이미 SafeD로 전환했습니다.<br />
           <strong class="text-gray-700">무료 상담 후 2~4주 내 즉시 구축 가능합니다.</strong>
         </p>
         <div class="inline-flex items-center gap-2 bg-red-50 text-red-700 px-4 py-2 rounded-full text-xs font-semibold mb-6">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
           중대재해처벌법 위반 시 경영책임자 징역 1년 이상
         </div>
         <div class="flex flex-col sm:flex-row gap-3 justify-center">
           <a href="/inquiries" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-primary text-white rounded-full font-semibold hover:bg-primary-dark transition-colors text-sm shadow-lg shadow-primary/25">
             무료 상담 신청하기
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
           <a href="/safed-features" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-gray-100 text-gray-700 rounded-full font-semibold hover:bg-gray-200 transition-colors text-sm">
             기능 먼저 살펴보기
@@ -513,4 +549,1135 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
       </div>
     </div>
   </section>
+  -->
 </BaseLayout>
+
+<style>
+  /* Proven Results — Aurora mesh gradient */
+  .pr-aurora {
+    background: #0A1628;
+  }
+
+  .pr-aurora::before {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 40%, rgba(26,10,46,0.7) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 70% at 75% 60%, rgba(10,31,46,0.65) 0%, transparent 55%),
+      radial-gradient(ellipse 70% 55% at 50% 80%, rgba(15,22,42,0.5) 0%, transparent 50%),
+      radial-gradient(ellipse 50% 60% at 30% 20%, rgba(10,31,46,0.4) 0%, transparent 50%);
+    animation: aurora-mesh 1s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes aurora-mesh {
+    0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    25% { transform: translate(-2%, 1.5%) rotate(0.5deg) scale(1.02); }
+    50% { transform: translate(1.5%, -1%) rotate(-0.5deg) scale(1); }
+    75% { transform: translate(2%, 1%) rotate(0.3deg) scale(1.01); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pr-aurora::before {
+      animation: none;
+    }
+  }
+
+  /* Stat Icon line-draw animation */
+  .stat-icon {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .stat-icon-path {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    transition: stroke-dashoffset 1.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  .visible .stat-icon-path {
+    stroke-dashoffset: 0;
+  }
+
+  /* ===== Core Features Convergence ===== */
+  .cf-section {
+    position: relative;
+    min-height: 550vh;
+    background: #f9fafb;
+  }
+
+  .cf-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .cf-bg-layer {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, #050a14 0%, #0c1929 40%, #0a1628 100%);
+    opacity: 0;
+    z-index: 0;
+    will-change: opacity;
+  }
+
+  .cf-glow-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 600px;
+    transform: translate(-50%, -50%) scale(0.3);
+    background: radial-gradient(circle, rgba(0,123,255,0.35) 0%, rgba(0,123,255,0.12) 30%, rgba(0,80,200,0.04) 55%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 0;
+    will-change: opacity, transform;
+    pointer-events: none;
+  }
+
+  .cf-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cf-heading {
+    text-align: center;
+    will-change: transform, opacity;
+  }
+
+  .cf-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    width: 100%;
+    max-width: 66rem;
+  }
+
+  .cf-card {
+    will-change: transform, opacity;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 210px;
+  }
+
+  .cf-card-icon {
+    width: 170px;
+    height: 170px;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 28px rgba(0,0,0,0.2)) drop-shadow(0 8px 10px rgba(0,0,0,0.1));
+    transition: filter 0.3s ease;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cf-card-label {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 0.5rem 0.85rem 0.25rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    border-left: 3px solid var(--label-color);
+  }
+
+  .cf-card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #111;
+    letter-spacing: -0.4px;
+    white-space: nowrap;
+    line-height: 1;
+  }
+
+  .cf-card-desc {
+        font-size: 0.7rem;
+        font-weight: 500;
+        color: #888;
+        white-space: nowrap;
+        letter-spacing: -0.4px;
+  }
+
+  /* --- Label position variants per card --- */
+  .cf-card:nth-child(1) .cf-card-label { bottom: 8px; left: 0; }
+  .cf-card:nth-child(2) .cf-card-label { top: 4px; right: 0; text-align: right; border-left: none; border-right: 3px solid var(--label-color); }
+  .cf-card:nth-child(3) .cf-card-label { bottom: 12px; right: -4px; text-align: right; border-left: none; border-right: 3px solid var(--label-color); }
+  .cf-card:nth-child(4) .cf-card-label { top: 8px; left: 0; }
+  .cf-card:nth-child(5) .cf-card-label { bottom: 4px; left: -4px; }
+  .cf-card:nth-child(6) .cf-card-label { top: 12px; right: 0; text-align: right; border-left: none; border-right: 3px solid var(--label-color); }
+
+  .cf-cta-block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    z-index: 3;
+    opacity: 0;
+    pointer-events: none;
+    text-align: center;
+    will-change: opacity, transform;
+  }
+
+  .cf-cta-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 320px;
+    height: 320px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px solid rgba(0,123,255,0.12);
+    animation: cta-ring-pulse 3s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes cta-ring-pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.2; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.5; }
+  }
+
+  .cf-cta-badge {
+    display: inline-block;
+    padding: 0.4rem 1.25rem;
+    background: rgba(0,123,255,0.12);
+    border: 1px solid rgba(0,123,255,0.25);
+    border-radius: 9999px;
+    color: #60a5fa;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    margin-bottom: 1.5rem;
+  }
+
+  .cf-cta-title {
+    font-size: clamp(2rem, 4.5vw, 5.8rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #ffffff 0%, #60a5fa 50%, #ffffff 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: cta-text-shimmer 4s ease-in-out infinite;
+  }
+
+  @keyframes cta-text-shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .cf-cta-sub {
+        color: rgba(255, 255, 255, 0.45);
+        font-size: 1.2rem;
+        line-height: 1.7;
+        margin-bottom: 2rem;
+        letter-spacing: -0.5px;
+  }
+
+  .cf-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.9rem 2.25rem;
+    background: linear-gradient(135deg, #007BFF, #0060d0);
+    color: white;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    box-shadow: 0 0 40px rgba(0,123,255,0.35), 0 4px 16px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .cf-cta-btn:hover {
+    box-shadow: 0 0 60px rgba(0,123,255,0.55), 0 6px 24px rgba(0,0,0,0.3);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 1023px) {
+    .cf-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cf-section {
+      min-height: 500vh;
+    }
+
+    .cf-glow-center {
+      width: 400px;
+      height: 400px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .cf-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.25rem;
+    }
+
+    .cf-card {
+      min-height: 150px;
+    }
+
+    .cf-card-icon {
+      width: 100px;
+      height: 100px;
+      filter: drop-shadow(0 12px 16px rgba(0,0,0,0.15)) drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+    }
+
+    .cf-card-label {
+      padding: 0.3rem 0.6rem;
+      border-radius: 8px;
+    }
+
+    .cf-card-title {
+      font-size: 0.7rem;
+    }
+
+    .cf-card-desc {
+      font-size: 0.55rem;
+    }
+
+    .cf-cta-block {
+      width: 90%;
+    }
+
+    .cf-glow-center {
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cf-section {
+      min-height: auto;
+    }
+    .cf-sticky {
+      position: relative;
+      height: auto;
+    }
+    .cf-content {
+      height: auto;
+      padding: 4rem 1.5rem;
+    }
+    .cf-cta-block,
+    .cf-bg-layer,
+    .cf-glow-center {
+      display: none;
+    }
+  }
+
+  /* Blur Intro */
+  #blur-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #111;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  #blur-intro.fade-out {
+    opacity: 0;
+  }
+
+  #blur-intro.hidden {
+    display: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #blur-intro {
+      display: none !important;
+    }
+  }
+
+  /* ===== Safety System Panel (inside CF sticky) ===== */
+  .ss-panel {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    will-change: opacity;
+  }
+
+  .ss-header {
+    will-change: opacity, transform;
+  }
+
+  .ss-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .ss-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  .ss-left,
+  .ss-right {
+    flex: 1;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    will-change: opacity, transform;
+  }
+
+  .ss-left {
+    position: relative;
+  }
+
+  .ss-left-dot {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--row-color);
+    box-shadow: 0 0 8px var(--row-color);
+    opacity: 0;
+  }
+
+  .ss-left-dot::before,
+  .ss-left-dot::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 1.5px solid var(--row-color);
+    opacity: 0;
+  }
+
+  .ss-left.visible .ss-left-dot {
+    opacity: 1;
+    animation: dot-breathe 2s ease-in-out infinite;
+  }
+
+  .ss-left.visible .ss-left-dot::before {
+    animation: dot-ring 2s ease-out infinite;
+  }
+
+  .ss-left.visible .ss-left-dot::after {
+    animation: dot-ring 2s ease-out 0.6s infinite;
+  }
+
+  @keyframes dot-breathe {
+    0%, 100% { box-shadow: 0 0 6px var(--row-color); transform: scale(1); }
+    50% { box-shadow: 0 0 14px var(--row-color), 0 0 28px color-mix(in srgb, var(--row-color) 40%, transparent); transform: scale(1.15); }
+  }
+
+  @keyframes dot-ring {
+    0% { transform: scale(0.8); opacity: 0.7; }
+    70% { transform: scale(2.2); opacity: 0; }
+    100% { transform: scale(2.2); opacity: 0; }
+  }
+
+  .ss-badge-duty {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: rgba(239,68,68,0.15);
+    color: #f87171;
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+  }
+
+  .ss-duty-text {
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .ss-clause {
+    color: rgb(100,116,139);
+    font-size: 0.75rem;
+  }
+
+  .ss-badge-solution {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: rgba(16,185,129,0.15);
+    color: #34d399;
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+
+  .ss-solution-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .ss-solution-title {
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .ss-solution-desc {
+    color: rgb(148,163,184);
+    font-size: 0.85rem;
+  }
+
+  /* SVG Connector */
+  .ss-conn {
+    width: 120px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .ss-svg-desktop {
+    width: 120px;
+    height: 60px;
+    overflow: visible;
+  }
+
+  .ss-check {
+    transform-box: view-box;
+    transform-origin: 60px 30px;
+  }
+
+  /* Mobile connector */
+  .ss-conn-mobile {
+    display: none;
+  }
+
+  .ss-vline {
+    width: 0;
+    height: 40px;
+    border-left: 2px dashed rgba(255,255,255,0.15);
+  }
+
+  .ss-check-mobile {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Completion */
+  .ss-complete {
+    text-align: center;
+    margin-top: 2.5rem;
+    will-change: opacity, transform, filter;
+  }
+
+  .ss-complete-inner {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.9rem 2.2rem;
+    background: linear-gradient(135deg, rgba(16,185,129,0.18), rgba(52,211,153,0.08));
+    border: 1px solid rgba(16,185,129,0.35);
+    border-radius: 9999px;
+    color: #34d399;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 0 30px rgba(16,185,129,0.12), 0 0 60px rgba(16,185,129,0.06);
+  }
+
+  .ss-complete.visible .ss-complete-inner {
+    animation: ss-glow-pulse 2.5s ease-in-out infinite;
+  }
+
+  .ss-complete-sub {
+    margin-top: 0.75rem;
+    color: rgba(148,163,184,0.6);
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+  }
+
+  @keyframes ss-glow-pulse {
+    0%, 100% { box-shadow: 0 0 30px rgba(16,185,129,0.12), 0 0 60px rgba(16,185,129,0.06); }
+    50% { box-shadow: 0 0 40px rgba(16,185,129,0.25), 0 0 80px rgba(16,185,129,0.12); }
+  }
+
+  /* Responsive: mobile SS */
+  @media (max-width: 767px) {
+    .ss-row {
+      flex-direction: column;
+    }
+
+    .ss-conn {
+      width: auto;
+      height: 50px;
+    }
+
+    .ss-svg-desktop {
+      display: none;
+    }
+
+    .ss-conn-mobile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .ss-left,
+    .ss-right {
+      width: 100%;
+    }
+  }
+
+  /* Reduced motion: Safety System */
+  @media (prefers-reduced-motion: reduce) {
+    .ss-panel {
+      position: relative;
+      opacity: 1 !important;
+      pointer-events: auto;
+      background: linear-gradient(160deg, #0F172A, #1E293B);
+      padding: 4rem 1.5rem;
+      color: white;
+    }
+
+    .ss-left,
+    .ss-right {
+      opacity: 1 !important;
+    }
+
+    .ss-right {
+      border-left: 3px solid var(--row-color);
+    }
+
+    .ss-path-active {
+      opacity: 1;
+    }
+
+    .ss-dot {
+      display: none;
+    }
+
+    .ss-check {
+      opacity: 1;
+    }
+
+    .ss-check-mobile {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .ss-complete {
+      opacity: 1;
+      filter: none;
+      transform: none;
+    }
+
+    .ss-complete .ss-complete-inner {
+      animation: none;
+    }
+
+    .ss-left-dot {
+      opacity: 1;
+      animation: none;
+    }
+
+    .ss-left-dot::before,
+    .ss-left-dot::after {
+      animation: none;
+      display: none;
+    }
+
+    .cta-metallic-btn::before {
+      animation: none;
+      display: none;
+    }
+
+    .cta-metallic-btn {
+      animation: none;
+    }
+  }
+
+  /* CTA Metallic Button */
+  .cta-metallic-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.9rem 2.25rem;
+    background: linear-gradient(170deg, #5ba3ff 0%, #007BFF 30%, #0054c4 60%, #2e7ee6 80%, #007BFF 100%);
+    background-size: 200% 200%;
+    animation: metallic-shift 4s ease-in-out infinite;
+    color: white;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.25) inset,
+      0 -1px 0 rgba(0,0,0,0.15) inset,
+      0 4px 20px rgba(0,80,200,0.4),
+      0 0 40px rgba(0,123,255,0.15);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .cta-metallic-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -80%;
+    width: 60%;
+    height: 200%;
+    background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.25) 45%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.25) 55%, transparent 60%);
+    animation: metallic-shine 3.5s ease-in-out infinite;
+  }
+
+  .cta-metallic-btn:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.3) inset,
+      0 -1px 0 rgba(0,0,0,0.15) inset,
+      0 6px 28px rgba(0,80,200,0.5),
+      0 0 60px rgba(0,123,255,0.25);
+  }
+
+  @keyframes metallic-shift {
+    0%, 100% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+  }
+
+  @keyframes metallic-shine {
+    0%, 20% { left: -80%; }
+    60% { left: 120%; }
+    100% { left: 120%; }
+  }
+</style>
+
+<script>
+  (function() {
+    const el = document.getElementById('blur-intro');
+    if (!el) return;
+
+    // Skip if already played this session
+    if (sessionStorage.getItem('safed-intro-played')) {
+      el.classList.add('hidden');
+      return;
+    }
+
+    // Skip for reduced motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      el.classList.add('hidden');
+      sessionStorage.setItem('safed-intro-played', '1');
+      return;
+    }
+
+    // Fade out after brief delay
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        el.classList.add('fade-out');
+        setTimeout(() => {
+          el.classList.add('hidden');
+        }, 900);
+        sessionStorage.setItem('safed-intro-played', '1');
+      }, 300);
+    });
+  })();
+
+  // ===== Core Features + Safety System Unified Scroll =====
+  (function() {
+    const section = document.getElementById('core-features-section');
+    if (!section) return;
+
+    const heading = section.querySelector<HTMLElement>('.cf-heading');
+    const headingEls = heading ? Array.from(heading.children) as HTMLElement[] : [];
+    const cards = section.querySelectorAll<HTMLElement>('.cf-card');
+    const cta = section.querySelector<HTMLElement>('.cf-cta-block');
+    const bgLayer = section.querySelector<HTMLElement>('.cf-bg-layer');
+    const glowCenter = section.querySelector<HTMLElement>('.cf-glow-center');
+    const mainNav = document.getElementById('main-nav');
+
+    // SS elements
+    const ssPanel = section.querySelector<HTMLElement>('.ss-panel');
+    const ssHeader = ssPanel?.querySelector<HTMLElement>('.ss-header');
+    const ssRows = ssPanel ? Array.from(ssPanel.querySelectorAll<HTMLElement>('.ss-row')) : [];
+    const ssComplete = ssPanel?.querySelector<HTMLElement>('.ss-complete');
+
+    if (!heading || !cta || cards.length === 0) return;
+
+    // Reduced motion: show everything statically
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      // SS panel handled by CSS reduced-motion rules
+      ssRows.forEach(row => {
+        const left = row.querySelector<HTMLElement>('.ss-left');
+        const right = row.querySelector<HTMLElement>('.ss-right');
+        if (left) left.style.opacity = '1';
+        if (right) { right.style.opacity = '1'; right.style.borderLeft = '3px solid var(--row-color)'; }
+        const check = row.querySelector<HTMLElement>('.ss-check');
+        const checkM = row.querySelector<HTMLElement>('.ss-check-mobile');
+        if (check) check.style.opacity = '1';
+        if (checkM) { checkM.style.opacity = '1'; checkM.style.transform = 'scale(1)'; }
+      });
+      if (ssComplete) ssComplete.style.opacity = '1';
+      return;
+    }
+
+    // Scatter offsets — cards start far displaced + very faint
+    const isMobile = window.innerWidth < 768;
+    const scaleF = isMobile ? 0.5 : 1;
+    const scatterData = [
+      { x: -220 * scaleF, y: -160 * scaleF, r: -22 },
+      { x: 100 * scaleF, y: -200 * scaleF, r: 18 },
+      { x: 260 * scaleF, y: -90 * scaleF, r: 30 },
+      { x: -190 * scaleF, y: 170 * scaleF, r: 20 },
+      { x: -80 * scaleF, y: 220 * scaleF, r: -25 },
+      { x: 240 * scaleF, y: 140 * scaleF, r: -28 },
+    ];
+
+    // Cache SS row data + SVG path lengths
+    const rowData = ssRows.map(row => {
+      const pathActive = row.querySelector<SVGGeometryElement>('.ss-path-active');
+      const dot = row.querySelector<SVGCircleElement>('.ss-dot');
+      const totalLen = (pathActive && !isMobile) ? pathActive.getTotalLength() : 0;
+      return {
+        left: row.querySelector<HTMLElement>('.ss-left'),
+        right: row.querySelector<HTMLElement>('.ss-right'),
+        path: pathActive,
+        dot,
+        totalLen,
+        check: row.querySelector<HTMLElement>('.ss-check'),
+        checkMobile: row.querySelector<HTMLElement>('.ss-check-mobile'),
+      };
+    });
+
+    let convergeOffsets: { x: number; y: number }[] = [];
+    let ticking = false;
+
+    function calcConvergeOffsets() {
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const cx = vw / 2;
+      const cy = vh / 2;
+      convergeOffsets = Array.from(cards).map(card => {
+        const r = card.getBoundingClientRect();
+        return {
+          x: cx - (r.left + r.width / 2),
+          y: cy - (r.top + r.height / 2),
+        };
+      });
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+
+    function easeIO(t: number) {
+      return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+    }
+    function easeOut(t: number) {
+      return 1 - Math.pow(1 - t, 3);
+    }
+
+    // Helper: hide SS panel
+    function hideSSPanel() {
+      if (ssPanel) { ssPanel.style.opacity = '0'; ssPanel.style.pointerEvents = 'none'; }
+    }
+
+    // Helper: reset SS rows to hidden state
+    function resetSSRows() {
+      rowData.forEach(d => {
+        if (d.left) { d.left.style.opacity = '0'; d.left.style.transform = 'translateX(-30px)'; d.left.classList.remove('visible'); }
+        if (d.right) { d.right.style.opacity = '0'; d.right.style.transform = 'translateX(30px)'; d.right.style.borderLeft = '1px solid rgba(255,255,255,0.08)'; }
+        if (d.path) { (d.path as SVGElement).style.opacity = '0'; }
+        if (d.dot) { (d.dot as SVGElement).style.opacity = '0'; }
+        if (d.check) { (d.check as SVGElement).style.opacity = '0'; (d.check as SVGElement).style.transform = 'scale(0)'; }
+        if (d.checkMobile) { d.checkMobile.style.opacity = '0'; d.checkMobile.style.transform = 'scale(0)'; }
+      });
+      if (ssComplete) { ssComplete.style.opacity = '0'; ssComplete.style.transform = 'translateY(20px) scale(0.7)'; ssComplete.style.filter = 'blur(8px)'; ssComplete.classList.remove('visible'); }
+    }
+
+    /*
+     * Scroll progress phases (total height ~550vh, scrollable ~450vh):
+     *   0.00–0.07  Phase 0: Heading children stagger in (blur→clear), cards ghost
+     *   0.07–0.14  Phase 1: Cards settle into grid from scatter
+     *   0.14–0.30  Phase 2: Cards converge, bg darkens, CTA appears
+     *   0.30–0.42  Phase 3: CTA fully visible (hold)
+     *   0.42–0.50  Phase 4: CTA → SS crossfade
+     *   0.50–0.90  Phase 5: SS rows (10% each × 4 rows)
+     *   0.90–1.00  Phase 6: Completion badge
+     */
+    function update() {
+      ticking = false;
+      const vh = window.innerHeight;
+      const rect = section!.getBoundingClientRect();
+      const scrollable = rect.height - vh;
+      if (scrollable <= 0) return;
+
+      const progress = Math.max(0, Math.min(1, -rect.top / scrollable));
+
+      // Nav dark mode sync
+      if (mainNav) {
+        if (progress > 0.18) mainNav.classList.add('nav-dark');
+        else mainNav.classList.remove('nav-dark');
+      }
+
+      // ── Phase 0: 0–0.07 → heading blur-stagger at scale 1.6 ──
+      if (progress < 0.07) {
+        if (bgLayer) bgLayer.style.opacity = '0';
+        if (glowCenter) { glowCenter.style.opacity = '0'; glowCenter.style.transform = 'translate(-50%,-50%) scale(0.3)'; }
+        cta!.style.opacity = '0';
+        cta!.style.transform = 'translate(-50%,-50%) scale(0.8)';
+        cta!.style.pointerEvents = 'none';
+        hideSSPanel();
+
+        const hp = progress / 0.07;
+        heading!.style.opacity = '1';
+        heading!.style.transform = 'scale(1.6)';
+
+        const stagger = [
+          { blur: 8,  y: 15, delay: 0,    dur: 0.45 },
+          { blur: 14, y: 30, delay: 0.28, dur: 0.45 },
+          { blur: 8,  y: 18, delay: 0.52, dur: 0.45 },
+        ];
+        headingEls.forEach((el, ci) => {
+          const st = stagger[ci] || stagger[2];
+          const cp = easeOut(Math.max(0, Math.min(1, (hp - st.delay) / st.dur)));
+          el.style.opacity = String(cp);
+          el.style.filter = `blur(${st.blur * (1 - cp)}px)`;
+          el.style.transform = `translateY(${st.y * (1 - cp)}px)`;
+        });
+
+        cards.forEach((card, i) => {
+          const s = scatterData[i] || { x: 0, y: 0, r: 0 };
+          card.style.transform = `translate(${s.x}px, ${s.y}px) rotate(${s.r}deg)`;
+          card.style.opacity = String(0.04 + hp * 0.04);
+        });
+        return;
+      }
+
+      // Clear heading children inline styles from Phase 0
+      headingEls.forEach(el => { el.style.opacity = ''; el.style.filter = ''; el.style.transform = ''; });
+
+      // ── Phase 0b: 0.07–0.12 → heading scale 1.6 → 1.0 ──
+      if (progress < 0.12) {
+        if (bgLayer) bgLayer.style.opacity = '0';
+        if (glowCenter) { glowCenter.style.opacity = '0'; glowCenter.style.transform = 'translate(-50%,-50%) scale(0.3)'; }
+        cta!.style.opacity = '0';
+        cta!.style.transform = 'translate(-50%,-50%) scale(0.8)';
+        cta!.style.pointerEvents = 'none';
+        hideSSPanel();
+
+        const shrink = easeIO((progress - 0.07) / 0.05);
+        heading!.style.opacity = '1';
+        heading!.style.transform = `scale(${1.6 - 0.6 * shrink})`;
+
+        cards.forEach((card, i) => {
+          const s = scatterData[i] || { x: 0, y: 0, r: 0 };
+          card.style.transform = `translate(${s.x}px, ${s.y}px) rotate(${s.r}deg)`;
+          card.style.opacity = String(0.08 + shrink * 0.07);
+        });
+        return;
+      }
+
+      // ── Phase 1: 0.12–0.18 → cards settle into grid ──
+      if (progress < 0.18) {
+        if (bgLayer) bgLayer.style.opacity = '0';
+        if (glowCenter) { glowCenter.style.opacity = '0'; glowCenter.style.transform = 'translate(-50%,-50%) scale(0.3)'; }
+        heading!.style.opacity = '1';
+        heading!.style.transform = 'scale(1)';
+        cta!.style.opacity = '0';
+        cta!.style.transform = 'translate(-50%,-50%) scale(0.8)';
+        cta!.style.pointerEvents = 'none';
+        hideSSPanel();
+
+        const settle = easeIO((progress - 0.12) / 0.06);
+        cards.forEach((card, i) => {
+          const s = scatterData[i] || { x: 0, y: 0, r: 0 };
+          card.style.transform = `translate(${s.x * (1 - settle)}px, ${s.y * (1 - settle)}px) rotate(${s.r * (1 - settle)}deg)`;
+          card.style.opacity = String(0.15 + settle * 0.85);
+        });
+        return;
+      }
+
+      // ── Phase 2: 0.18–0.32 → converge + darken + CTA ──
+      if (progress < 0.32) {
+        if (convergeOffsets.length === 0) calcConvergeOffsets();
+        const p2 = (progress - 0.18) / 0.14;
+        hideSSPanel();
+
+        if (bgLayer) bgLayer.style.opacity = String(Math.min(1, p2 * 1.6));
+        if (glowCenter) {
+          const gp = Math.max(0, (p2 - 0.2) / 0.8);
+          glowCenter.style.opacity = String(gp * 0.85);
+          glowCenter.style.transform = `translate(-50%,-50%) scale(${0.3 + gp * 0.7})`;
+        }
+
+        heading!.style.transform = `translateY(${-p2 * 40}px)`;
+        heading!.style.opacity = String(Math.max(0, 1 - p2 * 2));
+
+        cards.forEach((card, i) => {
+          const stagger = 0.05 * i;
+          const cp = Math.max(0, Math.min(1, (p2 - stagger) / (1 - stagger)));
+          const ease = easeIO(cp);
+          const tx = convergeOffsets[i] ? convergeOffsets[i].x * ease : 0;
+          const ty = convergeOffsets[i] ? convergeOffsets[i].y * ease : 0;
+          card.style.transform = `translate(${tx}px, ${ty}px) scale(${1 - ease * 0.8}) rotate(${(i % 2 === 0 ? 1 : -1) * ease * 10}deg)`;
+          card.style.opacity = String(Math.max(0, 1 - ease * 1.3));
+          const icon = card.querySelector<HTMLElement>('.cf-card-icon');
+          if (icon) {
+            const gc = getComputedStyle(card).getPropertyValue('--card-glow').trim();
+            icon.style.filter = `drop-shadow(0 ${18 - ease * 10}px ${24 + ease * 30}px ${gc}60) drop-shadow(0 6px 8px rgba(0,0,0,${0.12 + ease * 0.2}))`;
+          }
+        });
+
+        const ctaP = Math.max(0, (p2 - 0.5) * 2);
+        cta!.style.opacity = String(ctaP);
+        cta!.style.transform = `translate(-50%,-50%) scale(${0.8 + ctaP * 0.2})`;
+        cta!.style.pointerEvents = ctaP > 0.5 ? 'auto' : 'none';
+        return;
+      }
+
+      // From here on: bg fully dark, cards hidden
+      if (bgLayer) bgLayer.style.opacity = '1';
+      if (glowCenter) { glowCenter.style.opacity = '0.85'; glowCenter.style.transform = 'translate(-50%,-50%) scale(1)'; }
+      heading!.style.opacity = '0';
+      cards.forEach(c => { c.style.opacity = '0'; });
+
+      // ── Phase 3: 0.30–0.42 → CTA hold ──
+      if (progress < 0.42) {
+        cta!.style.opacity = '1';
+        cta!.style.transform = 'translate(-50%,-50%) scale(1)';
+        cta!.style.pointerEvents = 'auto';
+        hideSSPanel();
+        return;
+      }
+
+      // ── Phase 4: 0.42–0.50 → CTA out, SS header in ──
+      if (progress < 0.50) {
+        const t = (progress - 0.42) / 0.08;
+        cta!.style.opacity = String(1 - t);
+        cta!.style.transform = `translate(-50%,-50%) scale(${1 - t * 0.1})`;
+        cta!.style.pointerEvents = 'none';
+
+        if (ssPanel) { ssPanel.style.opacity = String(t); ssPanel.style.pointerEvents = t > 0.5 ? 'auto' : 'none'; }
+        if (ssHeader) { ssHeader.style.opacity = String(t); ssHeader.style.transform = `translateY(${(1 - t) * 20}px)`; }
+        resetSSRows();
+        return;
+      }
+
+      // ── Phase 5: 0.50–0.90 → SS rows scroll-driven ──
+      cta!.style.opacity = '0';
+      cta!.style.pointerEvents = 'none';
+      if (ssPanel) { ssPanel.style.opacity = '1'; ssPanel.style.pointerEvents = 'auto'; }
+      if (ssHeader) { ssHeader.style.opacity = '1'; ssHeader.style.transform = 'translateY(0)'; }
+
+      const ROW_START = 0.50;
+      const ROW_END = 0.90;
+      const rowRange = (ROW_END - ROW_START) / rowData.length;
+
+      rowData.forEach((d, i) => {
+        const rStart = ROW_START + i * rowRange;
+        const rp = Math.max(0, Math.min(1, (progress - rStart) / rowRange));
+
+        // Left card: 0–0.25 of row range
+        const lp = easeOut(Math.max(0, Math.min(1, rp / 0.25)));
+        if (d.left) {
+          d.left.style.opacity = String(lp);
+          d.left.style.transform = `translateX(${-30 * (1 - lp)}px)`;
+          if (lp > 0.9) d.left.classList.add('visible');
+          else d.left.classList.remove('visible');
+        }
+
+        // Connector line + dot: 0.20–0.60
+        const cp = easeOut(Math.max(0, Math.min(1, (rp - 0.20) / 0.40)));
+        if (!isMobile && d.path && d.dot && d.totalLen > 0) {
+          (d.path as SVGElement).style.opacity = cp > 0 ? '1' : '0';
+          (d.path as SVGElement).style.strokeDasharray = String(d.totalLen);
+          (d.path as SVGElement).style.strokeDashoffset = String(d.totalLen * (1 - cp));
+          if (cp > 0 && cp < 1) {
+            (d.dot as SVGElement).style.opacity = '1';
+            const pt = d.path.getPointAtLength(cp * d.totalLen);
+            d.dot.setAttribute('cx', String(pt.x));
+            d.dot.setAttribute('cy', String(pt.y));
+          } else {
+            (d.dot as SVGElement).style.opacity = '0';
+          }
+        }
+
+        // Right card: 0.55–0.80
+        const rrp = easeOut(Math.max(0, Math.min(1, (rp - 0.55) / 0.25)));
+        if (d.right) {
+          d.right.style.opacity = String(rrp);
+          d.right.style.transform = `translateX(${30 * (1 - rrp)}px)`;
+          d.right.style.borderLeft = rrp > 0.5 ? '3px solid var(--row-color)' : '1px solid rgba(255,255,255,0.08)';
+        }
+
+        // Check pop: 0.80–1.0
+        const ckp = easeOut(Math.max(0, Math.min(1, (rp - 0.80) / 0.20)));
+        if (d.check) { (d.check as SVGElement).style.opacity = String(ckp); (d.check as SVGElement).style.transform = `scale(${ckp})`; }
+        if (d.checkMobile) { d.checkMobile.style.opacity = String(ckp); d.checkMobile.style.transform = `scale(${ckp})`; }
+      });
+
+      // ── Phase 6: 0.90–1.0 → Completion badge ──
+      if (progress > 0.90) {
+        const cp = easeOut(Math.max(0, Math.min(1, (progress - 0.90) / 0.07)));
+        const blurV = 8 * (1 - cp);
+        if (ssComplete) {
+          ssComplete.style.opacity = String(cp);
+          ssComplete.style.transform = `translateY(${20 * (1 - cp)}px) scale(${0.7 + 0.3 * cp})`;
+          ssComplete.style.filter = `blur(${blurV}px)`;
+          if (cp > 0.95) ssComplete.classList.add('visible');
+          else ssComplete.classList.remove('visible');
+        }
+      } else {
+        if (ssComplete) { ssComplete.style.opacity = '0'; ssComplete.style.transform = 'translateY(20px) scale(0.7)'; ssComplete.style.filter = 'blur(8px)'; ssComplete.classList.remove('visible'); }
+      }
+    }
+
+    function onScrollWrapped() {
+      onScroll();
+    }
+
+    function checkCompletion() {
+      const rect = section!.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const scrollable = rect.height - vh;
+      if (scrollable <= 0) return;
+      const progress = Math.max(0, Math.min(1, -rect.top / scrollable));
+      // Allow scroll in both directions
+    }
+
+    window.addEventListener('scroll', () => {
+      onScrollWrapped();
+      checkCompletion();
+    }, { passive: true });
+    window.addEventListener('resize', () => { convergeOffsets = []; }, { passive: true });
+    onScroll();
+  })();
+</script>

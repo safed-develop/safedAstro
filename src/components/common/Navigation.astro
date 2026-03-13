@@ -180,6 +180,28 @@ const overlayColumns = [
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
   }
 
+  /* Dark section override — toggled by scroll JS */
+  .nav-wrap.nav-dark.scrolled {
+    background: rgba(5, 10, 20, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  .nav-wrap.nav-dark .nav-link {
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: none;
+  }
+
+  .nav-wrap.nav-dark .nav-link:hover,
+  .nav-wrap.nav-dark .nav-link.active {
+    color: var(--color-primary-light);
+  }
+
+  .nav-wrap.nav-dark .ham-line {
+    background: #fff;
+  }
+
   /* Nav Inner */
   .nav-inner {
     display: flex;
@@ -196,12 +218,13 @@ const overlayColumns = [
   }
 
   .nav-logo img {
-    height: 24px;
+    height: 28px;
     width: auto;
     transition: filter 0.3s ease;
   }
 
-  .is-main:not(.scrolled) .nav-logo img {
+  .is-main:not(.scrolled) .nav-logo img,
+  .nav-wrap.nav-dark .nav-logo img {
     filter: brightness(0) invert(1);
   }
 
@@ -293,14 +316,41 @@ const overlayColumns = [
     font-weight: 600;
     padding: 0.5rem 1.25rem;
     border-radius: 50px;
-    background: var(--color-primary);
     color: #fff;
-    transition: background-color 0.2s ease, transform 0.15s ease;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0060B7 0%, #007BFF 25%, #3b9eff 50%, #007BFF 75%, #0060B7 100%);
+    background-size: 300% 100%;
+    animation: metallic-shift 4s ease infinite;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), inset 0 -1px 0 rgba(0,0,0,0.15), 0 2px 8px rgba(0,123,255,0.3);
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+  }
+
+  .inquiry-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: metallic-shine 3s ease-in-out infinite;
   }
 
   .inquiry-btn:hover {
-    background: var(--color-primary-dark);
     transform: translateY(-1px);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), inset 0 -1px 0 rgba(0,0,0,0.15), 0 4px 16px rgba(0,123,255,0.4);
+  }
+
+  @keyframes metallic-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes metallic-shine {
+    0%, 100% { left: -100%; }
+    50% { left: 150%; }
   }
 
   /* Hamburger */

@@ -24,7 +24,7 @@ const {
   ogImage = '/images/oglogo.jpg',
   canonicalUrl,
   hideFixedButtons = false,
-  hidePdfButton = false,
+  hidePdfButton = true,
   jsonLd,
   noindex = false,
 } = Astro.props;
@@ -113,6 +113,108 @@ const canonical = canonicalUrl || new URL(Astro.url.pathname, siteUrl).href;
     )}
 
     <slot name="head" />
+
+    <!-- Custom scrollbar: no native bar, custom overlay with hover track -->
+    <script is:inline>
+      (function(){
+        // Hide native scrollbar
+        var hide = document.createElement('style');
+        var ff = navigator.userAgent.indexOf('Firefox') > -1;
+        hide.textContent = ff
+          ? 'html{scrollbar-width:none}'
+          : '::-webkit-scrollbar{width:0;height:0;display:none}';
+        document.head.appendChild(hide);
+
+        // Create track + thumb
+        var track = document.createElement('div');
+        var thumb = document.createElement('div');
+        track.id = 'cbar-track';
+        thumb.id = 'cbar-thumb';
+
+        track.style.cssText = 'position:fixed;top:0;right:0;width:8px;height:100vh;z-index:9999;'
+          + 'opacity:0;transition:opacity .3s;cursor:pointer;';
+        thumb.style.cssText = 'position:absolute;right:0;width:3px;border-radius:0;'
+          + 'transition:width .2s,opacity .3s,background .3s;pointer-events:none;';
+
+        track.appendChild(thumb);
+        document.body.appendChild(track);
+
+        // Brightness probe
+        function probeDark(y) {
+          var el = document.elementFromPoint(window.innerWidth - 20, y);
+          if (!el) return false;
+          var node = el;
+          while (node && node !== document.documentElement) {
+            var bg = getComputedStyle(node).backgroundColor;
+            if (bg && bg !== 'rgba(0, 0, 0, 0)' && bg !== 'transparent') {
+              var m = bg.match(/\d+/g);
+              if (m) return ((parseInt(m[0])*299+parseInt(m[1])*587+parseInt(m[2])*114)/1000) < 80;
+              break;
+            }
+            node = node.parentElement;
+          }
+          return false;
+        }
+
+        function update() {
+          var doc = document.documentElement;
+          var scrollH = doc.scrollHeight - doc.clientHeight;
+          if (scrollH <= 0) return;
+          var ratio = doc.clientHeight / doc.scrollHeight;
+          var thumbH = Math.max(ratio * doc.clientHeight, 30);
+          var top = (window.scrollY / scrollH) * (doc.clientHeight - thumbH);
+          var dark = probeDark(top + thumbH / 2);
+
+          thumb.style.height = thumbH + 'px';
+          thumb.style.top = top + 'px';
+          thumb.style.background = dark ? 'rgba(255,255,255,0.45)' : 'rgba(0,0,0,0.25)';
+
+          // Track bg matches section = invisible
+          track.style.background = 'transparent';
+        }
+
+        // Show on scroll
+        var fadeTimer;
+        function showBar() {
+          update();
+          track.style.opacity = '1';
+          clearTimeout(fadeTimer);
+          fadeTimer = setTimeout(function(){ track.style.opacity = '0'; }, 1200);
+        }
+
+        // Hover: show track bg matching section color + widen thumb
+        track.addEventListener('mouseenter', function() {
+          clearTimeout(fadeTimer);
+          track.style.opacity = '1';
+          thumb.style.width = '5px';
+          // Sample section bg for track
+          var doc = document.documentElement;
+          var scrollH = doc.scrollHeight - doc.clientHeight;
+          if (scrollH <= 0) return;
+          var ratio = doc.clientHeight / doc.scrollHeight;
+          var thumbH = Math.max(ratio * doc.clientHeight, 30);
+          var top = (window.scrollY / scrollH) * (doc.clientHeight - thumbH);
+          var dark = probeDark(top + thumbH / 2);
+          track.style.background = dark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)';
+        });
+        track.addEventListener('mouseleave', function() {
+          thumb.style.width = '3px';
+          track.style.background = 'transparent';
+          fadeTimer = setTimeout(function(){ track.style.opacity = '0'; }, 800);
+        });
+
+        // Click track to jump
+        track.addEventListener('click', function(e) {
+          var doc = document.documentElement;
+          var scrollH = doc.scrollHeight - doc.clientHeight;
+          var clickRatio = e.clientY / window.innerHeight;
+          window.scrollTo({ top: clickRatio * scrollH, behavior: 'smooth' });
+        });
+
+        window.addEventListener('scroll', showBar, { passive: true });
+        window.addEventListener('resize', update, { passive: true });
+      })();
+    </script>
   </head>
   <body>
     <Navigation />
