@@ -1,37 +1,37 @@
----
-import BaseLayout from './BaseLayout.astro';
-import HorizontalNav from '../components/common/HorizontalNav.astro';
-
-interface Props {
-  title: string;
-  pageTitle: string;
-  pageTitleEn?: string;
-  description?: string;
-  keywords?: string;
-  navLinks?: { name: string; url: string }[];
-  jsonLd?: Record<string, unknown>;
-}
-
-const {
-  title,
-  pageTitle,
-  pageTitleEn,
-  description,
-  keywords,
-  navLinks,
-  jsonLd,
-} = Astro.props;
----
-
-<BaseLayout title={title} description={description} keywords={keywords} jsonLd={jsonLd}>
-  <main class="sub-page-content">
-    {navLinks && <HorizontalNav links={navLinks} />}
-    <slot />
-  </main>
-</BaseLayout>
-
-<style>
-  .sub-page-content {
-    padding-top: 56px;
-  }
-</style>
+---
+import BaseLayout from './BaseLayout.astro';
+import HorizontalNav from '../components/common/HorizontalNav.astro';
+
+interface Props {
+  title: string;
+  pageTitle: string;
+  pageTitleEn?: string;
+  description?: string;
+  keywords?: string;
+  navLinks?: { name: string; url: string }[];
+  jsonLd?: Record<string, unknown>;
+}
+
+const {
+  title,
+  pageTitle,
+  pageTitleEn,
+  description,
+  keywords,
+  navLinks,
+  jsonLd,
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={description} keywords={keywords} jsonLd={jsonLd}>
+  <main class="sub-page-content">
+    {navLinks && <HorizontalNav links={navLinks} />}
+    <slot />
+  </main>
+</BaseLayout>
+
+<style>
+  .sub-page-content {
+    padding-top: 56px;
+  }
+</style>

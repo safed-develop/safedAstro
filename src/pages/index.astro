@@ -31,8 +31,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
     slides={[
       {
         image: '/images/mainslide01.jpg',
-        featureImage: '/images/icon_01.png',
-        tag: '#1 Smart Safety Platform',
+        featureImage: '/images/mainslide_01_f.png',
         title: '사고를 기다리시겠습니까?\n지금 바로 예방하십시오.',
         subtitle: '매년 건설현장 사망사고 400건 이상. SafeD는 위험성평가·GPS·비콘·AI 번역을 하나로 통합하여, 사고가 발생하기 전에 차단합니다.',
         highlights: ['사고 예방률 99.2%', '업무 시간 80% 절감', '150+ 현장 검증'],
@@ -40,9 +39,8 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
         linkText: '지금 기능 확인하기',
       },
       {
-        image: '/images/mainslide03_2026.png',
-        featureImage: '/images/mainslide03_2026.png',
-        tag: '국내 150+ 현장이 선택',
+        image: '/images/mainslide_02_2026.jpg',
+        featureImage: '/images/cap01.png',
         title: '대한민국 1위 건설사들이\n이미 도입했습니다.',
         subtitle: '스마트건설대상 수상, 특허 2건 보유. 150개 이상의 건설현장에서 검증된 유일한 올인원 안전관리 플랫폼.',
         highlights: ['스마트건설대상 수상', '특허 2건', '국내 유일 올인원'],
@@ -50,9 +48,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
         linkText: '도입 사례 보기',
       },
       {
-        image: '/images/mainslide03_2026.png',
-        featureImage: '/images/icon_01.png',
-        tag: '경영책임자 징역 1년 이상',
+        image: '/images/mainslide_03_2026.jpg',
         title: '중대재해처벌법,\n아직도 서류로 대응하십니까?',
         subtitle: '경영책임자 1년 이상 징역, 법인 10억 벌금. SafeD는 4대 의무사항을 시스템으로 100% 매핑하고, 근거자료를 자동 생성합니다.',
         highlights: ['4대 의무 100% 매핑', '근거자료 자동생성', '리스크 완벽 차단'],
@@ -63,7 +59,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
   />
 
   <!-- Pin Scroll Marketing Section -->
-  <section class="py-20 lg:py-28 bg-white">
+  <section class="py-6 md:py-10 lg:py-28 bg-white">
     <PinScrollSection
       client:visible
       items={[
@@ -92,7 +88,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
           desc: '중대재해처벌법 4대 의무사항을 SafeD가 100% 시스템으로 매핑합니다. 안전보건관리체계 구축부터 의무이행 근거자료 자동생성까지. 법적 리스크를 완벽 차단합니다.',
           stat: '100%',
           statLabel: '법적 의무 완벽 대응',
-          image: '/images/main_img_02.png',
+          image: '/images/feature05.jpg',
         },
         {
           tag: 'Cost Savings',
@@ -101,7 +97,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
           desc: '탐색 60분→10분, 발굴 120분→20분, 기록 60분→10분. 하루 240분의 업무가 40분으로. 현장당 월 120만원, 연간 1,440만원 절감. 투자 대비 ROI가 압도적입니다.',
           stat: '1,440만원',
           statLabel: '연간 절감 (현장당)',
-          image: '/images/main_img_02.png',
+          image: '/images/main03.png',
         },
         {
           tag: 'Multilingual',
@@ -110,21 +106,21 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
           desc: '베트남·중국·태국·미얀마 등 19개국어를 Google AI가 실시간 번역합니다. 위험성평가·TBM·안전교육을 모국어로 확인하고 음성으로 듣습니다. 소통 단절이 곧 사고입니다.',
           stat: '19개국어',
           statLabel: '실시간 자동번역',
-          image: '/images/main_img_02.png',
+          image: '/images/main_img_03.png',
         },
       ]}
     />
   </section>
 
   <!-- Numbers Section -->
-  <section class="pr-aurora py-24 text-white overflow-hidden relative">
+  <section class="pr-aurora py-10 md:py-14 text-white overflow-hidden relative">
 
     <div class="w-container relative z-10">
-      <div class="text-center mb-16">
-        <p class="eng font-semibold text-sm tracking-widest uppercase mb-4 text-primary reveal">Proven Results</p>
-        <h2 class="sub-headline reveal delay-100">말이 아니라,<br />숫자가 증명합니다.</h2>
+      <div class="text-center mb-6 md:mb-10">
+        <p class="eng font-semibold text-xs md:text-sm tracking-widest uppercase mb-2 md:mb-4 text-primary reveal">Proven Results</p>
+        <h2 class="sub-headline text-lg md:text-2xl lg:text-3xl reveal delay-100">말이 아니라,<br />숫자가 증명합니다.</h2>
       </div>
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 lg:gap-12">
         {[
           { num: '150+', label: '도입 현장', sub: '전국',
             icon: 'M3 21h18M5 21V7l8-4 8 4v14M9 21v-6h6v6M9 9h.01M15 9h.01M9 13h.01M15 13h.01' },
@@ -136,14 +132,14 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
             icon: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M9 15l2 2 4-4' },
         ].map((item, i) => (
           <div class={`text-center reveal delay-${(i + 1) * 100}`}>
-            <div class="flex justify-center mb-4">
-              <svg class="stat-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <div class="flex justify-center mb-2 md:mb-4">
+              <svg class="stat-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <path class="stat-icon-path" d={item.icon} />
               </svg>
             </div>
-            <p class="eng text-4xl lg:text-5xl font-extrabold text-gradient-blue counter-num mb-2">{item.num}</p>
-            <p class="font-semibold text-white/90 mb-1">{item.label}</p>
-            <p class="text-sm text-white/40">{item.sub}</p>
+            <p class="eng text-2xl md:text-4xl lg:text-5xl font-extrabold text-gradient-blue counter-num mb-1 md:mb-2">{item.num}</p>
+            <p class="font-semibold text-white/90 mb-0.5 md:mb-1 text-xs md:text-base">{item.label}</p>
+            <p class="text-[10px] md:text-sm text-white/40">{item.sub}</p>
           </div>
         ))}
       </div>
@@ -151,46 +147,48 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
   </section>
 
   <!-- Why SafeD - Problem/Solution -->
-  <section class="py-28 bg-white">
+  <section class="py-10 md:py-14 bg-white">
     <div class="w-container max-w-5xl">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div class="reveal">
-          <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">Why SafeD?</p>
-          <h2 class="sub-headline mb-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12 items-center">
+        <!-- Image: mobile first (order-first), desktop second (md:order-last) -->
+        <div class="reveal-right delay-200 order-first md:order-last">
+          <div class="relative">
+            <img src="/images/main03.png" alt="SafeD 대시보드" class="rounded-2xl shadow-2xl glow w-full" />
+            <div class="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-primary text-white rounded-2xl px-4 py-2 md:px-6 md:py-4 shadow-lg">
+              <p class="eng font-bold text-lg md:text-2xl">70%</p>
+              <p class="text-[10px] md:text-xs opacity-80">업무 효율 향상</p>
+            </div>
+          </div>
+        </div>
+        <!-- Text: mobile second, desktop first -->
+        <div class="reveal order-last md:order-first">
+          <p class="text-primary eng font-semibold text-xs md:text-sm tracking-widest uppercase mb-3 md:mb-4">Why SafeD?</p>
+          <h2 class="sub-headline mb-4 md:mb-6 text-lg md:text-2xl lg:text-3xl">
             같은 사고가 반복되는 이유?<br />
             <span class="text-primary">관리 방식이 잘못됐습니다.</span>
           </h2>
-          <p class="text-gray-500 leading-relaxed mb-4">
+          <p class="text-gray-500 leading-relaxed mb-3 md:mb-4 text-xs md:text-base">
             엑셀 위험성평가, 서류 더미에 묻힌 안전 데이터, 실시간 현황 파악 불가.
             <strong class="text-gray-700">이것이 매년 400명이 사망하는 현실의 원인입니다.</strong>
           </p>
-          <p class="text-gray-500 leading-relaxed mb-8">
+          <p class="text-gray-500 leading-relaxed mb-3 md:mb-4 text-xs md:text-base">
             SafeD는 모바일·GPS·비콘·AI 번역을 하나로 통합하여
             현장에서 <strong class="text-gray-700">즉시 작동하는</strong> 안전관리 체계를 구축합니다.
           </p>
-          <div class="space-y-4">
+          <div class="space-y-1.5 md:space-y-2">
             {[
               '위험성평가 작성 시간 70% 단축',
               '현장-본사 간 실시간 안전 데이터 공유',
               '다국적 근로자 언어 장벽 해소',
               '중대재해처벌법 의무이행 완벽 대응',
             ].map((text) => (
-              <div class="flex items-center gap-3">
-                <div class="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              <div class="flex items-center gap-2 md:gap-3">
+                <div class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
                 </div>
-                <span class="text-gray-700 text-sm font-medium">{text}</span>
+                <span class="text-gray-700 text-xs md:text-sm font-medium">{text}</span>
               </div>
             ))}
-          </div>
-        </div>
-        <div class="reveal-right delay-200">
-          <div class="relative">
-            <img src="/images/mainslide03_2026.png" alt="SafeD 대시보드" class="rounded-2xl shadow-2xl glow" />
-            <div class="absolute -bottom-6 -left-6 bg-primary text-white rounded-2xl px-6 py-4 shadow-lg">
-              <p class="eng font-bold text-2xl">70%</p>
-              <p class="text-xs opacity-80">업무 효율 향상</p>
-            </div>
           </div>
         </div>
       </div>
@@ -207,11 +205,11 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
       <!-- Content layer: heading + grid -->
       <div class="cf-content w-container">
         <div class="cf-heading">
-          <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4">Core Features</p>
-          <h2 class="text-3xl lg:text-4xl font-bold mb-6 tracking-tight">
+          <p class="text-primary eng font-semibold text-[10px] md:text-xs tracking-widest uppercase mb-1 md:mb-2">Core Features</p>
+          <h2 class="text-lg md:text-2xl lg:text-4xl font-bold mb-2 md:mb-3 tracking-tight">
             하나의 플랫폼에서<br />안전관리의 <span class="text-gradient-blue">모든 것</span>을.
           </h2>
-          <p class="text-gray-500 mb-12">6가지 핵심 기능으로 현장 안전을 완벽하게 커버합니다.</p>
+          <p class="text-gray-500 text-[10px] md:text-sm mb-4 md:mb-6 lg:mb-10">6가지 핵심 기능으로 현장 안전을 완벽하게 커버합니다.</p>
         </div>
         <div class="cf-grid">
           {[
@@ -245,59 +243,57 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
         </a>
       </div>
 
-      <!-- Safety System Mapping Panel (scroll-linked) -->
+      <!-- Safety System Mapping Panel (scroll-linked, Toss Style) -->
       <div class="ss-panel">
-        <div class="w-container max-w-5xl">
-          <div class="ss-header text-center mb-8">
-            <p class="eng font-semibold text-sm tracking-widest uppercase mb-3" style="color: #60a5fa">Safety System</p>
-            <h3 class="text-2xl lg:text-3xl font-bold text-white tracking-tight mb-2">안전보건관리체계를 <span class="text-gradient-blue">SafeD로 구축합니다</span></h3>
-            <p class="text-sm" style="color: rgba(255,255,255,0.4)">중대재해처벌법 제4조의 의무사항을 SafeD 기능으로 완벽 매핑</p>
+        <div class="w-container max-w-4xl">
+          <div class="ss-header text-center mb-6 lg:mb-10">
+            <p class="eng font-semibold text-xs tracking-widest uppercase mb-3" style="color: #3182F6">Safety System</p>
+            <h3 class="text-2xl lg:text-[36px] font-extrabold tracking-tight leading-[1.2] mb-3" style="color: #191F28">안전보건관리체계를<br/>SafeD로 구축합니다</h3>
+            <p class="text-sm" style="color: #8B95A1">중대재해처벌법 제4조의 의무사항을 SafeD 기능으로 완벽 매핑</p>
           </div>
           <div class="ss-rows">
             {[
-              { duty: '안전보건관리체계 구축·이행', clause: '제4조 제1항 제1호', title: '위험성평가 시스템', desc: '위험성평가, 점검활동, DB 시스템 구축', color: '#3B82F6', icon: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z' },
-              { duty: '재발방지 대책 수립·이행', clause: '제4조 제1항 제2호', title: '사고 분석 엔진', desc: '사고사례 DB, 현장 안전 데이터 분석', color: '#8B5CF6', icon: 'M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15' },
+              { duty: '안전보건관리체계 구축·이행', clause: '제4조 제1항 제1호', title: '위험성평가 시스템', desc: '위험성평가, 점검활동, DB 시스템 구축', color: '#3182F6', icon: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z' },
+              { duty: '재발방지 대책 수립·이행', clause: '제4조 제1항 제2호', title: '사고 분석 엔진', desc: '사고사례 DB, 현장 안전 데이터 분석', color: '#6366F1', icon: 'M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15' },
               { duty: '개선·시정 명령 이행', clause: '제4조 제1항 제3호', title: '실시간 모니터링', desc: '실시간 모니터링, 자동 알림·조치 추적', color: '#10B981', icon: 'M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11' },
               { duty: '의무이행 관리 조치', clause: '제4조 제1항 제4호', title: '자동 보고 시스템', desc: '대시보드, 보고서 자동 생성, 근거자료 보관', color: '#F59E0B', icon: 'M18 20V10M12 20V4M6 20v-6' },
             ].map((item) => (
               <div class="ss-row" style={`--row-color: ${item.color}`}>
                 <div class="ss-left">
-                  <span class="ss-left-dot"></span>
-                  <span class="ss-badge-duty">법적 의무</span>
-                  <p class="ss-duty-text">{item.duty}</p>
                   <p class="ss-clause">{item.clause}</p>
+                  <p class="ss-duty-text">{item.duty}</p>
                 </div>
                 <div class="ss-conn">
-                  <svg class="ss-svg-desktop" viewBox="0 0 120 60" fill="none">
-                    <path class="ss-path-base" d="M0,30 C40,10 80,50 120,30" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/>
-                    <path class="ss-path-active" d="M0,30 C40,10 80,50 120,30" stroke={item.color} stroke-width="2" fill="none"/>
-                    <circle class="ss-dot" r="5" cx="0" cy="30" fill={item.color} style={`filter: drop-shadow(0 0 6px ${item.color})`}/>
+                  <svg class="ss-svg-desktop" viewBox="0 0 80 40" fill="none">
+                    <path class="ss-path-base" d="M0,20 L80,20" stroke="#E5E8EB" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/>
+                    <path class="ss-path-active" d="M0,20 L80,20" stroke={item.color} stroke-width="2" fill="none"/>
+                    <circle class="ss-dot" r="4" cx="0" cy="20" fill={item.color}/>
                     <g class="ss-check">
-                      <circle cx="60" cy="30" r="10" fill={item.color} opacity="0.25"/>
-                      <path d="M56.5,30.5 L59,33 L63.5,27.5" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                      <circle cx="40" cy="20" r="12" fill={item.color}/>
+                      <path d="M34,20.5 L38,24.5 L46,16.5" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                     </g>
                   </svg>
                   <div class="ss-conn-mobile">
-                    <div class="ss-vline"></div>
                     <div class="ss-check-mobile" style={`background: ${item.color}`}>
                       <svg viewBox="0 0 24 24" fill="none" width="14" height="14"><path d="M5 12l5 5L20 7" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </div>
                   </div>
                 </div>
                 <div class="ss-right">
-                  <div class="ss-solution-header">
-                    <span class="ss-badge-solution">SafeD 솔루션</span>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={item.color} stroke-width="1.5"><path d={item.icon}/></svg>
+                  <div class="ss-icon-wrap" style={`background: ${item.color}`}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d={item.icon}/></svg>
                   </div>
-                  <p class="ss-solution-title">{item.title}</p>
-                  <p class="ss-solution-desc">{item.desc}</p>
+                  <div>
+                    <p class="ss-solution-title">{item.title}</p>
+                    <p class="ss-solution-desc">{item.desc}</p>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
-          <div class="ss-complete">
+          <div class="ss-complete text-center">
             <div class="ss-complete-inner">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
               <span>4/4 법적 의무 완벽 매핑</span>
             </div>
             <p class="ss-complete-sub">중대재해처벌법 대응, SafeD 하나로 완성됩니다</p>
@@ -308,11 +304,11 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
   </section>
 
   <!-- Section 4: Voices from the Field - Editorial Quote -->
-  <section class="py-28 bg-white relative">
+  <section class="py-10 md:py-14 bg-white relative">
     <div class="w-container max-w-4xl">
       <div class="text-center reveal">
-        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-6">Voices from the Field</p>
-        <svg class="mx-auto mb-6 text-primary/15" width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+        <p class="text-primary eng font-semibold text-xs md:text-sm tracking-widest uppercase mb-3 md:mb-6">Voices from the Field</p>
+        <svg class="mx-auto mb-3 md:mb-6 text-primary/15" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
       </div>
       <div class="reveal delay-100">
         <TestimonialCarousel
@@ -332,21 +328,21 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
   </section>
 
   <!-- Get Started - Split Showcase -->
-  <section class="py-14 lg:py-16 bg-gray-950 text-white relative overflow-hidden">
+  <section class="py-10 md:py-14 lg:py-16 bg-gray-950 text-white relative overflow-hidden">
     <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.5) 1px, transparent 0); background-size: 32px 32px;" aria-hidden="true"></div>
     <div class="w-container relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="grid grid-cols-2 gap-6 lg:gap-12 items-center">
         <!-- Left: Big Typography + CTAs -->
         <div class="reveal">
-          <p class="eng font-semibold text-sm tracking-widest uppercase mb-4 text-primary">Get Started</p>
-          <h2 class="text-3xl lg:text-5xl font-extrabold tracking-tight leading-[1.1] mb-6">
+          <p class="eng font-semibold text-xs md:text-sm tracking-widest uppercase mb-2 md:mb-4 text-primary">Get Started</p>
+          <h2 class="text-lg md:text-3xl lg:text-5xl font-extrabold tracking-tight leading-[1.1] mb-3 md:mb-6">
             지금 바로<br />
             <span class="text-gradient-blue">시작하세요.</span>
           </h2>
-          <p class="text-white/50 leading-relaxed mb-10 max-w-md">
+          <p class="text-white/50 leading-relaxed mb-4 md:mb-10 max-w-md text-xs md:text-base">
             PC, 모바일 어디서든 접속 가능합니다.<br />무료 상담으로 현장에 맞는 구축 플랜을 받아보세요.
           </p>
-          <div class="flex flex-col sm:flex-row gap-3">
+          <div class="flex flex-row gap-3 flex-wrap">
             <a href="https://safed.co.kr/login" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-6 py-4 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-colors group">
               <div class="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
@@ -385,7 +381,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
           </div>
         </div>
       <!-- Industries inline -->
-      <div class="lg:col-span-2 mt-10 pt-8 border-t border-white/5 reveal delay-300">
+      <div class="col-span-2 mt-10 pt-8 border-t border-white/5 reveal delay-300">
         <p class="text-white/25 text-xs font-medium mb-6 text-center eng tracking-widest uppercase">Industries</p>
         <div class="grid grid-cols-5 max-w-lg mx-auto">
           {[
@@ -406,7 +402,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
   </section>
 
   <!-- Trusted & Certified - Horizontal Credential Strip -->
-  <section class="py-10 bg-white border-y border-gray-100 overflow-hidden">
+  <section class="py-6 md:py-10 bg-white border-y border-gray-100 overflow-hidden">
     <div class="w-container">
       <div class="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4">
         <p class="eng text-gray-300 text-xs tracking-widest uppercase font-semibold flex-shrink-0 reveal">Trusted & Certified</p>
@@ -446,28 +442,28 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
   </section>
 
   <!-- Section: How It Works -->
-  <section class="py-28 bg-gray-50">
+  <section class="py-10 md:py-14 bg-gray-50">
     <div class="w-container max-w-5xl">
-      <div class="text-center mb-16">
-        <p class="text-primary eng font-semibold text-sm tracking-widest uppercase mb-4 reveal">How It Works</p>
-        <h2 class="sub-headline reveal delay-100">결심만 하시면,<br />나머지는 저희가 합니다.</h2>
-        <p class="text-gray-500 mt-4 reveal delay-200">상담부터 구축까지 최소 2주. 현장 맞춤 세팅을 원스톱으로 지원합니다.</p>
+      <div class="text-center mb-6 md:mb-10">
+        <p class="text-primary eng font-semibold text-xs md:text-sm tracking-widest uppercase mb-2 md:mb-4 reveal">How It Works</p>
+        <h2 class="sub-headline text-lg md:text-2xl lg:text-3xl reveal delay-100">결심만 하시면,<br />나머지는 저희가 합니다.</h2>
+        <p class="text-gray-500 mt-2 md:mt-4 text-xs md:text-base reveal delay-200">상담부터 구축까지 최소 2주. 현장 맞춤 세팅을 원스톱으로 지원합니다.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-8">
         {[
           { step: '01', title: '상담 & 컨설팅', desc: '현장 규모와 업종에 맞는 맞춤 안전관리 전략을 설계합니다. 무료 상담으로 시작하세요.', iconPath: 'M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z', iconColor: '#3b82f6' },
           { step: '02', title: '시스템 구축', desc: '2~4주 내 SafeD 플랫폼을 현장에 세팅합니다. 교육부터 데이터 이관까지 원스톱 지원.', iconPath: 'M12 6V2H8M6 18H2v-4M18 6h4v4M18 18v4h-4M15 9.4a4 4 0 1 0-5.96 5.18L12 18l2.96-3.42A4 4 0 0 0 15 9.4z', iconColor: '#8b5cf6' },
           { step: '03', title: '운영 & 개선', desc: '실시간 대시보드로 안전 현황을 모니터링하고, 전담팀이 지속적으로 개선을 지원합니다.', iconPath: 'M18 20V10M12 20V4M6 20v-6', iconColor: '#16a34a' },
         ].map((item, i) => (
-          <div class={`relative bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-shadow reveal delay-${(i + 1) * 100}`}>
-            <div class="flex items-center justify-between mb-6">
-              <div class="w-14 h-14 rounded-2xl flex items-center justify-center" style={`background: ${item.iconColor}10`}>
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={item.iconColor} stroke-width="1.5"><path d={item.iconPath}/></svg>
+          <div class={`relative bg-white p-3 md:p-5 border border-[#E0E0E0] transition-shadow reveal delay-${(i + 1) * 100}`}>
+            <div class="flex items-center justify-between mb-2 md:mb-4">
+              <div class="w-7 h-7 md:w-10 md:h-10 flex items-center justify-center" style={`background: ${item.iconColor}10`}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={item.iconColor} stroke-width="1.5"><path d={item.iconPath}/></svg>
               </div>
-              <span class="eng text-6xl font-extrabold text-gray-100">{item.step}</span>
+              <span class="eng text-2xl md:text-6xl font-extrabold text-gray-100">{item.step}</span>
             </div>
-            <h3 class="text-xl font-bold mb-3 tracking-tight">{item.title}</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+            <h3 class="text-sm md:text-xl font-bold mb-1 md:mb-3 tracking-tight">{item.title}</h3>
+            <p class="text-gray-500 text-[10px] md:text-sm leading-relaxed">{item.desc}</p>
             {i < 2 && (
               <div class="hidden md:block absolute top-1/2 -right-5 transform -translate-y-1/2 z-10">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ddd" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -476,7 +472,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
           </div>
         ))}
       </div>
-      <div class="text-center mt-12 reveal delay-400">
+      <div class="hidden md:block text-center mt-12 reveal delay-400">
         <a href="/inquiries" class="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 text-white rounded-full font-semibold hover:bg-gray-800 transition-colors">
           무료 상담 시작하기
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -485,19 +481,25 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
     </div>
   </section>
 
-  <!-- Section: Marquee -->
-  <section class="py-8 bg-white overflow-hidden border-y border-gray-100">
-    <div class="marquee-track">
+  <!-- Section: Marquee + CTA -->
+  <section class="py-2 md:py-6 bg-white overflow-hidden border-y border-gray-100">
+    <div class="marquee-track mb-2 md:mb-0">
       {Array.from({ length: 16 }).map(() => (
-        <span class="eng text-5xl font-extrabold text-gray-100 mx-6 whitespace-nowrap select-none">
+        <span class="eng text-2xl md:text-5xl font-extrabold text-gray-100 mx-3 md:mx-6 whitespace-nowrap select-none">
           Contech Future Leader ·
         </span>
       ))}
     </div>
+    <div class="md:hidden flex justify-center">
+      <a href="/inquiries" class="inline-flex items-center gap-1.5 px-4 py-1.5 border border-gray-200 text-gray-800 text-[11px] font-semibold tracking-tight">
+        무료 상담 시작하기
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
   </section>
 
   <!-- CTA: SafeD와 함께 시작하세요 -->
-  <section class="relative py-28 overflow-hidden">
+  <section class="relative py-10 md:py-14 overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-primary to-blue-800"></div>
     <div class="absolute inset-0 opacity-10" style="background-image: url('/images/feature02.jpg'); background-size: cover; background-position: center;"></div>
     <div class="absolute top-10 right-10 w-64 h-64 border border-white/10 rounded-full"></div>
@@ -507,8 +509,8 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
         <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-white/10 flex items-center justify-center reveal">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.11 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         </div>
-        <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4 tracking-tight reveal delay-100">SafeD와 함께 시작하세요</h2>
-        <p class="text-white/70 mb-8 reveal delay-200">무료 상담을 통해 현장에 맞는 안전관리 솔루션을 제안받으세요.</p>
+        <h2 class="text-lg md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4 tracking-tight reveal delay-100">무료 상담 한 번으로,<br class="md:hidden" /> 현장이 달라집니다.</h2>
+        <p class="text-white/70 mb-4 md:mb-8 text-xs md:text-base reveal delay-200">SafeD 전문 컨설턴트가 현장 맞춤 구축 플랜을 설계해드립니다.</p>
         <div class="flex items-center justify-center gap-4 flex-wrap reveal delay-300">
           <a href="/inquiries" class="cta-metallic-btn">
             도입문의
@@ -644,7 +646,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2rem 1.5rem;
+    padding: 1rem 1rem;
     position: relative;
     z-index: 1;
   }
@@ -812,54 +814,105 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
   @media (max-width: 1023px) {
     .cf-grid {
       grid-template-columns: repeat(2, 1fr);
+      gap: 0.35rem;
     }
 
     .cf-section {
       min-height: 500vh;
     }
 
+    .cf-card {
+      min-height: 130px;
+    }
+
+    .cf-card-icon {
+      width: 100px;
+      height: 100px;
+    }
+
+    .cf-card-label {
+      padding: 0.3rem 0.6rem 0.2rem;
+    }
+
+    .cf-card-title {
+      font-size: 0.8rem;
+    }
+
+    .cf-card-desc {
+      font-size: 10px;
+    }
+
     .cf-glow-center {
       width: 400px;
       height: 400px;
     }
+
+    .cf-cta-sub {
+      font-size: 0.95rem;
+    }
   }
 
   @media (max-width: 640px) {
+    .cf-section {
+      min-height: 450vh;
+    }
+
     .cf-grid {
       grid-template-columns: repeat(2, 1fr);
       gap: 0.25rem;
     }
 
     .cf-card {
-      min-height: 150px;
+      min-height: 120px;
     }
 
     .cf-card-icon {
-      width: 100px;
-      height: 100px;
-      filter: drop-shadow(0 12px 16px rgba(0,0,0,0.15)) drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+      width: 80px;
+      height: 80px;
+      filter: drop-shadow(0 8px 12px rgba(0,0,0,0.15)) drop-shadow(0 4px 6px rgba(0,0,0,0.1));
     }
 
     .cf-card-label {
-      padding: 0.3rem 0.6rem;
-      border-radius: 8px;
+      padding: 0.25rem 0.5rem 0.15rem;
+      border-left-width: 2px;
     }
 
     .cf-card-title {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
     }
 
     .cf-card-desc {
-      font-size: 0.55rem;
+      font-size: 10px;
     }
 
     .cf-cta-block {
       width: 90%;
     }
 
+    .cf-cta-badge {
+      padding: 0.3rem 0.8rem;
+      font-size: 10px;
+      margin-bottom: 0.75rem;
+    }
+
+    .cf-cta-title {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .cf-cta-sub {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    .cf-cta-btn {
+      padding: 0.7rem 1.5rem;
+      font-size: 0.8rem;
+    }
+
     .cf-glow-center {
-      width: 300px;
-      height: 300px;
+      width: 250px;
+      height: 250px;
     }
   }
 
@@ -907,7 +960,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
     }
   }
 
-  /* ===== Safety System Panel (inside CF sticky) ===== */
+  /* ===== Safety System Panel — Toss Style ===== */
   .ss-panel {
     position: absolute;
     inset: 0;
@@ -918,139 +971,85 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
     opacity: 0;
     pointer-events: none;
     will-change: opacity;
+    background: #FFFFFF;
   }
 
-  .ss-header {
-    will-change: opacity, transform;
-  }
+  .ss-header { will-change: opacity, transform; }
 
   .ss-rows {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 12px;
   }
 
   .ss-row {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     gap: 0;
   }
 
-  .ss-left,
+  .ss-left {
+    flex: 1;
+    background: #F2F4F6;
+    border-radius: 16px;
+    padding: 20px 24px;
+    will-change: opacity, transform;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   .ss-right {
     flex: 1;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 0.75rem;
-    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #FFFFFF;
+    border: 1px solid #E5E8EB;
+    border-radius: 16px;
+    padding: 20px 24px;
     will-change: opacity, transform;
   }
 
-  .ss-left {
-    position: relative;
-  }
-
-  .ss-left-dot {
-    position: absolute;
-    top: 1.25rem;
-    right: 1.25rem;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--row-color);
-    box-shadow: 0 0 8px var(--row-color);
-    opacity: 0;
-  }
-
-  .ss-left-dot::before,
-  .ss-left-dot::after {
-    content: '';
-    position: absolute;
-    inset: -4px;
-    border-radius: 50%;
-    border: 1.5px solid var(--row-color);
-    opacity: 0;
-  }
-
-  .ss-left.visible .ss-left-dot {
-    opacity: 1;
-    animation: dot-breathe 2s ease-in-out infinite;
-  }
-
-  .ss-left.visible .ss-left-dot::before {
-    animation: dot-ring 2s ease-out infinite;
-  }
-
-  .ss-left.visible .ss-left-dot::after {
-    animation: dot-ring 2s ease-out 0.6s infinite;
-  }
-
-  @keyframes dot-breathe {
-    0%, 100% { box-shadow: 0 0 6px var(--row-color); transform: scale(1); }
-    50% { box-shadow: 0 0 14px var(--row-color), 0 0 28px color-mix(in srgb, var(--row-color) 40%, transparent); transform: scale(1.15); }
-  }
-
-  @keyframes dot-ring {
-    0% { transform: scale(0.8); opacity: 0.7; }
-    70% { transform: scale(2.2); opacity: 0; }
-    100% { transform: scale(2.2); opacity: 0; }
-  }
-
-  .ss-badge-duty {
-    display: inline-block;
-    padding: 0.2rem 0.6rem;
-    background: rgba(239,68,68,0.15);
-    color: #f87171;
-    font-size: 0.7rem;
-    font-weight: 600;
-    border-radius: 4px;
-    margin-bottom: 0.5rem;
+  .ss-clause {
+    color: #8B95A1;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 4px;
   }
 
   .ss-duty-text {
-    color: white;
-    font-weight: 600;
-    font-size: 0.95rem;
-    margin-bottom: 0.25rem;
+    color: #191F28;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1.4;
   }
 
-  .ss-clause {
-    color: rgb(100,116,139);
-    font-size: 0.75rem;
-  }
-
-  .ss-badge-solution {
-    display: inline-block;
-    padding: 0.2rem 0.6rem;
-    background: rgba(16,185,129,0.15);
-    color: #34d399;
-    font-size: 0.7rem;
-    font-weight: 600;
-    border-radius: 4px;
-  }
-
-  .ss-solution-header {
+  .ss-icon-wrap {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
+    justify-content: center;
+    flex-shrink: 0;
   }
 
   .ss-solution-title {
-    color: white;
-    font-weight: 600;
-    font-size: 0.95rem;
-    margin-bottom: 0.25rem;
+    color: #191F28;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 2px;
   }
 
   .ss-solution-desc {
-    color: rgb(148,163,184);
-    font-size: 0.85rem;
+    color: #8B95A1;
+    font-size: 13px;
   }
 
-  /* SVG Connector */
+  /* Connector */
   .ss-conn {
-    width: 120px;
+    width: 80px;
     flex-shrink: 0;
     display: flex;
     align-items: center;
@@ -1059,30 +1058,21 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
   }
 
   .ss-svg-desktop {
-    width: 120px;
-    height: 60px;
+    width: 80px;
+    height: 40px;
     overflow: visible;
   }
 
   .ss-check {
     transform-box: view-box;
-    transform-origin: 60px 30px;
+    transform-origin: 40px 20px;
   }
 
-  /* Mobile connector */
-  .ss-conn-mobile {
-    display: none;
-  }
-
-  .ss-vline {
-    width: 0;
-    height: 40px;
-    border-left: 2px dashed rgba(255,255,255,0.15);
-  }
+  .ss-conn-mobile { display: none; }
 
   .ss-check-mobile {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1091,66 +1081,64 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
 
   /* Completion */
   .ss-complete {
-    text-align: center;
-    margin-top: 2.5rem;
+    margin-top: 32px;
     will-change: opacity, transform, filter;
   }
 
   .ss-complete-inner {
     display: inline-flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 0.9rem 2.2rem;
-    background: linear-gradient(135deg, rgba(16,185,129,0.18), rgba(52,211,153,0.08));
-    border: 1px solid rgba(16,185,129,0.35);
+    gap: 8px;
+    padding: 12px 28px;
+    background: #3182F6;
     border-radius: 9999px;
-    color: #34d399;
+    color: white;
     font-weight: 700;
-    font-size: 1.1rem;
-    box-shadow: 0 0 30px rgba(16,185,129,0.12), 0 0 60px rgba(16,185,129,0.06);
-  }
-
-  .ss-complete.visible .ss-complete-inner {
-    animation: ss-glow-pulse 2.5s ease-in-out infinite;
+    font-size: 15px;
+    box-shadow: 0 2px 8px rgba(49,130,246,0.25);
   }
 
   .ss-complete-sub {
-    margin-top: 0.75rem;
-    color: rgba(148,163,184,0.6);
-    font-size: 0.85rem;
-    letter-spacing: 0.02em;
+    margin-top: 12px;
+    color: #8B95A1;
+    font-size: 13px;
   }
 
-  @keyframes ss-glow-pulse {
-    0%, 100% { box-shadow: 0 0 30px rgba(16,185,129,0.12), 0 0 60px rgba(16,185,129,0.06); }
-    50% { box-shadow: 0 0 40px rgba(16,185,129,0.25), 0 0 80px rgba(16,185,129,0.12); }
+  /* Responsive: tablet SS */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .ss-left, .ss-right { padding: 16px 18px; border-radius: 12px; }
+    .ss-rows { gap: 10px; }
+    .ss-conn { width: 50px; }
+    .ss-svg-desktop { width: 50px; height: 32px; }
+    .ss-duty-text, .ss-solution-title { font-size: 13px; }
+    .ss-clause { font-size: 11px; }
+    .ss-solution-desc { font-size: 12px; }
+    .ss-icon-wrap { width: 34px; height: 34px; border-radius: 10px; }
+    .ss-complete { margin-top: 20px; }
+    .ss-complete-inner { padding: 8px 20px; font-size: 13px; }
+    .ss-complete-sub { font-size: 12px; }
   }
 
   /* Responsive: mobile SS */
   @media (max-width: 767px) {
-    .ss-row {
-      flex-direction: column;
-    }
-
-    .ss-conn {
-      width: auto;
-      height: 50px;
-    }
-
-    .ss-svg-desktop {
-      display: none;
-    }
-
-    .ss-conn-mobile {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .ss-left,
-    .ss-right {
-      width: 100%;
-    }
+    .ss-rows { gap: 10px; }
+    .ss-row { flex-direction: row; align-items: stretch; gap: 0; }
+    .ss-left, .ss-right { flex: 1; padding: 12px 14px; border-radius: 12px; }
+    .ss-conn { width: 32px; flex-shrink: 0; }
+    .ss-svg-desktop { display: none; }
+    .ss-conn-mobile { display: flex; align-items: center; justify-content: center; }
+    .ss-check-mobile { width: 22px; height: 22px; }
+    .ss-check-mobile svg { width: 12px; height: 12px; }
+    .ss-duty-text, .ss-solution-title { font-size: 12px; }
+    .ss-clause { font-size: 10px; }
+    .ss-solution-desc { font-size: 11px; }
+    .ss-icon-wrap { width: 32px; height: 32px; border-radius: 8px; }
+    .ss-icon-wrap svg { width: 14px; height: 14px; }
+    .ss-right { gap: 10px; }
+    .ss-complete { margin-top: 16px; }
+    .ss-complete-inner { padding: 8px 16px; font-size: 12px; gap: 6px; }
+    .ss-complete-inner svg { width: 14px; height: 14px; }
+    .ss-complete-sub { font-size: 11px; margin-top: 6px; }
   }
 
   /* Reduced motion: Safety System */
@@ -1159,18 +1147,13 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
       position: relative;
       opacity: 1 !important;
       pointer-events: auto;
-      background: linear-gradient(160deg, #0F172A, #1E293B);
+      background: #FFFFFF;
       padding: 4rem 1.5rem;
-      color: white;
     }
 
     .ss-left,
     .ss-right {
       opacity: 1 !important;
-    }
-
-    .ss-right {
-      border-left: 3px solid var(--row-color);
     }
 
     .ss-path-active {
@@ -1194,21 +1177,6 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
       opacity: 1;
       filter: none;
       transform: none;
-    }
-
-    .ss-complete .ss-complete-inner {
-      animation: none;
-    }
-
-    .ss-left-dot {
-      opacity: 1;
-      animation: none;
-    }
-
-    .ss-left-dot::before,
-    .ss-left-dot::after {
-      animation: none;
-      display: none;
     }
 
     .cta-metallic-btn::before {
@@ -1413,7 +1381,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
     function resetSSRows() {
       rowData.forEach(d => {
         if (d.left) { d.left.style.opacity = '0'; d.left.style.transform = 'translateX(-30px)'; d.left.classList.remove('visible'); }
-        if (d.right) { d.right.style.opacity = '0'; d.right.style.transform = 'translateX(30px)'; d.right.style.borderLeft = '1px solid rgba(255,255,255,0.08)'; }
+        if (d.right) { d.right.style.opacity = '0'; d.right.style.transform = 'translateX(30px)'; }
         if (d.path) { (d.path as SVGElement).style.opacity = '0'; }
         if (d.dot) { (d.dot as SVGElement).style.opacity = '0'; }
         if (d.check) { (d.check as SVGElement).style.opacity = '0'; (d.check as SVGElement).style.transform = 'scale(0)'; }
@@ -1443,7 +1411,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
 
       // Nav dark mode sync
       if (mainNav) {
-        if (progress > 0.18) mainNav.classList.add('nav-dark');
+        if (progress > 0.18 && progress < 0.46) mainNav.classList.add('nav-dark');
         else mainNav.classList.remove('nav-dark');
       }
 
@@ -1635,7 +1603,7 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
         if (d.right) {
           d.right.style.opacity = String(rrp);
           d.right.style.transform = `translateX(${30 * (1 - rrp)}px)`;
-          d.right.style.borderLeft = rrp > 0.5 ? '3px solid var(--row-color)' : '1px solid rgba(255,255,255,0.08)';
+          d.right.style.borderLeft = rrp > 0.5 ? '3px solid var(--row-color)' : '1px solid #E5E8EB';
         }
 
         // Check pop: 0.80–1.0

@@ -1,118 +1,118 @@
----
----
-
-<div class="fixed-buttons" id="fixed-buttons">
-  <a href="/inquiries" class="fixed-btn contact-btn" aria-label="상담문의">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-    </svg>
-    <span>문의</span>
-  </a>
-  <button class="fixed-btn top-btn" id="scroll-top-btn" aria-label="맨 위로">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-      <path d="M18 15l-6-6-6 6" />
-    </svg>
-    <span>TOP</span>
-  </button>
-</div>
-
-<script>
-  const fixedBtns = document.getElementById('fixed-buttons');
-  const scrollTopBtn = document.getElementById('scroll-top-btn');
-
-  let ticking = false;
-
-  function updateVisibility() {
-    if (!fixedBtns) return;
-    if (window.scrollY > 300) {
-      fixedBtns.classList.add('visible');
-    } else {
-      fixedBtns.classList.remove('visible');
-    }
-    ticking = false;
-  }
-
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(updateVisibility);
-      ticking = true;
-    }
-  }, { passive: true });
-
-  scrollTopBtn?.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-</script>
-
-<style>
-  .fixed-buttons {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    z-index: 900;
-    opacity: 0;
-    transform: translateY(20px);
-    visibility: hidden;
-    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
-  }
-
-  .fixed-buttons.visible {
-    opacity: 1;
-    transform: translateY(0);
-    visibility: visible;
-  }
-
-  .fixed-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    border: none;
-    font-size: 10px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    gap: 2px;
-    text-decoration: none;
-  }
-
-  .fixed-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-  }
-
-  .contact-btn {
-    background: var(--color-primary);
-    color: #fff;
-  }
-
-  .contact-btn span {
-    font-size: 10px;
-    letter-spacing: -0.5px;
-  }
-
-  .top-btn {
-    background: #fff;
-    color: var(--color-gray-800);
-  }
-
-  .top-btn span {
-    font-family: var(--font-english);
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-  }
-
-  @media (max-width: 999px) {
-    .fixed-buttons {
-      display: none;
-    }
-  }
-</style>
+---
+---
+
+<div class="fixed-buttons" id="fixed-buttons">
+  <a href="/inquiries" class="fixed-btn contact-btn" aria-label="상담문의">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+    </svg>
+    <span>문의</span>
+  </a>
+  <button class="fixed-btn top-btn" id="scroll-top-btn" aria-label="맨 위로">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <path d="M18 15l-6-6-6 6" />
+    </svg>
+    <span>TOP</span>
+  </button>
+</div>
+
+<script>
+  const fixedBtns = document.getElementById('fixed-buttons');
+  const scrollTopBtn = document.getElementById('scroll-top-btn');
+
+  let ticking = false;
+
+  function updateVisibility() {
+    if (!fixedBtns) return;
+    if (window.scrollY > 300) {
+      fixedBtns.classList.add('visible');
+    } else {
+      fixedBtns.classList.remove('visible');
+    }
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateVisibility);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  scrollTopBtn?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+<style>
+  .fixed-buttons {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 900;
+    opacity: 0;
+    transform: translateY(20px);
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  }
+
+  .fixed-buttons.visible {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+
+  .fixed-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    gap: 2px;
+    text-decoration: none;
+  }
+
+  .fixed-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .contact-btn {
+    background: var(--color-primary);
+    color: #fff;
+  }
+
+  .contact-btn span {
+    font-size: 10px;
+    letter-spacing: -0.5px;
+  }
+
+  .top-btn {
+    background: #fff;
+    color: var(--color-gray-800);
+  }
+
+  .top-btn span {
+    font-family: var(--font-english);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  @media (max-width: 999px) {
+    .fixed-buttons {
+      display: none;
+    }
+  }
+</style>
