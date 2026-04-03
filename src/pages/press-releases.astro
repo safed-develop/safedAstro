@@ -4,6 +4,7 @@ import SubPageLayout from '../layouts/SubPageLayout.astro';
 const navLinks = [
   { name: '공지사항', url: '/notices' },
   { name: '보도자료', url: '/press-releases' },
+  { name: '블로그', url: '/blog' },
   { name: '상담문의', url: '/inquiries' },
   { name: 'FAQ', url: '/faq' },
 ];
@@ -128,7 +129,7 @@ const releases = [
           <h2 class="text-2xl lg:text-3xl font-bold tracking-tight text-[#111]">언론 보도</h2>
         </div>
         <div class="hidden sm:flex items-center gap-3">
-          <img src="/images/sign_logo_new.gif" alt="SafeD" class="h-5 opacity-40" />
+          <img src="/images/safedlogo.svg" alt="SafeD" class="h-5 opacity-40" style="filter: brightness(0);" />
           <p class="eng text-sm text-[#6B6B6B]">
             <span class="font-bold text-[#111]">{releases.length}</span> articles
           </p>

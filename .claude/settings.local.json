@@ -24,7 +24,8 @@
       "Bash(vercel:*)",
       "WebFetch(domain:safed-astro-7tjd2o45a-s2olll27-7145s-projects.vercel.app)",
       "Bash(npm run:*)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(sed:*)"
     ]
   }
 }

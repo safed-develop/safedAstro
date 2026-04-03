@@ -281,12 +281,12 @@ const milestones = [
               <p class="text-[#6B6B6B] text-xs mb-0.5">세이프디 주식회사</p>
               <p class="text-lg font-bold tracking-tight text-[#111]">대표이사</p>
             </div>
-            <img src="/images/sign_logo_new.gif" alt="대표 서명" class="h-10 object-contain" loading="lazy" />
+            <img src="/images/safedlogo.svg" alt="대표 서명" class="h-10 object-contain" loading="lazy" style="filter: brightness(0);" />
           </div>
         </div>
 
         <!-- Right: CEO Image -->
-        <div class="w-full lg:w-72 flex-shrink-0 reveal-right delay-200">
+        <div class="wc-ceo-img w-full lg:w-72 flex-shrink-0 reveal-right delay-200">
           <div class="relative h-full">
             <img src="/images/welcome.png" alt="SafeD CEO" class="w-full h-full object-cover" loading="lazy" />
             <div class="absolute bottom-4 left-4 bg-[#2563EB] text-white px-4 py-2">
@@ -859,6 +859,10 @@ const milestones = [
     *, *::before, *::after {
       animation: none !important;
     }
+  }
+  @media (max-width: 1199px) {
+    #cinematic-journey { display: none !important; }
+    .wc-ceo-img { display: none !important; }
   }
 </style>
 
