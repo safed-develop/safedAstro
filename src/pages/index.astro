@@ -113,14 +113,14 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
   </section>
 
   <!-- Numbers Section -->
-  <section class="pr-aurora py-10 md:py-14 text-white overflow-hidden relative">
+  <section class="pr-aurora py-8 md:py-14 text-white overflow-hidden relative">
 
     <div class="w-container relative z-10">
-      <div class="text-center mb-6 md:mb-10">
-        <p class="eng font-semibold text-xs md:text-sm tracking-widest uppercase mb-2 md:mb-4 text-primary reveal">Proven Results</p>
-        <h2 class="sub-headline text-lg md:text-2xl lg:text-3xl reveal delay-100">말이 아니라,<br />숫자가 증명합니다.</h2>
+      <div class="text-center mb-5 md:mb-10">
+        <p class="eng font-semibold text-[10px] md:text-sm tracking-widest uppercase mb-1.5 md:mb-4 text-primary reveal">Proven Results</p>
+        <h2 class="sub-headline text-base md:text-2xl lg:text-3xl reveal delay-100">말이 아니라,<br />숫자가 증명합니다.</h2>
       </div>
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 lg:gap-12">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8 lg:gap-12">
         {[
           { num: '150+', label: '도입 현장', sub: '전국',
             icon: 'M3 21h18M5 21V7l8-4 8 4v14M9 21v-6h6v6M9 9h.01M15 9h.01M9 13h.01M15 13h.01' },
@@ -132,13 +132,13 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
             icon: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M9 15l2 2 4-4' },
         ].map((item, i) => (
           <div class={`text-center reveal delay-${(i + 1) * 100}`}>
-            <div class="flex justify-center mb-2 md:mb-4">
-              <svg class="stat-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <div class="flex justify-center mb-1.5 md:mb-4">
+              <svg class="stat-icon w-5 h-5 md:w-7 md:h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <path class="stat-icon-path" d={item.icon} />
               </svg>
             </div>
-            <p class="eng text-2xl md:text-4xl lg:text-5xl font-extrabold text-gradient-blue counter-num mb-1 md:mb-2">{item.num}</p>
-            <p class="font-semibold text-white/90 mb-0.5 md:mb-1 text-xs md:text-base">{item.label}</p>
+            <p class="eng text-[22px] md:text-4xl lg:text-5xl font-extrabold text-gradient-blue counter-num mb-0.5 md:mb-2">{item.num}</p>
+            <p class="font-semibold text-white/90 mb-0 md:mb-1 text-[11px] md:text-base">{item.label}</p>
             <p class="text-[10px] md:text-sm text-white/40">{item.sub}</p>
           </div>
         ))}
@@ -147,46 +147,42 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
   </section>
 
   <!-- Why SafeD - Problem/Solution -->
-  <section class="py-10 md:py-14 bg-white">
+  <section class="py-8 md:py-14 bg-white">
     <div class="w-container max-w-5xl">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12 items-center">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-12 items-center">
         <!-- Image: mobile first (order-first), desktop second (md:order-last) -->
         <div class="reveal-right delay-200 order-first md:order-last">
           <div class="relative">
             <img src="/images/main03.png" alt="SafeD 대시보드" class="rounded-2xl shadow-2xl glow w-full" />
-            <div class="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-primary text-white rounded-2xl px-4 py-2 md:px-6 md:py-4 shadow-lg">
-              <p class="eng font-bold text-lg md:text-2xl">70%</p>
-              <p class="text-[10px] md:text-xs opacity-80">업무 효율 향상</p>
+            <div class="absolute -bottom-3 -right-3 md:-bottom-6 md:-right-6 bg-primary text-white rounded-xl md:rounded-2xl px-3 py-1.5 md:px-6 md:py-4 shadow-lg">
+              <p class="eng font-bold text-base md:text-2xl leading-none">70<small class="text-[10px] md:text-sm font-semibold opacity-80">%</small></p>
+              <p class="text-[9px] md:text-xs opacity-70 leading-tight">업무 효율 향상</p>
             </div>
           </div>
         </div>
         <!-- Text: mobile second, desktop first -->
         <div class="reveal order-last md:order-first">
-          <p class="text-primary eng font-semibold text-xs md:text-sm tracking-widest uppercase mb-3 md:mb-4">Why SafeD?</p>
-          <h2 class="sub-headline mb-4 md:mb-6 text-lg md:text-2xl lg:text-3xl">
+          <p class="text-primary eng font-semibold text-[10px] md:text-sm tracking-widest uppercase mb-2 md:mb-4">Why SafeD?</p>
+          <h2 class="sub-headline mb-3 md:mb-6 text-[15px] md:text-2xl lg:text-3xl leading-snug">
             같은 사고가 반복되는 이유?<br />
             <span class="text-primary">관리 방식이 잘못됐습니다.</span>
           </h2>
-          <p class="text-gray-500 leading-relaxed mb-3 md:mb-4 text-xs md:text-base">
-            엑셀 위험성평가, 서류 더미에 묻힌 안전 데이터, 실시간 현황 파악 불가.
-            <strong class="text-gray-700">이것이 매년 400명이 사망하는 현실의 원인입니다.</strong>
+          <p class="text-gray-400 leading-relaxed mb-2 md:mb-4 text-[11px] md:text-base">
+            엑셀 위험성평가, 서류 더미에 묻힌 안전 데이터.
+            <strong class="text-gray-600">매년 400명이 사망하는 현실의 원인입니다.</strong>
           </p>
-          <p class="text-gray-500 leading-relaxed mb-3 md:mb-4 text-xs md:text-base">
-            SafeD는 모바일·GPS·비콘·AI 번역을 하나로 통합하여
-            현장에서 <strong class="text-gray-700">즉시 작동하는</strong> 안전관리 체계를 구축합니다.
-          </p>
-          <div class="space-y-1.5 md:space-y-2">
+          <div class="space-y-1 md:space-y-2 mt-3 md:mt-0">
             {[
               '위험성평가 작성 시간 70% 단축',
-              '현장-본사 간 실시간 안전 데이터 공유',
+              '현장-본사 실시간 데이터 공유',
               '다국적 근로자 언어 장벽 해소',
               '중대재해처벌법 의무이행 완벽 대응',
             ].map((text) => (
               <div class="flex items-center gap-2 md:gap-3">
-                <div class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <div class="w-4 h-4 md:w-6 md:h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-2.5 h-2.5 md:w-3 md:h-3" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
                 </div>
-                <span class="text-gray-700 text-xs md:text-sm font-medium">{text}</span>
+                <span class="text-gray-600 text-[11px] md:text-sm font-medium">{text}</span>
               </div>
             ))}
           </div>
@@ -328,47 +324,47 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
   </section>
 
   <!-- Get Started - Split Showcase -->
-  <section class="py-10 md:py-14 lg:py-16 bg-gray-950 text-white relative overflow-hidden">
+  <section class="py-8 md:py-14 lg:py-16 bg-gray-950 text-white relative overflow-hidden">
     <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.5) 1px, transparent 0); background-size: 32px 32px;" aria-hidden="true"></div>
     <div class="w-container relative z-10">
-      <div class="grid grid-cols-2 gap-6 lg:gap-12 items-center">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12 items-center">
         <!-- Left: Big Typography + CTAs -->
         <div class="reveal">
-          <p class="eng font-semibold text-xs md:text-sm tracking-widest uppercase mb-2 md:mb-4 text-primary">Get Started</p>
-          <h2 class="text-lg md:text-3xl lg:text-5xl font-extrabold tracking-tight leading-[1.1] mb-3 md:mb-6">
+          <p class="eng font-semibold text-[10px] md:text-sm tracking-widest uppercase mb-1.5 md:mb-4 text-primary">Get Started</p>
+          <h2 class="text-[18px] md:text-3xl lg:text-5xl font-extrabold tracking-tight leading-[1.15] mb-2 md:mb-6">
             지금 바로<br />
             <span class="text-gradient-blue">시작하세요.</span>
           </h2>
-          <p class="text-white/50 leading-relaxed mb-4 md:mb-10 max-w-md text-xs md:text-base">
-            PC, 모바일 어디서든 접속 가능합니다.<br />무료 상담으로 현장에 맞는 구축 플랜을 받아보세요.
+          <p class="text-white/40 leading-relaxed mb-4 md:mb-10 max-w-md text-[11px] md:text-base">
+            PC, 모바일 어디서든 접속 가능합니다.<br />무료 상담으로 현장 맞춤 구축 플랜을 받아보세요.
           </p>
-          <div class="flex flex-row gap-3 flex-wrap">
-            <a href="https://safed.co.kr/login" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-6 py-4 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-colors group">
-              <div class="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          <div class="flex flex-row gap-2 md:gap-3">
+            <a href="https://safed.co.kr/login" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 md:gap-3 px-3 py-2.5 md:px-6 md:py-4 bg-white/5 border border-white/10 rounded-xl md:rounded-2xl hover:bg-white/10 transition-colors group">
+              <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
               </div>
               <div>
-                <p class="font-bold text-sm text-white/90">PC 접속</p>
-                <p class="text-[11px] text-white/40">Chrome 브라우저 권장</p>
+                <p class="font-bold text-xs md:text-sm text-white/90">PC 접속</p>
+                <p class="text-[10px] md:text-[11px] text-white/40">Chrome 권장</p>
               </div>
             </a>
-            <a href="https://safed.co.kr/goAppDown" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-6 py-4 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-colors group">
-              <div class="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="3"/><circle cx="12" cy="18" r="1"/></svg>
+            <a href="https://safed.co.kr/goAppDown" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 md:gap-3 px-3 py-2.5 md:px-6 md:py-4 bg-white/5 border border-white/10 rounded-xl md:rounded-2xl hover:bg-white/10 transition-colors group">
+              <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="3"/><circle cx="12" cy="18" r="1"/></svg>
               </div>
               <div>
-                <p class="font-bold text-sm text-white/90">모바일 앱</p>
-                <p class="text-[11px] text-white/40">Android · iOS</p>
+                <p class="font-bold text-xs md:text-sm text-white/90">모바일 앱</p>
+                <p class="text-[10px] md:text-[11px] text-white/40">Android · iOS</p>
               </div>
             </a>
           </div>
-          <a href="/inquiries" class="inline-flex items-center gap-2 mt-6 px-8 py-3.5 bg-primary text-white rounded-full font-semibold hover:bg-primary-dark transition-colors text-sm shadow-lg shadow-primary/30">
+          <a href="/inquiries" class="inline-flex items-center gap-2 mt-4 md:mt-6 px-6 py-2.5 md:px-8 md:py-3.5 bg-primary text-white rounded-full font-semibold hover:bg-primary-dark transition-colors text-xs md:text-sm shadow-lg shadow-primary/30">
             무료 상담 신청
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
         <!-- Right: App Preview -->
-        <div class="reveal-right delay-200">
+        <div class="reveal-right delay-200 hidden md:block">
           <div class="relative">
             <div class="absolute -inset-8 bg-gradient-to-br from-primary/10 to-blue-600/5 rounded-[2rem] blur-2xl"></div>
             <div class="relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-6 border border-white/10 shadow-2xl">
@@ -381,8 +377,8 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
           </div>
         </div>
       <!-- Industries inline -->
-      <div class="col-span-2 mt-10 pt-8 border-t border-white/5 reveal delay-300">
-        <p class="text-white/25 text-xs font-medium mb-6 text-center eng tracking-widest uppercase">Industries</p>
+      <div class="col-span-1 md:col-span-2 mt-6 md:mt-10 pt-6 md:pt-8 border-t border-white/5 reveal delay-300">
+        <p class="text-white/25 text-[10px] md:text-xs font-medium mb-4 md:mb-6 text-center eng tracking-widest uppercase">Industries</p>
         <div class="grid grid-cols-5 max-w-lg mx-auto">
           {[
             { label: '건설', iconPath: 'M2 20h20M5 20V8l7-5 7 5v12M9 20v-4h6v4' },
@@ -391,9 +387,9 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
             { label: '유지보수', iconPath: 'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z' },
             { label: '서비스', iconPath: 'M22 12h-4l-3 9L9 3l-3 9H2' },
           ].map((item) => (
-            <div class="flex flex-col items-center gap-1.5">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"><path d={item.iconPath}/></svg>
-              <span class="text-white/40 text-xs font-medium">{item.label}</span>
+            <div class="flex flex-col items-center gap-1">
+              <svg class="w-3.5 h-3.5 md:w-4 md:h-4" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"><path d={item.iconPath}/></svg>
+              <span class="text-white/40 text-[10px] md:text-xs font-medium">{item.label}</span>
             </div>
           ))}
         </div>
@@ -401,53 +397,13 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
     </div>
   </section>
 
-  <!-- Trusted & Certified - Horizontal Credential Strip -->
-  <section class="py-6 md:py-10 bg-white border-y border-gray-100 overflow-hidden">
-    <div class="w-container">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4">
-        <p class="eng text-gray-300 text-xs tracking-widest uppercase font-semibold flex-shrink-0 reveal">Trusted & Certified</p>
-        <div class="flex flex-wrap items-center justify-center gap-6 md:gap-12">
-          <div class="flex items-center gap-3 reveal delay-100">
-            <div class="w-10 h-10 rounded-full bg-amber-50 flex items-center justify-center flex-shrink-0">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><path d="M12 15l-3 3 1-4-3-3h4L12 7l1 4h4l-3 3 1 4z"/></svg>
-            </div>
-            <div>
-              <p class="font-bold text-sm text-gray-800 leading-tight">스마트건설대상</p>
-              <p class="text-[11px] text-gray-400">2021 안전대상 수상</p>
-            </div>
-          </div>
-          <div class="hidden md:block w-px h-8 bg-gray-200" aria-hidden="true"></div>
-          <div class="flex items-center gap-3 reveal delay-200">
-            <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12l2 2 4-4"/></svg>
-            </div>
-            <div>
-              <p class="font-bold text-sm text-gray-800 leading-tight">특허 2건</p>
-              <p class="text-[11px] text-gray-400">핵심 기술 특허 보유</p>
-            </div>
-          </div>
-          <div class="hidden md:block w-px h-8 bg-gray-200" aria-hidden="true"></div>
-          <div class="flex items-center gap-3 reveal delay-300">
-            <div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <div>
-              <p class="font-bold text-sm text-gray-800 leading-tight">국내 유일 전문기업</p>
-              <p class="text-[11px] text-gray-400">올인원 안전관리 솔루션</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Section: How It Works -->
-  <section class="py-10 md:py-14 bg-gray-50">
+  <section class="py-8 md:py-14 bg-gray-50">
     <div class="w-container max-w-5xl">
-      <div class="text-center mb-6 md:mb-10">
-        <p class="text-primary eng font-semibold text-xs md:text-sm tracking-widest uppercase mb-2 md:mb-4 reveal">How It Works</p>
-        <h2 class="sub-headline text-lg md:text-2xl lg:text-3xl reveal delay-100">결심만 하시면,<br />나머지는 저희가 합니다.</h2>
-        <p class="text-gray-500 mt-2 md:mt-4 text-xs md:text-base reveal delay-200">상담부터 구축까지 최소 2주. 현장 맞춤 세팅을 원스톱으로 지원합니다.</p>
+      <div class="text-center mb-5 md:mb-10">
+        <p class="text-primary eng font-semibold text-[10px] md:text-sm tracking-widest uppercase mb-1.5 md:mb-4 reveal">How It Works</p>
+        <h2 class="sub-headline text-base md:text-2xl lg:text-3xl reveal delay-100">결심만 하시면,<br />나머지는 저희가 합니다.</h2>
+        <p class="text-gray-400 mt-1.5 md:mt-4 text-[11px] md:text-base reveal delay-200">상담부터 구축까지 최소 2주. 현장 맞춤 원스톱 지원.</p>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-8">
         {[
@@ -490,28 +446,22 @@ import PinScrollSection from '../components/ui/PinScrollSection.tsx';
         </span>
       ))}
     </div>
-    <div class="md:hidden flex justify-center">
-      <a href="/inquiries" class="inline-flex items-center gap-1.5 px-4 py-1.5 border border-gray-200 text-gray-800 text-[11px] font-semibold tracking-tight">
-        무료 상담 시작하기
-        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
   </section>
 
   <!-- CTA: SafeD와 함께 시작하세요 -->
-  <section class="relative py-10 md:py-14 overflow-hidden">
+  <section class="relative py-8 md:py-14 overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-primary to-blue-800"></div>
     <div class="absolute inset-0 opacity-10" style="background-image: url('/images/feature02.jpg'); background-size: cover; background-position: center;"></div>
-    <div class="absolute top-10 right-10 w-64 h-64 border border-white/10 rounded-full"></div>
-    <div class="absolute bottom-10 left-10 w-40 h-40 border border-white/5 rounded-full"></div>
+    <div class="absolute top-10 right-10 w-64 h-64 border border-white/10 rounded-full hidden md:block"></div>
+    <div class="absolute bottom-10 left-10 w-40 h-40 border border-white/5 rounded-full hidden md:block"></div>
     <div class="relative z-10 w-container text-center">
       <div class="max-w-2xl mx-auto">
-        <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-white/10 flex items-center justify-center reveal">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.11 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <div class="w-12 h-12 md:w-16 md:h-16 mx-auto mb-4 md:mb-6 rounded-xl md:rounded-2xl bg-white/10 flex items-center justify-center reveal">
+          <svg class="w-6 h-6 md:w-8 md:h-8" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.11 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         </div>
-        <h2 class="text-lg md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4 tracking-tight reveal delay-100">무료 상담 한 번으로,<br class="md:hidden" /> 현장이 달라집니다.</h2>
-        <p class="text-white/70 mb-4 md:mb-8 text-xs md:text-base reveal delay-200">SafeD 전문 컨설턴트가 현장 맞춤 구축 플랜을 설계해드립니다.</p>
-        <div class="flex items-center justify-center gap-4 flex-wrap reveal delay-300">
+        <h2 class="text-[15px] md:text-3xl lg:text-4xl font-bold text-white mb-2 md:mb-4 tracking-tight leading-snug reveal delay-100">무료 상담 한 번으로,<br class="md:hidden" /> 현장이 달라집니다.</h2>
+        <p class="text-white/60 mb-4 md:mb-8 text-[11px] md:text-base reveal delay-200">SafeD 전문 컨설턴트가 현장 맞춤 구축 플랜을 설계해드립니다.</p>
+        <div class="flex items-center justify-center gap-3 md:gap-4 flex-wrap reveal delay-300">
           <a href="/inquiries" class="cta-metallic-btn">
             도입문의
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
