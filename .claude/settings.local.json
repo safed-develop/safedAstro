@@ -25,7 +25,10 @@
       "WebFetch(domain:safed-astro-7tjd2o45a-s2olll27-7145s-projects.vercel.app)",
       "Bash(npm run:*)",
       "Bash(npm install:*)",
-      "Bash(sed:*)"
+      "Bash(sed:*)",
+      "Bash(npx vercel:*)",
+      "Bash(xxd:*)",
+      "Bash(printf {\"\"name\"\":\"\"\\\\xea\\\\xb9\\\\x80\\\\xed\\\\x85\\\\x8c\\\\xec\\\\x8a\\\\xa4\\\\xed\\\\x8a\\\\xb8\"\",\"\"email\"\":\"\"test@safed.co.kr\"\",\"\"contact\"\":\"\"010-1234-5678\"\",\"\"company\"\":\"\"\\\\xec\\\\xbb\\\\xa8\\\\xed\\\\x85\\\\x8d\\\\xec\\\\x86\\\\x94\\\\xeb\\\\xa3\\\\xa8\\\\xec\\\\x85\\\\x98\"\",\"\"content\"\":\"\"\\\\xed\\\\x95\\\\x9c\\\\xea\\\\xb8\\\\x80 \\\\xec\\\\x9d\\\\xb8\\\\xec\\\\xbd\\\\x94\\\\xeb\\\\x94\\\\xa9 \\\\xed\\\\x85\\\\x8c\\\\xec\\\\x8a\\\\xa4\\\\xed\\\\x8a\\\\xb8\"\"}:*)"
     ]
   }
 }
