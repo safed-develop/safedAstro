@@ -1,0 +1,226 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import PostHeader from '../components/blog/PostHeader.astro';
+import TableOfContents from '../components/blog/TableOfContents.astro';
+import RelatedPosts from '../components/blog/RelatedPosts.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+interface Props {
+  post: CollectionEntry<'blog'>;
+  headings: Heading[];
+  relatedPosts?: CollectionEntry<'blog'>[];
+}
+const { post, headings, relatedPosts = [] } = Astro.props;
+const { title, description, pubDate, updatedDate, author, tags, heroImage } = post.data;
+---
+
+<BaseLayout
+  title={`${title} — SafeD 블로그`}
+  description={description}
+  ogImage={heroImage || '/images/oglogo.jpg'}
+>
+  <div class="bp-wrap w-container">
+    <div class="bp-layout">
+      <article class="bp-article">
+        <PostHeader
+          title={title}
+          pubDate={pubDate}
+          updatedDate={updatedDate}
+          author={author}
+          tags={tags}
+          heroImage={heroImage}
+          body={post.body || ''}
+        />
+        <div class="bp-prose">
+          <slot />
+        </div>
+        <RelatedPosts posts={relatedPosts} />
+      </article>
+      <aside class="bp-aside">
+        <TableOfContents headings={headings} />
+      </aside>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .bp-wrap {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .bp-layout {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 48px;
+    align-items: start;
+  }
+  .bp-article {
+    max-width: 72ch;
+    min-width: 0;
+  }
+  .bp-aside {
+    position: relative;
+  }
+
+  /* Prose — custom styles for MDX rendered content */
+  .bp-prose :global(h2) {
+    font-size: 24px;
+    font-weight: 700;
+    color: #191F28;
+    margin-top: 48px;
+    margin-bottom: 16px;
+    letter-spacing: -0.3px;
+    line-height: 1.35;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #F2F4F6;
+  }
+  .bp-prose :global(h3) {
+    font-size: 20px;
+    font-weight: 700;
+    color: #191F28;
+    margin-top: 36px;
+    margin-bottom: 12px;
+    letter-spacing: -0.2px;
+    line-height: 1.4;
+  }
+  .bp-prose :global(h4) {
+    font-size: 17px;
+    font-weight: 600;
+    color: #333D4B;
+    margin-top: 28px;
+    margin-bottom: 10px;
+  }
+  .bp-prose :global(p) {
+    font-size: 16px;
+    color: #4E5968;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    word-break: keep-all;
+  }
+  .bp-prose :global(a) {
+    color: #3182F6;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s;
+  }
+  .bp-prose :global(a:hover) {
+    border-bottom-color: #3182F6;
+  }
+  .bp-prose :global(strong) {
+    font-weight: 700;
+    color: #191F28;
+  }
+  .bp-prose :global(ul),
+  .bp-prose :global(ol) {
+    margin-bottom: 20px;
+    padding-left: 24px;
+  }
+  .bp-prose :global(li) {
+    font-size: 16px;
+    color: #4E5968;
+    line-height: 1.7;
+    margin-bottom: 6px;
+  }
+  .bp-prose :global(ul li) {
+    list-style-type: disc;
+  }
+  .bp-prose :global(ol li) {
+    list-style-type: decimal;
+  }
+  .bp-prose :global(blockquote) {
+    margin: 24px 0;
+    padding: 16px 20px;
+    border-left: 3px solid #3182F6;
+    background: #F8F9FA;
+    border-radius: 0 8px 8px 0;
+  }
+  .bp-prose :global(blockquote p) {
+    color: #4E5968;
+    margin-bottom: 0;
+  }
+  .bp-prose :global(code) {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 0.9em;
+    background: #F2F4F6;
+    color: #E53E3E;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+  .bp-prose :global(pre) {
+    margin: 24px 0;
+    padding: 20px;
+    border-radius: 12px;
+    overflow-x: auto;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .bp-prose :global(pre code) {
+    background: none;
+    color: inherit;
+    padding: 0;
+    border-radius: 0;
+    font-size: inherit;
+  }
+  .bp-prose :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin: 24px 0;
+  }
+  .bp-prose :global(hr) {
+    border: none;
+    border-top: 1px solid #E5E8EB;
+    margin: 40px 0;
+  }
+  .bp-prose :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 14px;
+  }
+  .bp-prose :global(th) {
+    text-align: left;
+    padding: 10px 14px;
+    background: #F2F4F6;
+    font-weight: 600;
+    color: #191F28;
+    border-bottom: 1px solid #E5E8EB;
+  }
+  .bp-prose :global(td) {
+    padding: 10px 14px;
+    border-bottom: 1px solid #F2F4F6;
+    color: #4E5968;
+  }
+
+  @media (max-width: 1024px) {
+    .bp-layout {
+      grid-template-columns: 1fr;
+    }
+    .bp-aside {
+      display: none;
+    }
+  }
+  @media (max-width: 768px) {
+    .bp-wrap {
+      padding-top: 72px;
+      padding-bottom: 48px;
+    }
+    .bp-prose :global(h2) {
+      font-size: 20px;
+      margin-top: 36px;
+    }
+    .bp-prose :global(h3) {
+      font-size: 18px;
+      margin-top: 28px;
+    }
+    .bp-prose :global(p),
+    .bp-prose :global(li) {
+      font-size: 15px;
+    }
+  }
+</style>

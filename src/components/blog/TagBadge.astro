@@ -1,0 +1,47 @@
+---
+interface Props {
+  tag: string;
+  count?: number;
+  size?: 'sm' | 'md';
+}
+const { tag, count, size = 'sm' } = Astro.props;
+---
+
+<a
+  href={`/blog/tags/${encodeURIComponent(tag)}`}
+  class:list={['tag-badge', `tag-${size}`]}
+>
+  {tag}
+  {count !== undefined && <span class="tag-count eng">{count}</span>}
+</a>
+
+<style>
+  .tag-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    border-radius: 9999px;
+    font-weight: 500;
+    background: #F2F4F6;
+    color: #6B7684;
+    transition: background 0.15s ease, color 0.15s ease;
+    white-space: nowrap;
+  }
+  .tag-badge:hover {
+    background: #E8F3FF;
+    color: #3182F6;
+  }
+  .tag-sm {
+    padding: 3px 10px;
+    font-size: 12px;
+  }
+  .tag-md {
+    padding: 5px 14px;
+    font-size: 13px;
+  }
+  .tag-count {
+    font-size: 11px;
+    color: #8B95A1;
+    font-weight: 600;
+  }
+</style>

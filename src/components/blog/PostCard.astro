@@ -1,0 +1,144 @@
+---
+import TagBadge from './TagBadge.astro';
+import { formatDateShort, getReadingTime } from '../../utils/blog';
+
+interface Props {
+  slug: string;
+  title: string;
+  description: string;
+  pubDate: Date;
+  tags: string[];
+  heroImage?: string;
+  draft?: boolean;
+  body: string;
+}
+const { slug, title, description, pubDate, tags, heroImage, draft, body } = Astro.props;
+const readTime = getReadingTime(body);
+---
+
+<article class="pc-card">
+  <a href={`/blog/${slug}`} class="pc-link">
+    <div class="pc-img-wrap">
+      {heroImage ? (
+        <img src={heroImage} alt={title} class="pc-img" loading="lazy" />
+      ) : (
+        <div class="pc-img-placeholder">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="1.2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+        </div>
+      )}
+      {draft && <span class="pc-draft eng">[DRAFT]</span>}
+    </div>
+    <div class="pc-body">
+      <div class="pc-meta">
+        <time class="eng" datetime={pubDate.toISOString()}>{formatDateShort(pubDate)}</time>
+        <span class="pc-dot"></span>
+        <span>{readTime}분 읽기</span>
+      </div>
+      <h3 class="pc-title">{title}</h3>
+      <p class="pc-desc">{description}</p>
+      <div class="pc-tags">
+        {tags.slice(0, 3).map(tag => <TagBadge tag={tag} />)}
+      </div>
+    </div>
+  </a>
+</article>
+
+<style>
+  .pc-card {
+    background: #F2F4F6;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .pc-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  }
+  .pc-link {
+    display: block;
+    color: inherit;
+  }
+  .pc-img-wrap {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: #E5E8EB;
+  }
+  .pc-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  .pc-card:hover .pc-img {
+    transform: scale(1.03);
+  }
+  .pc-img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #E5E8EB 0%, #F2F4F6 100%);
+  }
+  .pc-draft {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 2px 8px;
+    background: #FF6B6B;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 4px;
+  }
+  .pc-body {
+    padding: 20px;
+  }
+  .pc-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #8B95A1;
+    margin-bottom: 10px;
+  }
+  .pc-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #D1D6DB;
+  }
+  .pc-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #191F28;
+    line-height: 1.4;
+    letter-spacing: -0.3px;
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .pc-desc {
+    font-size: 14px;
+    color: #6B7684;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 14px;
+  }
+  .pc-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+</style>

@@ -1,0 +1,180 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PostCard from '../../../components/blog/PostCard.astro';
+import TagBadge from '../../../components/blog/TagBadge.astro';
+import { sortPostsByDate, filterDrafts, getTagCounts, getSlug } from '../../../utils/blog';
+
+export const getStaticPaths = (async () => {
+  const allPosts = await getCollection('blog');
+  const posts = filterDrafts(allPosts);
+  const tags = new Set<string>();
+  posts.forEach((p) => p.data.tags.forEach((t) => tags.add(t)));
+  return [...tags].map((tag) => ({
+    params: { tag },
+    props: {
+      tag,
+      posts: sortPostsByDate(posts.filter((p) => p.data.tags.includes(tag))),
+    },
+  }));
+}) satisfies GetStaticPaths;
+
+const { tag, posts } = Astro.props;
+const allPosts = await getCollection('blog');
+const published = filterDrafts(allPosts);
+const tagCounts = getTagCounts(published);
+const topTags = [...tagCounts.entries()].slice(0, 8);
+---
+
+<BaseLayout title={`${tag} — SafeD 블로그`} description={`SafeD 블로그의 '${tag}' 태그 글 모음`}>
+  <div class="bt-wrap">
+    <div class="bt-hero">
+      <div class="w-container">
+        <a href="/blog" class="bt-back">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          블로그
+        </a>
+        <h1 class="bt-title">{tag}</h1>
+        <p class="bt-desc">{posts.length}개의 글</p>
+      </div>
+    </div>
+
+    <div class="w-container">
+      <div class="bt-tags">
+        <a href="/blog" class="bt-tag-all">전체</a>
+        {topTags.map(([t, count]) => (
+          <a
+            href={`/blog/tags/${t}`}
+            class:list={['bt-tag-pill', { active: t === tag }]}
+          >
+            {t}
+            <span class="bt-tag-cnt eng">{count}</span>
+          </a>
+        ))}
+      </div>
+
+      <div class="bt-grid">
+        {posts.map((post) => (
+          <PostCard
+            slug={getSlug(post)}
+            title={post.data.title}
+            description={post.data.description}
+            pubDate={post.data.pubDate}
+            tags={post.data.tags}
+            heroImage={post.data.heroImage}
+            draft={post.data.draft}
+            body={post.body || ''}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .bt-wrap {
+    padding-top: 56px;
+  }
+  .bt-hero {
+    padding: 56px 0 40px;
+    background: #F8F9FA;
+    border-bottom: 1px solid #F2F4F6;
+  }
+  .bt-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #8B95A1;
+    margin-bottom: 12px;
+    transition: color 0.15s;
+  }
+  .bt-back:hover {
+    color: #3182F6;
+  }
+  .bt-title {
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 800;
+    color: #191F28;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+  }
+  .bt-desc {
+    font-size: 15px;
+    color: #8B95A1;
+  }
+  .bt-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 28px 0 24px;
+    border-bottom: 1px solid #F2F4F6;
+    margin-bottom: 32px;
+  }
+  .bt-tag-all {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #6B7684;
+    background: #F2F4F6;
+    transition: all 0.15s;
+  }
+  .bt-tag-all:hover {
+    background: #E8F3FF;
+    color: #3182F6;
+  }
+  .bt-tag-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #6B7684;
+    background: #F2F4F6;
+    transition: all 0.15s;
+  }
+  .bt-tag-pill:hover {
+    background: #E8F3FF;
+    color: #3182F6;
+  }
+  .bt-tag-pill.active {
+    background: #3182F6;
+    color: #fff;
+  }
+  .bt-tag-pill.active .bt-tag-cnt {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+  }
+  .bt-tag-cnt {
+    font-size: 11px;
+    font-weight: 600;
+    color: #8B95A1;
+  }
+  .bt-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding-bottom: 80px;
+  }
+  @media (max-width: 999px) {
+    .bt-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 640px) {
+    .bt-hero {
+      padding: 40px 0 28px;
+    }
+    .bt-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+</style>

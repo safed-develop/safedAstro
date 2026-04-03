@@ -1,0 +1,116 @@
+---
+interface Props {
+  currentPage: number;
+  totalPages: number;
+  basePath?: string;
+}
+const { currentPage, totalPages, basePath = '/blog' } = Astro.props;
+
+function getPageUrl(page: number): string {
+  if (page === 1) return basePath;
+  return `${basePath}/${page}`;
+}
+
+const pages: (number | '...')[] = [];
+for (let i = 1; i <= totalPages; i++) {
+  if (i === 1 || i === totalPages || Math.abs(i - currentPage) <= 1) {
+    pages.push(i);
+  } else if (pages[pages.length - 1] !== '...') {
+    pages.push('...');
+  }
+}
+---
+
+{totalPages > 1 && (
+  <nav class="pg-wrap" aria-label="페이지네이션">
+    {currentPage > 1 && (
+      <a href={getPageUrl(currentPage - 1)} class="pg-btn pg-prev" aria-label="이전">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      </a>
+    )}
+
+    <div class="pg-nums">
+      {pages.map(p => (
+        p === '...' ? (
+          <span class="pg-dots">...</span>
+        ) : (
+          <a
+            href={getPageUrl(p)}
+            class:list={['pg-num eng', { 'pg-active': p === currentPage }]}
+            aria-current={p === currentPage ? 'page' : undefined}
+          >
+            {p}
+          </a>
+        )
+      ))}
+    </div>
+
+    {currentPage < totalPages && (
+      <a href={getPageUrl(currentPage + 1)} class="pg-btn pg-next" aria-label="다음">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+    )}
+  </nav>
+)}
+
+<style>
+  .pg-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 48px;
+  }
+  .pg-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: #8B95A1;
+    transition: background 0.15s, color 0.15s;
+  }
+  .pg-btn:hover {
+    background: #F2F4F6;
+    color: #191F28;
+  }
+  .pg-nums {
+    display: flex;
+    gap: 2px;
+  }
+  .pg-num {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #8B95A1;
+    transition: background 0.15s, color 0.15s;
+  }
+  .pg-num:hover {
+    background: #F2F4F6;
+    color: #191F28;
+  }
+  .pg-active {
+    background: #3182F6;
+    color: #fff;
+    font-weight: 700;
+  }
+  .pg-active:hover {
+    background: #1B64DA;
+    color: #fff;
+  }
+  .pg-dots {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #B0B8C1;
+    font-size: 14px;
+  }
+</style>

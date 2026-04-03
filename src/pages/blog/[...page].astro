@@ -1,0 +1,151 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/blog/PostCard.astro';
+import Pagination from '../../components/blog/Pagination.astro';
+import TagBadge from '../../components/blog/TagBadge.astro';
+import { sortPostsByDate, filterDrafts, getTagCounts, getSlug } from '../../utils/blog';
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const allPosts = await getCollection('blog');
+  const posts = sortPostsByDate(filterDrafts(allPosts));
+  return paginate(posts, { pageSize: 9 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+const allPosts = await getCollection('blog');
+const published = filterDrafts(allPosts);
+const tagCounts = getTagCounts(published);
+const topTags = [...tagCounts.entries()].slice(0, 8);
+---
+
+<BaseLayout title="블로그 — SafeD" description="SafeD 팀의 안전관리 인사이트, 제품 업데이트, 산업안전 트렌드를 공유합니다.">
+  <div class="bl-wrap">
+    <div class="bl-hero">
+      <div class="w-container">
+        <p class="bl-label eng">Blog</p>
+        <h1 class="bl-title">SafeD 블로그</h1>
+        <p class="bl-desc">현장 안전관리 인사이트와 산업안전 트렌드를 공유합니다.</p>
+      </div>
+    </div>
+
+    <div class="w-container">
+      {topTags.length > 0 && (
+        <div class="bl-tags">
+          <a href="/blog" class:list={['bl-tag-all', { active: true }]}>전체</a>
+          {topTags.map(([tag, count]) => (
+            <TagBadge tag={tag} count={count} size="md" />
+          ))}
+        </div>
+      )}
+
+      <div class="bl-grid">
+        {page.data.map((post) => (
+          <PostCard
+            slug={getSlug(post)}
+            title={post.data.title}
+            description={post.data.description}
+            pubDate={post.data.pubDate}
+            tags={post.data.tags}
+            heroImage={post.data.heroImage}
+            draft={post.data.draft}
+            body={post.body || ''}
+          />
+        ))}
+      </div>
+
+      {page.data.length === 0 && (
+        <div class="bl-empty">
+          <p>아직 작성된 글이 없습니다.</p>
+        </div>
+      )}
+
+      <Pagination
+        currentPage={page.currentPage}
+        totalPages={page.lastPage}
+        basePath="/blog"
+      />
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .bl-wrap {
+    padding-top: 56px;
+  }
+  .bl-hero {
+    padding: 56px 0 40px;
+    background: #F8F9FA;
+    border-bottom: 1px solid #F2F4F6;
+  }
+  .bl-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #3182F6;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .bl-title {
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 800;
+    color: #191F28;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+  }
+  .bl-desc {
+    font-size: 16px;
+    color: #6B7684;
+    line-height: 1.5;
+  }
+  .bl-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 28px 0 24px;
+    border-bottom: 1px solid #F2F4F6;
+    margin-bottom: 32px;
+  }
+  .bl-tag-all {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #6B7684;
+    background: #F2F4F6;
+    transition: all 0.15s;
+  }
+  .bl-tag-all.active {
+    background: #3182F6;
+    color: #fff;
+  }
+  .bl-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding-bottom: 48px;
+  }
+  .bl-empty {
+    text-align: center;
+    padding: 80px 0;
+    color: #8B95A1;
+    font-size: 15px;
+  }
+  @media (max-width: 999px) {
+    .bl-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 640px) {
+    .bl-hero {
+      padding: 40px 0 28px;
+    }
+    .bl-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+</style>

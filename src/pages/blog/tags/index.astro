@@ -1,0 +1,103 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import TagBadge from '../../../components/blog/TagBadge.astro';
+import { filterDrafts, getTagCounts } from '../../../utils/blog';
+
+const allPosts = await getCollection('blog');
+const published = filterDrafts(allPosts);
+const tagCounts = getTagCounts(published);
+---
+
+<BaseLayout title="태그 — SafeD 블로그" description="SafeD 블로그의 모든 태그를 확인하세요.">
+  <div class="tg-wrap">
+    <div class="tg-hero">
+      <div class="w-container">
+        <p class="tg-label eng">Tags</p>
+        <h1 class="tg-title">태그 모아보기</h1>
+        <p class="tg-desc">총 {tagCounts.size}개 태그, {published.length}개 글</p>
+      </div>
+    </div>
+    <div class="w-container">
+      <div class="tg-grid">
+        {[...tagCounts.entries()].map(([tag, count]) => (
+          <a href={`/blog/tags/${tag}`} class="tg-card">
+            <span class="tg-name">{tag}</span>
+            <span class="tg-count eng">{count}</span>
+          </a>
+        ))}
+      </div>
+      {tagCounts.size === 0 && (
+        <div class="tg-empty"><p>등록된 태그가 없습니다.</p></div>
+      )}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .tg-wrap {
+    padding-top: 56px;
+  }
+  .tg-hero {
+    padding: 56px 0 40px;
+    background: #F8F9FA;
+    border-bottom: 1px solid #F2F4F6;
+  }
+  .tg-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #3182F6;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .tg-title {
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 800;
+    color: #191F28;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+  }
+  .tg-desc {
+    font-size: 15px;
+    color: #8B95A1;
+  }
+  .tg-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 40px 0 80px;
+  }
+  .tg-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: #F2F4F6;
+    border-radius: 12px;
+    transition: background 0.15s, transform 0.15s;
+  }
+  .tg-card:hover {
+    background: #E8F3FF;
+    transform: translateY(-1px);
+  }
+  .tg-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #191F28;
+  }
+  .tg-count {
+    font-size: 13px;
+    font-weight: 600;
+    color: #3182F6;
+    background: #DCE9FF;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+  .tg-empty {
+    text-align: center;
+    padding: 80px 0;
+    color: #8B95A1;
+    font-size: 15px;
+  }
+</style>

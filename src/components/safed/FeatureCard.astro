@@ -1,0 +1,120 @@
+---
+interface Props {
+  number: number;
+  title: string;
+  items: string[];
+  side: 'left' | 'right';
+}
+const { number, title, items, side } = Astro.props;
+const num = String(number).padStart(2, '0');
+---
+
+<div class:list={['fc-card', `fc-${side}`]} data-fc-num={number} data-fc-side={side}>
+  <div class="fc-header">
+    <span class="fc-badge eng">{num}</span>
+    <h4 class="fc-title">{title}</h4>
+  </div>
+  <ul class="fc-list">
+    {items.map(item => (
+      <li class="fc-item">
+        <svg class="fc-bullet" viewBox="0 0 6 6"><circle cx="3" cy="3" r="2" fill="#3182F6" opacity="0.5"/></svg>
+        <span>{item}</span>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .fc-card {
+    background: #F2F4F6;
+    border-radius: 16px;
+    padding: 24px;
+    transition: background 0.2s ease;
+    cursor: default;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .fc-card:hover {
+    background: #E8F3FF;
+  }
+  .fc-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .fc-badge {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #3182F6;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .fc-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #191F28;
+    letter-spacing: -0.3px;
+    line-height: 1.3;
+  }
+  .fc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .fc-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #6B7684;
+    line-height: 1.6;
+    word-break: keep-all;
+  }
+  .fc-bullet {
+    width: 6px;
+    height: 6px;
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+
+  /* Left side: right-aligned (text flows toward center phone) */
+  .fc-left {
+    text-align: right;
+  }
+  .fc-left .fc-header {
+    flex-direction: row-reverse;
+  }
+  .fc-left .fc-list {
+    align-items: flex-end;
+  }
+  .fc-left .fc-item {
+    flex-direction: row-reverse;
+  }
+
+  /* Reset on tablet/mobile */
+  @media (max-width: 1024px) {
+    .fc-left {
+      text-align: left;
+    }
+    .fc-left .fc-header {
+      flex-direction: row;
+    }
+    .fc-left .fc-list {
+      align-items: flex-start;
+    }
+    .fc-left .fc-item {
+      flex-direction: row;
+    }
+  }
+</style>

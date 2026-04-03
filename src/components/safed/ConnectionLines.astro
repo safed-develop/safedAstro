@@ -1,0 +1,39 @@
+---
+---
+<svg class="cl-svg" id="cl-svg" aria-hidden="true">
+  {Array.from({ length: 8 }, (_, i) => i + 1).map(n => (
+    <g>
+      <path
+        id={`cl-path-${n}`}
+        fill="none"
+        stroke="#3182F6"
+        stroke-width="1.5"
+        stroke-opacity="0"
+        stroke-linecap="round"
+      />
+      <circle
+        id={`cl-dot-${n}`}
+        r="4"
+        fill="#3182F6"
+        opacity="0"
+      />
+    </g>
+  ))}
+</svg>
+
+<style>
+  .cl-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: visible;
+  }
+  @media (max-width: 1024px) {
+    .cl-svg {
+      display: none;
+    }
+  }
+</style>

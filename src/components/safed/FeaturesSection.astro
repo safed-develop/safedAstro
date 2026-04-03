@@ -1,0 +1,333 @@
+---
+import FeaturesHero from './FeaturesHero.astro';
+import PhoneMockup from './PhoneMockup.astro';
+import FeatureCard from './FeatureCard.astro';
+import ConnectionLines from './ConnectionLines.astro';
+
+const leftCards = [
+  {
+    number: 1,
+    title: '중점점검활동',
+    items: ['위험성평가회의 시 중점대상 점검', '위험요인, 안전대책 확인', '사진촬영 및 안전대책 지시'],
+  },
+  {
+    number: 2,
+    title: '일상점검활동',
+    items: ['위험성평가회의 시 일상대상 점검', '위험요인, 안전대책 확인', '사진촬영 및 안전대책 지시'],
+  },
+  {
+    number: 3,
+    title: '점검일지',
+    items: ['주기적인 점검사항', '점검사진 등록', '점검결과 후 조치가능', '결재/승인 프로세스'],
+  },
+  {
+    number: 4,
+    title: '교육',
+    items: ['법적 기본교육', '기본교육 자료 제공', '문자전송 후 참석확인'],
+  },
+];
+
+const rightCards = [
+  {
+    number: 5,
+    title: '추가위험발굴',
+    items: ['위험요인 등록', '관리자 승인', '안전조치 요청'],
+  },
+  {
+    number: 6,
+    title: '부적합보고서',
+    items: ['부적합 원인 파악', '추가 조치 요청', '결재/승인 프로세스', '업체 작업 지시'],
+  },
+  {
+    number: 7,
+    title: '작업계획서·허가서',
+    items: ['법적 양식 제공', '점검항목 등록', '결재/승인 프로세스'],
+  },
+  {
+    number: 8,
+    title: 'TBM',
+    items: ['기본 양식 제공', '위험성평가 가져오기', '문자전송 후 참석확인', '결재/승인 프로세스'],
+  },
+];
+---
+
+<section class="fs-section" id="features-infographic">
+  <div class="fs-inner">
+    <FeaturesHero />
+    <div class="fs-grid" id="fs-grid">
+      <div class="fs-col fs-col-left">
+        {leftCards.map(card => (
+          <FeatureCard
+            number={card.number}
+            title={card.title}
+            items={card.items}
+            side="left"
+          />
+        ))}
+      </div>
+      <div class="fs-col fs-col-center">
+        <PhoneMockup />
+      </div>
+      <div class="fs-col fs-col-right">
+        {rightCards.map(card => (
+          <FeatureCard
+            number={card.number}
+            title={card.title}
+            items={card.items}
+            side="right"
+          />
+        ))}
+      </div>
+      <ConnectionLines />
+    </div>
+  </div>
+</section>
+
+<style>
+  .fs-section {
+    background: #FFFFFF;
+    padding: 80px 0;
+    border-bottom: 1px solid #E5E8EB;
+  }
+  .fs-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .fs-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr 280px;
+    gap: 0 48px;
+    position: relative;
+    align-items: center;
+  }
+  .fs-col-left,
+  .fs-col-right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .fs-col-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  /* ── Entrance animations (cards start hidden) ── */
+  .fs-section :global([data-fc-side="left"]) {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease, background 0.2s ease;
+  }
+  .fs-section :global([data-fc-side="right"]) {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease, background 0.2s ease;
+  }
+
+  /* ── Visible state ── */
+  .fs-section.fs-visible .fs-col-center {
+    opacity: 1;
+  }
+  .fs-section.fs-visible :global([data-fc-side]) {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* ── Stagger delays ── */
+  .fs-section.fs-visible .fs-col-left :global([data-fc-num="1"]) { transition-delay: 0.15s; }
+  .fs-section.fs-visible .fs-col-left :global([data-fc-num="2"]) { transition-delay: 0.25s; }
+  .fs-section.fs-visible .fs-col-left :global([data-fc-num="3"]) { transition-delay: 0.35s; }
+  .fs-section.fs-visible .fs-col-left :global([data-fc-num="4"]) { transition-delay: 0.45s; }
+  .fs-section.fs-visible .fs-col-right :global([data-fc-num="5"]) { transition-delay: 0.15s; }
+  .fs-section.fs-visible .fs-col-right :global([data-fc-num="6"]) { transition-delay: 0.25s; }
+  .fs-section.fs-visible .fs-col-right :global([data-fc-num="7"]) { transition-delay: 0.35s; }
+  .fs-section.fs-visible .fs-col-right :global([data-fc-num="8"]) { transition-delay: 0.45s; }
+
+  /* ── Responsive: tablet ── */
+  @media (max-width: 1024px) {
+    .fs-section { padding: 56px 0; }
+    .fs-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .fs-col-center {
+      display: none;
+    }
+    .fs-col-left,
+    .fs-col-right {
+      display: contents;
+    }
+    /* Reset transform direction */
+    .fs-section :global([data-fc-side="left"]),
+    .fs-section :global([data-fc-side="right"]) {
+      transform: translateY(20px);
+    }
+    .fs-section.fs-visible :global([data-fc-side]) {
+      transform: translateY(0);
+    }
+    /* Re-stagger for 2-column flow: 1,2,3,4,5,6,7,8 */
+    .fs-section.fs-visible :global([data-fc-num="1"]) { transition-delay: 0.05s; }
+    .fs-section.fs-visible :global([data-fc-num="2"]) { transition-delay: 0.1s; }
+    .fs-section.fs-visible :global([data-fc-num="3"]) { transition-delay: 0.15s; }
+    .fs-section.fs-visible :global([data-fc-num="4"]) { transition-delay: 0.2s; }
+    .fs-section.fs-visible :global([data-fc-num="5"]) { transition-delay: 0.25s; }
+    .fs-section.fs-visible :global([data-fc-num="6"]) { transition-delay: 0.3s; }
+    .fs-section.fs-visible :global([data-fc-num="7"]) { transition-delay: 0.35s; }
+    .fs-section.fs-visible :global([data-fc-num="8"]) { transition-delay: 0.4s; }
+  }
+
+  /* ── Responsive: mobile ── */
+  @media (max-width: 768px) {
+    .fs-section { padding: 40px 0; }
+    .fs-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ── Reduced motion ── */
+  @media (prefers-reduced-motion: reduce) {
+    .fs-section :global([data-fc-side]),
+    .fs-col-center {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: background 0.2s ease !important;
+    }
+  }
+</style>
+
+<script>
+  function initFeaturesInfographic() {
+    const section = document.getElementById('features-infographic');
+    const grid = document.getElementById('fs-grid');
+    const svg = document.getElementById('cl-svg');
+    const phone = document.getElementById('phone-mockup');
+    if (!section || !grid || !svg || !phone) return;
+
+    let linesDrawn = false;
+
+    function calcLines() {
+      const gridRect = grid.getBoundingClientRect();
+      const phoneRect = phone.getBoundingClientRect();
+      if (gridRect.width < 1025) return;
+
+      svg.setAttribute('viewBox', `0 0 ${gridRect.width} ${gridRect.height}`);
+
+      for (let i = 1; i <= 8; i++) {
+        const card = grid.querySelector<HTMLElement>(`[data-fc-num="${i}"]`);
+        const path = document.getElementById(`cl-path-${i}`) as SVGPathElement | null;
+        const dot = document.getElementById(`cl-dot-${i}`);
+        if (!card || !path || !dot) continue;
+
+        const cardRect = card.getBoundingClientRect();
+        const isLeft = i <= 4;
+        const idx = isLeft ? i - 1 : i - 5;
+
+        // Card connection point: center of the edge facing the phone
+        const cardX = isLeft
+          ? cardRect.right - gridRect.left
+          : cardRect.left - gridRect.left;
+        const cardY = cardRect.top + cardRect.height / 2 - gridRect.top;
+
+        // Phone connection point: distributed evenly along phone height
+        const pTop = phoneRect.top - gridRect.top;
+        const pH = phoneRect.height;
+        const phoneY = pTop + pH * 0.15 + (pH * 0.7 * idx / 3);
+        const phoneX = isLeft
+          ? phoneRect.left - gridRect.left
+          : phoneRect.right - gridRect.left;
+
+        // Cubic bezier control points
+        const dx = Math.abs(phoneX - cardX);
+        const cp = dx * 0.45;
+        const d = isLeft
+          ? `M${cardX},${cardY} C${cardX + cp},${cardY} ${phoneX - cp},${phoneY} ${phoneX},${phoneY}`
+          : `M${cardX},${cardY} C${cardX - cp},${cardY} ${phoneX + cp},${phoneY} ${phoneX},${phoneY}`;
+
+        path.setAttribute('d', d);
+        const len = path.getTotalLength();
+        path.setAttribute('stroke-dasharray', String(len));
+
+        if (linesDrawn) {
+          path.setAttribute('stroke-dashoffset', '0');
+          path.setAttribute('stroke-opacity', '0.2');
+        } else {
+          path.setAttribute('stroke-dashoffset', String(len));
+        }
+
+        dot.setAttribute('cx', String(phoneX));
+        dot.setAttribute('cy', String(phoneY));
+      }
+    }
+
+    function animateLines() {
+      linesDrawn = true;
+      for (let i = 1; i <= 8; i++) {
+        const path = document.getElementById(`cl-path-${i}`);
+        const dot = document.getElementById(`cl-dot-${i}`);
+        if (!path || !dot) continue;
+
+        const delay = (i <= 4 ? (i - 1) : (i - 5)) * 100;
+        setTimeout(() => {
+          path.style.transition = 'stroke-dashoffset 0.6s ease, stroke-opacity 0.25s ease, stroke-width 0.25s ease';
+          path.setAttribute('stroke-dashoffset', '0');
+          path.setAttribute('stroke-opacity', '0.2');
+          dot.style.transition = 'opacity 0.3s ease';
+          dot.setAttribute('opacity', '0.5');
+        }, delay);
+      }
+    }
+
+    // Hover interaction on cards
+    grid.querySelectorAll<HTMLElement>('[data-fc-num]').forEach(card => {
+      const num = card.getAttribute('data-fc-num');
+      const path = document.getElementById(`cl-path-${num}`);
+      const dot = document.getElementById(`cl-dot-${num}`);
+      if (!path || !dot) return;
+
+      card.addEventListener('mouseenter', () => {
+        if (!linesDrawn) return;
+        path.setAttribute('stroke-opacity', '1');
+        path.setAttribute('stroke-width', '2');
+        dot.setAttribute('opacity', '1');
+      });
+      card.addEventListener('mouseleave', () => {
+        if (!linesDrawn) return;
+        path.setAttribute('stroke-opacity', '0.2');
+        path.setAttribute('stroke-width', '1.5');
+        dot.setAttribute('opacity', '0.5');
+      });
+    });
+
+    // Intersection Observer: trigger entrance animation
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            section.classList.add('fs-visible');
+            // Wait for card animations to finish, then draw lines
+            setTimeout(() => {
+              calcLines();
+              setTimeout(animateLines, 150);
+            }, 1000);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(section);
+
+    // Recalculate on resize
+    let resizeTimer: ReturnType<typeof setTimeout>;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(calcLines, 150);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initFeaturesInfographic);
+  document.addEventListener('astro:page-load', initFeaturesInfographic);
+</script>
