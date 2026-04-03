@@ -9,7 +9,22 @@
       "Bash(grep:*)",
       "Bash(node:*)",
       "Bash(ls:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(vercel inspect:*)",
+      "Bash(vercel ls:*)",
+      "Bash(curl:*)",
+      "Bash(vercel logs:*)",
+      "Bash(rm:*)",
+      "Bash(cp:*)",
+      "Bash(powershell:*)",
+      "Bash(taskkill:*)",
+      "WebFetch(domain:safed-astro.vercel.app)",
+      "Bash(gh api:*)",
+      "WebFetch(domain:safed-astro-q9ranu279-s2olll27-7145s-projects.vercel.app)",
+      "Bash(vercel:*)",
+      "WebFetch(domain:safed-astro-7tjd2o45a-s2olll27-7145s-projects.vercel.app)",
+      "Bash(npm run:*)",
+      "Bash(npm install:*)"
     ]
   }
 }

@@ -1,0 +1,681 @@
+---
+import SubPageLayout from '../layouts/SubPageLayout.astro';
+
+const navLinks = [
+  { name: '사업배경', url: '/business-background' },
+  { name: 'SafeD Development', url: '/safed-features' },
+];
+---
+
+<SubPageLayout
+  title="사업배경 - SafeD | 스마트안전관리시스템"
+  pageTitle="사업배경"
+  pageTitleEn="Business Background"
+  description="중대재해처벌법 대응을 위한 SafeD 안전관리 솔루션. 안전보건관리체계 구축 및 이행을 지원합니다."
+  keywords="중대재해처벌법, 안전보건관리체계, 중대재해예방, 경영책임자의무, SafeD, 안전관리솔루션"
+  navLinks={navLinks}
+>
+  <!-- ═══ HERO ═══ -->
+  <section class="relative bg-[#1C1C1E] text-white overflow-hidden">
+    <div class="absolute inset-0 bg-[url('/images/danger_bg.jpg')] bg-cover bg-center grayscale contrast-[1.08] opacity-25"></div>
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="absolute top-1/2 left-[15%] -translate-y-1/2 w-[180px] h-[180px] rounded-full border-[1.5px] border-white/[0.08] pointer-events-none hidden lg:block"></div>
+
+    <div class="w-container max-w-5xl relative z-10 py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal">
+          <p class="eng font-medium text-xs tracking-[0.15em] uppercase mb-6 text-[#6B6B6B]">Serious Accident Punishment Act</p>
+          <h2 class="text-3xl lg:text-[44px] font-bold tracking-tight leading-[1.15] mb-6">
+            매년 <span class="text-[#2563EB]">400명</span>이<br/>건설현장에서 사망합니다.
+          </h2>
+          <p class="text-white/50 text-sm leading-relaxed mb-10">
+            반복되는 중대재해, '사고 공화국'이라는 부끄러운 오명.<br/>
+            중대재해처벌법은 이 악순환의 고리를 끊기 위해 제정되었습니다.
+          </p>
+          <div class="inline-flex items-center gap-2.5 border border-white/10 px-5 py-2.5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+            <span class="text-white/60 text-sm">2024.1.27부터 5인 이상 사업장 전면 적용</span>
+          </div>
+        </div>
+
+        <div class="reveal-right delay-200">
+          <div class="divide-y divide-white/10 border border-white/10">
+            <div class="p-6 flex items-center gap-6">
+              <div class="w-14 h-14 border border-[#2563EB]/30 flex items-center justify-center flex-shrink-0">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              </div>
+              <div>
+                <p class="eng text-3xl font-bold text-[#2563EB]">401건</p>
+                <p class="text-white/40 text-sm">2024년 건설업 사망사고</p>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 divide-x divide-white/10">
+              <div class="p-5 text-center">
+                <p class="eng text-2xl font-bold">1년+</p>
+                <p class="text-white/40 text-xs mt-1">징역 (사망사고)</p>
+              </div>
+              <div class="p-5 text-center">
+                <p class="eng text-2xl font-bold">50억</p>
+                <p class="text-white/40 text-xs mt-1">법인 최대 벌금</p>
+              </div>
+            </div>
+            <div class="p-6 flex items-center gap-6">
+              <div class="w-14 h-14 border border-[#2563EB]/30 flex items-center justify-center flex-shrink-0">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <p class="text-lg font-bold">SafeD로 완벽 대비</p>
+                <p class="text-white/40 text-sm">4대 의무사항 100% 시스템 매핑</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 01. 중대재해란? ═══ -->
+  <section class="border-b border-[#E0E0E0]">
+    <div class="w-container max-w-5xl py-14 lg:py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0 reveal">
+        <div class="lg:col-span-4 lg:pr-8">
+          <span class="eng text-[80px] lg:text-[120px] font-bold leading-none text-[#2563EB] block -mb-2">01</span>
+          <p class="eng font-medium text-xs tracking-[0.15em] uppercase text-[#6B6B6B] mb-2 mt-4">Definition</p>
+          <h2 class="text-2xl lg:text-3xl font-bold tracking-tight text-[#111]">중대재해란?</h2>
+          <p class="text-[#6B6B6B] text-sm mt-3 leading-relaxed">
+            다음 중 하나에 해당하면 <strong class="text-[#111]">'중대산업재해'</strong>로 분류됩니다.
+          </p>
+          <div class="mt-6 border border-[#E0E0E0] p-4 text-xs text-[#6B6B6B] leading-relaxed">
+            <p class="font-bold text-[#111] mb-1.5">관련 법률</p>
+            <p>중대재해 처벌 등에 관한 법률 <span class="eng">제2조 제2호</span></p>
+            <div class="border-t border-[#E0E0E0] mt-3 pt-3">
+              <p class="font-semibold text-[#3A3A3A] mb-1">적용 대상</p>
+              <p>상시근로자 <strong class="eng text-[#111]">5명</strong> 이상 사업장</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-8 lg:border-l lg:border-[#E0E0E0] lg:pl-8">
+          <div class="grid grid-cols-3 gap-[1px] bg-[#E0E0E0] border border-[#E0E0E0] mb-6">
+            {[
+              { num: '1명', label: '사망', desc: '이상 발생', iconPath: 'M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0zM12 9v4M12 17h.01' },
+              { num: '10명', label: '부상', desc: '2개월+ 치료', iconPath: 'M22 12h-4l-3 9L9 3l-3 9H2' },
+              { num: '10명', label: '질병', desc: '3개월+ 치료', iconPath: 'M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3.332.88-4.5 2.23A6.65 6.65 0 0 0 7.5 3 5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7 7-7z' },
+            ].map((item) => (
+              <div class="bg-white p-5 text-center">
+                <div class="flex items-center justify-center gap-2 mb-3">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5"><path d={item.iconPath}/></svg>
+                  <span class="font-semibold text-sm text-[#111]">{item.label}</span>
+                </div>
+                <p class="eng text-3xl font-bold text-[#2563EB]">{item.num}</p>
+                <p class="text-xs text-[#6B6B6B] mt-1">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="border border-[#E0E0E0] p-5">
+            <div class="flex items-center gap-2 mb-4">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+              <h3 class="font-bold text-sm text-[#111]">법 제정 배경</h3>
+            </div>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-[1px] bg-[#E0E0E0]">
+              {[
+                { text: '안전법령 개편에도 중대재해 반복', sub: '산안법 한계' },
+                { text: '현장 안전조치 위주 규정의 한계', sub: '구조적 문제' },
+                { text: '경영책임자에게 안전확보 의무 부과', sub: '책임 강화' },
+                { text: '안전관리체계 구축 의무화', sub: '시스템 전환' },
+              ].map((item) => (
+                <div class="bg-white p-3 text-center">
+                  <p class="text-xs text-[#3A3A3A] font-medium leading-snug">{item.text}</p>
+                  <p class="text-[10px] text-[#6B6B6B] mt-1 eng font-medium">{item.sub}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 02. 도입 필요성 ═══ -->
+  <section class="bg-[#131316] text-white relative overflow-hidden">
+    <div class="w-container max-w-5xl py-8 lg:py-10 relative z-10">
+      <!-- 헤더: 좌측 번호 + 우측 설명 -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-0 mb-6 reveal">
+        <div class="lg:col-span-4 lg:pr-6">
+          <span class="eng text-[64px] lg:text-[80px] font-bold leading-none text-[#2563EB] block -mb-1">02</span>
+          <p class="eng font-medium text-[10px] tracking-[0.15em] uppercase text-[#555] mt-2">Why We Need It</p>
+          <h2 class="text-xl lg:text-2xl font-bold tracking-tight leading-tight mt-1">왜 시스템이<br/>필요한가?</h2>
+        </div>
+        <div class="lg:col-span-8 lg:border-l lg:border-white/[0.06] lg:pl-6 flex items-end">
+          <p class="text-white/30 text-sm leading-relaxed">중대재해처벌법 대응과 현장 안전관리 효율화를 동시에 해결해야 합니다. 외부의 법적 압력과 내부의 구조적 한계, 이 두 축의 문제를 짚어봅니다.</p>
+        </div>
+      </div>
+
+      <!-- 듀얼 패널: 외부 압력 vs 내부 한계 -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-[1px] bg-white/[0.04] reveal delay-100">
+        <!-- 외부 압력 -->
+        <div class="bb-panel bb-panel-ext">
+          <div class="bb-panel-head">
+            <div class="w-2 h-2 rounded-full bg-[#ef4444]" style="box-shadow: 0 0 8px #ef4444;"></div>
+            <span class="eng text-[10px] font-bold tracking-[0.15em] uppercase text-[#ef4444]">External Pressure</span>
+            <span class="text-white/20 text-[10px]">외부 법적 압력</span>
+          </div>
+          {[
+            { stat: '전면시행', label: '법령 강화', desc: '중대재해처벌법 시행, 경영책임자 직접 처벌 대상' },
+            { stat: '1년+', label: '처벌 수위', desc: '사망사고 시 징역 1년 이상, 법인 10억 벌금' },
+            { stat: '5인+', label: '적용 확대', desc: '상시근로자 5명 이상 모든 사업장 전면 확대' },
+          ].map((item) => (
+            <div class="bb-data-row group">
+              <div class="bb-data-stat">
+                <span class="eng text-lg font-bold text-[#ef4444]">{item.stat}</span>
+              </div>
+              <div class="bb-data-content">
+                <p class="text-sm font-semibold text-white/85">{item.label}</p>
+                <p class="text-[11px] text-white/30 leading-snug">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- 내부 한계 -->
+        <div class="bb-panel bb-panel-int">
+          <div class="bb-panel-head">
+            <div class="w-2 h-2 rounded-full bg-[#f59e0b]" style="box-shadow: 0 0 8px #f59e0b;"></div>
+            <span class="eng text-[10px] font-bold tracking-[0.15em] uppercase text-[#f59e0b]">Internal Limits</span>
+            <span class="text-white/20 text-[10px]">내부 구조적 한계</span>
+          </div>
+          {[
+            { stat: '3배+', label: '관리 포인트 증가', desc: '위험성평가·안전교육·기록보관 등 비효율 가중' },
+            { stat: '복합', label: '현장 복잡도', desc: '협력사·외국인 근로자 언어장벽, 다중 현장 관리' },
+            { stat: '수기', label: 'DB·분석 부재', desc: '데이터 취합·분석·모니터링 체계 전무' },
+          ].map((item) => (
+            <div class="bb-data-row group">
+              <div class="bb-data-stat">
+                <span class="eng text-lg font-bold text-[#f59e0b]">{item.stat}</span>
+              </div>
+              <div class="bb-data-content">
+                <p class="text-sm font-semibold text-white/85">{item.label}</p>
+                <p class="text-[11px] text-white/30 leading-snug">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- SafeD 솔루션 바 -->
+      <div class="bb-answer-bar reveal delay-200">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" class="flex-shrink-0"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span class="eng text-[10px] font-bold text-[#2563EB] tracking-wider uppercase">SafeD</span>
+        <span class="text-white/15 text-xs">|</span>
+        <span class="text-sm font-semibold text-white/70">사고예방</span>
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        <span class="text-sm font-semibold text-white/70">안전활동</span>
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        <span class="text-sm font-semibold text-white/70">사후대응</span>
+        <span class="text-white/15 text-xs">|</span>
+        <span class="text-[11px] text-white/25">전 과정 시스템화</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 03. 위험성평가 = 법적 의무 ═══ -->
+  <section class="border-b border-[#E0E0E0]">
+    <div class="w-container max-w-5xl py-14 lg:py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0">
+        <div class="lg:col-span-4 lg:pr-8 reveal">
+          <span class="eng text-[80px] lg:text-[120px] font-bold leading-none text-[#2563EB] block -mb-2">03</span>
+          <p class="eng font-medium text-xs tracking-[0.15em] uppercase text-[#6B6B6B] mb-2 mt-4">Article 4, Paragraph 3</p>
+          <h2 class="text-2xl lg:text-3xl font-bold tracking-tight leading-tight text-[#111]">
+            위험성평가 이행 =<br/><span class="text-[#2563EB]">법적 의무 충족.</span>
+          </h2>
+          <div class="mt-6 border-l-2 border-[#2563EB] pl-4">
+            <p class="text-sm text-[#3A3A3A] leading-relaxed">
+              유해·위험요인을 확인하여 개선하는 업무절차를 마련하고,
+              <strong class="text-[#111]">반기 1회 이상 점검</strong>한 후 필요한 조치를 할 것.
+            </p>
+          </div>
+          <div class="mt-4 border border-[#E0E0E0] p-4">
+            <div class="flex items-start gap-2.5">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" class="flex-shrink-0 mt-0.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <p class="text-sm text-[#3A3A3A] leading-relaxed">
+                <strong class="text-[#2563EB]">위험성평가를 실시</strong>하고 결과를 보고받은 경우,
+                유해·위험요인의 확인 및 개선에 대한 점검을 한 것으로 <strong>간주</strong>합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-8 lg:border-l lg:border-[#E0E0E0] lg:pl-8 reveal-right delay-200">
+          <div class="space-y-4">
+            <div class="border border-[#E0E0E0] p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-9 h-9 border border-[#E0E0E0] flex items-center justify-center">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6B6B6B" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+                </div>
+                <p class="font-bold text-sm text-[#6B6B6B]">AS-IS: 기존 방식</p>
+              </div>
+              <div class="space-y-2">
+                {['서류 기반 위험성평가', '엑셀 수기 관리', '근거자료 부재'].map((t) => (
+                  <div class="flex items-center gap-2 text-sm text-[#6B6B6B]">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#6B6B6B" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                    <span class="line-through">{t}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div class="flex justify-center">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            </div>
+
+            <div class="border-2 border-[#2563EB]/30 p-6 bg-[#2563EB]/[0.03]">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-9 h-9 border border-[#2563EB]/30 flex items-center justify-center">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <p class="font-bold text-sm text-[#2563EB]">TO-BE: SafeD 도입</p>
+              </div>
+              <div class="space-y-2">
+                {['시스템 기반 위험성평가 (50,000 DB)', '실시간 모니터링·자동 알림', '근거자료 자동 생성·보관'].map((t) => (
+                  <div class="flex items-center gap-2 text-sm text-[#111]">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span class="font-medium">{t}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 04. 4대 의무사항 ═══ -->
+  <section class="border-b border-[#E0E0E0]">
+    <div class="w-container max-w-5xl py-14 lg:py-16">
+      <div class="mb-8 reveal">
+        <span class="eng text-[80px] lg:text-[120px] font-bold leading-none text-[#2563EB] block -mb-2">04</span>
+        <p class="eng font-medium text-xs tracking-[0.15em] uppercase text-[#6B6B6B] mb-2 mt-4">Key Obligations</p>
+        <h2 class="text-2xl lg:text-3xl font-bold tracking-tight text-[#111]">4대 의무사항 × SafeD 대응</h2>
+        <p class="text-[#6B6B6B] text-sm mt-3">경영책임자가 이행해야 할 4대 의무를 SafeD가 시스템으로 해결합니다.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- 이미지 영역 -->
+        <div class="lg:col-span-5 reveal">
+          <div class="flex flex-col gap-4 lg:sticky lg:top-24">
+            <img src="/images/main_img_01.png" alt="SafeD 플랫폼" class="w-full object-cover border border-[#E0E0E0]" style="aspect-ratio: 4/3;" loading="lazy" />
+            <img src="/images/main_img_02.png" alt="SafeD 위험성평가" class="w-full object-cover border border-[#E0E0E0]" style="aspect-ratio: 4/3;" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- 카드 영역 -->
+        <div class="lg:col-span-7 space-y-3">
+          {[
+            { num: '01', title: '안전보건관리체계 구축·이행', desc: '재해 예방에 필요한 인력 및 예산 등 안전보건관리체계의 구축 및 이행', safed: '위험성평가, 점검활동, DB 시스템 구축' },
+            { num: '02', title: '재발방지 대책 수립·이행', desc: '재해 발생 시 재발방지 대책의 수립 및 이행', safed: '사고사례 DB, 현장 안전 데이터 분석, 사례 공유' },
+            { num: '03', title: '개선·시정 명령 이행', desc: '관계 법령에 따라 개선, 시정 등을 명한 사항의 이행', safed: '자동 알림, 조치 추적, 실시간 모니터링' },
+            { num: '04', title: '의무이행 관리상 조치', desc: '안전·보건 관계 법령에 따른 의무이행에 필요한 관리상의 조치', safed: '대시보드, 보고서 자동생성, 근거자료 보관' },
+          ].map((item, i) => (
+            <div class={`border border-[#E0E0E0] bg-white p-6 reveal delay-${Math.min((i + 1) * 100, 400)}`}>
+              <div class="flex items-start gap-4 mb-3">
+                <span class="eng text-4xl font-bold text-[#2563EB]/20 leading-none">{item.num}</span>
+                <div>
+                  <p class="text-[10px] font-bold uppercase eng tracking-wider text-[#2563EB]">법적 의무</p>
+                  <h3 class="font-bold text-lg tracking-tight text-[#111]">{item.title}</h3>
+                </div>
+              </div>
+              <p class="text-[#3A3A3A] text-sm leading-relaxed mb-4">{item.desc}</p>
+              <div class="flex items-start gap-2 border border-[#2563EB]/15 bg-[#2563EB]/[0.03] px-4 py-3">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" class="flex-shrink-0 mt-0.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <p class="text-sm"><strong class="text-[#2563EB]">SafeD 대응:</strong> <span class="text-[#3A3A3A]">{item.safed}</span></p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 05. 현장/본사 Needs ═══ -->
+  <section class="border-b border-[#E0E0E0]">
+    <div class="w-container max-w-5xl py-14 lg:py-16">
+      <div class="mb-8 reveal">
+        <span class="eng text-[80px] lg:text-[120px] font-bold leading-none text-[#2563EB] block -mb-2">05</span>
+        <p class="eng font-medium text-xs tracking-[0.15em] uppercase text-[#6B6B6B] mb-2 mt-4">Needs Analysis</p>
+        <h2 class="text-2xl lg:text-3xl font-bold tracking-tight text-[#111]">현장과 본사, 각각의 과제</h2>
+      </div>
+
+      <div class="grid grid-cols-2 gap-[1px] bg-[#E0E0E0] border border-[#E0E0E0]">
+        <div class="bg-[#1C1C1E] text-white reveal">
+          <div class="relative overflow-hidden">
+            <div class="absolute inset-0 bg-[url('/images/harfbox1_bg.jpg')] bg-cover bg-center grayscale opacity-15"></div>
+            <div class="relative z-10 p-5">
+              <div class="flex items-center gap-3 mb-6">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5"><path d="M2 20h20M5 20V8l7-5 7 5v12M9 20v-4h6v4"/></svg>
+                <h3 class="font-bold">현장 Needs</h3>
+              </div>
+              <div class="divide-y divide-white/10">
+                {[
+                  { title: '위험성평가 프로세스 체계화', items: ['최초/정기/수시/일일 평가', '데이터 기반 위험요인 매칭'] },
+                  { title: '안전관리체계 강화', items: ['관리 포인트 증가 대응', '외국인 근로자 언어 장벽 해소'] },
+                  { title: '현장 DB·모니터링', items: ['안전활동 Database 구축', '실시간 취합/분석/모니터링'] },
+                ].map((need) => (
+                  <div class="py-4 first:pt-0 last:pb-0">
+                    <p class="font-semibold text-sm mb-2">{need.title}</p>
+                    {need.items.map((item) => (
+                      <p class="text-xs text-white/50 flex items-center gap-2 mb-1">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        {item}
+                      </p>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-[#1C1C1E] text-white reveal delay-200">
+          <div class="relative overflow-hidden">
+            <div class="absolute inset-0 bg-[url('/images/harfbox2_bg.jpg')] bg-cover bg-center grayscale opacity-15"></div>
+            <div class="relative z-10 p-5">
+              <div class="flex items-center gap-3 mb-6">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5"><path d="M3 21h18M3 7v14M21 7v14M6 7V3h12v4M9 21v-4h6v4M9 7h6"/></svg>
+                <h3 class="font-bold">본사 Needs</h3>
+              </div>
+              <div class="divide-y divide-white/10">
+                {[
+                  { title: '전 현장 통합 모니터링', items: ['현장별 이행률 실시간 비교', '안전활동 KPI 대시보드'] },
+                  { title: '법적 근거자료 확보', items: ['의무이행 증빙 자동 생성', '보고서 자동 출력·보관'] },
+                  { title: '표준 안전관리 프로세스', items: ['전 현장 동일 프로세스 적용', '공종 DB·교육자료 제공'] },
+                ].map((need) => (
+                  <div class="py-4 first:pt-0 last:pb-0">
+                    <p class="font-semibold text-sm mb-2">{need.title}</p>
+                    {need.items.map((item) => (
+                      <p class="text-xs text-white/50 flex items-center gap-2 mb-1">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        {item}
+                      </p>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 06. 도입 효과 ═══ -->
+  <section class="border-b border-[#E0E0E0]">
+    <div class="w-container max-w-5xl py-10 lg:py-12">
+      <div class="mb-6 reveal">
+        <span class="eng text-[80px] lg:text-[120px] font-bold leading-none text-[#2563EB] block -mb-2">06</span>
+        <p class="eng font-medium text-xs tracking-[0.15em] uppercase text-[#6B6B6B] mb-2 mt-4">Impact</p>
+        <h2 class="text-2xl lg:text-3xl font-bold tracking-tight text-[#111]">도입 효과</h2>
+      </div>
+
+      <div class="border border-[#E0E0E0] p-5 lg:p-6 mb-4 impact-chart-wrap">
+        <h3 class="font-bold text-sm mb-5 text-center text-[#111]">업무 시간 비교 <span class="text-[#6B6B6B] font-normal">(1개 현장, 1일 기준)</span></h3>
+        <div class="space-y-5">
+          {[
+            { label: '탐색·열람', before: 60, after: 10, idx: 0 },
+            { label: '발굴·조치', before: 120, after: 20, idx: 1 },
+            { label: '기록·보관', before: 60, after: 10, idx: 2 },
+          ].map((item) => (
+            <div class="impact-bar-row" data-bar-idx={item.idx}>
+              <div class="flex items-center justify-between mb-3">
+                <span class="font-bold text-sm text-[#111]">{item.label}</span>
+                <span class="eng text-sm font-bold text-[#2563EB] impact-pct" style="opacity: 0;">{Math.round((1 - item.after / item.before) * 100)}% 절감</span>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <p class="text-xs text-[#6B6B6B] mb-1">AS-IS (기존)</p>
+                  <div class="h-10 bg-[#F5F5F5] overflow-hidden relative">
+                    <div class="h-full flex items-center justify-end pr-3 impact-bar bg-[#E0E0E0]" style="width: 0%;" data-target-width={`${(item.before / 120) * 100}%`}>
+                      <span class="eng text-xs font-bold text-[#6B6B6B]">{item.before}분</span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <p class="text-xs text-[#6B6B6B] mb-1">TO-BE (SafeD)</p>
+                  <div class="h-10 bg-[#F5F5F5] overflow-hidden relative">
+                    <div class="h-full bg-[#2563EB] flex items-center justify-end pr-3 impact-bar" style="width: 0%;" data-target-width={`${(item.after / 120) * 100}%`}>
+                      <span class="eng text-xs text-white font-bold">{item.after}분</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div class="mt-5 border border-[#2563EB]/20 bg-[#2563EB]/[0.03] p-5 text-center impact-summary" style="opacity: 0; transform: translateY(10px);">
+          <p class="text-sm text-[#6B6B6B] mb-2">SafeD 도입 시 절감 효과</p>
+          <p class="text-xl lg:text-2xl font-bold text-[#111]">
+            총 <span class="eng text-[#2563EB]">240분 → 40분</span> <span class="text-[#E0E0E0] mx-2">|</span> 월 <span class="eng text-[#2563EB]">120만원</span> 절감
+          </p>
+          <p class="text-xs text-[#6B6B6B] mt-2">1개 현장 기준, 반복 업무 자동화로 연간 약 1,440만원 비용 절감</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-[1px] bg-[#E0E0E0] border border-[#E0E0E0] reveal delay-300">
+        {[
+          { num: '80%', label: '단순·반복\n업무 제거' },
+          { num: '70%', label: '위험성평가\n작성시간 단축' },
+          { num: '100%', label: '모바일\n현장 대응' },
+          { num: '자동', label: '법적 근거자료\n생성·보관' },
+        ].map((item) => (
+          <div class="bg-white p-6 text-center">
+            <p class="eng text-3xl font-bold text-[#2563EB] mb-2">{item.num}</p>
+            <p class="text-xs text-[#6B6B6B] whitespace-pre-line leading-relaxed font-medium">{item.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 07. 위반 시 처벌 ═══ -->
+  <section class="bg-[#1C1C1E] text-white">
+    <div class="w-container max-w-5xl py-10 lg:py-12">
+      <div class="mb-6 reveal">
+        <span class="eng text-[80px] lg:text-[120px] font-bold leading-none text-[#2563EB] block -mb-2">07</span>
+        <p class="eng font-medium text-xs tracking-[0.15em] uppercase text-[#6B6B6B] mb-2 mt-4">Penalty</p>
+        <h2 class="text-2xl lg:text-3xl font-bold tracking-tight">위반 시 처벌</h2>
+      </div>
+
+      <div class="grid grid-cols-2 gap-[1px] bg-white/10 border border-white/10 mb-4">
+        <div class="bg-[#1C1C1E] p-5 reveal">
+          <p class="text-[#2563EB] eng font-bold text-xs tracking-wider uppercase mb-4">사망사고 발생 시</p>
+          <p class="eng text-5xl lg:text-6xl font-bold mb-2">1년+</p>
+          <p class="text-white/50 text-sm mb-4">징역 또는 10억원 이하 벌금</p>
+          <div class="border-t border-white/10 pt-4">
+            <p class="text-white/30 text-xs">법인: <span class="eng font-bold text-[#2563EB]/70">50억원</span> 이하 벌금</p>
+          </div>
+        </div>
+        <div class="bg-[#1C1C1E] p-5 reveal delay-200">
+          <p class="text-[#2563EB] eng font-bold text-xs tracking-wider uppercase mb-4">부상·질병 발생 시</p>
+          <p class="eng text-5xl lg:text-6xl font-bold mb-2">7년</p>
+          <p class="text-white/50 text-sm mb-4">이하 징역 또는 1억원 이하 벌금</p>
+          <div class="border-t border-white/10 pt-4">
+            <p class="text-white/30 text-xs">법인: <span class="eng font-bold text-[#2563EB]/70">10억원</span> 이하 벌금</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-3 gap-[1px] bg-white/10 border border-white/10 reveal delay-300">
+        {[
+          { num: '50억', label: '법인 최대 벌금', sub: '사망사고' },
+          { num: '징벌적', label: '손해배상', sub: '부과 가능' },
+          { num: '실형', label: '경영책임자', sub: '직접 처벌' },
+        ].map((item) => (
+          <div class="bg-[#1C1C1E] p-5 text-center">
+            <p class="eng font-bold text-xl text-[#2563EB]">{item.num}</p>
+            <p class="text-xs text-white/50 mt-1">{item.label}</p>
+            <p class="text-[10px] text-white/30">{item.sub}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="py-20">
+    <div class="w-container max-w-4xl text-center">
+      <h2 class="text-3xl lg:text-5xl font-bold tracking-tight leading-[1.1] text-[#111] reveal">
+        대비하지 않으면,<br/><span class="text-[#2563EB]">대가를 치릅니다.</span>
+      </h2>
+      <p class="text-[#6B6B6B] text-lg mt-8 max-w-2xl mx-auto leading-relaxed reveal delay-100">
+        SafeD는 중대재해처벌법이 요구하는 4대 의무사항을 시스템으로 완벽하게 구현합니다.
+        서류가 아닌 데이터로, 형식이 아닌 실질적 안전관리를 실현합니다.
+      </p>
+      <div class="flex flex-row gap-3 justify-center mt-10 reveal delay-200 flex-wrap">
+        <a href="/safed-features" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#111] text-white font-semibold hover:bg-[#333] transition-colors">
+          SafeD 기능 보기
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/inquiries" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#111] border border-[#E0E0E0] font-semibold hover:border-[#111] transition-colors">
+          무료 상담받기
+        </a>
+      </div>
+    </div>
+  </section>
+</SubPageLayout>
+
+<style>
+  .impact-bar {
+    transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .impact-pct {
+    transition: opacity 0.5s ease;
+  }
+
+  .impact-summary {
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  /* ── Section 02: Dual Panel ── */
+  .bb-panel {
+    background: rgba(255,255,255,0.015);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bb-panel-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .bb-data-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    transition: background 0.2s ease;
+  }
+
+  .bb-data-row:last-child {
+    border-bottom: none;
+  }
+
+  .bb-data-row:hover {
+    background: rgba(255,255,255,0.02);
+  }
+
+  .bb-data-stat {
+    min-width: 56px;
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+
+  .bb-data-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Answer bar */
+  .bb-answer-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 3px;
+    padding: 0.6rem 1rem;
+    background: rgba(37, 99, 235, 0.04);
+    border: 1px solid rgba(37, 99, 235, 0.08);
+  }
+
+  @media (max-width: 639px) {
+    .bb-panel-head {
+      padding: 0.5rem 0.75rem;
+    }
+    .bb-data-row {
+      padding: 0.5rem 0.75rem;
+      gap: 0.5rem;
+    }
+    .bb-data-stat {
+      min-width: 44px;
+    }
+    .bb-data-stat span {
+      font-size: 0.85rem !important;
+    }
+    .bb-answer-bar {
+      padding: 0.5rem 0.75rem;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .bb-answer-bar span.text-sm {
+      font-size: 0.75rem;
+    }
+  }
+</style>
+
+<script>
+  function initImpactBars() {
+    const wrap = document.querySelector('.impact-chart-wrap');
+    if (!wrap) return;
+
+    let animated = false;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !animated) {
+          animated = true;
+
+          const rows = wrap.querySelectorAll('.impact-bar-row');
+          rows.forEach((row, i) => {
+            setTimeout(() => {
+              const bars = row.querySelectorAll('.impact-bar') as NodeListOf<HTMLElement>;
+              bars.forEach((bar) => {
+                const target = bar.getAttribute('data-target-width');
+                if (target) bar.style.width = target;
+              });
+
+              const pct = row.querySelector('.impact-pct') as HTMLElement;
+              if (pct) pct.style.opacity = '1';
+            }, i * 300);
+          });
+
+          setTimeout(() => {
+            const summary = wrap.querySelector('.impact-summary') as HTMLElement;
+            if (summary) {
+              summary.style.opacity = '1';
+              summary.style.transform = 'translateY(0)';
+            }
+          }, rows.length * 300 + 600);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(wrap);
+  }
+
+  document.addEventListener('DOMContentLoaded', initImpactBars);
+  document.addEventListener('astro:page-load', initImpactBars);
+</script>

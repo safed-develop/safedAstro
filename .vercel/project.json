@@ -1,0 +1,16 @@
+{
+  "projectId": "prj_rU7wDgLaI7M4Mhjgou4FeO918zbR",
+  "orgId": "team_2SMvfYAgKQ6fUX70lSNA4uts",
+  "projectName": "safed-astro",
+  "settings": {
+    "createdAt": 1775176999814,
+    "framework": "astro",
+    "devCommand": null,
+    "installCommand": null,
+    "buildCommand": null,
+    "outputDirectory": null,
+    "rootDirectory": null,
+    "directoryListing": false,
+    "nodeVersion": "24.x"
+  }
+}

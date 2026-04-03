@@ -1,0 +1,763 @@
+---
+import SubPageLayout from '../layouts/SubPageLayout.astro';
+import FeatureCarousel from '../components/ui/FeatureCarousel.tsx';
+import FeaturesSection from '../components/safed/FeaturesSection.astro';
+
+const navLinks = [
+  { name: '사업배경', url: '/business-background' },
+  { name: 'SafeD Development', url: '/safed-features' },
+];
+
+const features = [
+  { icon: '/images/icon01.png', title: '스마트 위험성평가', desc: '300여개 공종, 50,000개 위험요인·안전대책 DB 자동 매칭. 모바일에서 원클릭으로 위험성평가를 작성하고 관리합니다.' },
+  { icon: '/images/icon02.png', title: '위험요소 제거', desc: '추가위험을 발굴하고 위험요소들을 사전에 제거합니다. 사진 촬영·전송만으로 즉시 위험요소 신고 가능.' },
+  { icon: '/images/icon03.png', title: '다국어 지원 (19개국)', desc: 'Google AI 자동번역으로 19개국어 지원. 외국인 근로자도 모국어로 위험성평가·TBM 내용을 확인하고 음성 안내까지.' },
+  { icon: '/images/icon04.png', title: 'GPS 안전 모니터링', desc: '토목 현장 등 넓은 작업 반경도 GPS로 출역·작업위치·동선을 실시간 추적하고 모니터링합니다.' },
+  { icon: '/images/icon05.png', title: '스마트 비콘 (BEACON)', desc: '명함 80% 크기, 6만원. 기존 대비 90% 비용 절감. 위험지역 접근 시 1차·2차 경고를 자동 발송합니다.' },
+  { icon: '/images/icon06.png', title: '커뮤니케이션', desc: 'SMS, Mobile Push 알람으로 오늘할일, 잔여과제, 지연처리, 폭염주의까지 Message 자동 발송합니다.' },
+  { icon: '/images/icon07.png', title: 'QR코드', desc: '통합QR코드 하나로 위험성평가 확인, 안전건의함 작성, 작업중지권 신청까지. 근로자 참여를 극대화합니다.' },
+  { icon: '/images/icon08.png', title: '안전교육·TBM·협의체', desc: 'PC+모바일 동시 작성. TBM 참석자 서명, 문자 인증, 보고서 자동 생성. 노사협의체 회의록 관리까지.' },
+  { icon: '/images/icon09.png', title: '점검일지·작업계획서·허가서(PTW)', desc: '사전 입력 양식으로 빠른 작성. 결재선 설정, 승인/반려 프로세스, 보고서 자동 출력까지 원스톱.' },
+];
+---
+
+<SubPageLayout
+  title="SafeD Development - SafeD | 스마트안전관리시스템"
+  pageTitle="SafeD Development"
+  pageTitleEn="SafeD Features"
+  description="SafeD 스마트 위험성평가, GPS 안전 모니터링, 비콘 기술, 다국어 자동번역 등 건설현장 안전관리 핵심 기능을 제공합니다."
+  keywords="위험성평가, GPS모니터링, 비콘안전, QR코드안전관리, TBM, 안전교육, 작업허가서, SafeD기능"
+  navLinks={navLinks}
+  jsonLd={{
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "SafeD",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web, Android, iOS",
+    "description": "건설현장 스마트 안전관리 시스템",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "KRW",
+      "description": "맞춤 견적 제공"
+    }
+  }}
+>
+  <!-- ═══ HERO (unchanged) ═══ -->
+  <section class="py-14 lg:py-20 bg-white">
+    <div class="w-container max-w-4xl text-center">
+      <h2 class="hero-headline tracking-tight reveal">
+        안전관리,<br /><span class="text-gradient-blue">더 스마트하게.</span>
+      </h2>
+      <p class="text-gray-500 text-lg lg:text-xl mt-8 leading-relaxed max-w-2xl mx-auto reveal delay-100">
+        SafeD는 위험성평가, 실시간 모니터링, AI 번역, 자동 알림을 하나의 플랫폼에 담았습니다.
+        현장의 복잡함은 줄이고, 안전의 확실함은 높입니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ Efficiency / ROI ═══ -->
+  <section class="bg-[#1C1C1E] text-white">
+    <div class="w-container max-w-5xl py-14 lg:py-16">
+      <div class="text-center mb-8">
+        <p class="eng font-medium text-xs tracking-[0.15em] uppercase mb-2 text-[#6B6B6B] reveal">Efficiency</p>
+        <h2 class="text-2xl lg:text-3xl font-bold tracking-tight reveal delay-100">단순·반복 업무 <span class="text-[#2563EB]">80% 제거</span></h2>
+        <p class="text-white/40 mt-4 max-w-xl mx-auto text-sm reveal delay-200">현장 내 다양한 단순/반복 업무를 시스템화하여, 작업자 개개인의 핵심업무에 집중할 수 있도록 도와줍니다.</p>
+      </div>
+
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-[1px] bg-white/10 border border-white/10 mb-8 reveal delay-200">
+        {[
+          { num: '80%', label: '단순반복 업무', sub: '제거' },
+          { num: '60h', label: '월간 절감 시간', sub: '1개 현장 기준' },
+          { num: '120만원', label: '월간 비용 절감', sub: '1개 현장 기준' },
+          { num: '70%', label: '위험성평가', sub: '작성시간 단축' },
+        ].map((item) => (
+          <div class="bg-[#1C1C1E] p-6 text-center">
+            <p class="eng text-2xl lg:text-3xl font-bold text-[#2563EB] mb-2">{item.num}</p>
+            <p class="font-semibold text-white/80 text-sm mb-1">{item.label}</p>
+            <p class="text-xs text-white/40">{item.sub}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="border border-white/10 p-6 lg:p-8 reveal delay-300">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+          <div>
+            <p class="text-[#6B6B6B] text-xs font-semibold mb-2 uppercase eng">AS-IS</p>
+            <p class="text-white/50 text-sm">260종 문서를 눈으로 확인<br/>사진 출력·작성·점검에 240분 소요<br/>정보(문서) 파편화로 탐색·학습 어려움</p>
+          </div>
+          <div class="flex items-center justify-center">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+          <div>
+            <p class="text-[#2563EB] text-xs font-semibold mb-2 uppercase eng">TO-BE (SafeD)</p>
+            <p class="text-white/70 text-sm">1-click 조회 및 참조<br/>All-in-One 디지털 온라인 처리 40분<br/>실시간 저장·열람·탐색·학습</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Video Section ═══ -->
+  <section class="border-b border-[#E0E0E0]">
+    <div class="w-container max-w-5xl py-14 lg:py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-5 reveal">
+          <p class="eng font-medium text-xs tracking-[0.15em] uppercase text-[#6B6B6B] mb-4">Watch Demo</p>
+          <h2 class="text-2xl lg:text-3xl font-bold mb-4 tracking-tight leading-snug text-[#111]">
+            스마트 위험성평가 ·<br/>다국적 근로자를 고려한
+            <span class="text-[#2563EB]">자동번역 기능</span>
+          </h2>
+          <p class="text-[#6B6B6B] text-sm leading-relaxed mb-6">SafeD의 핵심 기능을 영상으로 확인하세요. 위험성평가 작성부터 다국어 자동번역, 음성 안내까지 한눈에 볼 수 있습니다.</p>
+          <div class="divide-y divide-[#E0E0E0] border border-[#E0E0E0]">
+            {[
+              { label: '원클릭 위험성평가', desc: '50,000 DB 자동 매칭' },
+              { label: '19개국어 자동번역', desc: 'Google AI 기반 실시간' },
+              { label: '음성 안내 TTS', desc: '모국어 음성 출력 지원' },
+            ].map((item) => (
+              <div class="flex items-center gap-3 p-3">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5" class="flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-sm font-semibold text-[#111]">{item.label}</span>
+                <span class="text-xs text-[#6B6B6B] ml-auto">{item.desc}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="lg:col-span-7 reveal delay-200">
+          <div class="relative w-full aspect-video overflow-hidden border border-[#E0E0E0]">
+            <iframe
+              class="absolute inset-0 w-full h-full"
+              src="https://www.youtube.com/embed/tu9mHC7H_Kw"
+              title="SafeD 소개 영상"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Core Features Carousel ═══ -->
+  <section class="border-b border-[#E0E0E0]">
+    <div class="py-14 lg:py-16">
+      <div class="text-center mb-8 reveal w-container">
+        <p class="eng font-medium text-xs tracking-[0.15em] uppercase text-[#6B6B6B] mb-2">Core Features</p>
+        <h2 class="text-2xl lg:text-3xl font-bold tracking-tight text-[#111]">주요 기능</h2>
+        <p class="text-[#6B6B6B] mt-3 text-sm">PC + 모바일 동시 지원, 실시간 연동</p>
+      </div>
+      <FeatureCarousel client:visible features={features} interval={4000} />
+    </div>
+  </section>
+
+  <!-- ═══ Phone Infographic: 8 Features ═══ -->
+  <FeaturesSection />
+
+  <!-- ═══ Beacon Deep Dive ═══ -->
+  <section class="bg-[#1C1C1E] text-white">
+    <div class="w-container max-w-5xl py-14 lg:py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div class="reveal">
+          <p class="eng font-medium text-xs tracking-[0.15em] uppercase text-[#6B6B6B] mb-4">Smart Beacon</p>
+          <h2 class="text-2xl lg:text-3xl font-bold tracking-tight mb-6">스마트 안전 비콘<br/><span class="text-[#2563EB]">비용 90% 절감</span></h2>
+          <p class="text-white/50 leading-relaxed mb-6 text-sm">
+            기존 고비용 송신기(1세트 60만원)를 스마트폰으로 대체하여 비콘 1개당 6만원으로 동일한 기능을 구현합니다.
+            명함 80% 크기로 어디든 탈·부착 가능하며, 3~5년 배터리 수명을 보장합니다.
+          </p>
+          <div class="grid grid-cols-3 gap-[1px] bg-white/10 border border-white/10 mb-6">
+            {[
+              { label: '크기', value: '명함 80%' },
+              { label: '수명', value: '3~5년' },
+              { label: '단가', value: '6만원' },
+            ].map((item) => (
+              <div class="bg-[#1C1C1E] p-3 text-center">
+                <p class="eng font-bold text-lg text-[#2563EB]">{item.value}</p>
+                <p class="text-xs text-white/40 mt-1">{item.label}</p>
+              </div>
+            ))}
+          </div>
+          <div class="divide-y divide-white/10">
+            {[
+              '위험지역 접근 시 1차 경고 (스마트폰 알림)',
+              '접근 지속 시 안전관리자 2차 경고 발송',
+              '이동식 장비(덤프트럭, 크레인)에도 부착 가능',
+              '반경 1~50m 유효 작동 범위 설정',
+            ].map((text) => (
+              <div class="flex items-center gap-3 py-3">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5" class="flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-white/70 text-sm">{text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="reveal-right delay-200">
+          <div class="border border-white/10 p-8 lg:p-10">
+            <div class="text-center mb-6">
+              <p class="eng text-xs text-white/40 tracking-widest uppercase mb-2">Cost Comparison</p>
+              <h3 class="text-xl font-bold">SafeD vs 타사</h3>
+            </div>
+            <div class="grid grid-cols-2 gap-[1px] bg-white/10">
+              <div class="bg-[#2563EB]/10 border border-[#2563EB]/30 p-6 text-center">
+                <p class="eng text-3xl font-bold text-[#2563EB]">6만원</p>
+                <p class="text-sm text-white/70 mt-2">SafeD 비콘</p>
+                <p class="text-xs text-white/40 mt-1">비콘 + 스마트폰</p>
+              </div>
+              <div class="bg-white/5 p-6 text-center">
+                <p class="eng text-3xl font-bold text-white/60">60만원</p>
+                <p class="text-sm text-white/70 mt-2">타사 솔루션</p>
+                <p class="text-xs text-white/40 mt-1">비콘 + AP + 송신기</p>
+              </div>
+            </div>
+            <div class="mt-4 border border-[#2563EB]/20 bg-[#2563EB]/[0.05] p-3 text-center">
+              <p class="text-[#2563EB] font-bold eng text-sm">90% 비용 절감</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Multilingual Support ═══ -->
+  <section class="border-b border-[#E0E0E0]">
+    <div class="w-container max-w-6xl py-14 lg:py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-5 reveal lg:sticky lg:top-24">
+          <p class="eng font-medium text-xs tracking-[0.15em] uppercase text-[#6B6B6B] mb-4">Multilingual</p>
+          <h2 class="text-2xl lg:text-3xl font-bold tracking-tight mb-4 leading-tight text-[#111]">
+            Google AI<br/><span class="text-[#2563EB]">다국어 자동번역</span>
+          </h2>
+          <p class="text-[#6B6B6B] leading-relaxed mb-8 text-sm">현장별 다국적 근로자 현황을 고려하여 19개국어 자동번역과 음성 안내를 지원합니다.</p>
+
+          <div class="bg-[#1C1C1E] p-6 mb-6">
+            <div class="flex items-center gap-4 mb-5">
+              <div class="w-10 h-10 border border-[#2563EB]/30 flex items-center justify-center flex-shrink-0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+              </div>
+              <div>
+                <p class="text-white text-sm font-semibold">음성 안내 지원</p>
+                <p class="text-white/40 text-xs">TTS 기반 모국어 음성 출력</p>
+              </div>
+            </div>
+            <div class="flex items-end gap-[3px] h-12 mb-5">
+              {Array.from({length: 32}).map((_, i) => {
+                const h = 25 + Math.sin(i * 0.7) * 20 + Math.sin(i * 1.3) * 10;
+                const dur = (0.4 + Math.sin(i * 0.5) * 0.3).toFixed(2);
+                const del = (i * 0.04).toFixed(2);
+                return (
+                  <div class="flex-1" style={`height: ${h}%; background: #2563EB; opacity: 0.6; animation: soundBar ${dur}s ease-in-out infinite alternate; animation-delay: ${del}s;`}></div>
+                );
+              })}
+            </div>
+            <div class="grid grid-cols-3 gap-[1px] bg-white/10">
+              <div class="bg-[#1C1C1E] p-2.5 text-center">
+                <p class="text-xs text-white/40 mb-1">원문</p>
+                <p class="text-white/90 text-xs font-medium">안전모 착용</p>
+              </div>
+              <div class="bg-[#2563EB]/10 p-2.5 text-center">
+                <p class="text-xs text-[#2563EB]/60 mb-1">번역</p>
+                <p class="text-[#2563EB] text-xs font-medium">Wear a helmet</p>
+              </div>
+              <div class="bg-[#1C1C1E] p-2.5 text-center">
+                <p class="text-xs text-white/40 mb-1">음성</p>
+                <p class="text-white/90 text-xs font-medium flex items-center justify-center gap-1">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  TTS
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-[1px] bg-[#E0E0E0] border border-[#E0E0E0]">
+            {[
+              { iconPath: 'M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11', label: '위험성평가', desc: 'QR 스캔 시 모국어 번역' },
+              { iconPath: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75', label: 'TBM', desc: '다국어 작업내용 전달' },
+              { iconPath: 'M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z', label: '안전교육', desc: '번역 + 음성 안내' },
+            ].map((item) => (
+              <div class="bg-white p-3 flex flex-col items-center text-center gap-1.5">
+                <div class="w-8 h-8 border border-[#E0E0E0] flex items-center justify-center flex-shrink-0">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5"><path d={item.iconPath}/></svg>
+                </div>
+                <div>
+                  <p class="font-bold text-sm text-[#111]">{item.label}</p>
+                  <p class="text-[#6B6B6B] text-xs">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 reveal-right delay-200">
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-[1px] bg-[#E0E0E0] border border-[#E0E0E0]">
+            {[
+              { code: 'gb', name: 'English', ko: '영어' },
+              { code: 'cn', name: '简体中文', ko: '중국어(간체)' },
+              { code: 'tw', name: '繁體中文', ko: '중국어(번체)' },
+              { code: 'vn', name: 'Tiếng Việt', ko: '베트남어' },
+              { code: 'th', name: 'ไทย', ko: '태국어' },
+              { code: 'mm', name: 'ဗမာ', ko: '미얀마어' },
+              { code: 'np', name: 'नेपाली', ko: '네팔어' },
+              { code: 'id', name: 'Indonesia', ko: '인도네시아어' },
+              { code: 'mn', name: 'Монгол', ko: '몽골어' },
+              { code: 'kh', name: 'ខ្មែរ', ko: '크메르어' },
+              { code: 'la', name: 'ລາວ', ko: '라오어' },
+              { code: 'ru', name: 'Русский', ko: '러시아어' },
+              { code: 'ph', name: 'Tagalog', ko: '타갈로그어' },
+              { code: 'kz', name: 'Қазақ', ko: '카자흐어' },
+              { code: 'uz', name: "O'zbek", ko: '우즈베크어' },
+              { code: 'my', name: 'Melayu', ko: '말레이어' },
+              { code: 'lk', name: 'සිංහල', ko: '스리랑카어' },
+              { code: 'sk', name: 'Slovák', ko: '슬로바키아어' },
+              { code: 'ua', name: 'Українська', ko: '우크라이나어' },
+            ].map((lang) => (
+              <div class="flex items-center gap-3 bg-white p-3 hover:bg-[#2563EB]/[0.02] transition-colors">
+                <img src={`https://flagcdn.com/w40/${lang.code}.png`} alt={lang.ko} width="28" height="21" class="flex-shrink-0 object-cover" style="aspect-ratio:4/3;" loading="lazy" />
+                <div class="min-w-0">
+                  <p class="font-semibold text-sm text-[#111] truncate">{lang.name}</p>
+                  <p class="text-xs text-[#6B6B6B]">{lang.ko}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Procedural Workflow — Carousel ═══ -->
+  <section class="border-b border-[#E0E0E0]">
+    <div class="w-container max-w-5xl py-10 lg:py-14">
+      <div class="flex items-end justify-between mb-6 reveal">
+        <div>
+          <p class="eng font-medium text-xs tracking-[0.15em] uppercase text-[#6B6B6B] mb-1">How SafeD Works</p>
+          <h2 class="text-2xl lg:text-3xl font-bold tracking-tight text-[#111]">현장 안전관리, 이렇게 작동합니다</h2>
+          <p class="text-[#6B6B6B] mt-1.5 text-sm">8단계 프로세스로 현장의 모든 안전활동을 체계적으로 관리합니다.</p>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0" id="wf-nav">
+          <button id="wf-prev" class="wf-nav-btn" aria-label="이전">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          </button>
+          <span id="wf-counter" class="eng text-xs font-semibold text-[#6B6B6B] tracking-wider" style="min-width: 40px; text-align: center;">1 / 4</span>
+          <button id="wf-next" class="wf-nav-btn" aria-label="다음">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="wf-carousel" id="wf-carousel">
+        <div class="wf-track" id="wf-track">
+          {(() => {
+            const allSteps = [
+              { step: '01', title: '위험성평가 작성', desc: '50,000개 위험요인·안전대책 DB 원클릭 조회. 최초/정기/수시/일일 평가를 모바일에서 즉시 작성.', details: ['위험요인·안전대책 자동 매칭', '가능성·중대성 점수 자동 산출', '승인 후 회의록 자동 생성'], stat: '50,000+', statLabel: '위험요인 DB', color: '#3B82F6' },
+              { step: '02', title: '중점·일상 점검활동', desc: '위험성평가에서 분류된 상·중 등급 항목을 매일 현장에서 점검, 결과 즉시 등록.', details: ['점검 목록 자동 생성', '모바일 사진 촬영·등록', '안전책임자 지정 및 알람'], stat: '매일', statLabel: '현장 점검', color: '#8B5CF6' },
+              { step: '03', title: '순회점검일지 작성', desc: '산업안전보건법 제64조에 따른 순회점검 체계적 이행. 건설업 2일 1회 이상 실시.', details: ['점검항목·점검자 사전 지정', '승인/반려 프로세스', '보고서 자동 출력'], stat: '자동', statLabel: '보고서 생성', color: '#10B981' },
+              { step: '04', title: '안전교육 · TBM', desc: 'PC+모바일 동시 교육·TBM 기록. 참석자 서명, 문자 인증, 교육일지 자동 생성.', details: ['TBM 참석자 모바일 서명', '일용근로자 문자 인증', '계절별 안전교육 자료 관리'], stat: 'PC+모바일', statLabel: '동시 지원', color: '#F59E0B' },
+              { step: '05', title: '추가위험 발굴', desc: '근로자 스마트폰 직접 위험요소 신고. 안전건의함·작업중지권 QR코드로 간편 참여.', details: ['사진 촬영·전송 위험 신고', 'QR코드 작업중지권', '외국인 근로자 모국어 참여'], stat: 'QR코드', statLabel: '즉시 참여', color: '#EF4444' },
+              { step: '06', title: '다국어 자동번역', desc: 'Google AI 19개국어 실시간 번역. 위험성평가·TBM 모국어 확인 + 음성 안내.', details: ['19개국어 자동번역', '음성 안내 지원', '외국인 근로자 완전 참여'], stat: '19개국어', statLabel: 'AI 번역', color: '#06B6D4' },
+              { step: '07', title: '작업계획서 · 허가서', desc: '고위험작업 작업계획서와 PTW를 체계적으로 작성하고 결재.', details: ['사전 양식 빠른 작성', '결재선 설정 · 의견 작성', '작업허가→진행→완료'], stat: '원스톱', statLabel: '결재', color: '#8B5CF6' },
+              { step: '08', title: '대시보드 · 보고서', desc: '본사에서 전국 현장별 안전활동 이행률 실시간 모니터링. 보고서 자동 정리·출력.', details: ['현장별 이행률 비교', '항목별 통계 분석', '보고서 자동 생성·인쇄'], stat: '실시간', statLabel: '모니터링', color: '#3B82F6' },
+            ];
+            const pages = [];
+            for (let p = 0; p < 4; p++) {
+              pages.push(allSteps.slice(p * 2, p * 2 + 2));
+            }
+            return pages.map((pageItems, pi) => (
+              <div class="wf-page" data-page={pi}>
+                {pageItems.map((item) => (
+                  <div class="wf-card" style={`--wf-color: ${item.color}`}>
+                    <div class="wf-card-head">
+                      <span class="eng text-[10px] font-bold tracking-wider uppercase" style={`color: ${item.color}`}>Step {item.step}</span>
+                      <div class="wf-card-stat">
+                        <span class="eng text-sm font-bold" style={`color: ${item.color}`}>{item.stat}</span>
+                        <span class="text-[10px] text-[#6B6B6B]">{item.statLabel}</span>
+                      </div>
+                    </div>
+                    <h3 class="text-base lg:text-lg font-bold tracking-tight text-[#111] mb-1.5">{item.title}</h3>
+                    <p class="text-[#3A3A3A] text-xs leading-relaxed mb-3">{item.desc}</p>
+                    <div class="wf-card-details">
+                      {item.details.map((d) => (
+                        <div class="flex items-center gap-1.5">
+                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={item.color} stroke-width="2.5" class="flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+                          <span class="text-xs text-[#3A3A3A]">{d}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div class="wf-card-bar" style={`background: ${item.color}`}></div>
+                  </div>
+                ))}
+              </div>
+            ));
+          })()}
+        </div>
+      </div>
+
+      <!-- Dots -->
+      <div class="flex justify-center gap-1.5 mt-4" id="wf-dots">
+        {[0,1,2,3].map((i) => (
+          <button class={`wf-dot ${i === 0 ? 'wf-dot-active' : ''}`} data-dot={i} aria-label={`페이지 ${i + 1}`}></button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 3-Stage Goal ═══ -->
+  <section class="border-b border-[#E0E0E0]">
+    <div class="w-container max-w-5xl py-14 lg:py-16">
+      <div class="text-center mb-14">
+        <p class="eng font-medium text-xs tracking-[0.15em] uppercase text-[#6B6B6B] mb-2 reveal">System Goal</p>
+        <h2 class="text-2xl lg:text-3xl font-bold tracking-tight text-[#111] reveal delay-100">단계적 안전관리 체계 구축</h2>
+        <p class="text-[#6B6B6B] mt-3 text-sm reveal delay-200">물리적·인적 위험 제거 → 재발방지 체계 구축을 통해 현장 무재해를 달성합니다.</p>
+      </div>
+
+      <div class="grid grid-cols-2 gap-[1px] bg-[#E0E0E0] border border-[#E0E0E0] max-w-4xl mx-auto">
+        {[
+          { step: '1단계', title: "'물리적' 위험 요인 제거", desc: '스마트 위험성평가로 장비·시설·구조물에 의한 안전사고를 예방합니다.', iconPath: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z' },
+          { step: '2단계', title: "'인적' 위험 요인 제거", desc: '비콘+GPS 복합센싱으로 추락·협착·끼임 등 부주의 사고를 예방합니다.', iconPath: 'M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10' },
+          { step: '3단계', title: "'재발방지' 체계 구축", desc: '현장 안전 DB를 활용하여 사례 공유·전파·학습·참조로 재발을 방지합니다.', iconPath: 'M18 20V10M12 20V4M6 20v-6' },
+          { step: 'GOAL', title: '현장 무재해 달성', desc: '안전관리자 1인이 아닌, 현장 관계자 모두가 참여하는 안전활동 생활화.', iconPath: 'M12 15l-3 3 1-4-3-3h4L12 7l1 4h4l-3 3 1 4zM12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z' },
+        ].map((item, i) => (
+          <div class={`bg-white p-6 reveal delay-${(i + 1) * 100}`}>
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-10 h-10 border border-[#2563EB]/20 flex items-center justify-center flex-shrink-0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5"><path d={item.iconPath}/></svg>
+              </div>
+              <div>
+                <span class="eng text-xs font-bold text-[#6B6B6B] uppercase">{item.step}</span>
+                <h3 class="font-bold tracking-tight text-[#111]">{item.title}</h3>
+              </div>
+            </div>
+            <p class="text-[#3A3A3A] text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Dashboard ═══ -->
+
+
+  <!-- ═══ Before / After ═══ -->
+  <section class="border-b border-[#E0E0E0]">
+    <div class="w-container max-w-5xl py-14 lg:py-16">
+      <div class="text-center mb-14">
+        <p class="eng font-medium text-xs tracking-[0.15em] uppercase text-[#6B6B6B] mb-2 reveal">Before & After</p>
+        <h2 class="text-2xl lg:text-3xl font-bold tracking-tight text-[#111] reveal delay-100">SafeD 도입 전후 비교</h2>
+      </div>
+
+      <div class="grid grid-cols-2 gap-[1px] bg-[#E0E0E0] border border-[#E0E0E0]">
+        <div class="bg-white p-5 reveal">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-9 h-9 border border-[#E0E0E0] flex items-center justify-center">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6B6B6B" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-[#6B6B6B]">도입 전</h3>
+          </div>
+          <ul class="space-y-3">
+            {[
+              '수기 위험성평가, 서류 더미에 묻히는 안전 데이터',
+              '엑셀 기반 관리 — 실시간 현황 파악 불가',
+              '다국적 근로자 소통 단절, 안전교육 형식적',
+              '사고 후 대응 중심, 예방 체계 부재',
+              '중대재해처벌법 대응 근거자료 확보 어려움',
+              '위험성평가 탐색·작성·보관에 월 240분 소요',
+            ].map((text) => (
+              <li class="flex items-start gap-3 text-[#6B6B6B] text-sm">
+                <span class="mt-0.5">—</span>
+                <span>{text}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="bg-[#1C1C1E] p-5 text-white reveal delay-200">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-9 h-9 border border-[#2563EB]/30 flex items-center justify-center">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3 class="text-lg font-bold">도입 후</h3>
+          </div>
+          <ul class="space-y-3">
+            {[
+              '모바일 원클릭 위험성평가, 50,000건 DB 자동 매칭',
+              '실시간 대시보드 — 본사에서 전 현장 모니터링',
+              '19개국어 AI 자동번역, 음성 안내까지',
+              'GPS·비콘 기반 사전 위험 감지 & 자동 경고',
+              '법적 의무이행 근거자료 자동 생성 & 보관',
+              '월 40분으로 단축 — 업무 효율 80% 향상',
+            ].map((text) => (
+              <li class="flex items-start gap-3 text-sm">
+                <svg class="w-4 h-4 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-white/80">{text}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Supported Platforms ═══ -->
+  <section class="border-b border-[#E0E0E0]">
+    <div class="w-container max-w-4xl py-10">
+      <div class="text-center reveal">
+        <p class="eng font-medium text-xs tracking-[0.15em] uppercase text-[#6B6B6B] mb-2">Platform</p>
+        <h2 class="text-2xl font-bold tracking-tight text-[#111] mb-8">PC · Android · iOS 모든 환경 지원</h2>
+      </div>
+      <div class="grid grid-cols-3 gap-[1px] bg-[#E0E0E0] border border-[#E0E0E0] max-w-lg mx-auto reveal delay-200">
+        {[
+          { icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>', label: 'PC (Web)', desc: 'Chrome 브라우저 권장' },
+          { icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>', label: 'Android', desc: 'Google Play 설치' },
+          { icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>', label: 'iOS', desc: 'App Store 설치' },
+        ].map((item) => (
+          <div class="bg-white p-5 text-center">
+            <div class="flex justify-center mb-2" set:html={item.icon} />
+            <p class="font-semibold text-sm text-[#111]">{item.label}</p>
+            <p class="text-xs text-[#6B6B6B]">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="bg-[#1C1C1E] text-white py-14">
+    <div class="w-container text-center reveal">
+      <h2 class="text-2xl lg:text-3xl font-bold mb-4 tracking-tight">SafeD로 스마트한 안전관리를 시작하세요</h2>
+      <p class="text-white/50 mb-8 text-sm">위험성평가부터 모니터링까지 올인원 솔루션 · 무료 상담으로 시작하세요</p>
+      <div class="flex flex-row gap-3 justify-center flex-wrap">
+        <a href="/inquiries" class="inline-flex items-center gap-2 px-6 py-3 bg-[#2563EB] text-white text-sm font-semibold hover:bg-[#1d4ed8] transition-colors w-fit">
+          도입문의
+        </a>
+        <a href="https://safed.co.kr/login" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white text-sm font-semibold hover:bg-white/5 transition-colors w-fit">
+          SafeD 시스템 바로가기
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</SubPageLayout>
+
+<style>
+  @keyframes soundBar {
+    0% { transform: scaleY(0.3); }
+    100% { transform: scaleY(1); }
+  }
+
+  .sf-card {
+    background: #fff;
+    overflow: hidden;
+  }
+
+  .sf-card-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .sf-card-img img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .sf-card-body {
+    padding: 1.25rem;
+  }
+
+  .sf-card-num {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #2563EB;
+    letter-spacing: 0.05em;
+  }
+
+  .sf-card-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.3px;
+    color: #111;
+  }
+
+  .sf-card-desc {
+    font-size: 0.8rem;
+    color: #6B6B6B;
+    line-height: 1.6;
+    word-break: keep-all;
+  }
+
+  /* ── Workflow Carousel ── */
+  .wf-carousel {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .wf-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .wf-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    width: 100%;
+    flex-shrink: 0;
+    background: #E0E0E0;
+    border: 1px solid #E0E0E0;
+  }
+
+  .wf-card {
+    background: #fff;
+    padding: 1.25rem 1.5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .wf-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  .wf-card-stat {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+
+  .wf-card-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: auto;
+  }
+
+  .wf-card-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .wf-page[data-page].wf-active .wf-card-bar {
+    width: 100%;
+  }
+
+  .wf-nav-btn {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #E0E0E0;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #6B6B6B;
+    transition: all 0.2s;
+  }
+
+  .wf-nav-btn:hover {
+    border-color: #111;
+    color: #111;
+  }
+
+  .wf-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    background: #d1d5db;
+    transition: all 0.3s;
+  }
+
+  .wf-dot-active {
+    width: 20px;
+    background: #2563EB;
+  }
+
+  @media (max-width: 639px) {
+    .wf-page {
+      grid-template-columns: 1fr;
+    }
+    .wf-card {
+      padding: 1rem;
+    }
+    .wf-card h3 {
+      font-size: 14px !important;
+    }
+  }
+</style>
+
+<script>
+  function initWorkflowCarousel() {
+    const track = document.getElementById('wf-track');
+    const counter = document.getElementById('wf-counter');
+    const dots = document.querySelectorAll('.wf-dot');
+    const prevBtn = document.getElementById('wf-prev');
+    const nextBtn = document.getElementById('wf-next');
+    if (!track || !counter) return;
+
+    let current = 0;
+    const total = 4;
+    let timer: ReturnType<typeof setInterval> | null = null;
+
+    function goTo(idx: number) {
+      current = ((idx % total) + total) % total;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      counter.textContent = `${current + 1} / ${total}`;
+
+      // Update dots
+      dots.forEach((d, i) => {
+        d.classList.toggle('wf-dot-active', i === current);
+      });
+
+      // Update active page for bar animation
+      document.querySelectorAll('.wf-page').forEach((p, i) => {
+        p.classList.toggle('wf-active', i === current);
+      });
+    }
+
+    function startAuto() {
+      if (timer) clearInterval(timer);
+      timer = setInterval(() => goTo(current + 1), 5000);
+    }
+
+    prevBtn?.addEventListener('click', () => { goTo(current - 1); startAuto(); });
+    nextBtn?.addEventListener('click', () => { goTo(current + 1); startAuto(); });
+    dots.forEach((d) => {
+      d.addEventListener('click', () => {
+        const idx = parseInt(d.getAttribute('data-dot') || '0');
+        goTo(idx);
+        startAuto();
+      });
+    });
+
+    // Touch swipe
+    let touchX = 0;
+    track.addEventListener('touchstart', (e: TouchEvent) => { touchX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', (e: TouchEvent) => {
+      const diff = touchX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) {
+        goTo(diff > 0 ? current + 1 : current - 1);
+        startAuto();
+      }
+    }, { passive: true });
+
+    goTo(0);
+    startAuto();
+  }
+
+  document.addEventListener('DOMContentLoaded', initWorkflowCarousel);
+  document.addEventListener('astro:page-load', initWorkflowCarousel);
+</script>
