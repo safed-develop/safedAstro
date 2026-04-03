@@ -314,8 +314,10 @@ const navLinks = [
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-[1px] bg-[#E0E0E0] mb-4">
         {[
-          { img: '/images/patent_202512_01.png', num: '제 10-2345678 호', title: '스마트안전관리 시스템', date: '2021.03', category: 'GPS 기반 위치추적', tech: ['GPS 모니터링', '위험구역 감지', '실시간 알림'] },
-          { img: '/images/patent_202512_02.png', num: '제 10-2567890 호', title: '위험성평가 자동화 기술', date: '2021.08', category: '빅데이터 분석', tech: ['50,000 DB', '자동 매칭', 'AI 분석'] },
+          { img: '/images/patent_26_01.png', num: '제 10-2235036 호', title: '건축 공법의 관리 시스템', date: '2021.03', category: '특허', tech: ['건축 공법', '관리 시스템'] },
+          { img: '/images/patent_26_02.png', num: '제 10-2730331 호', title: '영상 분석 기술을 활용한 건설 현장 안전 관리 시스템', date: '2024.11', category: '특허', tech: ['영상 분석', 'AI 기술', '안전 관리'] },
+          { img: '/images/patent_26_03.png', num: '', title: '벤처기업확인서', date: '2024.07', category: '인증', tech: ['혁신성장유형', '벤처기업'] },
+          { img: '/images/patent_26_04.png', num: '', title: '기업부설연구소 인정서', date: '2025.11', category: '인증', tech: ['기업부설연구소', 'R&D'] },
         ].map((item, i) => (
           <div class={`bg-white flex reveal delay-${(i + 1) * 100}`}>
             <div class="w-32 lg:w-40 bg-[#F5F5F5] flex-shrink-0 flex items-center justify-center p-3 border-r border-[#E0E0E0]">
@@ -325,10 +327,10 @@ const navLinks = [
               <div>
                 <div class="flex items-center gap-2 mb-2">
                   <span class="eng text-[10px] font-bold text-[#2563EB] bg-[#2563EB]/5 px-2 py-0.5">{item.category}</span>
-                  <span class="eng text-[10px] text-[#6B6B6B]">{item.date} 등록</span>
+                  <span class="eng text-[10px] text-[#6B6B6B]">{item.date} {item.num ? '등록' : '취득'}</span>
                 </div>
                 <h4 class="font-bold text-sm mb-1 text-[#111]">{item.title}</h4>
-                <p class="eng text-xs text-[#6B6B6B] mb-3">{item.num}</p>
+                {item.num && <p class="eng text-xs text-[#6B6B6B] mb-3">{item.num}</p>}
               </div>
               <div class="flex flex-wrap gap-1.5">
                 {item.tech.map((t) => (
