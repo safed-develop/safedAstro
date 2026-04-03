@@ -14,7 +14,7 @@ interface Errors {
   [key: string]: string;
 }
 
-const API_BASE_URL = import.meta.env.PUBLIC_API_URL || 'http://localhost:5000';
+const API_BASE_URL = import.meta.env.PUBLIC_API_URL || '';
 
 export default function ContactForm() {
   useEffect(() => {
