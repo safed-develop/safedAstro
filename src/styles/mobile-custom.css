@@ -1,0 +1,101 @@
+/* ========================================= */
+/*  SafeD 모바일 커스텀 스타일               */
+/*  값만 수정하면 모바일 레이아웃이 바뀝니다  */
+/*  기준: max-width 639px                    */
+/* ========================================= */
+
+@media (max-width: 639px) {
+
+  /* ── Hero 슬라이드 ── */
+  .sec-hero {
+    /* 필요 시 패딩/마진 조정 */
+  }
+
+  /* ── Pin Scroll ── */
+  .sec-pinscroll {
+    /* padding-top / padding-bottom */
+  }
+
+  /* ── 숫자 증명 ── */
+  .sec-numbers {
+    /* padding-top: 2rem; */
+    /* padding-bottom: 2rem; */
+  }
+
+  .num-card {
+    /* padding: 0.5rem; */
+  }
+
+  /* ── Why SafeD ── */
+  .sec-why {
+    /* padding-top: 2rem; */
+    /* padding-bottom: 2rem; */
+  }
+
+  .why-img {
+    /* max-width, margin 등 */
+  }
+
+  .why-badge {
+    /* font-size, padding 등 */
+  }
+
+  .why-check {
+    /* gap, font-size 등 */
+  }
+
+  /* ── Core Features ── */
+  /* 기존 .cf-section, .cf-card 등 사용 */
+
+  /* ── Testimonial ── */
+  .sec-testimonial {
+    /* 데스크톱 전용(hidden md:block)이므로 모바일에선 숨김 */
+  }
+
+  /* ── Get Started ── */
+  .sec-getstarted {
+    /* padding-top: 2rem; */
+    /* padding-bottom: 2rem; */
+  }
+
+  .gs-btn {
+    /* padding, font-size 등 */
+  }
+
+  .gs-cta {
+    /* padding, font-size 등 */
+  }
+
+  .gs-industries {
+    /* margin-top, padding-top 등 */
+  }
+
+  /* ── How It Works ── */
+  .sec-howitworks {
+    /* padding-top: 2rem; */
+    /* padding-bottom: 2rem; */
+  }
+
+  .step-card {
+    /* padding, gap 등 */
+  }
+
+  /* ── Marquee ── */
+  .sec-marquee {
+    /* padding, font-size 등 */
+  }
+
+  /* ── Final CTA ── */
+  .sec-final-cta {
+    /* padding-top: 2rem; */
+    /* padding-bottom: 2rem; */
+  }
+
+  /* ── Footer (ft- 접두사 기존 클래스 활용) ── */
+  /* .ft-map    : 지도 섹션 */
+  /* .ft-cta    : CTA + 문의폼 */
+  /* .ft-footer : 푸터 본체 */
+  /* .ft-info   : 회사정보 그리드 */
+  /* .ft-bottom : 하단 바 */
+  /* .ft-letter-grid : SAFED 레터 그리드 */
+}
