@@ -16,9 +16,9 @@
   </a>
   <a href="https://safed.co.kr/login" target="_blank" rel="noopener noreferrer" class="mb-item">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-    <span>바로가기</span>
+    <span>세이프디 바로가기</span>
   </a>
-  <a href="/inquiries" class="mb-item">
+  <a href="/inquiries" class="mb-item mb-inquiry">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
     <span>문의하기</span>
   </a>
@@ -39,7 +39,6 @@
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       background: var(--color-primary, #007BFF);
-      border-top: 1px solid rgba(255,255,255,0.15);
       padding: 0;
       -webkit-font-smoothing: antialiased;
     }
@@ -58,6 +57,11 @@
       letter-spacing: -0.02em;
       transition: background 0.15s;
       -webkit-tap-highlight-color: transparent;
+      border-right: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .mb-item:last-child {
+      border-right: none;
     }
 
     .mb-item:active {
@@ -72,6 +76,21 @@
 
     .mb-item svg {
       opacity: 0.9;
+    }
+
+    /* 문의하기 강조 */
+    .mb-inquiry {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .mb-inquiry svg {
+      opacity: 1;
+    }
+
+    .mb-inquiry:active {
+      background: rgba(255,255,255,0.25);
     }
   }
 </style>
