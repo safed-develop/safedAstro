@@ -7,7 +7,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://safed.kr',
+  site: 'https://www.safed.kr',
   trailingSlash: 'always',
   integrations: [
     react(),
@@ -16,7 +16,7 @@ export default defineConfig({
       priority: 0.7,
       lastmod: new Date(),
       serialize(item) {
-        if (item.url === 'https://safed.kr/') {
+        if (item.url === 'https://www.safed.kr/') {
           return { ...item, priority: 1.0, changefreq: 'daily' };
         }
         if (item.url.includes('/blog/')) {

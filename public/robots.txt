@@ -14,4 +14,4 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
-Sitemap: https://safed.kr/sitemap-index.xml
+Sitemap: https://www.safed.kr/sitemap-index.xml
