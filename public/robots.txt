@@ -1,4 +1,17 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.safed.co.kr/sitemap-index.xml
+# AI 크롤러 (필요 시 주석 처리로 차단 가능)
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+Sitemap: https://safed.kr/sitemap-index.xml

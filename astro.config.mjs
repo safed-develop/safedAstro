@@ -7,10 +7,24 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.safed.co.kr',
+  site: 'https://safed.kr',
+  trailingSlash: 'always',
   integrations: [
     react(),
-    sitemap(),
+    sitemap({
+      changefreq: 'weekly',
+      priority: 0.7,
+      lastmod: new Date(),
+      serialize(item) {
+        if (item.url === 'https://safed.kr/') {
+          return { ...item, priority: 1.0, changefreq: 'daily' };
+        }
+        if (item.url.includes('/blog/')) {
+          return { ...item, priority: 0.8, changefreq: 'weekly' };
+        }
+        return item;
+      },
+    }),
   ],
   vite: {
     ssr: {

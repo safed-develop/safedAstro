@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.safed.kr" }],
+      "destination": "https://safed.kr/:path*",
+      "permanent": true
+    }
+  ]
+}

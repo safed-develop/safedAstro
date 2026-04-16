@@ -4,6 +4,19 @@
    SafeD Design System - Tailwind CSS v4
    ============================================= */
 
+/* SEO-only visually hidden (for H1 that must exist in DOM but not show) */
+.sr-only-seo {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* --- Custom Theme --- */
 @theme {
   /* Brand Colors */
